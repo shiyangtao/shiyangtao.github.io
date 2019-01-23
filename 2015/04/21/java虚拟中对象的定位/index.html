@@ -5,19 +5,23 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>java虚拟机中对象的定位 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="建立对象是为了使用对象，我们的程序通过栈上的refrence引用来操作堆里的具体对象。由于refrence类型在java虚拟机规范中只规定了一个指向对象的应用，并没有定义这个引用通过何种方式去定位、访问堆内对象的具体位置，所以对象访问方式也是取决与虚拟机实现而定的。目前主流的访问方式有使用句柄和直接指针两种  句柄访问如果使用句柄访问的话，那么Java堆中将会划分出一块内存来作为句柄池，refer">
+<meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/01/23/hello-world/index.html">
+<meta property="og:title" content="java虚拟机中对象的定位">
+<meta property="og:url" content="http://yoursite.com/2015/04/21/java虚拟中对象的定位/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="建立对象是为了使用对象，我们的程序通过栈上的refrence引用来操作堆里的具体对象。由于refrence类型在java虚拟机规范中只规定了一个指向对象的应用，并没有定义这个引用通过何种方式去定位、访问堆内对象的具体位置，所以对象访问方式也是取决与虚拟机实现而定的。目前主流的访问方式有使用句柄和直接指针两种  句柄访问如果使用句柄访问的话，那么Java堆中将会划分出一块内存来作为句柄池，refer">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-23T09:47:49.959Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-61526b8bfda3d13a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-2a53e6f1468970e9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-23T12:01:32.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="java虚拟机中对象的定位">
+<meta name="twitter:description" content="建立对象是为了使用对象，我们的程序通过栈上的refrence引用来操作堆里的具体对象。由于refrence类型在java虚拟机规范中只规定了一个指向对象的应用，并没有定义这个引用通过何种方式去定位、访问堆内对象的具体位置，所以对象访问方式也是取决与虚拟机实现而定的。目前主流的访问方式有使用句柄和直接指针两种  句柄访问如果使用句柄访问的话，那么Java堆中将会划分出一块内存来作为句柄池，refer">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2455482-61526b8bfda3d13a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,12 +68,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-java虚拟中对象的定位" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/23/hello-world/" class="article-date">
-  <time datetime="2019-01-23T09:47:49.959Z" itemprop="datePublished">2019-01-23</time>
+    <a href="/2015/04/21/java虚拟中对象的定位/" class="article-date">
+  <time datetime="2015-04-20T16:00:00.000Z" itemprop="datePublished">2015-04-21</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/blog/">blog</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -78,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      java虚拟机中对象的定位
     </h1>
   
 
@@ -86,41 +94,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>建立对象是为了使用对象，我们的程序通过栈上的refrence引用来操作堆里的具体对象。由于refrence类型在java虚拟机规范中只规定了一个指向对象的应用，并没有定义这个引用通过何种方式去定位、访问堆内对象的具体位置，所以对象访问方式也是取决与虚拟机实现而定的。目前主流的访问方式有使用句柄和直接指针两种</p>
+<ul>
+<li>句柄访问<br>如果使用句柄访问的话，那么Java堆中将会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址信息。<img src="https://upload-images.jianshu.io/upload_images/2455482-61526b8bfda3d13a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="句柄.jpeg"></li>
+</ul>
+<p><code>好处：使用句柄来访问的最大好处就是reference中存储的是稳定的句柄地址，在对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，而reference本身不需要修改。</code></p>
+<ul>
+<li>直接指针<br>如果使用直接指针访问，那么Java堆对象的布局中就必须考虑如何放置访问类型数据的相关信息，而reference中存储的直接就是对象地址。<img src="https://upload-images.jianshu.io/upload_images/2455482-2a53e6f1468970e9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="直接指针.jpeg"></li>
+</ul>
+<p><code>好处：使用直接指针访问方式的最大好处就是速度更快，它节省了一次指针定位的时间开销，由于对象的访问在Java中非常频繁，因此这类开销积少成多后也是一项非常可观的执行成本。就本书讨论的主要虚拟机SunHotSpot而言，它是使用第二种方式进行对象访问的，但从整个软件开发的范围来看，各种语言和框架使用句柄来访问的情况也十分常见。</code></p>
+<p>相关文章:<br><a href="https://www.jianshu.com/p/282777946dad" target="_blank" rel="noopener">java虚拟机中对象的创建</a><br><a href="https://www.jianshu.com/p/cc3f193db928" target="_blank" rel="noopener">java虚拟机中对象的内存布局</a><br><a href="https://www.jianshu.com/p/762f97391cac" target="_blank" rel="noopener">java虚拟机中对象的定位</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/23/hello-world/" data-id="cjr954362000hgfww2oh38kwi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/04/21/java虚拟中对象的定位/" data-id="cjr95435u0005gfww3pwfvrth" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jvm/">jvm</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2019/01/23/hello/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/05/06/java虚拟机中对象生存还是死亡/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          hello
+          对象是生存还是死亡
         
       </div>
     </a>
   
   
-    <a href="/2018/03/24/运行时栈帧结构/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/04/03/java虚拟机中对象的内存布局/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">运行时栈帧结构</div>
+      <div class="article-nav-title">java虚拟机中对象的内存布局</div>
     </a>
   
 </nav>

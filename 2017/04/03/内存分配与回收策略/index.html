@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>内存分配与回收策略 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：给对象分配内存以及回收分配给对象的内存。对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置接下来我们在Serial／Serial Old收集器下验证几种规则 1. 对象优先在Eden中分配 执">
+<meta name="keywords" content="jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存分配与回收策略">
+<meta property="og:url" content="http://yoursite.com/2017/04/03/内存分配与回收策略/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：给对象分配内存以及回收分配给对象的内存。对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置接下来我们在Serial／Serial Old收集器下验证几种规则 1. 对象优先在Eden中分配 执">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-c4cce4ff7fb28765.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-2b8fdb199d97c75e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-854fd65d32ea5b4f.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-009b4cb1743eaf18.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-740ed68e5d9a330c.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-8b0e0b218ae86d35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-c14ea8aafa7bf88a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-6dba8b9d9c39f703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-7181a4bcb8880a30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-b4d1c89f9ee5b9bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-23T12:01:32.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内存分配与回收策略">
+<meta name="twitter:description" content="Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：给对象分配内存以及回收分配给对象的内存。对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置接下来我们在Serial／Serial Old收集器下验证几种规则 1. 对象优先在Eden中分配 执">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2455482-c4cce4ff7fb28765.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-内存分配与回收策略" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/03/内存分配与回收策略/" class="article-date">
+  <time datetime="2017-04-02T16:00:00.000Z" itemprop="datePublished">2017-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/blog/">blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      内存分配与回收策略
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：<strong>给对象分配内存以及回收分配给对象的内存。</strong><br>对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，<strong>分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置</strong><br>接下来我们在Serial／Serial Old收集器下验证几种规则</p>
+<h1 id="1-对象优先在Eden中分配"><a href="#1-对象优先在Eden中分配" class="headerlink" title="1. 对象优先在Eden中分配"></a>1. 对象优先在Eden中分配</h1><p><img src="https://upload-images.jianshu.io/upload_images/2455482-c4cce4ff7fb28765.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>执行<br><code>javac Test.java</code><br><code>java -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC Test</code><br>结果<img src="https://upload-images.jianshu.io/upload_images/2455482-2b8fdb199d97c75e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>#####解析:<br><strong>-Xms20M、-Xmx20M、-Xmn10M</strong>这3个参数限制了Java堆大小为20MB，不可扩展，其中10MB分配给新生代，剩下的10MB分配给老年代。<strong>-XX:SurvivorRatio=8</strong>决定了新生代中Eden区与一个Survivor区的空间比例是8:1，从输出的结果也可以清晰地看到”edenspace8192K、fromspace1024K、tospace1024K”的信息，新生代总可用空间为9216KB（Eden区+1个Survivor区的总容量），<strong>-XX:UseSerialGC</strong> 指定使用Serial收集器。</p>
+<p>执行testAllocation()中分配allocation4对象的语句时会发生一次MinorGC，这次GC的结果是新生代6816KB变为279KB，而总内存占用量则几乎没有减少（因为allocation1、allocation2、allocation3三个对象都是存活的，虚拟机几乎没有找到可回收的对象）。这次GC发生的原因是给allocation4分配内存的时候，发现Eden已经被占用了6MB，剩余空间已不足以分配allocation4所需的4MB内存，因此发生MinorGC。GC期间虚拟机又发现已有的3个2MB大小的对象全部无法放入Survivor空间（Survivor空间只有1MB大小），所以只好通过分配担保机制提前转移到老年代去。</p>
+<p>这次GC结束后，4MB的allocation4对象顺利分配在Eden中，因此程序执行完的结果是Eden占用4MB（被allocation4占用），Survivor空闲，老年代被占用6MB（被allocation1、allocation2、allocation3占用）。通过GC日志可以证实这一点</p>
+<h1 id="2-大对象直接进入老年代"><a href="#2-大对象直接进入老年代" class="headerlink" title="2. 大对象直接进入老年代"></a>2. 大对象直接进入老年代</h1><p>所谓的大对象是指，需要大量连续内存空间的Java对象，最典型的大对象就是那种很长的字符串以及数组（笔者列出的例子中的byte[]数组就是典型的大对象）。大对象对虚拟机的内存分配来说就是一个坏消息（替Java虚拟机抱怨一句，比遇到一个大对象更加坏的消息就是遇到一群“朝生夕灭”的“短命大对象”，写程序的时候应当避免），经常出现大对象容易导致内存还有不少空间时就提前触发垃圾收集以获取足够的连续空间来“安置”它们。虚拟机提供了一个-XX:PretenureSizeThreshold参数，令大于这个设置值的对象直接在老年代分配。这样做的目的是避免在Eden区及两个Survivor区之间发生大量的内存复制<br><img src="https://upload-images.jianshu.io/upload_images/2455482-854fd65d32ea5b4f.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><code>javac Test.java</code><br><code>java -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC Test</code><br><img src="https://upload-images.jianshu.io/upload_images/2455482-009b4cb1743eaf18.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><code>java -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC -XX:PretenureSizeThreshold=3145728 Test</code><br><img src="https://upload-images.jianshu.io/upload_images/2455482-740ed68e5d9a330c.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>第一次直接分配在了eden空间，第二次指定-XX:PretenureSizeThreshold参数为3MB（就是3145728，这个参数不能像-Xmx之类的参数一样直接写3MB），因此超过3MB的对象都会直接在老年代进行分配，所以第二次老年代内存占比40%。<br><strong>注意PretenureSizeThreshold参数只对Serial和ParNew两款收集器有效，ParallelScavenge收集器不认识这个参数，ParallelScavenge收集器一般并不需要设置。如果遇到必须使用此参数的场合，可以考虑ParNew加CMS的收集器组合。</strong></p>
+<h1 id="3-长期存活的对象进入老年代"><a href="#3-长期存活的对象进入老年代" class="headerlink" title="3. 长期存活的对象进入老年代"></a>3. 长期存活的对象进入老年代</h1><p>既然虚拟机采用了分代收集的思想来管理内存，那么内存回收时就必须能识别哪些对象应放在新生代，哪些对象应放在老年代中。为了做到这点，虚拟机给每个对象定义了一个对象年龄（Age）计数器。如果对象在Eden出生并经过第一次MinorGC后仍然存活，并且能被Survivor容纳的话，将被移动到Survivor空间中，并且对象年龄设为1。对象在Survivor区中每“熬过”一次MinorGC，年龄就增加1岁，当它的年龄增加到一定程度（默认为15岁），就将会被晋升到老年代中。对象晋升老年代的年龄阈值，可以通过参数-XX:MaxTenuringThreshold设置。<br>读者可以试试分别以-XX:MaxTenuringThreshold=1和-XX:MaxTenuringThreshold=15两种设置来执行代码<br><img src="https://upload-images.jianshu.io/upload_images/2455482-8b0e0b218ae86d35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><code>javac Test.java</code><br><code>java -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC -XX:MaxTenuringThreshold=1 Test</code><br><img src="https://upload-images.jianshu.io/upload_images/2455482-c14ea8aafa7bf88a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><code>java -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC -XX:MaxTenuringThreshold=15 Test</code><br><img src="https://upload-images.jianshu.io/upload_images/2455482-6dba8b9d9c39f703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>此方法中的allocation1对象需要(1024/5)KB内存，Survivor空间可以容纳。当MaxTenuringThreshold=1时，allocation1对象在第二次GC发生时进入老年代，新生代已使用的内存GC后非常干净地变成0KB。而MaxTenuringThreshold=15时，第二次GC发生后，allocation1对象则还留在新生代Survivor空间，这时新生代仍然有482KB被占用。</p>
+<h1 id="4-动态年龄判定"><a href="#4-动态年龄判定" class="headerlink" title="4. 动态年龄判定"></a>4. 动态年龄判定</h1><p>为了能更好地适应不同程序的内存状况，虚拟机并不是永远地要求对象的年龄必须达到了MaxTenuringThreshold才能晋升老年代，如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代，无须等到MaxTenuringThreshold中要求的年龄。</p>
+<h1 id="5-空间分配担保"><a href="#5-空间分配担保" class="headerlink" title="5. 空间分配担保"></a>5. 空间分配担保</h1><ul>
+<li>JDK6Update24之前：<br><img src="https://upload-images.jianshu.io/upload_images/2455482-7181a4bcb8880a30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><code>下面解释一下“冒险”是冒了什么风险，前面提到过，新生代使用复制收集算法，但为了内存利用率，只使用其中一个Survivor空间来作为轮换备份，因此当出现大量对象在MinorGC后仍然存活的情况（最极端的情况就是内存回收后新生代中所有对象都存活），就需要老年代进行分配担保，把Survivor无法容纳的对象直接进入老年代。与生活中的贷款担保类似，老年代要进行这样的担保，前提是老年代本身还有容纳这些对象的剩余空间，一共有多少对象会活下来在实际完成内存回收之前是无法明确知道的，所以只好取之前每一次回收晋升到老年代对象容量的平均大小值作为经验值，与老年代的剩余空间进行比较，决定是否进行FullGC来让老年代腾出更多空间。取平均值进行比较其实仍然是一种动态概率的手段，也就是说，如果某次MinorGC存活后的对象突增，远远高于平均值的话，依然会导致担保失败（HandlePromotionFailure）。如果出现了HandlePromotionFailure失败，那就只好在失败后重新发起一次FullGC。虽然担保失败时绕的圈子是最大的，但大部分情况下都还是会将HandlePromotionFailure开关打开，避免FullGC过于频繁。</code></li>
+<li>在JDK6Update24之后：<br><img src="https://upload-images.jianshu.io/upload_images/2455482-b4d1c89f9ee5b9bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<p>HandlePromotionFailure参数不会再影响到虚拟机的空间分配担保策略，虽然源码中还定义了HandlePromotionFailure参数，但是在代码中已经不会再使用它。JDK6Update24之后的规则变为只要老年代的连续空间大于新生代对象总大小或者历次晋升的平均大小就会进行MinorGC，否则将进行FullGC。</p>
+<h1 id="6-小节"><a href="#6-小节" class="headerlink" title="6. 小节"></a>6. 小节</h1><p>内存回收与垃圾收集器在很多时候都是影响系统性能、并发能力的主要因素之一，虚拟机之所以提供多种不同的收集器以及提供大量的调节参数，是因为只有根据实际应用需求、实现方式选择最优的收集方式才能获取最高的性能。没有固定收集器、参数组合，也没有最优的调优方法，虚拟机也就没有什么必然的内存回收行为。</p>
+<p><strong>日志里GC和FullGC概念：</strong><br>GC日志开头的”[GC”和”[FullGC”说明了这次垃圾收集的停顿类型，而不是用来区分新生代GC还是老年代GC的。如果有”Full”，说明这次GC是发生了Stop-The-World的，新生代收集器ParNew的日志也会出现”[FullGC”（这一般是因为出现了分配担保失败之类的问题，所以才导致STW）。如果是调用System.gc()方法所触发的收集，那么在这里将显示”[FullGC（System）”。</p>
+<p><strong>多次提到的MinorGC和FullGC有什么不一样吗？：</strong></p>
+<ul>
+<li>新生代GC（MinorGC）：指发生在新生代的垃圾收集动作，因为Java对象大多都具备朝生夕灭的特性，所以MinorGC非常频繁，一般回收速度也比较快。</li>
+<li>老年代GC（MajorGC/FullGC）：指发生在老年代的GC，出现了MajorGC，经常会伴随至少一次的MinorGC（但非绝对的，在ParallelScavenge收集器的收集策略里就有直接进行MajorGC的策略选择过程）。MajorGC的速度一般会比MinorGC慢10倍以上。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/03/内存分配与回收策略/" data-id="cjr95436i000tgfwwcp700icc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jvm/">jvm</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/04/类加载时机/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          类加载时机
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/14/垃圾收集器/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">垃圾收集器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/jvm/" style="font-size: 20px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/23/hello/">hello</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/24/运行时栈帧结构/">运行时栈帧结构</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/21/类加载器/">类加载器</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/28/类加载过程/">类加载过程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
