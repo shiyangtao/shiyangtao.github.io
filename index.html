@@ -55,17 +55,35 @@
   
 
   
+    
+      
+    
 
-  
-
+    
   
 
   
 
   
     
+      
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -227,6 +245,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -2329,10 +2357,10 @@ seq 9 | sed &apos;H;g&apos; | awk -v RS=&apos;&apos; &apos;{for(i=1;i&lt;=NF;i++
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -2340,10 +2368,10 @@ seq 9 | sed &apos;H;g&apos; | awk -v RS=&apos;&apos; &apos;{for(i=1;i&lt;=NF;i++
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
@@ -2359,6 +2387,41 @@ seq 9 | sed &apos;H;g&apos; | awk -v RS=&apos;&apos; &apos;{for(i=1;i&lt;=NF;i++
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-heartbeat"></i>
+                  
+                    
+                      简书
+                    
+                </a>
+              </span>
+            
           
         </div>
 
@@ -2387,7 +2450,8 @@ seq 9 | sed &apos;H;g&apos; | awk -v RS=&apos;&apos; &apos;{for(i=1;i&lt;=NF;i++
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2019</span>
@@ -2396,7 +2460,11 @@ seq 9 | sed &apos;H;g&apos; | awk -v RS=&apos;&apos; &apos;{for(i=1;i&lt;=NF;i++
   </span>
   <span class="author" itemprop="copyrightHolder">进阶的码农</span>
 </div>
-
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
 
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
@@ -2444,6 +2512,8 @@ seq 9 | sed &apos;H;g&apos; | awk -v RS=&apos;&apos; &apos;{for(i=1;i&lt;=NF;i++
   
 
 
+  
+
 
 
 
@@ -2471,6 +2541,9 @@ seq 9 | sed &apos;H;g&apos; | awk -v RS=&apos;&apos; &apos;{for(i=1;i&lt;=NF;i++
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
 
 
   
