@@ -441,9 +441,7 @@
 
       
         
-          
-          每一个方法从调用开始至执行完成的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。每一个栈帧都包括了局部变量表、操作数栈、动态连接、方法返回地址和一些额外的附加信息。在编译程序代码的时候，栈帧中需要多大的局部变量表，多深的操作数栈都已经完全确定了，并且写入到方法表的Code属性之中，因此一个栈
-          ...
+          <p><img src="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="栈帧概念结构"><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/24/运行时栈帧结构/#more" rel="contents">
@@ -622,9 +620,7 @@
 
       
         
-          
-          虚拟机设计团队把类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义，否则，即使这两个类
-          ...
+          <p>虚拟机设计团队把类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/21/类加载器/#more" rel="contents">
@@ -803,15 +799,8 @@
 
       
         
-          
-          接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。
-
-
-##加载加载(loading) 是类加载(class loading)的一个过程,不要混淆。加载分三步:
-
-
-通过一个类的全限定名来获取定义此类的二进制字节流并没有指明二进制字
-          ...
+          <p>接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/28/类加载过程/#more" rel="contents">
@@ -990,9 +979,7 @@
 
       
         
-          
-          加载、验证、准备、初始化和卸载这5个阶段的顺序是确定的，类的加载过程必须按照这种顺序按部就班地开始，而解析阶段则不一定：它在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的运行时绑定（也称为动态绑定或晚期绑定）。加载什么情况下需要开始类加载过程的第一个阶段：加载？Java虚拟机规范中
-          ...
+          <p><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/04/类加载时机/#more" rel="contents">
@@ -1171,9 +1158,7 @@
 
       
         
-          
-          Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：给对象分配内存以及回收分配给对象的内存。对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置接
-          ...
+          <p>Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：<strong>给对象分配内存以及回收分配给对象的内存。</strong><br>对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，<strong>分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置</strong><br>接下来我们在Serial／Serial Old收集器下验证几种规则<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/03/内存分配与回收策略/#more" rel="contents">
@@ -1352,9 +1337,7 @@
 
       
         
-          
-          如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。Java虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。这里讨论的收集器基
-          ...
+          <p>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。Java虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。这里讨论的收集器基于JDK1.7Update14之后的HotSpot虚拟机（在这个版本中正式提供了商用的G1收集器，之前G1仍处于实验状态），这个虚拟机包含的所有收集器如图所示。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/01/14/垃圾收集器/#more" rel="contents">
@@ -1533,11 +1516,7 @@
 
       
         
-          
-          枚举根结点可达性算法是相当耗时的，以下两点说明
-
-从可达性分析中从GCRoots节点找引用链这个操作为例，可作为GCRoots的节点主要在全局性的引用（例如常量或类静态属性）与执行上下文（例如栈帧中的本地变量表）中，现在很多应用仅仅方法区就有数百兆，如果要逐个检查这里面的引用，那么必然会消耗很多时间
-          ...
+          <h2 id="枚举根结点"><a href="#枚举根结点" class="headerlink" title="枚举根结点"></a>枚举根结点</h2><p>可达性算法是相当耗时的，以下两点说明<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/15/HotSpot算法实现/#more" rel="contents">
@@ -1716,13 +1695,7 @@
 
       
         
-          
-          废话少说  开整
-1.起步上台 我从netstat命令中提取了如下信息作为用例：
-$ cat netstat.txt
-Proto Recv-Q Send-Q Local-Address          Foreign-Address             State
-tcp        0  
-          ...
+          <p>废话少说  开整<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/03/19/linux-awk命令/#more" rel="contents">
@@ -1901,13 +1874,7 @@ tcp        0
 
       
         
-          
-          标记-清除算法算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象
-不足之处：
-
-效率问题，标记和清除两个过程的效率都不高
-空间问题，标记清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后在程序运行过程中需要分配较大对象时，无法找到足够的
-          ...
+          <h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/06/12/垃圾收集算法/#more" rel="contents">
@@ -2086,11 +2053,7 @@ tcp        0
 
       
         
-          
-          java堆里存着几乎所有的对象，垃圾收集器要判断，哪些对象是存活的，哪些是死亡的（没有被引用的对象）即需要被回收的。
-判断对象是否存活有两种算法
-引用计数法给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器为0的对象就是不可能再被使用的。
-          ...
+          <p>java堆里存着几乎所有的对象，垃圾收集器要判断，哪些对象是存活的，哪些是死亡的（没有被引用的对象）即需要被回收的。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/05/06/java虚拟机中对象生存还是死亡/#more" rel="contents">
@@ -2264,7 +2227,9 @@ tcp        0
 
         
         
-
+ <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=17863892&auto=1&height=66"></iframe>
+    </div>
         
 
 
@@ -2276,6 +2241,7 @@ tcp        0
 
     </div>
   </aside>
+
 
 
         
@@ -2293,28 +2259,13 @@ tcp        0
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">进阶的码农</span>
-</div>
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
   本站访客数:<span id="busuanzi_value_site_uv"></span>
+  <span class="post-count">博客全站共30.2k字</span>
 </span>
 </div>
-
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共30.2k字</span>
 </div>
 
         

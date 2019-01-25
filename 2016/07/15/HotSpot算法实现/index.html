@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="枚举根结点可达性算法是相当耗时的，以下两点说明  从可达性分析中从GCRoots节点找引用链这个操作为例，可作为GCRoots的节点主要在全局性的引用（例如常量或类静态属性）与执行上下文（例如栈帧中的本地变量表）中，现在很多应用仅仅方法区就有数百兆，如果要逐个检查这里面的引用，那么必然会消耗很多时间。 可达性分析对执行时间的敏感还体现在GC停顿上，因为这项分析工作必须在一个能确保一致性的快照中进行">
+<meta name="description" content="枚举根结点可达性算法是相当耗时的，以下两点说明">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HotSpot算法实现">
 <meta property="og:url" content="http://yoursite.com/2016/07/15/HotSpot算法实现/index.html">
 <meta property="og:site_name" content="shiyangtao的blog">
-<meta property="og:description" content="枚举根结点可达性算法是相当耗时的，以下两点说明  从可达性分析中从GCRoots节点找引用链这个操作为例，可作为GCRoots的节点主要在全局性的引用（例如常量或类静态属性）与执行上下文（例如栈帧中的本地变量表）中，现在很多应用仅仅方法区就有数百兆，如果要逐个检查这里面的引用，那么必然会消耗很多时间。 可达性分析对执行时间的敏感还体现在GC停顿上，因为这项分析工作必须在一个能确保一致性的快照中进行">
+<meta property="og:description" content="枚举根结点可达性算法是相当耗时的，以下两点说明">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-23T12:01:32.716Z">
+<meta property="og:updated_time" content="2019-01-25T02:54:56.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HotSpot算法实现">
-<meta name="twitter:description" content="枚举根结点可达性算法是相当耗时的，以下两点说明  从可达性分析中从GCRoots节点找引用链这个操作为例，可作为GCRoots的节点主要在全局性的引用（例如常量或类静态属性）与执行上下文（例如栈帧中的本地变量表）中，现在很多应用仅仅方法区就有数百兆，如果要逐个检查这里面的引用，那么必然会消耗很多时间。 可达性分析对执行时间的敏感还体现在GC停顿上，因为这项分析工作必须在一个能确保一致性的快照中进行">
+<meta name="twitter:description" content="枚举根结点可达性算法是相当耗时的，以下两点说明">
 
 
 
@@ -441,7 +441,7 @@
       
 
       
-        <h2 id="枚举根结点"><a href="#枚举根结点" class="headerlink" title="枚举根结点"></a>枚举根结点</h2><p>可达性算法是相当耗时的，以下两点说明</p>
+        <h2 id="枚举根结点"><a href="#枚举根结点" class="headerlink" title="枚举根结点"></a>枚举根结点</h2><p>可达性算法是相当耗时的，以下两点说明<br><a id="more"></a></p>
 <ol>
 <li>从可达性分析中从GCRoots节点找引用链这个操作为例，可作为GCRoots的节点主要在全局性的引用（例如常量或类静态属性）与执行上下文（例如栈帧中的本地变量表）中，现在很多应用仅仅方法区就有数百兆，如果要逐个检查这里面的引用，那么必然会消耗很多时间。</li>
 <li>可达性分析对执行时间的敏感还体现在GC停顿上，因为这项分析工作必须在一个能确保一致性的快照中进行——这里“一致性”的意思是指在整个分析期间整个执行系统看起来就像被冻结在某个时间点上，不可以出现分析过程中对象引用关系还在不断变化的情况，该点不满足的话分析结果准确性就无法得到保证。这点是导致GC进行时必须停顿所有Java执行线程（Sun将这件事情称为”StopTheWorld”）的其中一个重要原因。</li>
@@ -695,7 +695,9 @@
 
         
         
-
+ <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=17863892&auto=1&height=66"></iframe>
+    </div>
         
 
 
@@ -725,6 +727,7 @@
   </aside>
 
 
+
         
       </div>
     </main>
@@ -740,28 +743,13 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">进阶的码农</span>
-</div>
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
   本站访客数:<span id="busuanzi_value_site_uv"></span>
+  <span class="post-count">博客全站共30.2k字</span>
 </span>
 </div>
-
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共30.2k字</span>
 </div>
 
         

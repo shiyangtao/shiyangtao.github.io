@@ -114,19 +114,19 @@
 
 
 
-<meta name="description" content="接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。   ##加载加载(loading) 是类加载(class loading)的一个过程,不要混淆。加载分三步:   通过一个类的全限定名来获取定义此类的二进制字节流并没有指明二进制字节流要从class文件里获取可以是其他方式   从ZIP包中读取，这很常见，最终成为日后JAR、EA">
+<meta name="description" content="接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="类加载过程">
 <meta property="og:url" content="http://yoursite.com/2017/07/28/类加载过程/index.html">
 <meta property="og:site_name" content="shiyangtao的blog">
-<meta property="og:description" content="接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。   ##加载加载(loading) 是类加载(class loading)的一个过程,不要混淆。加载分三步:   通过一个类的全限定名来获取定义此类的二进制字节流并没有指明二进制字节流要从class文件里获取可以是其他方式   从ZIP包中读取，这很常见，最终成为日后JAR、EA">
+<meta property="og:description" content="接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-23T12:01:32.717Z">
+<meta property="og:updated_time" content="2019-01-25T02:54:35.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类加载过程">
-<meta name="twitter:description" content="接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。   ##加载加载(loading) 是类加载(class loading)的一个过程,不要混淆。加载分三步:   通过一个类的全限定名来获取定义此类的二进制字节流并没有指明二进制字节流要从class文件里获取可以是其他方式   从ZIP包中读取，这很常见，最终成为日后JAR、EA">
+<meta name="twitter:description" content="接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -444,7 +444,7 @@
 
       
         <p>接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
 <ul>
 <li>##加载<br>加载(loading) 是类加载(class loading)的一个过程,不要混淆。<br>加载分三步:</li>
 </ul>
@@ -765,7 +765,9 @@
 
         
         
-
+ <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=17863892&auto=1&height=66"></iframe>
+    </div>
         
 
 
@@ -777,6 +779,7 @@
 
     </div>
   </aside>
+
 
 
         
@@ -794,28 +797,13 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">进阶的码农</span>
-</div>
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
   本站访客数:<span id="busuanzi_value_site_uv"></span>
+  <span class="post-count">博客全站共30.2k字</span>
 </span>
 </div>
-
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共30.2k字</span>
 </div>
 
         
