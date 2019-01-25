@@ -135,7 +135,7 @@
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
 <meta property="og:description" content="在HotSpot虚拟机中，对象的内存布局分为三块区域：对象头(Object Header)、实例数据(Instance Data)、对齐填充(Padding)。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-25T05:38:46.412Z">
+<meta property="og:updated_time" content="2019-01-25T09:09:55.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java虚拟机中对象的内存布局">
 <meta name="twitter:description" content="在HotSpot虚拟机中，对象的内存布局分为三块区域：对象头(Object Header)、实例数据(Instance Data)、对齐填充(Padding)。">
@@ -462,7 +462,7 @@
       
 
       
-        <p><meta name="referrer" content="no-referrer"><br>在HotSpot虚拟机中，对象的内存布局分为三块区域：对象头(Object Header)、实例数据(Instance Data)、对齐填充(Padding)。<br><a id="more"></a></p>
+        <p>在HotSpot虚拟机中，对象的内存布局分为三块区域：对象头(Object Header)、实例数据(Instance Data)、对齐填充(Padding)。<br><a id="more"></a></p>
 <ul>
 <li>对象头（Object Header）<ul>
 <li>存储对象自身的运行时数据：如HashCode、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等<br><code>这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32bit和64bit，官方称它为&quot;MarkWord&quot;。对象需要存储的运行时数据很多，其实已经超出了32位、64位Bitmap结构所能记录的限度，但是对象头信息是与对象自身定义的数据无关的额外存储成本，考虑到虚拟机的空间效率，MarkWord被设计成一个非固定的数据结构以便在极小的空间内存储尽量多的信息，它会根据对象的状态复用自己的存储空间。例如，在32位的HotSpot虚拟机中，如果对象处于未被锁定的状态下，那么MarkWord的32bit空间中的25bit用于存储对象哈希码，4bit用于存储对象分代年龄，2bit用于存储锁标志位，1bit固定为0，而在其他状态（轻量级锁定、重量级锁定、GC标记、可偏向）下对象的存储内容见表2-1。</code></li>

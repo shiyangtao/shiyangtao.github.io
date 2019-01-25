@@ -145,7 +145,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-6dba8b9d9c39f703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-7181a4bcb8880a30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-b4d1c89f9ee5b9bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-25T07:30:18.934Z">
+<meta property="og:updated_time" content="2019-01-25T09:08:28.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内存分配与回收策略">
 <meta name="twitter:description" content="Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：给对象分配内存以及回收分配给对象的内存。对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置接下来我们在Serial／Serial Old收集器下验证几种规则">
@@ -473,7 +473,7 @@
       
 
       
-        <p><meta name="referrer" content="no-referrer"><br>Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：<strong>给对象分配内存以及回收分配给对象的内存。</strong><br>对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，<strong>分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置</strong><br>接下来我们在Serial／Serial Old收集器下验证几种规则<br><a id="more"></a></p>
+        <p>Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：<strong>给对象分配内存以及回收分配给对象的内存。</strong><br>对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，<strong>分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置</strong><br>接下来我们在Serial／Serial Old收集器下验证几种规则<br><a id="more"></a></p>
 <h1 id="1-对象优先在Eden中分配"><a href="#1-对象优先在Eden中分配" class="headerlink" title="1. 对象优先在Eden中分配"></a>1. 对象优先在Eden中分配</h1><p><img src="https://upload-images.jianshu.io/upload_images/2455482-c4cce4ff7fb28765.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>执行<br><code>javac Test.java</code><br><code>java -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC Test</code><br>结果<img src="https://upload-images.jianshu.io/upload_images/2455482-2b8fdb199d97c75e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>#####解析:<br><strong>-Xms20M、-Xmx20M、-Xmn10M</strong>这3个参数限制了Java堆大小为20MB，不可扩展，其中10MB分配给新生代，剩下的10MB分配给老年代。<strong>-XX:SurvivorRatio=8</strong>决定了新生代中Eden区与一个Survivor区的空间比例是8:1，从输出的结果也可以清晰地看到”edenspace8192K、fromspace1024K、tospace1024K”的信息，新生代总可用空间为9216KB（Eden区+1个Survivor区的总容量），<strong>-XX:UseSerialGC</strong> 指定使用Serial收集器。</p>

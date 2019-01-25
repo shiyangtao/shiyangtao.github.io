@@ -462,7 +462,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"><br><img src="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="栈帧概念结构"><br></p>
+          <p><img src="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="栈帧概念结构"><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/24/运行时栈帧结构/#more" rel="contents">
@@ -641,7 +641,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"><br>虚拟机设计团队把类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。<br></p>
+          <p>虚拟机设计团队把类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/21/类加载器/#more" rel="contents">
@@ -820,7 +820,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"><br>接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。</p>
+          <p>接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br></p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1000,7 +1000,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"><br><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br></p>
+          <p><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/04/类加载时机/#more" rel="contents">
@@ -1179,7 +1179,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"><br>Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：<strong>给对象分配内存以及回收分配给对象的内存。</strong><br>对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，<strong>分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置</strong><br>接下来我们在Serial／Serial Old收集器下验证几种规则<br></p>
+          <p>Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：<strong>给对象分配内存以及回收分配给对象的内存。</strong><br>对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，<strong>分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置</strong><br>接下来我们在Serial／Serial Old收集器下验证几种规则<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/03/内存分配与回收策略/#more" rel="contents">
@@ -1358,7 +1358,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"><br>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。Java虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。这里讨论的收集器基于JDK1.7Update14之后的HotSpot虚拟机（在这个版本中正式提供了商用的G1收集器，之前G1仍处于实验状态），这个虚拟机包含的所有收集器如图所示。<br></p>
+          <p>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。Java虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。这里讨论的收集器基于JDK1.7Update14之后的HotSpot虚拟机（在这个版本中正式提供了商用的G1收集器，之前G1仍处于实验状态），这个虚拟机包含的所有收集器如图所示。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/01/14/垃圾收集器/#more" rel="contents">
@@ -1537,8 +1537,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"></p>
-<h2 id="枚举根结点"><a href="#枚举根结点" class="headerlink" title="枚举根结点"></a>枚举根结点</h2><p>可达性算法是相当耗时的，以下两点说明<br></p>
+          <h2 id="枚举根结点"><a href="#枚举根结点" class="headerlink" title="枚举根结点"></a>枚举根结点</h2><p>可达性算法是相当耗时的，以下两点说明<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/15/HotSpot算法实现/#more" rel="contents">
@@ -1717,7 +1716,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"><br>废话少说  开整<br></p>
+          <p>废话少说  开整<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/03/19/linux-awk命令/#more" rel="contents">
@@ -1896,8 +1895,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"></p>
-<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象<br></p>
+          <h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/06/12/垃圾收集算法/#more" rel="contents">
@@ -2076,7 +2074,7 @@
 
       
         
-          <p><meta name="referrer" content="no-referrer"><br>java堆里存着几乎所有的对象，垃圾收集器要判断，哪些对象是存活的，哪些是死亡的（没有被引用的对象）即需要被回收的。<br></p>
+          <p>java堆里存着几乎所有的对象，垃圾收集器要判断，哪些对象是存活的，哪些是死亡的（没有被引用的对象）即需要被回收的。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/05/06/java虚拟机中对象生存还是死亡/#more" rel="contents">

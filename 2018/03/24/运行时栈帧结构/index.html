@@ -136,7 +136,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-c5e6450e37f66dff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-50160ad6889113c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-25T07:30:33.502Z">
+<meta property="og:updated_time" content="2019-01-25T09:08:47.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="运行时栈帧结构">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -463,7 +463,7 @@
       
 
       
-        <p><meta name="referrer" content="no-referrer"><br><img src="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="栈帧概念结构"><br><a id="more"></a><br>每一个方法从调用开始至执行完成的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。每一个栈帧都包括了局部变量表、操作数栈、动态连接、方法返回地址和一些额外的附加信息。在编译程序代码的时候，栈帧中需要多大的局部变量表，多深的操作数栈都已经完全确定了，并且写入到方法表的Code属性之中，因此一个栈帧需要分配多少内存，不会受到程序运行期变量数据的影响，而仅仅取决于具体的虚拟机实现。一个线程中的方法调用链可能会很长，很多方法都同时处于执行状态。对于执行引擎来说，在活动线程中，只有位于栈顶的栈帧才是有效的，称为当前栈帧（CurrentStackFrame），与这个栈帧相关联的方法称为当前方法（CurrentMethod）。执行引擎运行的所有字节码指令都只针对当前栈帧进行操作，在概念模型上，典型的栈帧结构如上图所示。</p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="栈帧概念结构"><br><a id="more"></a><br>每一个方法从调用开始至执行完成的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。每一个栈帧都包括了局部变量表、操作数栈、动态连接、方法返回地址和一些额外的附加信息。在编译程序代码的时候，栈帧中需要多大的局部变量表，多深的操作数栈都已经完全确定了，并且写入到方法表的Code属性之中，因此一个栈帧需要分配多少内存，不会受到程序运行期变量数据的影响，而仅仅取决于具体的虚拟机实现。一个线程中的方法调用链可能会很长，很多方法都同时处于执行状态。对于执行引擎来说，在活动线程中，只有位于栈顶的栈帧才是有效的，称为当前栈帧（CurrentStackFrame），与这个栈帧相关联的方法称为当前方法（CurrentMethod）。执行引擎运行的所有字节码指令都只针对当前栈帧进行操作，在概念模型上，典型的栈帧结构如上图所示。</p>
 <ul>
 <li><h2 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h2>局部变量表用于存放方法参数和方法内定义的局部变量，在java程序编译为Class文件时，就在方法的Code属性的max_locals数据项中明确了该方法所需要分配的局部变量表的最大容量。</li>
 </ul>
