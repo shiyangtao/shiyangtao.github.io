@@ -96,7 +96,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|source-han-sans-simplified-c, sans-serif:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -115,12 +115,12 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="shiyangtao的blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="shiyangtao's blog" type="application/atom+xml">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
 
@@ -128,12 +128,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="shiyangtao的blog">
+<meta property="og:title" content="shiyangtao&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="shiyangtao的blog">
+<meta property="og:site_name" content="shiyangtao&#39;s blog">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shiyangtao的blog">
+<meta name="twitter:title" content="shiyangtao&#39;s blog">
 
 
 
@@ -142,7 +142,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -176,7 +176,7 @@
 
 
 
-  <title>shiyangtao的blog</title>
+  <title>shiyangtao's blog</title>
   
 
 
@@ -193,6 +193,12 @@
 
 
 </head>
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -214,7 +220,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">shiyangtao的blog</span>
+        <span class="site-title">shiyangtao's blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -336,13 +342,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/24/运行时栈帧结构/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -515,13 +521,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/21/类加载器/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -635,7 +641,7 @@
 
       
         
-          <p>虚拟机设计团队把类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。<br></p>
+          <p><meta name="referrer" content="no-referrer"><br>虚拟机设计团队把类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/21/类加载器/#more" rel="contents">
@@ -694,13 +700,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/28/类加载过程/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -814,7 +820,7 @@
 
       
         
-          <p>接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。</p>
+          <p><meta name="referrer" content="no-referrer"><br>接下来我们详细讲解一下Java虚拟机中类加载的全过程，也就是加载、验证、准备、解析和初始化这5个阶段所执行的具体动作。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br></p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -874,13 +880,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/04/类加载时机/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -994,7 +1000,7 @@
 
       
         
-          <p><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br></p>
+          <p><meta name="referrer" content="no-referrer"><br><img src="https://upload-images.jianshu.io/upload_images/2455482-cc05b1b6e6b41f43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/04/类加载时机/#more" rel="contents">
@@ -1053,13 +1059,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/03/内存分配与回收策略/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -1173,7 +1179,7 @@
 
       
         
-          <p>Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：<strong>给对象分配内存以及回收分配给对象的内存。</strong><br>对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，<strong>分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置</strong><br>接下来我们在Serial／Serial Old收集器下验证几种规则<br></p>
+          <p><meta name="referrer" content="no-referrer"><br>Java技术体系中所提倡的自动内存管理最终可以归结为自动化地解决了两个问题：<strong>给对象分配内存以及回收分配给对象的内存。</strong><br>对象主要分配在堆上的Eden，如果启用的TLAB，那优先在TLAB上分配，少数情况会直接分配到老年代中，<strong>分配的规则不会100%确定的，取决于使用什么垃圾收集器，还有虚拟机相关参数设置</strong><br>接下来我们在Serial／Serial Old收集器下验证几种规则<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/03/内存分配与回收策略/#more" rel="contents">
@@ -1232,13 +1238,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/14/垃圾收集器/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -1352,7 +1358,7 @@
 
       
         
-          <p>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。Java虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。这里讨论的收集器基于JDK1.7Update14之后的HotSpot虚拟机（在这个版本中正式提供了商用的G1收集器，之前G1仍处于实验状态），这个虚拟机包含的所有收集器如图所示。<br></p>
+          <p><meta name="referrer" content="no-referrer"><br>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。Java虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。这里讨论的收集器基于JDK1.7Update14之后的HotSpot虚拟机（在这个版本中正式提供了商用的G1收集器，之前G1仍处于实验状态），这个虚拟机包含的所有收集器如图所示。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/01/14/垃圾收集器/#more" rel="contents">
@@ -1411,13 +1417,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/15/HotSpot算法实现/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -1531,7 +1537,8 @@
 
       
         
-          <h2 id="枚举根结点"><a href="#枚举根结点" class="headerlink" title="枚举根结点"></a>枚举根结点</h2><p>可达性算法是相当耗时的，以下两点说明<br></p>
+          <p><meta name="referrer" content="no-referrer"></p>
+<h2 id="枚举根结点"><a href="#枚举根结点" class="headerlink" title="枚举根结点"></a>枚举根结点</h2><p>可达性算法是相当耗时的，以下两点说明<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/15/HotSpot算法实现/#more" rel="contents">
@@ -1590,13 +1597,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/19/linux-awk命令/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -1710,7 +1717,7 @@
 
       
         
-          <p>废话少说  开整<br></p>
+          <p><meta name="referrer" content="no-referrer"><br>废话少说  开整<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/03/19/linux-awk命令/#more" rel="contents">
@@ -1769,13 +1776,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/12/垃圾收集算法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -1949,13 +1956,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/06/java虚拟机中对象生存还是死亡/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="进阶的码农">
+      <meta itemprop="name" content="sytao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shiyangtao的blog">
+      <meta itemprop="name" content="shiyangtao's blog">
     </span>
 
     
@@ -2149,8 +2156,8 @@
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="进阶的码农">
-          <p class="site-author-name" itemprop="name">进阶的码农</p>
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="sytao">
+          <p class="site-author-name" itemprop="name">sytao</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
           
@@ -2203,7 +2210,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                <a href="https://github.com/shiyangtao" target="_blank" title="GitHub">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
@@ -2214,7 +2221,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                <a href="https://twitter.com/yangtao.shi.3" target="_blank" title="Twitter">
                   
                     <i class="fa fa-fw fa-twitter"></i>
                   
@@ -2225,7 +2232,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="简书">
+                <a href="https://www.jianshu.com/u/0d11cd4d7bc1" target="_blank" title="简书">
                   
                     <i class="fa fa-fw fa-heartbeat"></i>
                   
@@ -2271,7 +2278,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">进阶的码农</span>
+  <span class="author" itemprop="copyrightHolder">sytao</span>
   <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
   本站访客数:<span id="busuanzi_value_site_uv"></span>
   <span class="post-count">博客全站共30.2k字</span>
@@ -2288,6 +2295,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
