@@ -11,7 +11,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
-
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://shiyangtao.github.io"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 
 
 
@@ -473,7 +486,7 @@
       <div>
         <div>
     
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
     
 </div>
       </div>
@@ -697,9 +710,6 @@
             
           
         </div>
- <div id="music163player">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=17863892&auto=1&height=66"></iframe>
-    </div>
         
         
 
@@ -707,10 +717,10 @@
         
 
         
+
 
 
       </section>
-
       
       <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
@@ -728,10 +738,10 @@
         </section>
       <!--/noindex-->
       
-
       
 
     </div>
+
   </aside>
 
 

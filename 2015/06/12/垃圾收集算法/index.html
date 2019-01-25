@@ -11,7 +11,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
-
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://shiyangtao.github.io"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 
 
 
@@ -125,7 +138,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-b9efd3da3114ad6c.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-8193b954387d1811.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-ae3d0119f93479e9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-25T02:55:08.526Z">
+<meta property="og:updated_time" content="2019-01-25T05:38:36.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="垃圾收集算法">
 <meta name="twitter:description" content="标记-清除算法算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象">
@@ -439,7 +452,8 @@
       
 
       
-        <h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象<br><a id="more"></a><br>不足之处：</p>
+        <p><meta name="referrer" content="no-referrer"></p>
+<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象<br><a id="more"></a><br>不足之处：</p>
 <ul>
 <li>效率问题，标记和清除两个过程的效率都不高</li>
 <li>空间问题，标记清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后在程序运行过程中需要分配较大对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</li>
@@ -461,7 +475,7 @@
       <div>
         <div>
     
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
     
 </div>
       </div>
@@ -685,9 +699,6 @@
             
           
         </div>
- <div id="music163player">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=17863892&auto=1&height=66"></iframe>
-    </div>
         
         
 
@@ -695,10 +706,10 @@
         
 
         
+
 
 
       </section>
-
       
       <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
@@ -716,10 +727,10 @@
         </section>
       <!--/noindex-->
       
-
       
 
     </div>
+
   </aside>
 
 

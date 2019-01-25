@@ -11,7 +11,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
-
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://shiyangtao.github.io"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
 
 
 
@@ -435,7 +448,7 @@
 
       
         
-          <p><img src="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="栈帧概念结构"><br></p>
+          <p><meta name="referrer" content="no-referrer"><br><img src="https://upload-images.jianshu.io/upload_images/2455482-1d40e2c7f2f7dc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="栈帧概念结构"><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/24/运行时栈帧结构/#more" rel="contents">
@@ -1868,7 +1881,8 @@
 
       
         
-          <h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象<br></p>
+          <p><meta name="referrer" content="no-referrer"></p>
+<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/06/12/垃圾收集算法/#more" rel="contents">
@@ -2047,7 +2061,7 @@
 
       
         
-          <p>java堆里存着几乎所有的对象，垃圾收集器要判断，哪些对象是存活的，哪些是死亡的（没有被引用的对象）即需要被回收的。<br></p>
+          <p><meta name="referrer" content="no-referrer"><br>java堆里存着几乎所有的对象，垃圾收集器要判断，哪些对象是存活的，哪些是死亡的（没有被引用的对象）即需要被回收的。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/05/06/java虚拟机中对象生存还是死亡/#more" rel="contents">
@@ -2215,9 +2229,6 @@
             
           
         </div>
- <div id="music163player">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=17863892&auto=1&height=66"></iframe>
-    </div>
         
         
 
@@ -2225,15 +2236,15 @@
         
 
         
+
 
 
       </section>
-
       
-
       
 
     </div>
+
   </aside>
 
 
