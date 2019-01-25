@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shiyangtao.github.io/"/>
-  <updated>2019-01-25T13:48:14.440Z</updated>
+  <updated>2019-01-25T14:20:13.977Z</updated>
   <id>http://shiyangtao.github.io/</id>
   
   <author>
@@ -17,9 +17,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://shiyangtao.github.io/2019/01/25/%E5%88%86%E5%B8%83%E5%BC%8F-mysql%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/"/>
+    <id>http://shiyangtao.github.io/2019/01/25/分布式-mysql分库分表/</id>
+    <published>2019-01-25T14:20:13.977Z</published>
+    <updated>2019-01-25T14:20:13.977Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>layout: post<br>title: msyql分库分表<br>date: 2015-02-03<br>tags: [mysql]<br>description:</p><p>—#### 业务分库<br>按照业务分库，比如用户、商品、订单分库<br>带来的问题</p><ol><li>join 问题<br>不在同一数据库无法join，只能先查一个数据库拿到id列表，在去另外一个库查询</li><li>事务问题<br>原本在同一个数据库的不同表的操作可以在同一个事务里边，分散到不同数据库后无法通过事务统一修改。</li><li>成本问题</li></ol><h4 id="分表"><a href="#分表" class="headerlink" title="分表"></a>分表</h4><ol><li>垂直分表<br>把不常用且占用了大量空间的列拆分出去。带了的问题是原来只要查询一次就能获取所有所有列，现在需要查询多次</li><li>水平分表</li></ol><ul><li><p>路由</p><ul><li>范围路由<br>按照userId的范围分表，特点可能分配不均（例如按照1000万分表，可能一个表有1000万另一个表只有1000），随着数据的增加平滑的扩充新表，原数据不动</li><li>hash路由<br>按照hash取模分表，特点分配均匀，但是新增表所有数据需要重新分布，但是使用一致性hash算法可以优化</li><li>配置路由<br>增加一个配置表比如 user_router表 包含 user_id,table_id两列,优点灵活，缺点多查询一次表太大了性能也会不好</li></ul></li><li><p>join<br>需要多次join然后合并</p></li><li>count()<br>多个表count()相加，实现简单去诶单性能较低。增加一个记录数表，性能优化了，但是复杂度增加了，必须要同步记录，但是又不能放在同一事务里处理，因为记录表插入失败不应该回滚业务逻辑</li><li>order by<br>数据分散多个字表中，排序无法在数据库中完成，只能由业务或者中间件去分表查询每个子表中的数据然后汇总。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;layout: post&lt;br&gt;title: msyql分库分表&lt;br&gt;date: 2015-02-03&lt;br&gt;tags: [mysql]&lt;br&gt;description:&lt;/p&gt;
+&lt;p&gt;—#### 业务分库&lt;br&gt;按照业务分库，比如用户、商品、订单分库&lt;br&gt;带来
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://shiyangtao.github.io/2019/01/25/nio-NIO-%E5%85%A5%E9%97%A8/"/>
+    <id>http://shiyangtao.github.io/2019/01/25/nio-NIO-入门/</id>
+    <published>2019-01-25T08:33:38.000Z</published>
+    <updated>2019-01-25T14:07:06.326Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>layout: post<br>title: nio入门<br>date: 2015-02-03<br>tags: [nio]<br>description:</p><p>—<a href="https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;layout: post&lt;br&gt;title: nio入门&lt;br&gt;date: 2015-02-03&lt;br&gt;tags: [nio]&lt;br&gt;description:&lt;/p&gt;
+&lt;p&gt;—&lt;a href=&quot;https://www.ibm.com/developerworks/
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>分布式技术栈</title>
-    <link href="http://shiyangtao.github.io/2018/09/21/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
-    <id>http://shiyangtao.github.io/2018/09/21/分布式技术栈/</id>
+    <link href="http://shiyangtao.github.io/2018/09/21/%E5%88%86%E5%B8%83%E5%BC%8F-%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
+    <id>http://shiyangtao.github.io/2018/09/21/分布式-分布式技术栈/</id>
     <published>2018-09-20T16:00:00.000Z</published>
     <updated>2019-01-25T13:48:14.440Z</updated>
     
@@ -45,9 +91,37 @@
   </entry>
   
   <entry>
+    <title>简历</title>
+    <link href="http://shiyangtao.github.io/2018/09/21/%E9%9D%A2%E8%AF%95-jianli/"/>
+    <id>http://shiyangtao.github.io/2018/09/21/面试-jianli/</id>
+    <published>2018-09-20T16:00:00.000Z</published>
+    <updated>2019-01-25T13:52:36.760Z</updated>
+    
+    <content type="html"><![CDATA[<p>##个人简介</p><ul><li>史洋涛/男/1990 </li><li>工作年限：4年</li><li>手机（微信）：13621204061</li><li>邮箱：<a href="mailto:yangtao.shi@gmail.com" target="_blank" rel="noopener">yangtao.shi@gmail.com</a></li><li>博客：<a href="http://shiyangtao.github.io">http://shiyangtao.github.io</a></li></ul><hr><p>##自我描述</p><ul><li>4年＋java开发经验</li><li>极客，热爱编程，喜欢专研</li><li>渴求自我提升、实现价值</li><li>工作认真，积极性高，思路清晰，善于思考，能独立分析和解决问题</li><li>责任心强，具有较强的沟通能力及团队合作精神和承受压力能力。</li></ul><hr><p>##教育背景<br> 2010.9-2014.7   石家庄学院             软件工程           本科（统招）   </p><hr><p>##工作经历</p><h3 id="北京安信创富科技有限公司-（-2015-09-至今-）-后端团队leader"><a href="#北京安信创富科技有限公司-（-2015-09-至今-）-后端团队leader" class="headerlink" title="北京安信创富科技有限公司             （ 2015.09 - 至今 ）                              后端团队leader"></a>北京安信创富科技有限公司             （ 2015.09 - 至今 ）                              后端团队leader</h3><p>负责把产品的需求转化为规范的开发计划，并对产品需求进行合理化建议，按计划确保开发工作顺利进行。带三至四人后端团队开发、任务分配，并且主导系统全局分析设计和实施，包括接口的设计，数据库设计，第三方服务接入，根据业务来选择实施落地的技术，最后按质按量的完成项目需求。后期根据业务增长针对性的做优化，比如缓存系统，负载均衡，服务拆分，异步调用削峰，数据分区等，来提高架构的性能和稳定性</p><h4 id="客慧来-收银系统（2016-05-至今）"><a href="#客慧来-收银系统（2016-05-至今）" class="headerlink" title="客慧来-收银系统（2016.05-至今）"></a>客慧来-收银系统（2016.05-至今）</h4><p>基于python-libcef开发的windows桌面收银和云端java结合的智能收银系统, 主要为商家提供除基础收银功能外的智能买单，灵活的营销体系、强大的会员系统、营业手机监控等功能，截止目前有1000+商家把传统收银软件替换成我们的收银系统，更加智能和易用</p><ul><li>负责：<br>收银本地和云端产品的接口和数据库的设计，主要模块支付体系、会员体系、营销体系、第三方对接等的开发和功能点的任务分配，根据后期数据增长，需求变化对系统实现功能扩展，服务拆分、性能优化、日志监控、安全性升级等，使系统高性能、高稳定性、安全性。  </li><li><p>解决的问题：</p><ul><li>客户端数据库：选用sqlite数据库，并使用sqlcipher加密，使用SQLAlchemy作为orm框架来提高开发速度，实现数据库版本控制，数据备份</li><li>支付系统：微信支付／支付宝支付／第三方支付（beecloud）的对接，支持多种支付场景（刷卡，扫码，混合），根据商户的各种情况一键切换</li><li>小程序工具开发：小程序和公众号用户关联，合并用户，历史数据刷新</li><li>会员系统优化：按业务拆分数据库，消息队列(SQS)削峰提高性能，实现用户行为收集高并发</li><li>爬取第三方数据：随着对接商家的增多，有会员迁移的需求，有些商家之前使用的平台不支持导出数据，Python Scrapy爬取会员数据</li><li>集群化：服务拆分、RPC调用、容器化（Docker Swarm）、日志收集与监控(Amazon CloudWatch)<h4 id="口碑isv（2017-02-至今）"><a href="#口碑isv（2017-02-至今）" class="headerlink" title="口碑isv（2017.02-至今）"></a>口碑isv（2017.02-至今）</h4>该项目是一个基于支付宝平台，为商家提供便捷支付和营销功能，打通商家收银系统，提供更加支付体验，相比口碑同期ISV，我们终端设备插件可实时配置与打通，并且打通速度快，支持设备广，目前仍有2000+家在使用，曾被口碑平台推荐</li></ul></li><li><p>负责模块：<br>对接口碑功能、商户收银的打通、后期业务增长系统优化、服务拆分、服务冗余</p></li><li>解决的问题：<ul><li>口碑券状态不同步的问题：采取定时通过口碑提供的接口去同步状态，还有给用户发券失败的错误信息异步分析，如果是因为发送已下架的券，就会主动去把状态修改掉</li><li>并发发券提升用户体验：启用多线程去发券，前后端协调一起优化用户体验</li><li>结账前优惠计算问题：团队通过多种测试用例来推算口碑券核销的优先级互斥性，并且记录着给用户发放的券，来实现这个需求。虽然这种方式是有误差的，但是灰度上线经运行一段时间后根据log分析准确率很高，用户体验得到了提升，得到了商户的认可</li><li>收银软件打通：采用数据库打通机制解决，破解商户收银的数据库，云端和本地client通过websocket通信，本地插件把云端指令集翻译成sql语句通过odbc 去查询商家收银数据库，来获得菜品／桌台／订单数据，保证稳定性和准确性</li><li>秒付性能问题：根据后期业务增长，和口碑对isv的高性能和稳定性要求，都使用redis缓存起来常用的查询数据，并且实现服务拆分（重用服务模块），服务冗余（避免单点故障），消息队列削峰（SQS）使用docker 技术实现服务的弹性伸缩，最后通过口碑压测，峰值能达到1000+qps<br>###准成品电商平台  （2015.09-2016.08 ）<br>该项目是一个基于微信平台的一个电商项目，主要向用户出售半成品，项目主要包括：用户登录、用户储值、下单、客服系统、订单消息系统(对商家、对用户)、快递配送系统、后台库存系统、邮件系统，项目截止前，北京有数家半成品供应商，个人消费者10000+，合作小商户等多达1000+，配送基本覆盖了北京全范围</li></ul></li><li>负责模块：<br>用户登陆，微信授权、下单、订单超时、订单配送、拆单、跳单逻辑、库存管理、报表数据等主要模块</li><li>遇到的问题：<ul><li>库存管理：供应商有后台来编辑某个菜品的库存量，库存不足时菜品不能下单，为了避免多人同时下单操作单个菜品的时，引起的并发问题，采用redis的transaction机制，避免高并发引起的库存数量错误问题</li><li>订单数量多后数据库压力：分库分表（Sharding-JDBC）</li></ul></li></ul><p>###北京源讯信息技术中国有限公司（2014.10 - 2015.09 ）                 java开发工程师<br>负责公司主要项目维护和个性化开发，性能优化，针对客户反馈出来的问题进行有效的沟通，并解决问题</p><p>###北京东方飞扬科技有限公司（2013.12 - 2014.09 ）                java开发工程师<br>负责公司定制化项目的敏捷开发，参与总体需求分析与架构设计、领域模型设计、数据库设计、SSH架构搭建及JBPM</p><h1 id="技能清单"><a href="#技能清单" class="headerlink" title="技能清单"></a>技能清单</h1><ul><li>java基础扎实，熟悉Jvm，有jvm调优经验</li><li>能够熟练的应用各种框架spring struts hibernate spring Ibatis jpa</li><li>熟悉mysql等关系型数据库，以及数据库调优、sql优化，熟练掌握sql语言</li><li>熟悉redis，mogodb，dynamodb等非关系型数据库</li><li>熟悉Linux操作系统，会使用常用的linux命令，有linux服务器的部署经验</li><li>熟悉docker容器技术，docker编排工具</li><li>熟悉python语言，用于日常脚本和爬虫</li><li>熟悉消息队列 掌握rabbitmq、sqs等消息队列</li><li>熟悉分布式、缓存、消息、异步等机制</li><li>熟悉aws云平台，dynamodb，s3，sqs模块发</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;##个人简介&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;史洋涛/男/1990 &lt;/li&gt;
+&lt;li&gt;工作年限：4年&lt;/li&gt;
+&lt;li&gt;手机（微信）：13621204061&lt;/li&gt;
+&lt;li&gt;邮箱：&lt;a href=&quot;mailto:yangtao.shi@gmail.com&quot; target=&quot;_
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>运行时栈帧结构</title>
-    <link href="http://shiyangtao.github.io/2018/03/24/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/"/>
-    <id>http://shiyangtao.github.io/2018/03/24/运行时栈帧结构/</id>
+    <link href="http://shiyangtao.github.io/2018/03/24/jvm-2018-03-24-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/"/>
+    <id>http://shiyangtao.github.io/2018/03/24/jvm-2018-03-24-运行时栈帧结构/</id>
     <published>2018-03-23T16:00:00.000Z</published>
     <updated>2019-01-25T13:32:42.009Z</updated>
     
@@ -68,8 +142,8 @@
   
   <entry>
     <title>强-软-弱-虚引用</title>
-    <link href="http://shiyangtao.github.io/2017/09/21/%E5%BC%BA-%E8%BD%AF-%E5%BC%B1-%E8%99%9A%E5%BC%95%E7%94%A8/"/>
-    <id>http://shiyangtao.github.io/2017/09/21/强-软-弱-虚引用/</id>
+    <link href="http://shiyangtao.github.io/2017/09/21/jvm-%E5%BC%BA-%E8%BD%AF-%E5%BC%B1-%E8%99%9A%E5%BC%95%E7%94%A8/"/>
+    <id>http://shiyangtao.github.io/2017/09/21/jvm-强-软-弱-虚引用/</id>
     <published>2017-09-20T16:00:00.000Z</published>
     <updated>2019-01-25T13:44:42.008Z</updated>
     
@@ -95,8 +169,8 @@
   
   <entry>
     <title>类加载器</title>
-    <link href="http://shiyangtao.github.io/2017/09/21/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
-    <id>http://shiyangtao.github.io/2017/09/21/类加载器/</id>
+    <link href="http://shiyangtao.github.io/2017/09/21/jvm-2017-09-21-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
+    <id>http://shiyangtao.github.io/2017/09/21/jvm-2017-09-21-类加载器/</id>
     <published>2017-09-20T16:00:00.000Z</published>
     <updated>2019-01-25T11:54:57.359Z</updated>
     
@@ -117,8 +191,8 @@
   
   <entry>
     <title>类加载过程</title>
-    <link href="http://shiyangtao.github.io/2017/07/28/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
-    <id>http://shiyangtao.github.io/2017/07/28/类加载过程/</id>
+    <link href="http://shiyangtao.github.io/2017/07/28/jvm-2017-07-28-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
+    <id>http://shiyangtao.github.io/2017/07/28/jvm-2017-07-28-类加载过程/</id>
     <published>2017-07-27T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:36.685Z</updated>
     
@@ -140,8 +214,8 @@
   
   <entry>
     <title>类加载时机</title>
-    <link href="http://shiyangtao.github.io/2017/05/04/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/"/>
-    <id>http://shiyangtao.github.io/2017/05/04/类加载时机/</id>
+    <link href="http://shiyangtao.github.io/2017/05/04/jvm-2017-05-04-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/"/>
+    <id>http://shiyangtao.github.io/2017/05/04/jvm-2017-05-04-类加载时机/</id>
     <published>2017-05-03T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:32.525Z</updated>
     
@@ -162,8 +236,8 @@
   
   <entry>
     <title>内存分配与回收策略</title>
-    <link href="http://shiyangtao.github.io/2017/04/03/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/"/>
-    <id>http://shiyangtao.github.io/2017/04/03/内存分配与回收策略/</id>
+    <link href="http://shiyangtao.github.io/2017/04/03/jvm-2017-04-03-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/"/>
+    <id>http://shiyangtao.github.io/2017/04/03/jvm-2017-04-03-内存分配与回收策略/</id>
     <published>2017-04-02T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:28.496Z</updated>
     
@@ -184,8 +258,8 @@
   
   <entry>
     <title>垃圾收集器</title>
-    <link href="http://shiyangtao.github.io/2017/01/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
-    <id>http://shiyangtao.github.io/2017/01/14/垃圾收集器/</id>
+    <link href="http://shiyangtao.github.io/2017/01/14/jvm-2017-01-14-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
+    <id>http://shiyangtao.github.io/2017/01/14/jvm-2017-01-14-垃圾收集器/</id>
     <published>2017-01-13T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:23.779Z</updated>
     
@@ -206,8 +280,8 @@
   
   <entry>
     <title>HotSpot算法实现</title>
-    <link href="http://shiyangtao.github.io/2016/07/15/HotSpot%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://shiyangtao.github.io/2016/07/15/HotSpot算法实现/</id>
+    <link href="http://shiyangtao.github.io/2016/07/15/jvm-2016-07-15-HotSpot%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://shiyangtao.github.io/2016/07/15/jvm-2016-07-15-HotSpot算法实现/</id>
     <published>2016-07-14T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:19.495Z</updated>
     
@@ -228,8 +302,8 @@
   
   <entry>
     <title>linux－awk命令</title>
-    <link href="http://shiyangtao.github.io/2016/03/19/linux-awk%E5%91%BD%E4%BB%A4/"/>
-    <id>http://shiyangtao.github.io/2016/03/19/linux-awk命令/</id>
+    <link href="http://shiyangtao.github.io/2016/03/19/jvm-2016-03-29-linux-awk%E5%91%BD%E4%BB%A4/"/>
+    <id>http://shiyangtao.github.io/2016/03/19/jvm-2016-03-29-linux-awk命令/</id>
     <published>2016-03-18T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:13.953Z</updated>
     
@@ -250,8 +324,8 @@
   
   <entry>
     <title>垃圾收集算法</title>
-    <link href="http://shiyangtao.github.io/2015/06/12/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/"/>
-    <id>http://shiyangtao.github.io/2015/06/12/垃圾收集算法/</id>
+    <link href="http://shiyangtao.github.io/2015/06/12/jvm-2015-06-12-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/"/>
+    <id>http://shiyangtao.github.io/2015/06/12/jvm-2015-06-12-垃圾收集算法/</id>
     <published>2015-06-11T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:09.771Z</updated>
     
@@ -272,8 +346,8 @@
   
   <entry>
     <title>对象是生存还是死亡</title>
-    <link href="http://shiyangtao.github.io/2015/05/06/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1/"/>
-    <id>http://shiyangtao.github.io/2015/05/06/java虚拟机中对象生存还是死亡/</id>
+    <link href="http://shiyangtao.github.io/2015/05/06/jvm-2015-05-06-java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1/"/>
+    <id>http://shiyangtao.github.io/2015/05/06/jvm-2015-05-06-java虚拟机中对象生存还是死亡/</id>
     <published>2015-05-05T16:00:00.000Z</published>
     <updated>2019-01-25T09:09:58.741Z</updated>
     
@@ -294,8 +368,8 @@
   
   <entry>
     <title>java虚拟机中对象的定位</title>
-    <link href="http://shiyangtao.github.io/2015/04/21/java%E8%99%9A%E6%8B%9F%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E4%BD%8D/"/>
-    <id>http://shiyangtao.github.io/2015/04/21/java虚拟中对象的定位/</id>
+    <link href="http://shiyangtao.github.io/2015/04/21/jvm-2015-04-21-java%E8%99%9A%E6%8B%9F%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E4%BD%8D/"/>
+    <id>http://shiyangtao.github.io/2015/04/21/jvm-2015-04-21-java虚拟中对象的定位/</id>
     <published>2015-04-20T16:00:00.000Z</published>
     <updated>2019-01-25T09:09:59.722Z</updated>
     
@@ -316,8 +390,8 @@
   
   <entry>
     <title>java虚拟机中对象的内存布局</title>
-    <link href="http://shiyangtao.github.io/2015/04/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/"/>
-    <id>http://shiyangtao.github.io/2015/04/03/java虚拟机中对象的内存布局/</id>
+    <link href="http://shiyangtao.github.io/2015/04/03/jvm-2015-04-03-java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/"/>
+    <id>http://shiyangtao.github.io/2015/04/03/jvm-2015-04-03-java虚拟机中对象的内存布局/</id>
     <published>2015-04-02T16:00:00.000Z</published>
     <updated>2019-01-25T09:09:55.917Z</updated>
     
@@ -337,24 +411,79 @@
   </entry>
   
   <entry>
-    <title>java虚拟机中对象的创建</title>
-    <link href="http://shiyangtao.github.io/2015/02/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
-    <id>http://shiyangtao.github.io/2015/02/03/java虚拟机中对象的创建/</id>
-    <published>2015-02-02T16:00:00.000Z</published>
-    <updated>2019-01-25T09:09:57.399Z</updated>
+    <title>必要商城面试</title>
+    <link href="http://shiyangtao.github.io/2015/04/03/%E9%9D%A2%E8%AF%95-%E5%BF%85%E8%A6%81%E5%95%86%E5%9F%8E%E9%9D%A2%E8%AF%95/"/>
+    <id>http://shiyangtao.github.io/2015/04/03/面试-必要商城面试/</id>
+    <published>2015-04-02T16:00:00.000Z</published>
+    <updated>2019-01-25T14:28:25.941Z</updated>
     
-    <content type="html"><![CDATA[<p> &emsp;&emsp;我们了解虚拟机内存划分的人，都知道对象的内存分配几乎都是在堆上的，这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都会在堆上分配（但是随着JIT编译器的发展与逃逸分析技术逐渐成熟，栈上分配，标量替换优化技术将会导致一些变化，擦扯远了，所以所有的对象实例都在堆上分配就不是那么绝对了）</p> <a id="more"></a><p>下面说虚拟机中对象的创建几个步骤</p><ol><li>类加载检查<br>&emsp;&emsp;虚拟机遇到new指令时，首先会去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否被装载、解析和初始化过。如果没有那必须先执行相应的类的加载过程。</li><li>为对象分配内存<br>&emsp;&emsp;当类加载成功后，类的对象的大小是确定了的。对象内存的划分等同于在堆里划分出一块指定大小的内存。<br>&emsp;&emsp;假设内存是规整的，所有用过的内存放在一边，空闲的放在另一边，中间分界点有个指针，那分配内存就是把指针向空闲区域方向挪动一段于对象大小相等的长度，这种分配方式叫做“指针碰撞”(Bump the Pointer)。<br>&emsp;&emsp;如果内存不是规整的，那么就需要一个表来记录，记录哪些内存是占用的，哪些是空闲的，那分配内存就是在表里找到一块足够大的空间分配给对象实例，并更新这个表的记录，这种分配方式叫做“空闲列表”(Free List)。<br>&emsp;&emsp;选择哪种分配方式与堆是否规整决定，而java堆是否规整又和垃圾收集器是否有压缩整理功能决定。因此，在使用Serial、ParNew等带有Compact过程的收集器时，采用的分配方式是指针碰撞，而使用CMS这种基于Mark-Sweep算法的收集器时，采用的是空闲列表。<br>&emsp;&emsp;除了如何划分内存之外还有一个是我们需要考虑的问题，因为java堆是线程共享的，那么多个线程同时操作堆上的内存就会有问题，比如正在给a对象分配内存还没来得及移动指针(或者是没有修改空闲列表的记录)，这时对象b使用原来的指针来分配内存，就会产生问题。解决这个问题有两种方式，一种是对分配内存的动作进行同步处理(实际上虚拟机采用CAS配上错误重试来保证分配内存的原子性)；另一种是采用线程间不共享的内存来分配，每个线程预先在java堆中分配一块内存，成为本地线程分配缓冲(Thread Local Allocation Buffer,TLAB )。哪个线程分配内存就在该线程的TLAB上分配，只有在TLAB用完需要分配新的TLAB时，才需要同步锁定。注：虚拟机是否使用TLAB，可以通过-XX:+/-UseTLAB参数来设定。</li><li>内存初始化<br>&emsp;&emsp;内存分配完后，需要把将分配到的内存空间初始化为零值(不包换对象头)，如果使用TLAB这一过程也可以提前至TLAB分配时进行。这一步操作保证了对象实例字段在java代码中可以不赋初值就使用，程序能访问到这些字段的数据类型所对应的零值。</li><li>对象头必要设置<br>&emsp;&emsp;接下来虚拟机要对对象进行必要的设置，比如该对象是哪个类的实例、如何才能找到类的元数据信息、对象的hash码、对象的gc分代年龄等信息。这些信息均放在对象的对象头(Object Header)中。根据虚拟机当前的运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置</li></ol><p>总结<br>以上步骤完成后，从虚拟机的角度来看，一个新对象诞生了，但从java程序角度看，一切才刚刚开始——init方法还没有执行，所有字段的数据类型都是对应的零值。所以一般来说执行new指令后会接着执行init方法，把对象按照程序猿的意愿进行初始化，这样一个真正可以使用的对象才算完成。</p><p>下面的代码是HotPot虚拟机bytecodeInterpreter.cpp的代码片段<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">u2 index = Bytes::get_Java_u2(pc+<span class="number">1</span>);</span><br><span class="line">ConstantPool* constants = istate-&gt;method()-&gt;constants();</span><br><span class="line"><span class="comment">// 确保常量池中是已经解释的类</span></span><br><span class="line"><span class="keyword">if</span> (!constants-&gt;tag_at(index).is_unresolved_klass()) &#123;</span><br><span class="line">  <span class="comment">// Make sure klass is initialized and doesn't have a finalizer</span></span><br><span class="line">  <span class="comment">// 确保类已经初始化</span></span><br><span class="line">  Klass* entry = constants-&gt;slot_at(index).get_klass();</span><br><span class="line">  <span class="keyword">assert</span>(entry-&gt;is_klass(), <span class="string">"Should be resolved klass"</span>);</span><br><span class="line">  Klass* k_entry = (Klass*) entry;</span><br><span class="line">  <span class="keyword">assert</span>(k_entry-&gt;oop_is_instance(), <span class="string">"Should be InstanceKlass"</span>);</span><br><span class="line">  InstanceKlass* ik = (InstanceKlass*) k_entry;</span><br><span class="line">  <span class="comment">// 确保对象内存已经初始化</span></span><br><span class="line">  <span class="keyword">if</span> ( ik-&gt;is_initialized() &amp;&amp; ik-&gt;can_be_fastpath_allocated() ) &#123;</span><br><span class="line">    <span class="comment">// 取对象长度</span></span><br><span class="line">    size_t obj_size = ik-&gt;size_helper();</span><br><span class="line">    oop result = NULL;</span><br><span class="line">    <span class="comment">// If the TLAB isn't pre-zeroed then we'll have to do it</span></span><br><span class="line">    <span class="comment">// 如果TLAB没有预先初始化那么need_zero为true后边会进行初始化</span></span><br><span class="line">    bool need_zero = !ZeroTLAB;</span><br><span class="line">    <span class="comment">// 如果虚拟机启用TLAB，那么在TLAB中分配对象</span></span><br><span class="line">    <span class="keyword">if</span> (UseTLAB) &#123;</span><br><span class="line">      result = (oop) THREAD-&gt;tlab().allocate(obj_size);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (result == NULL) &#123;</span><br><span class="line">      need_zero = <span class="keyword">true</span>;</span><br><span class="line">      <span class="comment">// Try allocate in shared eden</span></span><br><span class="line">      <span class="comment">// 尝试在eden中分配对象</span></span><br><span class="line">retry:</span><br><span class="line">      HeapWord* compare_to = *Universe::heap()-&gt;top_addr();</span><br><span class="line">      HeapWord* new_top = compare_to + obj_size;</span><br><span class="line">      <span class="comment">/*cmpxchg是x86中的CAS指令，这里是一个C++方法通过CAS方式分配空间，如果并发失败，转到retry中重试直至成功分配为止*/</span></span><br><span class="line">      <span class="keyword">if</span> (new_top &lt;= *Universe::heap()-&gt;end_addr()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Atomic::cmpxchg_ptr(new_top, Universe::heap()-&gt;top_addr(), compare_to) != compare_to) &#123;</span><br><span class="line">          goto retry;</span><br><span class="line">        &#125;</span><br><span class="line">        result = (oop) compare_to;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (result != NULL) &#123;</span><br><span class="line">      <span class="comment">// Initialize object (if nonzero size and need) and then the header</span></span><br><span class="line">     <span class="comment">// 如果需要，则为对象初始化零值</span></span><br><span class="line">      <span class="keyword">if</span> (need_zero ) &#123;</span><br><span class="line">        HeapWord* to_zero = (HeapWord*) result + sizeof(oopDesc) / oopSize;</span><br><span class="line">        obj_size -= sizeof(oopDesc) / oopSize;</span><br><span class="line">        <span class="keyword">if</span> (obj_size &gt; <span class="number">0</span> ) &#123;</span><br><span class="line">          memset(to_zero, <span class="number">0</span>, obj_size * HeapWordSize);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 根据是否启用偏向锁来设置对象头信息</span></span><br><span class="line">      <span class="keyword">if</span> (UseBiasedLocking) &#123;</span><br><span class="line">        result-&gt;set_mark(ik-&gt;prototype_header());</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        result-&gt;set_mark(markOopDesc::prototype());</span><br><span class="line">      &#125;</span><br><span class="line">      result-&gt;set_klass_gap(<span class="number">0</span>);</span><br><span class="line">      result-&gt;set_klass(k_entry);</span><br><span class="line">     <span class="comment">// 将对象引用入栈，继续执行下一条指令</span></span><br><span class="line">      SET_STACK_OBJECT(result, <span class="number">0</span>);</span><br><span class="line">      UPDATE_PC_AND_TOS_AND_CONTINUE(<span class="number">3</span>, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>相关文章：<br><a href="https://www.jianshu.com/p/282777946dad" target="_blank" rel="noopener">java虚拟机中对象的创建</a><br><a href="https://www.jianshu.com/p/cc3f193db928" target="_blank" rel="noopener">java虚拟机中对象的内存布局</a><br><a href="https://www.jianshu.com/p/762f97391cac" target="_blank" rel="noopener">java虚拟机中对象的定位</a></p>]]></content>
+    <content type="html"><![CDATA[<p>无笔试<br>第一轮</p><ul><li>你看过哪些java源码 或者框架的源码</li><li>项目里用了多线程的地方 线程池相关</li><li>数据库隔离</li><li>spring 原理 ioc aop</li><li>自己设计一个券系统，并画出er图</li><li>根据用户的优惠券，快速算出最佳优惠的策略</li></ul><p>第二轮</p><ul><li>业务数据量大，如何优化</li><li>订单超时过期实现（回答延迟mq、redis过期key订阅、Linux定时任务，面试官感觉mq会出现死信，redis或linux会down 有没有更好的方案，没有get到他想考察的点</li></ul><p>第三轮</p><ul><li>依赖第三方服务，比如支付结果的轮询，如果第三方down掉，支付服务会down或者重启后又down是什么原因（考察http 链接的开销，设置过期时间）</li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt; &amp;emsp;&amp;emsp;我们了解虚拟机内存划分的人，都知道对象的内存分配几乎都是在堆上的，这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都会在堆上分配（但是随着JIT编译器的发展与逃逸分析技术逐渐成熟，栈上分配，标量替换优化技术将会导致一些变化，擦扯远了，所以所有的对象实例都在堆上分配就不是那么绝对了）&lt;/p&gt;
+      
+      
+        &lt;p&gt;无笔试&lt;br&gt;第一轮&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你看过哪些java源码 或者框架的源码&lt;/li&gt;
+&lt;li&gt;项目里用了多线程的地方 线程池相关&lt;/li&gt;
+&lt;li&gt;数据库隔离&lt;/li&gt;
+&lt;li&gt;spring 原理 ioc aop&lt;/li&gt;
+&lt;li&gt;自己设计一个券系统，并画出er
+      
     
     </summary>
     
-      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
+    
+      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试计数器相关</title>
+    <link href="http://shiyangtao.github.io/2015/04/03/%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95-%E8%AE%A1%E6%95%B0%E5%99%A8%E7%9B%B8%E5%85%B3/"/>
+    <id>http://shiyangtao.github.io/2015/04/03/面试-面试-计数器相关/</id>
+    <published>2015-04-02T16:00:00.000Z</published>
+    <updated>2019-01-25T14:28:33.149Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="面试官问："><a href="#面试官问：" class="headerlink" title="面试官问："></a>面试官问：</h4><p>文件里有m个身份证号，统计每个身份证号出现的次数</p><h4 id="回答："><a href="#回答：" class="headerlink" title="回答："></a>回答：</h4><p>使用hashMap实现，key作为身份证号<br><em>ContainsKey</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; freq = new HashMap&lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">    int count = freq.containsKey(word) ? freq.get(word) : 0;</span><br><span class="line">    freq.put(word, count + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="面试官问：-1"><a href="#面试官问：-1" class="headerlink" title="面试官问："></a>面试官问：</h4><p>还能优化吗</p><h4 id="回答：-1"><a href="#回答：-1" class="headerlink" title="回答："></a>回答：</h4><p><em>TestForNull</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; freq = new HashMap&lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>减少调用containsKey方法的开销</p><h4 id="面试官问：-2"><a href="#面试官问：-2" class="headerlink" title="面试官问："></a>面试官问：</h4><p>如果是高并发情况呢</p><h4 id="回答：-2"><a href="#回答：-2" class="headerlink" title="回答："></a>回答：</h4><p>采用ConcurrentHashMap去做，线程安全的</p><h4 id="面试官问：-3"><a href="#面试官问：-3" class="headerlink" title="面试官问："></a>面试官问：</h4><p>高并发下HashMap有什么问题吗</p><h4 id="回答：-3"><a href="#回答：-3" class="headerlink" title="回答："></a>回答：</h4><p>并发情况下使用HashMap造成Race Condition，从而导致死循环，CPU占用率会达到100%<br><a href="https://coolshell.cn/articles/9606.html" target="_blank" rel="noopener">博文链接hashMap死循环</a></p><h4 id="面试官问：-4"><a href="#面试官问：-4" class="headerlink" title="面试官问："></a>面试官问：</h4><p>ok 用ConcurrentHashMap 实现下</p><h4 id="回答：-4"><a href="#回答：-4" class="headerlink" title="回答："></a>回答：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap &lt;String, Integer&gt; freq = new ConcurrentHashMap &lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">      freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="面试官问：-5"><a href="#面试官问：-5" class="headerlink" title="面试官问："></a>面试官问：</h4><p>确定能实现？</p><h4 id="回答：-5"><a href="#回答：-5" class="headerlink" title="回答："></a>回答：</h4><p>实现不了 put操作会覆盖，比如两个线程同时进来读到了都是4，那么都会put 5进去，<br>可以给方法加上synchronized锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap &lt;String, Integer&gt; freq = new ConcurrentHashMap &lt;String, Integer&gt;();</span><br><span class="line">public synchronized void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">      freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="面试官问：-6"><a href="#面试官问：-6" class="headerlink" title="面试官问："></a>面试官问：</h4><p>嗯嗯 加锁确实能实现，但是性能差点，能优化下吗</p><h4 id="回答-当时回答的不好-："><a href="#回答-当时回答的不好-：" class="headerlink" title="回答(当时回答的不好)："></a>回答(当时回答的不好)：</h4><p>能,采用cas方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap&lt;String, AtomicLong&gt; map = new ConcurrentHashMap&lt;String, AtomicLong&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  map.putIfAbsent(word, new AtomicLong(0));</span><br><span class="line">  map.get(word).incrementAndGet();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>也可以采用  AtomicLongMap，AtomicLongMap是Google Guava项目的一个类，它是线程安全、支持并发访问的，通过CAS方式实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AtomicLongMap&lt;String&gt; map = AtomicLongMap.create();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">   map.getAndIncrement(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="延伸："><a href="#延伸：" class="headerlink" title="延伸："></a>延伸：</h4><p>AtomicLong – 这组类使用CAS（比较并交换）处理器指令来更新计数器的值。听起来不错，真的是这样吗？是也不是。好的一面是它通过一个直接机器码指令设置值时，能够最小程度地影响其他线程的执行。坏的一面是如果它在与其他线程竞争设置值时失败了，它不得不再次尝试。在高竞争下，这将转化为一个自旋锁，线程不得不持续尝试设置值，无限循环直到成功。这可不是我们想要的方法。<a href="http://www.importnew.com/11345.html" target="_blank" rel="noopener">让我们进入Java 8的LongAdders</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;面试官问：&quot;&gt;&lt;a href=&quot;#面试官问：&quot; class=&quot;headerlink&quot; title=&quot;面试官问：&quot;&gt;&lt;/a&gt;面试官问：&lt;/h4&gt;&lt;p&gt;文件里有m个身份证号，统计每个身份证号出现的次数&lt;/p&gt;
+&lt;h4 id=&quot;回答：&quot;&gt;&lt;a href=&quot;#回答：&quot; c
+      
+    
+    </summary>
     
     
-      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
+      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试题</title>
+    <link href="http://shiyangtao.github.io/2015/04/03/%E9%9D%A2%E8%AF%95-2019-01-10/"/>
+    <id>http://shiyangtao.github.io/2015/04/03/面试-2019-01-10/</id>
+    <published>2015-04-02T16:00:00.000Z</published>
+    <updated>2019-01-25T14:28:11.710Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>1.对链表进行归并排序，链表可能有环<br>2.b+树b树的区别，优缺点</p><h1 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h1><p>1.线程池有哪些参数，有哪些作用，如果任务超过核心线程数，会发生什么？<br><a href="https://www.jianshu.com/p/432554383c55" target="_blank" rel="noopener">https://www.jianshu.com/p/432554383c55</a><br>2.hashset  底层实现<br>维护了一个hashMap<br>3.hashmap，hashtable，concurrentHashMap区别和底层原理<br>hashMap线程不安全，hashtable线程安全set/get都加了synchronized，concurrentHashMap线程安全采用锁分段来实现线程安全</p><ul><li>copyOnWriteList<br><a href="http://www.importnew.com/25034.html" target="_blank" rel="noopener">http://www.importnew.com/25034.html</a><br>4.String/StringBuffer/StringBuilder<br>String不可变，每次拼接都会新创建一个String对象<br>StringBuffer线程安全，维护一个数组(默认16)，append超过大小会出发Array copy<br>StringBuilder线程非安全，维护一个数组(默认16)，append超过大小会出发Array copy<br>4.公平锁和非公平锁怎么实现的<br>公平锁代码<br><img src="https://upload-images.jianshu.io/upload_images/2455482-8506c591de4e859a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/2455482-3af4b59db916bd99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>非公平锁代码<br><img src="https://upload-images.jianshu.io/upload_images/2455482-1d8a6c31c4eca12a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/2455482-4fe398d43a0aa5f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li></ul><p>总结：公平锁和非公平锁只有两处不同：</p><p>非公平锁在调用 lock 后，首先就会调用 CAS 进行一次抢锁，如果这个时候恰巧锁没有被占用，那么直接就获取到锁返回了。<br>非公平锁在 CAS 失败后，和公平锁一样都会进入到 tryAcquire 方法，在 tryAcquire 方法中，如果发现锁这个时候被释放了（state == 0），非公平锁会直接 CAS 抢锁，但是公平锁会判断等待队列是否有线程处于等待状态，如果有则不去抢锁，乖乖排到后面。<br>公平锁和非公平锁就这两点区别，如果这两次 CAS 都不成功，那么后面非公平锁和公平锁是一样的，都要进入到阻塞队列等待唤醒。</p><p>相对来说，非公平锁会有更好的性能，因为它的吞吐量比较大。当然，非公平锁让获取锁的时间变得更加不确定，可能会导致在阻塞队列中的线程长期处于饥饿状态。</p><p>5.说说java AQS 原理详细介绍下<br>看看java并发编程实战 关于AQS的章节<br>6.实现一个线程安全的计数器<br>AtomicInteger.incrementAndGet<br>7.synchronized和lock的区别</p><p>8.介绍happen-before<br>9.三个线程保证执行顺序<a href="https://www.cnblogs.com/kaleidoscope/p/9877174.html" target="_blank" rel="noopener">https://www.cnblogs.com/kaleidoscope/p/9877174.html</a></p><h1 id="jvm"><a href="#jvm" class="headerlink" title="jvm"></a>jvm</h1><p>1.java 内存模式</p><p>#数据库<br>1.连接池底层说下</p><h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><ol><li>解决缓存雪崩和缓存穿透的方案<br><a href="https://mp.weixin.qq.com/s/TBCEwLVAXdsTszRVpXhVug" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/TBCEwLVAXdsTszRVpXhVug</a>?</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h1&gt;&lt;p&gt;1.对链表进行归并排序，链表可能有环&lt;br&gt;2.b+树b树的区别，优缺点&lt;/p&gt;
+&lt;h1 id=&quot;java基础&quot;&gt;&lt;a href=&quot;#jav
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
