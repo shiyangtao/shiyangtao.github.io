@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://shiyangtao.github.io/"/>
   <updated>2019-01-25T07:30:33.502Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://shiyangtao.github.io/</id>
   
   <author>
     <name>sytao</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>运行时栈帧结构</title>
-    <link href="http://yoursite.com/2018/03/24/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/"/>
-    <id>http://yoursite.com/2018/03/24/运行时栈帧结构/</id>
+    <link href="http://shiyangtao.github.io/2018/03/24/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/"/>
+    <id>http://shiyangtao.github.io/2018/03/24/运行时栈帧结构/</id>
     <published>2018-03-23T16:00:00.000Z</published>
     <updated>2019-01-25T07:30:33.502Z</updated>
     
@@ -31,17 +31,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>类加载器</title>
-    <link href="http://yoursite.com/2017/09/21/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
-    <id>http://yoursite.com/2017/09/21/类加载器/</id>
+    <link href="http://shiyangtao.github.io/2017/09/21/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
+    <id>http://shiyangtao.github.io/2017/09/21/类加载器/</id>
     <published>2017-09-20T16:00:00.000Z</published>
     <updated>2019-01-25T07:30:29.127Z</updated>
     
@@ -53,17 +53,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>类加载过程</title>
-    <link href="http://yoursite.com/2017/07/28/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
-    <id>http://yoursite.com/2017/07/28/类加载过程/</id>
+    <link href="http://shiyangtao.github.io/2017/07/28/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
+    <id>http://shiyangtao.github.io/2017/07/28/类加载过程/</id>
     <published>2017-07-27T16:00:00.000Z</published>
     <updated>2019-01-25T07:30:25.979Z</updated>
     
@@ -76,17 +76,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>类加载时机</title>
-    <link href="http://yoursite.com/2017/05/04/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/"/>
-    <id>http://yoursite.com/2017/05/04/类加载时机/</id>
+    <link href="http://shiyangtao.github.io/2017/05/04/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/"/>
+    <id>http://shiyangtao.github.io/2017/05/04/类加载时机/</id>
     <published>2017-05-03T16:00:00.000Z</published>
     <updated>2019-01-25T07:30:22.488Z</updated>
     
@@ -98,17 +98,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>内存分配与回收策略</title>
-    <link href="http://yoursite.com/2017/04/03/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/"/>
-    <id>http://yoursite.com/2017/04/03/内存分配与回收策略/</id>
+    <link href="http://shiyangtao.github.io/2017/04/03/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/"/>
+    <id>http://shiyangtao.github.io/2017/04/03/内存分配与回收策略/</id>
     <published>2017-04-02T16:00:00.000Z</published>
     <updated>2019-01-25T07:30:18.934Z</updated>
     
@@ -120,17 +120,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>垃圾收集器</title>
-    <link href="http://yoursite.com/2017/01/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
-    <id>http://yoursite.com/2017/01/14/垃圾收集器/</id>
+    <link href="http://shiyangtao.github.io/2017/01/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
+    <id>http://shiyangtao.github.io/2017/01/14/垃圾收集器/</id>
     <published>2017-01-13T16:00:00.000Z</published>
     <updated>2019-01-25T07:30:15.151Z</updated>
     
@@ -142,17 +142,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>HotSpot算法实现</title>
-    <link href="http://yoursite.com/2016/07/15/HotSpot%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://yoursite.com/2016/07/15/HotSpot算法实现/</id>
+    <link href="http://shiyangtao.github.io/2016/07/15/HotSpot%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://shiyangtao.github.io/2016/07/15/HotSpot算法实现/</id>
     <published>2016-07-14T16:00:00.000Z</published>
     <updated>2019-01-25T07:30:12.037Z</updated>
     
@@ -165,17 +165,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>linux－awk命令</title>
-    <link href="http://yoursite.com/2016/03/19/linux-awk%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2016/03/19/linux-awk命令/</id>
+    <link href="http://shiyangtao.github.io/2016/03/19/linux-awk%E5%91%BD%E4%BB%A4/"/>
+    <id>http://shiyangtao.github.io/2016/03/19/linux-awk命令/</id>
     <published>2016-03-18T16:00:00.000Z</published>
     <updated>2019-01-25T07:30:08.168Z</updated>
     
@@ -187,17 +187,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="http://shiyangtao.github.io/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>垃圾收集算法</title>
-    <link href="http://yoursite.com/2015/06/12/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2015/06/12/垃圾收集算法/</id>
+    <link href="http://shiyangtao.github.io/2015/06/12/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/"/>
+    <id>http://shiyangtao.github.io/2015/06/12/垃圾收集算法/</id>
     <published>2015-06-11T16:00:00.000Z</published>
     <updated>2019-01-25T05:38:36.781Z</updated>
     
@@ -210,17 +210,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>对象是生存还是死亡</title>
-    <link href="http://yoursite.com/2015/05/06/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1/"/>
-    <id>http://yoursite.com/2015/05/06/java虚拟机中对象生存还是死亡/</id>
+    <link href="http://shiyangtao.github.io/2015/05/06/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1/"/>
+    <id>http://shiyangtao.github.io/2015/05/06/java虚拟机中对象生存还是死亡/</id>
     <published>2015-05-05T16:00:00.000Z</published>
     <updated>2019-01-25T05:38:38.853Z</updated>
     
@@ -232,17 +232,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>java虚拟机中对象的定位</title>
-    <link href="http://yoursite.com/2015/04/21/java%E8%99%9A%E6%8B%9F%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E4%BD%8D/"/>
-    <id>http://yoursite.com/2015/04/21/java虚拟中对象的定位/</id>
+    <link href="http://shiyangtao.github.io/2015/04/21/java%E8%99%9A%E6%8B%9F%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E4%BD%8D/"/>
+    <id>http://shiyangtao.github.io/2015/04/21/java虚拟中对象的定位/</id>
     <published>2015-04-20T16:00:00.000Z</published>
     <updated>2019-01-25T05:38:45.433Z</updated>
     
@@ -254,17 +254,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>java虚拟机中对象的内存布局</title>
-    <link href="http://yoursite.com/2015/04/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/"/>
-    <id>http://yoursite.com/2015/04/03/java虚拟机中对象的内存布局/</id>
+    <link href="http://shiyangtao.github.io/2015/04/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/"/>
+    <id>http://shiyangtao.github.io/2015/04/03/java虚拟机中对象的内存布局/</id>
     <published>2015-04-02T16:00:00.000Z</published>
     <updated>2019-01-25T05:38:46.412Z</updated>
     
@@ -276,17 +276,17 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>java虚拟机中对象的创建</title>
-    <link href="http://yoursite.com/2015/02/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
-    <id>http://yoursite.com/2015/02/03/java虚拟机中对象的创建/</id>
+    <link href="http://shiyangtao.github.io/2015/02/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
+    <id>http://shiyangtao.github.io/2015/02/03/java虚拟机中对象的创建/</id>
     <published>2015-02-02T16:00:00.000Z</published>
     <updated>2019-01-25T05:38:50.184Z</updated>
     
@@ -298,10 +298,10 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
     
-      <category term="jvm" scheme="http://yoursite.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
     
   </entry>
   
