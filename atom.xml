@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shiyangtao.github.io/"/>
-  <updated>2019-01-25T14:20:13.977Z</updated>
+  <updated>2019-01-26T01:15:48.858Z</updated>
   <id>http://shiyangtao.github.io/</id>
   
   <author>
@@ -17,48 +17,198 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://shiyangtao.github.io/2019/01/25/%E5%88%86%E5%B8%83%E5%BC%8F-mysql%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/"/>
-    <id>http://shiyangtao.github.io/2019/01/25/分布式-mysql分库分表/</id>
-    <published>2019-01-25T14:20:13.977Z</published>
-    <updated>2019-01-25T14:20:13.977Z</updated>
+    <title>面试题</title>
+    <link href="http://shiyangtao.github.io/2019/01/10/%E9%9D%A2%E8%AF%95-2019-01-10/"/>
+    <id>http://shiyangtao.github.io/2019/01/10/面试-2019-01-10/</id>
+    <published>2019-01-09T16:00:00.000Z</published>
+    <updated>2019-01-26T01:15:48.858Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>layout: post<br>title: msyql分库分表<br>date: 2015-02-03<br>tags: [mysql]<br>description:</p><p>—#### 业务分库<br>按照业务分库，比如用户、商品、订单分库<br>带来的问题</p><ol><li>join 问题<br>不在同一数据库无法join，只能先查一个数据库拿到id列表，在去另外一个库查询</li><li>事务问题<br>原本在同一个数据库的不同表的操作可以在同一个事务里边，分散到不同数据库后无法通过事务统一修改。</li><li>成本问题</li></ol><h4 id="分表"><a href="#分表" class="headerlink" title="分表"></a>分表</h4><ol><li>垂直分表<br>把不常用且占用了大量空间的列拆分出去。带了的问题是原来只要查询一次就能获取所有所有列，现在需要查询多次</li><li>水平分表</li></ol><ul><li><p>路由</p><ul><li>范围路由<br>按照userId的范围分表，特点可能分配不均（例如按照1000万分表，可能一个表有1000万另一个表只有1000），随着数据的增加平滑的扩充新表，原数据不动</li><li>hash路由<br>按照hash取模分表，特点分配均匀，但是新增表所有数据需要重新分布，但是使用一致性hash算法可以优化</li><li>配置路由<br>增加一个配置表比如 user_router表 包含 user_id,table_id两列,优点灵活，缺点多查询一次表太大了性能也会不好</li></ul></li><li><p>join<br>需要多次join然后合并</p></li><li>count()<br>多个表count()相加，实现简单去诶单性能较低。增加一个记录数表，性能优化了，但是复杂度增加了，必须要同步记录，但是又不能放在同一事务里处理，因为记录表插入失败不应该回滚业务逻辑</li><li>order by<br>数据分散多个字表中，排序无法在数据库中完成，只能由业务或者中间件去分表查询每个子表中的数据然后汇总。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>1.对链表进行归并排序，链表可能有环<br>2.b+树b树的区别，优缺点</p><h1 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h1><p>1.线程池有哪些参数，有哪些作用，如果任务超过核心线程数，会发生什么？<br><a href="https://www.jianshu.com/p/432554383c55" target="_blank" rel="noopener">https://www.jianshu.com/p/432554383c55</a><br>2.hashset  底层实现<br>维护了一个hashMap<br>3.hashmap，hashtable，concurrentHashMap区别和底层原理<br>hashMap线程不安全，hashtable线程安全set/get都加了synchronized，concurrentHashMap线程安全采用锁分段来实现线程安全</p><ul><li>copyOnWriteList<br><a href="http://www.importnew.com/25034.html" target="_blank" rel="noopener">http://www.importnew.com/25034.html</a><br>4.String/StringBuffer/StringBuilder<br>String不可变，每次拼接都会新创建一个String对象<br>StringBuffer线程安全，维护一个数组(默认16)，append超过大小会出发Array copy<br>StringBuilder线程非安全，维护一个数组(默认16)，append超过大小会出发Array copy<br>4.公平锁和非公平锁怎么实现的<br>公平锁代码<br><img src="https://upload-images.jianshu.io/upload_images/2455482-8506c591de4e859a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/2455482-3af4b59db916bd99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>非公平锁代码<br><img src="https://upload-images.jianshu.io/upload_images/2455482-1d8a6c31c4eca12a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/2455482-4fe398d43a0aa5f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li></ul><p>总结：公平锁和非公平锁只有两处不同：</p><p>非公平锁在调用 lock 后，首先就会调用 CAS 进行一次抢锁，如果这个时候恰巧锁没有被占用，那么直接就获取到锁返回了。<br>非公平锁在 CAS 失败后，和公平锁一样都会进入到 tryAcquire 方法，在 tryAcquire 方法中，如果发现锁这个时候被释放了（state == 0），非公平锁会直接 CAS 抢锁，但是公平锁会判断等待队列是否有线程处于等待状态，如果有则不去抢锁，乖乖排到后面。<br>公平锁和非公平锁就这两点区别，如果这两次 CAS 都不成功，那么后面非公平锁和公平锁是一样的，都要进入到阻塞队列等待唤醒。</p><p>相对来说，非公平锁会有更好的性能，因为它的吞吐量比较大。当然，非公平锁让获取锁的时间变得更加不确定，可能会导致在阻塞队列中的线程长期处于饥饿状态。</p><p>5.说说java AQS 原理详细介绍下<br>看看java并发编程实战 关于AQS的章节<br>6.实现一个线程安全的计数器<br>AtomicInteger.incrementAndGet<br>7.synchronized和lock的区别</p><p>8.介绍happen-before<br>9.三个线程保证执行顺序<a href="https://www.cnblogs.com/kaleidoscope/p/9877174.html" target="_blank" rel="noopener">https://www.cnblogs.com/kaleidoscope/p/9877174.html</a></p><h1 id="jvm"><a href="#jvm" class="headerlink" title="jvm"></a>jvm</h1><p>1.java 内存模式</p><p>#数据库<br>1.连接池底层说下</p><h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><ol><li>解决缓存雪崩和缓存穿透的方案<br><a href="https://mp.weixin.qq.com/s/TBCEwLVAXdsTszRVpXhVug" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/TBCEwLVAXdsTszRVpXhVug</a>?</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;hr&gt;
-&lt;p&gt;layout: post&lt;br&gt;title: msyql分库分表&lt;br&gt;date: 2015-02-03&lt;br&gt;tags: [mysql]&lt;br&gt;description:&lt;/p&gt;
-&lt;p&gt;—#### 业务分库&lt;br&gt;按照业务分库，比如用户、商品、订单分库&lt;br&gt;带来
+        &lt;h1 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h1&gt;&lt;p&gt;1.对链表进行归并排序，链表可能有环&lt;br&gt;2.b+树b树的区别，优缺点&lt;/p&gt;
+&lt;h1 id=&quot;java基础&quot;&gt;&lt;a href=&quot;#jav
       
     
     </summary>
     
+    
+      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://shiyangtao.github.io/2019/01/25/nio-NIO-%E5%85%A5%E9%97%A8/"/>
-    <id>http://shiyangtao.github.io/2019/01/25/nio-NIO-入门/</id>
-    <published>2019-01-25T08:33:38.000Z</published>
-    <updated>2019-01-25T14:07:06.326Z</updated>
+    <title>mysql读写分离</title>
+    <link href="http://shiyangtao.github.io/2019/01/05/mysql-mysql%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/"/>
+    <id>http://shiyangtao.github.io/2019/01/05/mysql-mysql读写分离/</id>
+    <published>2019-01-04T16:00:00.000Z</published>
+    <updated>2019-01-26T01:14:29.453Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>layout: post<br>title: nio入门<br>date: 2015-02-03<br>tags: [nio]<br>description:</p><p>—<a href="https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html</a></p>]]></content>
+    <content type="html"><![CDATA[<p>解决问题，读压力，解决不了存储压力<br>读表利用索引提升查询速度，主表可以不建很多索引提升写入速度。</p><h4 id="带来问题"><a href="#带来问题" class="headerlink" title="带来问题"></a>带来问题</h4><ul><li>主从复制延迟<br>例如：注册完账号后，登陆显示无该用户<br>解决方法</li></ul><ol><li>写操作后的读操作指定发给主服务器<br>例如：注册完后，登陆读主库，这种方式和业务强绑定，如果新来的人不知道这样写代码，就会导致一个bug</li><li>读从机失败在去读主机（二次读取）<br>对业务无绑定，只需要对底层数据库访问api进行封装即可，实现代价较小，不足之处在于如果有很多二次读取，将大大增加主机读的压力。</li><li>关键业务读写全部指向主机，非关键业务采用读写分离<br>例如：注册登陆业务读写全部访问主机，用户介绍、爱好可以采用读写分离。</li></ol><ul><li>分配机制<br>1.程序代码封装<br>优点实现简单。<br>缺点每个编程语言都要实现一次，如果主从发生切换，则需要所有系统都修改配置并重启<br>目前开源的 淘宝的TDDL<br>2.中间件封装<br>优点支持多种编程语言，主从切换无感知（中间件可探测主从状态，比如发一个写语句，成功的是主）<br>缺点，实现复杂，所有读写请求经过中间件对性能要求高<br>目前开源的 奇虎360 atlas</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;hr&gt;
-&lt;p&gt;layout: post&lt;br&gt;title: nio入门&lt;br&gt;date: 2015-02-03&lt;br&gt;tags: [nio]&lt;br&gt;description:&lt;/p&gt;
-&lt;p&gt;—&lt;a href=&quot;https://www.ibm.com/developerworks/
+        &lt;p&gt;解决问题，读压力，解决不了存储压力&lt;br&gt;读表利用索引提升查询速度，主表可以不建很多索引提升写入速度。&lt;/p&gt;
+&lt;h4 id=&quot;带来问题&quot;&gt;&lt;a href=&quot;#带来问题&quot; class=&quot;headerlink&quot; title=&quot;带来问题&quot;&gt;&lt;/a&gt;带来问题&lt;/h4&gt;&lt;ul&gt;
+&lt;
       
     
     </summary>
     
+    
+      <category term="高性能" scheme="http://shiyangtao.github.io/tags/%E9%AB%98%E6%80%A7%E8%83%BD/"/>
+    
+      <category term="msyql" scheme="http://shiyangtao.github.io/tags/msyql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次线上死锁</title>
+    <link href="http://shiyangtao.github.io/2018/12/24/mysql-%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%BA%BF%E4%B8%8A%E6%AD%BB%E9%94%81/"/>
+    <id>http://shiyangtao.github.io/2018/12/24/mysql-记一次线上死锁/</id>
+    <published>2018-12-23T16:00:00.000Z</published>
+    <updated>2019-01-26T01:14:39.538Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="项目做了什么"><a href="#项目做了什么" class="headerlink" title="项目做了什么"></a>项目做了什么</h3><p>这个项目是为了处理一些任务，实现是启动定时任务去处理这些数据，因为项目上线后是集群的，所以为了避免多个节点处理到相同的数据，我们使用select … where  state =0 for update limit 500 来锁住数据，然后update state =2值。这样其他节点就不会重复处理数据了</p><p>同事定时任务的代码大概是这样的，我这里用伪代码表示<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transaction</span> <span class="comment">//注意使用for update一定要在事务里边</span></span><br><span class="line">processData()&#123;</span><br><span class="line">bikeIds = findForUpdate();<span class="comment">//select * from test_rawdata where state=0 for update limit 500;</span></span><br><span class="line"><span class="comment">//取出数据，然后先状态改成2</span></span><br><span class="line">updateData(bikeIds);<span class="comment">//update test_rawdata set state = 2 where bikeId in(bikeIds);</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>除了这个地方操作db外，其他地方也有insert delete，所以for update的where条件里必须要有索引，因为如果where 里的字段没有索引的话，for update就不是行锁了，就升级成表锁了。<br>那当处理定时任务时，insert和delete都将会被阻塞，这样并发性太弱了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `test_rawdata` (</span><br><span class="line">  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;主键ID&apos;,</span><br><span class="line">  `bikeId` varchar(15) NOT NULL COMMENT &apos;车id&apos;,</span><br><span class="line">  `lat` decimal(11,8) NOT NULL DEFAULT &apos;0.00000000&apos; COMMENT &apos;纬度&apos;,</span><br><span class="line">  `lng` decimal(11,8) NOT NULL DEFAULT &apos;0.00000000&apos; COMMENT &apos;经度&apos;,</span><br><span class="line">  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT &apos;创建更新时间，默认当前时间&apos;,</span><br><span class="line">  `state` int(8) NOT NULL DEFAULT &apos;0&apos; COMMENT &apos;0表示未处理 1处理中&apos;,</span><br><span class="line">  `accuracy` smallint(6) NOT NULL DEFAULT &apos;0&apos; COMMENT &apos;位置精确度&apos;,</span><br><span class="line">  PRIMARY KEY (`id`),</span><br><span class="line">  UNIQUE KEY `uniq_bikeid` (`bikeId`),</span><br><span class="line">  KEY `idx_time` (`update_time`) USING BTREE,</span><br><span class="line">  KEY `idx_state` (`state`)</span><br><span class="line">) ENGINE=InnoDB AUTO_INCREMENT=8897633 DEFAULT CHARSET=utf8 COMMENT=&apos;车辆原始位置&apos;;</span><br></pre></td></tr></table></figure><p><img src="https://upload-images.jianshu.io/upload_images/2455482-a61ae5f452263c18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="db记录"></p><p>trx1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">begin;</span><br><span class="line">select * from test_rawdata where state=0 for update;</span><br><span class="line">select sleep(8);</span><br><span class="line">update test_rawdata set state = 2 where bikeId = &quot;7fd9gSBkZ1&quot;;</span><br><span class="line">commit;</span><br></pre></td></tr></table></figure></p><p>trx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set autocommit = 0;</span><br><span class="line">begin;</span><br><span class="line">delete from test_rawdata where bikeId = &apos;7fd9gSBkZ1&apos;; //在trx sleep时间点执行</span><br><span class="line">commit;</span><br></pre></td></tr></table></figure></p><p>发生死锁<br>死锁日志<br><img src="https://upload-images.jianshu.io/upload_images/2455482-67be5b7941106602.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><img src="https://upload-images.jianshu.io/upload_images/2455482-b4cf0e82040a4632.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><img src="https://upload-images.jianshu.io/upload_images/2455482-e874a232cace2f0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><p>参考链接<br>innodb的锁 <a href="https://zhuanlan.zhihu.com/p/31875702" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31875702</a><br>索引和锁 <a href="https://zhuanlan.zhihu.com/p/40396971" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/40396971</a><br><a href="https://www.jianshu.com/p/1dc4250c6f6f" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc4250c6f6f</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;项目做了什么&quot;&gt;&lt;a href=&quot;#项目做了什么&quot; class=&quot;headerlink&quot; title=&quot;项目做了什么&quot;&gt;&lt;/a&gt;项目做了什么&lt;/h3&gt;&lt;p&gt;这个项目是为了处理一些任务，实现是启动定时任务去处理这些数据，因为项目上线后是集群的，所以为了避免多个节点处
+      
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://shiyangtao.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql事务隔离级别</title>
+    <link href="http://shiyangtao.github.io/2018/12/08/mysql-mysql%E7%9A%84%E5%9B%9B%E7%A7%8D%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"/>
+    <id>http://shiyangtao.github.io/2018/12/08/mysql-mysql的四种事务隔离级别/</id>
+    <published>2018-12-07T16:00:00.000Z</published>
+    <updated>2019-01-26T01:14:18.007Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.cnblogs.com/huanongying/p/7021555.html" target="_blank" rel="noopener">https://www.cnblogs.com/huanongying/p/7021555.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/huanongying/p/7021555.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblogs.com/huanongying/p/7021555
+      
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://shiyangtao.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql分库分表</title>
+    <link href="http://shiyangtao.github.io/2018/12/05/mysql-mysql%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/"/>
+    <id>http://shiyangtao.github.io/2018/12/05/mysql-mysql分库分表/</id>
+    <published>2018-12-04T16:00:00.000Z</published>
+    <updated>2019-01-26T01:16:52.824Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="业务分库"><a href="#业务分库" class="headerlink" title="业务分库"></a>业务分库</h4><p>按照业务分库，比如用户、商品、订单分库<br>带来的问题</p><ol><li>join 问题<br>不在同一数据库无法join，只能先查一个数据库拿到id列表，在去另外一个库查询</li><li>事务问题<br>原本在同一个数据库的不同表的操作可以在同一个事务里边，分散到不同数据库后无法通过事务统一修改。</li><li>成本问题</li></ol><h4 id="分表"><a href="#分表" class="headerlink" title="分表"></a>分表</h4><ol><li>垂直分表<br>把不常用且占用了大量空间的列拆分出去。带了的问题是原来只要查询一次就能获取所有所有列，现在需要查询多次</li><li>水平分表</li></ol><ul><li><p>路由</p><ul><li>范围路由<br>按照userId的范围分表，特点可能分配不均（例如按照1000万分表，可能一个表有1000万另一个表只有1000），随着数据的增加平滑的扩充新表，原数据不动</li><li>hash路由<br>按照hash取模分表，特点分配均匀，但是新增表所有数据需要重新分布，但是使用一致性hash算法可以优化</li><li>配置路由<br>增加一个配置表比如 user_router表 包含 user_id,table_id两列,优点灵活，缺点多查询一次表太大了性能也会不好</li></ul></li><li><p>join<br>需要多次join然后合并</p></li><li>count()<br>多个表count()相加，实现简单去诶单性能较低。增加一个记录数表，性能优化了，但是复杂度增加了，必须要同步记录，但是又不能放在同一事务里处理，因为记录表插入失败不应该回滚业务逻辑</li><li>order by<br>数据分散多个字表中，排序无法在数据库中完成，只能由业务或者中间件去分表查询每个子表中的数据然后汇总。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;业务分库&quot;&gt;&lt;a href=&quot;#业务分库&quot; class=&quot;headerlink&quot; title=&quot;业务分库&quot;&gt;&lt;/a&gt;业务分库&lt;/h4&gt;&lt;p&gt;按照业务分库，比如用户、商品、订单分库&lt;br&gt;带来的问题&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;join 问题&lt;br&gt;不在同一数据库无法
+      
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://shiyangtao.github.io/tags/mysql/"/>
+    
+      <category term="高性能" scheme="http://shiyangtao.github.io/tags/%E9%AB%98%E6%80%A7%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell启动socket</title>
+    <link href="http://shiyangtao.github.io/2018/12/03/linux%E5%91%BD%E4%BB%A4-shell%E5%90%AF%E5%8A%A8socket/"/>
+    <id>http://shiyangtao.github.io/2018/12/03/linux命令-shell启动socket/</id>
+    <published>2018-12-02T16:00:00.000Z</published>
+    <updated>2019-01-26T01:13:53.324Z</updated>
+    
+    <content type="html"><![CDATA[<p>nc -l localhost 3000 server<br>nc localhost 3000 client</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;nc -l localhost 3000 server&lt;br&gt;nc localhost 3000 client&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://shiyangtao.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>grep</title>
+    <link href="http://shiyangtao.github.io/2018/11/03/linux%E5%91%BD%E4%BB%A4-grep/"/>
+    <id>http://shiyangtao.github.io/2018/11/03/linux命令-grep/</id>
+    <published>2018-11-02T16:00:00.000Z</published>
+    <updated>2019-01-26T01:13:46.080Z</updated>
+    
+    <content type="html"><![CDATA[<p>grep 后面带上-A -B -C 参数可以多显示几行内容</p><p>grep -A 5 可以显示匹配内容以及后面的5行内容<br>grep -B 5 可以显示匹配内容以及前面的5行内容<br>grep -C 5 可以显示匹配内容以及前后面的5行内容</p><p>grep “” logfile|wc -l 显示匹配的行数</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;grep 后面带上-A -B -C 参数可以多显示几行内容&lt;/p&gt;
+&lt;p&gt;grep -A 5 可以显示匹配内容以及后面的5行内容&lt;br&gt;grep -B 5 可以显示匹配内容以及前面的5行内容&lt;br&gt;grep -C 5 可以显示匹配内容以及前后面的5行内容&lt;/p&gt;
+&lt;p&gt;gr
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://shiyangtao.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线程池构造方法</title>
+    <link href="http://shiyangtao.github.io/2018/10/03/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-java%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    <id>http://shiyangtao.github.io/2018/10/03/java并发编程-java线程池/</id>
+    <published>2018-10-02T16:00:00.000Z</published>
+    <updated>2019-01-26T01:11:45.863Z</updated>
+    
+    <content type="html"><![CDATA[<p>Java中的ThreadPoolExecutor类<br>提供了四个构造方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadPoolExecutor extends AbstractExecutorService &#123;</span><br><span class="line">    .....</span><br><span class="line">    public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,</span><br><span class="line">            BlockingQueue&lt;Runnable&gt; workQueue);</span><br><span class="line"> </span><br><span class="line">    public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,</span><br><span class="line">            BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory);</span><br><span class="line"> </span><br><span class="line">    public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,</span><br><span class="line">            BlockingQueue&lt;Runnable&gt; workQueue,RejectedExecutionHandler handler);</span><br><span class="line"> </span><br><span class="line">    public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,</span><br><span class="line">        BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h5 id="参数解读"><a href="#参数解读" class="headerlink" title="参数解读"></a>参数解读</h5><ul><li>corePoolSize: 核心线程大小 </li><li>maximumPoolSize: 最大线程数</li><li>workQueue: 一个阻塞队列，用来存储等待执行的任务，由如下选择ArrayBlockingQueue 有界队列;<br>LinkedBlockingQueue 无界队列;<br>SynchronousQueue同步移交，不是一个真正的队列，而是一种在线程中移交的机制。将一个元素放入到队列中必须有一个线程等待接受这个任务，如果没有线程正在等待，且线程池当前大小小于最大值，那么创建一个新的线程去执行，否则根据饱和机制这个任务将被拒绝</li><li>keepAliveTime: 表示线程没有任务执行时最多保持多久时间会终止。默认情况下，只有当线程池中的线程数大于corePoolSize时，keepAliveTime才会起作用，直到线程池中的线程数不大于corePoolSize，即当线程池中的线程数大于corePoolSize时，如果一个线程空闲的时间达到keepAliveTime，则会终止，直到线程池中的线程数不超过corePoolSize。但是如果调用了allowCoreThreadTimeOut(boolean)方法，在线程池中的线程数不大于corePoolSize时，keepAliveTime参数也会起作用，直到线程池中的线程数为0；</li><li>threadFactory：线程工厂，主要用来创建线程；可以自己写个线程工厂来个性化自己的线程比如名字，或者计数</li><li>rejectedExecutionHandler:<br>ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常。<br>ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常。<br>ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）<br>ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务<h5 id="线程创建逻辑ThreadPoolExecutor里execute方法"><a href="#线程创建逻辑ThreadPoolExecutor里execute方法" class="headerlink" title="线程创建逻辑ThreadPoolExecutor里execute方法"></a>线程创建逻辑ThreadPoolExecutor里execute方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">public void execute(Runnable command) &#123;</span><br><span class="line">    if (command == null)</span><br><span class="line">        throw new NullPointerException();</span><br><span class="line"></span><br><span class="line">    //  “线程数” 的整数</span><br><span class="line">    int c = ctl.get();</span><br><span class="line"></span><br><span class="line">    // 如果当前线程数少于核心线程数，那么直接添加一个 worker 来执行任务，</span><br><span class="line">    // 创建一个新的线程，并把当前任务 command 作为这个线程的第一个任务(firstTask)</span><br><span class="line">    if (workerCountOf(c) &lt; corePoolSize) &#123;</span><br><span class="line">        // 添加任务成功，那么就结束了。提交任务嘛，线程池已经接受了这个任务，这个方法也就可以返回了</span><br><span class="line">        // 至于执行的结果，到时候会包装到 FutureTask 中。</span><br><span class="line">        // 返回 false 代表线程池不允许提交任务</span><br><span class="line">        if (addWorker(command, true))</span><br><span class="line">            return;</span><br><span class="line">        c = ctl.get();</span><br><span class="line">    &#125;</span><br><span class="line">    // 到这里说明，要么当前线程数大于等于核心线程数，要么刚刚 addWorker 失败了</span><br><span class="line"></span><br><span class="line">    // 如果线程池处于 RUNNING 状态，把这个任务添加到任务队列 workQueue 中</span><br><span class="line">    if (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;</span><br><span class="line">        /* 这里面说的是，如果任务进入了 workQueue，我们是否需要开启新的线程</span><br><span class="line">         * 因为线程数在 [0, corePoolSize) 是无条件开启新的线程</span><br><span class="line">         * 如果线程数已经大于等于 corePoolSize，那么将任务添加到队列中，然后进到这里</span><br><span class="line">         */</span><br><span class="line">        int recheck = ctl.get();</span><br><span class="line">        // 如果线程池已不处于 RUNNING 状态，那么移除已经入队的这个任务，并且执行拒绝策略</span><br><span class="line">        if (! isRunning(recheck) &amp;&amp; remove(command))</span><br><span class="line">            reject(command);</span><br><span class="line">        // 如果线程池还是 RUNNING 的，并且线程数为 0，那么开启新的线程</span><br><span class="line">        // 到这里，我们知道了，这块代码的真正意图是：担心任务提交到队列中了，但是线程都关闭了</span><br><span class="line">        else if (workerCountOf(recheck) == 0)</span><br><span class="line">            addWorker(null, false);</span><br><span class="line">    &#125;</span><br><span class="line">    // 如果 workQueue 队列满了，那么进入到这个分支</span><br><span class="line">    // 以 maximumPoolSize 为界创建新的 worker，</span><br><span class="line">    // 如果失败，说明当前线程数已经达到 maximumPoolSize，执行拒绝策略</span><br><span class="line">    else if (!addWorker(command, false))</span><br><span class="line">        reject(command);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>1.如果当前线程数少于 corePoolSize，那么提交任务的时候创建一个新的线程，并由这个线程执行这个任务；<br>2.如果当前线程数已经达到 corePoolSize，那么将提交的任务添加到队列中，等待线程池中的线程去队列中取任务；<br>3.如果队列已满，那么创建新的线程来执行任务，需要保证池中的线程数不会超过 maximumPoolSize，如果此时线程数超过了 maximumPoolSize，那么执行拒绝策略</p><p>Executors里的三个静态方法</p><ul><li>生成固定大小线程池<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static ExecutorService newFixedThreadPool(int nThreads) &#123;</span><br><span class="line">    return new ThreadPoolExecutor(nThreads, nThreads,</span><br><span class="line">                                  0L, TimeUnit.MILLISECONDS,</span><br><span class="line">                                  new LinkedBlockingQueue&lt;Runnable&gt;());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>最大线程数设置为与核心线程数相等，此时 keepAliveTime 设置为 0（因为这里它是没用的，即使不为 0，线程池默认也不会回收 corePoolSize 内的线程），任务队列采用 LinkedBlockingQueue，无界队列。</p><p>过程分析：刚开始，每提交一个任务都创建一个 worker，当 worker 的数量达到 nThreads 后，不再创建新的线程，而是把任务提交到 LinkedBlockingQueue 中，而且之后线程数始终为 nThreads。</p><ul><li><p>生成只有一个线程的固定线程池，这个更简单，和上面的一样，只要设置线程数为 1 就可以了：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static ExecutorService newSingleThreadExecutor() &#123;</span><br><span class="line">    return new FinalizableDelegatedExecutorService</span><br><span class="line">        (new ThreadPoolExecutor(1, 1,</span><br><span class="line">                                0L, TimeUnit.MILLISECONDS,</span><br><span class="line">                                new LinkedBlockingQueue&lt;Runnable&gt;()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>生成一个需要的时候就创建新的线程，同时可以复用之前创建的线程（如果这个线程当前没有任务）的线程池：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static ExecutorService newCachedThreadPool() &#123;</span><br><span class="line">    return new ThreadPoolExecutor(0, Integer.MAX_VALUE,</span><br><span class="line">                                  60L, TimeUnit.SECONDS,</span><br><span class="line">                                  new SynchronousQueue&lt;Runnable&gt;());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>核心线程数为 0，最大线程数为 Integer.MAX_VALUE，keepAliveTime 为 60 秒，任务队列采用 SynchronousQueue。<br>这种线程池对于任务可以比较快速地完成的情况有比较好的性能。如果线程空闲了 60 秒都没有任务，那么将关闭此线程并从线程池中移除。所以如果线程池空闲了很长时间也不会有问题，因为随着所有的线程都会被关闭，整个线程池不会占用任何的系统资源。</p><p>过程分析：我把 execute 方法的主体黏贴过来，让大家看得明白些。鉴于 corePoolSize 是 0，那么提交任务的时候，直接将任务提交到队列中，由于采用了 SynchronousQueue，所以如果是第一个任务提交的时候，offer 方法肯定会返回 false，因为此时没有任何 worker 对这个任务进行接收，那么将进入到最后一个分支来创建第一个 worker。之后再提交任务的话，取决于是否有空闲下来的线程对任务进行接收，如果有，会进入到第二个 if 语句块中，否则就是和第一个任务一样，进到最后的 else if 分支。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int c = ctl.get();</span><br><span class="line">// corePoolSize 为 0，所以不会进到这个 if 分支</span><br><span class="line">if (workerCountOf(c) &lt; corePoolSize) &#123;</span><br><span class="line">    if (addWorker(command, true))</span><br><span class="line">        return;</span><br><span class="line">    c = ctl.get();</span><br><span class="line">&#125;</span><br><span class="line">// offer 如果有空闲线程刚好可以接收此任务，那么返回 true，否则返回 false</span><br><span class="line">if (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;</span><br><span class="line">    int recheck = ctl.get();</span><br><span class="line">    if (! isRunning(recheck) &amp;&amp; remove(command))</span><br><span class="line">        reject(command);</span><br><span class="line">    else if (workerCountOf(recheck) == 0)</span><br><span class="line">        addWorker(null, false);</span><br><span class="line">&#125;</span><br><span class="line">else if (!addWorker(command, false))</span><br><span class="line">    reject(command);</span><br></pre></td></tr></table></figure></p><p>参考链接：<a href="https://javadoop.com/post/java-thread-pool#%E6%80%BB%E7%BB%93" target="_blank" rel="noopener">https://javadoop.com/post/java-thread-pool#%E6%80%BB%E7%BB%93</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Java中的ThreadPoolExecutor类&lt;br&gt;提供了四个构造方法&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="java并发编程" scheme="http://shiyangtao.github.io/tags/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -95,26 +245,107 @@
     <link href="http://shiyangtao.github.io/2018/09/21/%E9%9D%A2%E8%AF%95-jianli/"/>
     <id>http://shiyangtao.github.io/2018/09/21/面试-jianli/</id>
     <published>2018-09-20T16:00:00.000Z</published>
-    <updated>2019-01-25T13:52:36.760Z</updated>
+    <updated>2019-01-26T01:16:21.754Z</updated>
     
-    <content type="html"><![CDATA[<p>##个人简介</p><ul><li>史洋涛/男/1990 </li><li>工作年限：4年</li><li>手机（微信）：13621204061</li><li>邮箱：<a href="mailto:yangtao.shi@gmail.com" target="_blank" rel="noopener">yangtao.shi@gmail.com</a></li><li>博客：<a href="http://shiyangtao.github.io">http://shiyangtao.github.io</a></li></ul><hr><p>##自我描述</p><ul><li>4年＋java开发经验</li><li>极客，热爱编程，喜欢专研</li><li>渴求自我提升、实现价值</li><li>工作认真，积极性高，思路清晰，善于思考，能独立分析和解决问题</li><li>责任心强，具有较强的沟通能力及团队合作精神和承受压力能力。</li></ul><hr><p>##教育背景<br> 2010.9-2014.7   石家庄学院             软件工程           本科（统招）   </p><hr><p>##工作经历</p><h3 id="北京安信创富科技有限公司-（-2015-09-至今-）-后端团队leader"><a href="#北京安信创富科技有限公司-（-2015-09-至今-）-后端团队leader" class="headerlink" title="北京安信创富科技有限公司             （ 2015.09 - 至今 ）                              后端团队leader"></a>北京安信创富科技有限公司             （ 2015.09 - 至今 ）                              后端团队leader</h3><p>负责把产品的需求转化为规范的开发计划，并对产品需求进行合理化建议，按计划确保开发工作顺利进行。带三至四人后端团队开发、任务分配，并且主导系统全局分析设计和实施，包括接口的设计，数据库设计，第三方服务接入，根据业务来选择实施落地的技术，最后按质按量的完成项目需求。后期根据业务增长针对性的做优化，比如缓存系统，负载均衡，服务拆分，异步调用削峰，数据分区等，来提高架构的性能和稳定性</p><h4 id="客慧来-收银系统（2016-05-至今）"><a href="#客慧来-收银系统（2016-05-至今）" class="headerlink" title="客慧来-收银系统（2016.05-至今）"></a>客慧来-收银系统（2016.05-至今）</h4><p>基于python-libcef开发的windows桌面收银和云端java结合的智能收银系统, 主要为商家提供除基础收银功能外的智能买单，灵活的营销体系、强大的会员系统、营业手机监控等功能，截止目前有1000+商家把传统收银软件替换成我们的收银系统，更加智能和易用</p><ul><li>负责：<br>收银本地和云端产品的接口和数据库的设计，主要模块支付体系、会员体系、营销体系、第三方对接等的开发和功能点的任务分配，根据后期数据增长，需求变化对系统实现功能扩展，服务拆分、性能优化、日志监控、安全性升级等，使系统高性能、高稳定性、安全性。  </li><li><p>解决的问题：</p><ul><li>客户端数据库：选用sqlite数据库，并使用sqlcipher加密，使用SQLAlchemy作为orm框架来提高开发速度，实现数据库版本控制，数据备份</li><li>支付系统：微信支付／支付宝支付／第三方支付（beecloud）的对接，支持多种支付场景（刷卡，扫码，混合），根据商户的各种情况一键切换</li><li>小程序工具开发：小程序和公众号用户关联，合并用户，历史数据刷新</li><li>会员系统优化：按业务拆分数据库，消息队列(SQS)削峰提高性能，实现用户行为收集高并发</li><li>爬取第三方数据：随着对接商家的增多，有会员迁移的需求，有些商家之前使用的平台不支持导出数据，Python Scrapy爬取会员数据</li><li>集群化：服务拆分、RPC调用、容器化（Docker Swarm）、日志收集与监控(Amazon CloudWatch)<h4 id="口碑isv（2017-02-至今）"><a href="#口碑isv（2017-02-至今）" class="headerlink" title="口碑isv（2017.02-至今）"></a>口碑isv（2017.02-至今）</h4>该项目是一个基于支付宝平台，为商家提供便捷支付和营销功能，打通商家收银系统，提供更加支付体验，相比口碑同期ISV，我们终端设备插件可实时配置与打通，并且打通速度快，支持设备广，目前仍有2000+家在使用，曾被口碑平台推荐</li></ul></li><li><p>负责模块：<br>对接口碑功能、商户收银的打通、后期业务增长系统优化、服务拆分、服务冗余</p></li><li>解决的问题：<ul><li>口碑券状态不同步的问题：采取定时通过口碑提供的接口去同步状态，还有给用户发券失败的错误信息异步分析，如果是因为发送已下架的券，就会主动去把状态修改掉</li><li>并发发券提升用户体验：启用多线程去发券，前后端协调一起优化用户体验</li><li>结账前优惠计算问题：团队通过多种测试用例来推算口碑券核销的优先级互斥性，并且记录着给用户发放的券，来实现这个需求。虽然这种方式是有误差的，但是灰度上线经运行一段时间后根据log分析准确率很高，用户体验得到了提升，得到了商户的认可</li><li>收银软件打通：采用数据库打通机制解决，破解商户收银的数据库，云端和本地client通过websocket通信，本地插件把云端指令集翻译成sql语句通过odbc 去查询商家收银数据库，来获得菜品／桌台／订单数据，保证稳定性和准确性</li><li>秒付性能问题：根据后期业务增长，和口碑对isv的高性能和稳定性要求，都使用redis缓存起来常用的查询数据，并且实现服务拆分（重用服务模块），服务冗余（避免单点故障），消息队列削峰（SQS）使用docker 技术实现服务的弹性伸缩，最后通过口碑压测，峰值能达到1000+qps<br>###准成品电商平台  （2015.09-2016.08 ）<br>该项目是一个基于微信平台的一个电商项目，主要向用户出售半成品，项目主要包括：用户登录、用户储值、下单、客服系统、订单消息系统(对商家、对用户)、快递配送系统、后台库存系统、邮件系统，项目截止前，北京有数家半成品供应商，个人消费者10000+，合作小商户等多达1000+，配送基本覆盖了北京全范围</li></ul></li><li>负责模块：<br>用户登陆，微信授权、下单、订单超时、订单配送、拆单、跳单逻辑、库存管理、报表数据等主要模块</li><li>遇到的问题：<ul><li>库存管理：供应商有后台来编辑某个菜品的库存量，库存不足时菜品不能下单，为了避免多人同时下单操作单个菜品的时，引起的并发问题，采用redis的transaction机制，避免高并发引起的库存数量错误问题</li><li>订单数量多后数据库压力：分库分表（Sharding-JDBC）</li></ul></li></ul><p>###北京源讯信息技术中国有限公司（2014.10 - 2015.09 ）                 java开发工程师<br>负责公司主要项目维护和个性化开发，性能优化，针对客户反馈出来的问题进行有效的沟通，并解决问题</p><p>###北京东方飞扬科技有限公司（2013.12 - 2014.09 ）                java开发工程师<br>负责公司定制化项目的敏捷开发，参与总体需求分析与架构设计、领域模型设计、数据库设计、SSH架构搭建及JBPM</p><h1 id="技能清单"><a href="#技能清单" class="headerlink" title="技能清单"></a>技能清单</h1><ul><li>java基础扎实，熟悉Jvm，有jvm调优经验</li><li>能够熟练的应用各种框架spring struts hibernate spring Ibatis jpa</li><li>熟悉mysql等关系型数据库，以及数据库调优、sql优化，熟练掌握sql语言</li><li>熟悉redis，mogodb，dynamodb等非关系型数据库</li><li>熟悉Linux操作系统，会使用常用的linux命令，有linux服务器的部署经验</li><li>熟悉docker容器技术，docker编排工具</li><li>熟悉python语言，用于日常脚本和爬虫</li><li>熟悉消息队列 掌握rabbitmq、sqs等消息队列</li><li>熟悉分布式、缓存、消息、异步等机制</li><li>熟悉aws云平台，dynamodb，s3，sqs模块发</li></ul>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><p>##个人简介</p><ul><li>史洋涛/男/1990 </li><li>工作年限：4年</li><li>手机（微信）：13621204061</li><li>邮箱：<a href="mailto:yangtao.shi@gmail.com" target="_blank" rel="noopener">yangtao.shi@gmail.com</a></li><li>博客：<a href="http://shiyangtao.github.io">http://shiyangtao.github.io</a></li></ul><hr><p>##自我描述</p><ul><li>4年＋java开发经验</li><li>极客，热爱编程，喜欢专研</li><li>渴求自我提升、实现价值</li><li>工作认真，积极性高，思路清晰，善于思考，能独立分析和解决问题</li><li>责任心强，具有较强的沟通能力及团队合作精神和承受压力能力。</li></ul><hr><p>##教育背景<br> 2010.9-2014.7   石家庄学院             软件工程           本科（统招）   </p><hr><p>##工作经历</p><h3 id="北京安信创富科技有限公司-（-2015-09-至今-）-后端团队leader"><a href="#北京安信创富科技有限公司-（-2015-09-至今-）-后端团队leader" class="headerlink" title="北京安信创富科技有限公司             （ 2015.09 - 至今 ）                              后端团队leader"></a>北京安信创富科技有限公司             （ 2015.09 - 至今 ）                              后端团队leader</h3><p>负责把产品的需求转化为规范的开发计划，并对产品需求进行合理化建议，按计划确保开发工作顺利进行。带三至四人后端团队开发、任务分配，并且主导系统全局分析设计和实施，包括接口的设计，数据库设计，第三方服务接入，根据业务来选择实施落地的技术，最后按质按量的完成项目需求。后期根据业务增长针对性的做优化，比如缓存系统，负载均衡，服务拆分，异步调用削峰，数据分区等，来提高架构的性能和稳定性</p><h4 id="客慧来-收银系统（2016-05-至今）"><a href="#客慧来-收银系统（2016-05-至今）" class="headerlink" title="客慧来-收银系统（2016.05-至今）"></a>客慧来-收银系统（2016.05-至今）</h4><p>基于python-libcef开发的windows桌面收银和云端java结合的智能收银系统, 主要为商家提供除基础收银功能外的智能买单，灵活的营销体系、强大的会员系统、营业手机监控等功能，截止目前有1000+商家把传统收银软件替换成我们的收银系统，更加智能和易用</p><ul><li>负责：<br>收银本地和云端产品的接口和数据库的设计，主要模块支付体系、会员体系、营销体系、第三方对接等的开发和功能点的任务分配，根据后期数据增长，需求变化对系统实现功能扩展，服务拆分、性能优化、日志监控、安全性升级等，使系统高性能、高稳定性、安全性。  </li><li><p>解决的问题：</p><ul><li>客户端数据库：选用sqlite数据库，并使用sqlcipher加密，使用SQLAlchemy作为orm框架来提高开发速度，实现数据库版本控制，数据备份</li><li>支付系统：微信支付／支付宝支付／第三方支付（beecloud）的对接，支持多种支付场景（刷卡，扫码，混合），根据商户的各种情况一键切换</li><li>小程序工具开发：小程序和公众号用户关联，合并用户，历史数据刷新</li><li>会员系统优化：按业务拆分数据库，消息队列(SQS)削峰提高性能，实现用户行为收集高并发</li><li>爬取第三方数据：随着对接商家的增多，有会员迁移的需求，有些商家之前使用的平台不支持导出数据，Python Scrapy爬取会员数据</li><li>集群化：服务拆分、RPC调用、容器化（Docker Swarm）、日志收集与监控(Amazon CloudWatch)<h4 id="口碑isv（2017-02-至今）"><a href="#口碑isv（2017-02-至今）" class="headerlink" title="口碑isv（2017.02-至今）"></a>口碑isv（2017.02-至今）</h4>该项目是一个基于支付宝平台，为商家提供便捷支付和营销功能，打通商家收银系统，提供更加支付体验，相比口碑同期ISV，我们终端设备插件可实时配置与打通，并且打通速度快，支持设备广，目前仍有2000+家在使用，曾被口碑平台推荐</li></ul></li><li><p>负责模块：<br>对接口碑功能、商户收银的打通、后期业务增长系统优化、服务拆分、服务冗余</p></li><li>解决的问题：<ul><li>口碑券状态不同步的问题：采取定时通过口碑提供的接口去同步状态，还有给用户发券失败的错误信息异步分析，如果是因为发送已下架的券，就会主动去把状态修改掉</li><li>并发发券提升用户体验：启用多线程去发券，前后端协调一起优化用户体验</li><li>结账前优惠计算问题：团队通过多种测试用例来推算口碑券核销的优先级互斥性，并且记录着给用户发放的券，来实现这个需求。虽然这种方式是有误差的，但是灰度上线经运行一段时间后根据log分析准确率很高，用户体验得到了提升，得到了商户的认可</li><li>收银软件打通：采用数据库打通机制解决，破解商户收银的数据库，云端和本地client通过websocket通信，本地插件把云端指令集翻译成sql语句通过odbc 去查询商家收银数据库，来获得菜品／桌台／订单数据，保证稳定性和准确性</li><li>秒付性能问题：根据后期业务增长，和口碑对isv的高性能和稳定性要求，都使用redis缓存起来常用的查询数据，并且实现服务拆分（重用服务模块），服务冗余（避免单点故障），消息队列削峰（SQS）使用docker 技术实现服务的弹性伸缩，最后通过口碑压测，峰值能达到1000+qps<br>###准成品电商平台  （2015.09-2016.08 ）<br>该项目是一个基于微信平台的一个电商项目，主要向用户出售半成品，项目主要包括：用户登录、用户储值、下单、客服系统、订单消息系统(对商家、对用户)、快递配送系统、后台库存系统、邮件系统，项目截止前，北京有数家半成品供应商，个人消费者10000+，合作小商户等多达1000+，配送基本覆盖了北京全范围</li></ul></li><li>负责模块：<br>用户登陆，微信授权、下单、订单超时、订单配送、拆单、跳单逻辑、库存管理、报表数据等主要模块</li><li>遇到的问题：<ul><li>库存管理：供应商有后台来编辑某个菜品的库存量，库存不足时菜品不能下单，为了避免多人同时下单操作单个菜品的时，引起的并发问题，采用redis的transaction机制，避免高并发引起的库存数量错误问题</li><li>订单数量多后数据库压力：分库分表（Sharding-JDBC）</li></ul></li></ul><p>###北京源讯信息技术中国有限公司（2014.10 - 2015.09 ）                 java开发工程师<br>负责公司主要项目维护和个性化开发，性能优化，针对客户反馈出来的问题进行有效的沟通，并解决问题</p><p>###北京东方飞扬科技有限公司（2013.12 - 2014.09 ）                java开发工程师<br>负责公司定制化项目的敏捷开发，参与总体需求分析与架构设计、领域模型设计、数据库设计、SSH架构搭建及JBPM</p><h1 id="技能清单"><a href="#技能清单" class="headerlink" title="技能清单"></a>技能清单</h1><ul><li>java基础扎实，熟悉Jvm，有jvm调优经验</li><li>能够熟练的应用各种框架spring struts hibernate spring Ibatis jpa</li><li>熟悉mysql等关系型数据库，以及数据库调优、sql优化，熟练掌握sql语言</li><li>熟悉redis，mogodb，dynamodb等非关系型数据库</li><li>熟悉Linux操作系统，会使用常用的linux命令，有linux服务器的部署经验</li><li>熟悉docker容器技术，docker编排工具</li><li>熟悉python语言，用于日常脚本和爬虫</li><li>熟悉消息队列 掌握rabbitmq、sqs等消息队列</li><li>熟悉分布式、缓存、消息、异步等机制</li><li>熟悉aws云平台，dynamodb，s3，sqs模块发</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;##个人简介&lt;/p&gt;
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;##个人简介&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;史洋涛/男/1990 &lt;/li&gt;
 &lt;li&gt;工作年限：4年&lt;/li&gt;
 &lt;li&gt;手机（微信）：13621204061&lt;/li&gt;
-&lt;li&gt;邮箱：&lt;a href=&quot;mailto:yangtao.shi@gmail.com&quot; target=&quot;_
+&lt;li&gt;邮箱：&lt;a href=&quot;mailto:yangtao.shi@gm
       
     
     </summary>
     
       <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>面试计数器相关</title>
+    <link href="http://shiyangtao.github.io/2018/05/20/%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95-%E8%AE%A1%E6%95%B0%E5%99%A8%E7%9B%B8%E5%85%B3/"/>
+    <id>http://shiyangtao.github.io/2018/05/20/面试-面试-计数器相关/</id>
+    <published>2018-05-19T16:00:00.000Z</published>
+    <updated>2019-01-26T01:16:41.329Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="面试官问："><a href="#面试官问：" class="headerlink" title="面试官问："></a>面试官问：</h4><p>文件里有m个身份证号，统计每个身份证号出现的次数</p><h4 id="回答："><a href="#回答：" class="headerlink" title="回答："></a>回答：</h4><p>使用hashMap实现，key作为身份证号<br><em>ContainsKey</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; freq = new HashMap&lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">    int count = freq.containsKey(word) ? freq.get(word) : 0;</span><br><span class="line">    freq.put(word, count + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="面试官问：-1"><a href="#面试官问：-1" class="headerlink" title="面试官问："></a>面试官问：</h4><p>还能优化吗</p><h4 id="回答：-1"><a href="#回答：-1" class="headerlink" title="回答："></a>回答：</h4><p><em>TestForNull</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; freq = new HashMap&lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>减少调用containsKey方法的开销</p><h4 id="面试官问：-2"><a href="#面试官问：-2" class="headerlink" title="面试官问："></a>面试官问：</h4><p>如果是高并发情况呢</p><h4 id="回答：-2"><a href="#回答：-2" class="headerlink" title="回答："></a>回答：</h4><p>采用ConcurrentHashMap去做，线程安全的</p><h4 id="面试官问：-3"><a href="#面试官问：-3" class="headerlink" title="面试官问："></a>面试官问：</h4><p>高并发下HashMap有什么问题吗</p><h4 id="回答：-3"><a href="#回答：-3" class="headerlink" title="回答："></a>回答：</h4><p>并发情况下使用HashMap造成Race Condition，从而导致死循环，CPU占用率会达到100%<br><a href="https://coolshell.cn/articles/9606.html" target="_blank" rel="noopener">博文链接hashMap死循环</a></p><h4 id="面试官问：-4"><a href="#面试官问：-4" class="headerlink" title="面试官问："></a>面试官问：</h4><p>ok 用ConcurrentHashMap 实现下</p><h4 id="回答：-4"><a href="#回答：-4" class="headerlink" title="回答："></a>回答：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap &lt;String, Integer&gt; freq = new ConcurrentHashMap &lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">      freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="面试官问：-5"><a href="#面试官问：-5" class="headerlink" title="面试官问："></a>面试官问：</h4><p>确定能实现？</p><h4 id="回答：-5"><a href="#回答：-5" class="headerlink" title="回答："></a>回答：</h4><p>实现不了 put操作会覆盖，比如两个线程同时进来读到了都是4，那么都会put 5进去，<br>可以给方法加上synchronized锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap &lt;String, Integer&gt; freq = new ConcurrentHashMap &lt;String, Integer&gt;();</span><br><span class="line">public synchronized void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">      freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="面试官问：-6"><a href="#面试官问：-6" class="headerlink" title="面试官问："></a>面试官问：</h4><p>嗯嗯 加锁确实能实现，但是性能差点，能优化下吗</p><h4 id="回答-当时回答的不好-："><a href="#回答-当时回答的不好-：" class="headerlink" title="回答(当时回答的不好)："></a>回答(当时回答的不好)：</h4><p>能,采用cas方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap&lt;String, AtomicLong&gt; map = new ConcurrentHashMap&lt;String, AtomicLong&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  map.putIfAbsent(word, new AtomicLong(0));</span><br><span class="line">  map.get(word).incrementAndGet();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>也可以采用  AtomicLongMap，AtomicLongMap是Google Guava项目的一个类，它是线程安全、支持并发访问的，通过CAS方式实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AtomicLongMap&lt;String&gt; map = AtomicLongMap.create();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">   map.getAndIncrement(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="延伸："><a href="#延伸：" class="headerlink" title="延伸："></a>延伸：</h4><p>AtomicLong – 这组类使用CAS（比较并交换）处理器指令来更新计数器的值。听起来不错，真的是这样吗？是也不是。好的一面是它通过一个直接机器码指令设置值时，能够最小程度地影响其他线程的执行。坏的一面是如果它在与其他线程竞争设置值时失败了，它不得不再次尝试。在高竞争下，这将转化为一个自旋锁，线程不得不持续尝试设置值，无限循环直到成功。这可不是我们想要的方法。<a href="http://www.importnew.com/11345.html" target="_blank" rel="noopener">让我们进入Java 8的LongAdders</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;面试官问：&quot;&gt;&lt;a href=&quot;#面试官问：&quot; class=&quot;headerlink&quot; title=&quot;面试官问：&quot;&gt;&lt;/a&gt;面试官问：&lt;/h4&gt;&lt;p&gt;文件里有m个身份证号，统计每个身份证号出现的次数&lt;/p&gt;
+&lt;h4 id=&quot;回答：&quot;&gt;&lt;a href=&quot;#回答：&quot; c
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>必要商城面试</title>
+    <link href="http://shiyangtao.github.io/2018/05/13/%E9%9D%A2%E8%AF%95-%E5%BF%85%E8%A6%81%E5%95%86%E5%9F%8E%E9%9D%A2%E8%AF%95/"/>
+    <id>http://shiyangtao.github.io/2018/05/13/面试-必要商城面试/</id>
+    <published>2018-05-12T16:00:00.000Z</published>
+    <updated>2019-01-26T01:16:30.362Z</updated>
+    
+    <content type="html"><![CDATA[<p>无笔试<br>第一轮</p><ul><li>你看过哪些java源码 或者框架的源码</li><li>项目里用了多线程的地方 线程池相关</li><li>数据库隔离</li><li>spring 原理 ioc aop</li><li>自己设计一个券系统，并画出er图</li><li>根据用户的优惠券，快速算出最佳优惠的策略</li></ul><p>第二轮</p><ul><li>业务数据量大，如何优化</li><li>订单超时过期实现（回答延迟mq、redis过期key订阅、Linux定时任务，面试官感觉mq会出现死信，redis或linux会down 有没有更好的方案，没有get到他想考察的点</li></ul><p>第三轮</p><ul><li>依赖第三方服务，比如支付结果的轮询，如果第三方down掉，支付服务会down或者重启后又down是什么原因（考察http 链接的开销，设置过期时间）</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;无笔试&lt;br&gt;第一轮&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你看过哪些java源码 或者框架的源码&lt;/li&gt;
+&lt;li&gt;项目里用了多线程的地方 线程池相关&lt;/li&gt;
+&lt;li&gt;数据库隔离&lt;/li&gt;
+&lt;li&gt;spring 原理 ioc aop&lt;/li&gt;
+&lt;li&gt;自己设计一个券系统，并画出er
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>boss直聘面试15分钟gg</title>
+    <link href="http://shiyangtao.github.io/2018/05/03/%E9%9D%A2%E8%AF%95-boss%E7%9B%B4%E8%81%98%E9%9D%A2%E8%AF%9515%E5%88%86gg/"/>
+    <id>http://shiyangtao.github.io/2018/05/03/面试-boss直聘面试15分gg/</id>
+    <published>2018-05-02T16:00:00.000Z</published>
+    <updated>2019-01-26T01:16:01.320Z</updated>
+    
+    <content type="html"><![CDATA[<p>#笔试题</p><ul><li>hashmap遍历</li><li>linux log 查处访问前十的IP地址</li><li>三个远程方法a b c 返回类型一样 有一个方法执行完就返回<h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1>讲讲hashmap hashmap的几种构造方法<br>讲讲一致性hash算法</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#笔试题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hashmap遍历&lt;/li&gt;
+&lt;li&gt;linux log 查处访问前十的IP地址&lt;/li&gt;
+&lt;li&gt;三个远程方法a b c 返回类型一样 有一个方法执行完就返回&lt;h1 id=&quot;面试&quot;&gt;&lt;a href=&quot;#面试&quot; class=&quot;header
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
@@ -257,233 +488,28 @@
   </entry>
   
   <entry>
-    <title>垃圾收集器</title>
-    <link href="http://shiyangtao.github.io/2017/01/14/jvm-2017-01-14-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"/>
-    <id>http://shiyangtao.github.io/2017/01/14/jvm-2017-01-14-垃圾收集器/</id>
-    <published>2017-01-13T16:00:00.000Z</published>
-    <updated>2019-01-25T09:08:23.779Z</updated>
+    <title>现阶段学习路线</title>
+    <link href="http://shiyangtao.github.io/2017/02/03/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97-%E8%A1%A5%E5%BC%BA%E8%B7%AF%E7%BA%BF/"/>
+    <id>http://shiyangtao.github.io/2017/02/03/学习心得-补强路线/</id>
+    <published>2017-02-02T16:00:00.000Z</published>
+    <updated>2019-01-26T01:15:25.523Z</updated>
     
-    <content type="html"><![CDATA[<p>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。Java虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。这里讨论的收集器基于JDK1.7Update14之后的HotSpot虚拟机（在这个版本中正式提供了商用的G1收集器，之前G1仍处于实验状态），这个虚拟机包含的所有收集器如图所示。<br><a id="more"></a><br><img src="https://upload-images.jianshu.io/upload_images/2455482-ae7fced42fdac6c8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="HotSpot虚拟机的垃圾收集器.jpeg"></p><h2 id="1-Serial收集器"><a href="#1-Serial收集器" class="headerlink" title="1. Serial收集器"></a>1. Serial收集器</h2><p>serial是历史最悠久的收集器，是jdk1.3.1以前新生代收集器的唯一选择。是一个单线程的收集器，在它垃圾回收时必须暂停其他所有线程，直到它回收结束<br><img src="https://upload-images.jianshu.io/upload_images/2455482-cf45b785389a65cf.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Serial.jpeg"><br>写到这里是不是感觉Serial收集器应该被淘汰？<strong>但实际上到现在为止，它依然是虚拟机运行在Client模式下的默认新生代收集器。</strong><br><code>它也有着优于其他收集器的地方：简单而高效（与其他收集器的单线程比），对于限定单个CPU的环境来说，Serial收集器由于没有线程交互的开销，专心做垃圾收集自然可以获得最高的单线程收集效率。在用户的桌面应用场景中，分配给虚拟机管理的内存一般来说不会很大，收集几十兆甚至一两百兆的新生代（仅仅是新生代使用的内存，桌面应用基本上不会再大了），停顿时间完全可以控制在几十毫秒最多一百多毫秒以内，只要不是频繁发生，这点停顿是可以接受的。所以，Serial收集器对于运行在Client模式下的虚拟机来说是一个很好的选择。</code></p><h2 id="2-ParNew收集器"><a href="#2-ParNew收集器" class="headerlink" title="2. ParNew收集器"></a>2. ParNew收集器</h2><p>ParNew收集器其实就是Serial收集器的多线程版本，除了使用多条线程进行垃圾收集之外，其余行为包括Serial收集器可用的所有控制参数、收集算法、StopTheWorld、对象分配规则、回收策略等都与Serial收集器完全一样，在实现上，这两种收集器也共用了相当多的代码。<strong>ParNew收集器除了多线程收集之外，其他与Serial收集器相比并没有太多创新之处，但它却是许多运行在Server模式下的虚拟机中首选的新生代收集器，其中有一个与性能无关但很重要的原因是，除了Serial收集器外，目前只有它能与CMS收集器配合工作。</strong><br><img src="https://upload-images.jianshu.io/upload_images/2455482-659048e249bb83e5.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ParNew.jpeg"></p><h2 id="3-Parallel-Scavenge收集器"><a href="#3-Parallel-Scavenge收集器" class="headerlink" title="3. Parallel Scavenge收集器"></a>3. Parallel Scavenge收集器</h2><p>ParallelScavenge收集器是一个新生代收集器，它也是使用复制算法的收集器，又是并行的多线程收集器……看上去和ParNew都一样，那它有什么特别之处呢？<br>ParallelScavenge收集器的目标则是达到一个可控制的吞吐量（Throughput）<br><code>吞吐量=运行用户代码时间/（运行用户代码时间+垃圾收集时间），虚拟机总共运行了100分钟，其中垃圾收集花掉1分钟，那吞吐量就是99%。</code><br> 它提供两个参数来精确控制吞吐量</p><pre><code>* 控制最大垃圾收集停顿时间的**-XX:MaxGCPauseMillis**参数</code></pre><p>不要以为把这个参数设置的越小，就是收集的越快，这个以牺牲吞吐量和新生代空间换来的<br><code>系统把新生代调小一些，收集300MB新生代肯定比收集500MB快吧，这也直接导致垃圾收集发生得更频繁一些，原来10秒收集一次、每次停顿100毫秒，现在变成5秒收集一次、每次停顿70毫秒。停顿时间的确在下降，但吞吐量也降下来了。</code></p><pre><code>* 直接设置吞吐量大小的**-XX:GCTimeRatio**参数。</code></pre><p>GCTimeRatio参数的值应当是一个大于0且小于100的整数，如果把此参数设置为19，那允许的最大GC时间就占总时间的5%（即1/（1+19）），默认值为99，就是允许最大1%（即1/（1+99））的垃圾收集时间。</p><p>除上述两个参数之外，ParallelScavenge收集器还有一个参数<strong>-XX:+UseAdaptiveSizePolicy</strong>值得关注。这是一个开关参数，当这个参数打开之后，就不需要手工指定新生代的大小（-Xmn）、Eden与Survivor区的比例（-XX:SurvivorRatio）、晋升老年代对象年龄（-XX:PretenureSizeThreshold）等细节参数了，虚拟机会根据当前系统的运行情况收集性能监控信息，动态调整这些参数以提供最合适的停顿时间或者最大的吞吐量，这种调节方式称为GC自适应的调节策略（GCErgonomics）。</p><p><strong>自适应调节策略也是ParallelScavenge收集器与ParNew收集器的一个重要区别。</strong></p><h2 id="4-Serial-Old收集器"><a href="#4-Serial-Old收集器" class="headerlink" title="4. Serial Old收集器"></a>4. Serial Old收集器</h2><p>mark-sweep-compact<br>SerialOld是Serial收集器的老年代版本，它同样是一个单线程收集器，使用“标记-清理-压缩算法”算法。<br>用途:</p><ul><li>这个收集器的主要意义也是在于给Client模式下的虚拟机使用。</li><li>Server模式下有两种用途<ul><li>JDK1.5以及之前的版本中与ParallelScavenge收集器搭配使用 <a href="需要说明一下，ParallelScavenge收集器架构中本身有PSMarkSweep收集器来进行老年代收集，并非直接使用了SerialOld收集器，但是这个PSMarkSweep收集器与SerialOld的实现非常接近，所以在官方的许多资料中都是直接以SerialOld代替PSMarkSweep进行讲解，这里笔者也采用这种方式。">^1</a>。</li><li>作为CMS收集器的后备预案，在并发收集发生ConcurrentModeFailure时使用。</li></ul></li></ul><p><img src="https://upload-images.jianshu.io/upload_images/2455482-b4f934d2866fcf82.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SerialOld.jpeg"></p><h2 id="5-Parallel-Old收集器"><a href="#5-Parallel-Old收集器" class="headerlink" title="5. Parallel Old收集器"></a>5. Parallel Old收集器</h2><p>ParallelOld是ParallelScavenge收集器的老年代版本，使用多线程和“标记-整理”算法。这个收集器是在JDK1.6中才开始提供的，在此之前，新生代的ParallelScavenge收集器一直处于比较尴尬的状态。<a href="如果新生代选择了ParallelScavenge收集器，老年代除了SerialOld（PSMarkSweep）收集器外别无选择（还记得上面说过ParallelScavenge收集器无法与CMS收集器配合工作吗？）。由于老年代SerialOld收集器在服务端应用性能上的“拖累”，使用了ParallelScavenge收集器也未必能在整体应用上获得吞吐量最大化的效果，由于单线程的老年代收集中无法充分利用服务器多CPU的处理能力，在老年代很大而且硬件比较高级的环境中，这种组合的吞吐量甚至还不一定有ParNew加CMS的组合“给力”。">^2</a><br>直到ParallelOld收集器出现后，“吞吐量优先”收集器终于有了比较名副其实的应用组合，在注重吞吐量以及CPU资源敏感的场合，都可以优先考虑ParallelScavenge加ParallelOld收集器。<br><img src="https://upload-images.jianshu.io/upload_images/2455482-08aa5f3f00e67cf8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ParallelOld.jpeg"></p><h2 id="6-CMS收集器"><a href="#6-CMS收集器" class="headerlink" title="6. CMS收集器"></a>6. CMS收集器</h2><p>CMS（ConcurrentMarkSweep）收集器是一种以获取最短回收停顿时间为目标的收集器。目前很大一部分的Java应用集中在互联网站或者B/S系统的服务端上，这类应用尤其重视服务的响应速度，希望系统停顿时间最短，以给用户带来较好的体验。CMS收集器就非常符合这类应用的需求。<strong>是基于标记-清除算法实现的。</strong></p><p>运作过程分为四个步骤：</p><ol><li>初始标记（CMSinitialmark）<br>需要“Stop The World ” 标记一下GC Root 可以直接关联的对象，速度很快</li><li>并发标记（CMSconcurrentmark）<br>进行GCRootsTracing的过程</li><li>重新标记（CMSremark）<br>需要“Stop The World”，重新标记阶段则是为了修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段稍长一些，但远比并发标记的时间短。</li><li>并发清除（CMSconcurrentsweep）<br><img src="https://upload-images.jianshu.io/upload_images/2455482-d875e6400d286499.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Concurrent Mark Sweep 收集器运行示意图.jpeg"></li></ol><p>有三个明显缺点</p><ul><li>CMS收集器对cpu资源非常敏感<br><code>CMS默认启动的回收线程数是（CPU数量+3）/4，也就是当CPU在4个以上时，并发回收时垃圾收集线程不少于25%的CPU资源，并且随着CPU数量的增加而下降。但是当CPU不足4个（譬如2个）时，CMS对用户程序的影响就可能变得很大，如果本来CPU负载就比较大，还分出一半的运算能力去执行收集器线程，就可能导致用户程序的执行速度忽然降低了50%，其实也让人无法接受。</code></li><li>CMS收集器无法处理浮动垃圾（FloatingGarbage）<a href="由于清理线程和用户线程并发运行，伴随程序运行自然就还会有新的垃圾不断产生，这一部分垃圾出现在标记过程之后，CMS无法在当次收集中处理掉它们，只好留待下一次GC时再清理掉。这一部分垃圾就称为“浮动垃圾”。">^3</a>，可能出现”ConcurrentModeFailure”失败而导致另一次FullGC的产生。<br><code>也是由于在垃圾收集阶段用户线程还需要运行，那也就还需要预留有足够的内存空间给用户线程使用，因此CMS收集器不能像其他收集器那样等到老年代几乎完全被填满了再进行收集，需要预留一部分空间提供并发收集时的程序运作使用。在JDK1.5的默认设置下，CMS收集器当老年代使用了68%的空间后就会被激活，这是一个偏保守的设置，如果在应用中老年代增长不是太快，可以适当调高参数-XX:CMSInitiatingOccupancyFraction的值来提高触发百分比，以便降低内存回收次数从而获取更好的性能，在JDK1.6中，CMS收集器的启动阈值已经提升至92%。要是CMS运行期间预留的内存无法满足程序需要，就会出现一次&quot;ConcurrentModeFailure&quot;失败，这时虚拟机将启动后备预案：临时启用SerialOld收集器来重新进行老年代的垃圾收集，这样停顿时间就很长了。所以说参数-XX:CMSInitiatingOccupancyFraction设置得太高很容易导致大量&quot;ConcurrentModeFailure&quot;失败，性能反而降低。</code></li><li>CMS是一款基于“标记—清除”算法实现的收集器，如果读者对前面这种算法介绍还有印象的话，就可能想到这意味着收集结束时会有大量空间碎片产生。空间碎片过多时，将会给大对象分配带来很大麻烦，往往会出现老年代还有很大空间剩余，但是无法找到足够大的连续空间来分配当前对象，不得不提前触发一次FullGC。<br><code>为了解决这个问题，CMS收集器提供了一个-XX:+UseCMSCompactAtFullCollection开关参数（默认就是开启的），用于在CMS收集器顶不住要进行FullGC时开启内存碎片的合并整理过程，内存整理的过程是无法并发的，空间碎片问题没有了，但停顿时间不得不变长。虚拟机设计者还提供了另外一个参数-XX:CMSFullGCsBeforeCompaction，这个参数是用于设置执行多少次不压缩的FullGC后，跟着来一次带压缩的（默认值为0，表示每次进入FullGC时都进行碎片整理）。</code></li></ul><h2 id="7-G1收集器"><a href="#7-G1收集器" class="headerlink" title="7. G1收集器"></a>7. G1收集器</h2><p>G1(Garbage-First) 收集器是当今收集器技术醉前沿的成果之一。是面向服务端应用的垃圾收集器。相对其他收集器有以下特点</p><ul><li>并行与并发：G1能充分利用多CPU、多核环境下的硬件优势，使用多个CPU（CPU或者CPU核心）来缩短Stop-The-World停顿的时间，部分其他收集器原本需要停顿Java线程执行的GC动作，G1收集器仍然可以通过并发的方式让Java程序继续执行。</li><li>分代收集：与其他收集器一样，分代概念在G1中依然得以保留。虽然G1可以不需要其他收集器配合就能独立管理整个GC堆，但它能够采用不同的方式去处理新创建的对象和已经存活了一段时间、熬过多次GC的旧对象以获取更好的收集效果。</li><li>空间整合：与CMS的“标记—清理”算法不同，G1从整体来看是基于“标记—整理”算法实现的收集器，从局部（两个Region之间）上来看是基于“复制”算法实现的，但无论如何，这两种算法都意味着G1运作期间不会产生内存空间碎片，收集后能提供规整的可用内存。这种特性有利于程序长时间运行，分配大对象时不会因为无法找到连续内存空间而提前触发下一次GC。</li><li>可预测的停顿：这是G1相对于CMS的另一大优势，降低停顿时间是G1和CMS共同的关注点，但G1除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为M毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒，这几乎已经是实时Java（RTSJ）的垃圾收集器的特征了。</li></ul><p>在G1之前的其他收集器进行收集的范围都是整个新生代或者老年代，而G1不再是这样。使用G1收集器时，Java堆的内存布局就与其他收集器有很大差别，它将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但新生代和老年代不再是物理隔离的了，它们都是一部分Region（不需要连续）的集合。</p><p>G1收集器之所以能建立可预测的停顿时间模型，是因为它可以有计划地避免在整个Java堆中进行全区域的垃圾收集。G1跟踪各个Region里面的垃圾堆积的价值大小（回收所获得的空间大小以及回收所需时间的经验值），在后台维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的Region（这也就是Garbage-First名称的来由）。这种使用Region划分内存空间以及有优先级的区域回收方式，保证了G1收集器在有限的时间内可以获取尽可能高的收集效率。但是不是想象的那么简单的,还需要维护一个Remebered Set<a href="G1把内存“化整为零”的思路，理解起来似乎很容易，但其中的实现细节却远远没有想象中那样简单，笔者以一个细节为例：把Java堆分为多个Region后，垃圾收集是否就真的能以Region为单位进行了？听起来顺理成章，再仔细想想就很容易发现问题所在：Region不可能是孤立的。一个对象分配在某个Region中，它并非只能被本Region中的其他对象引用，而是可以与整个Java堆任意的对象发生引用关系。那在做可达性判定确定对象是否存活的时候，岂不是还得扫描整个Java堆才能保证准确性？这个问题其实并非在G1中才有，只是在G1中更加突出而已。在以前的分代收集中，新生代的规模一般都比老年代要小许多，新生代的收集也比老年代要频繁许多，那回收新生代中的对象时也面临相同的问题，如果回收新生代时也不得不同时扫描老年代的话，那么MinorGC的效率可能下降不少。">^4</a></p><p>如果不计算维护RememberedSet<a href="G1把内存“化整为零”的思路，理解起来似乎很容易，但其中的实现细节却远远没有想象中那样简单，笔者以一个细节为例：把Java堆分为多个Region后，垃圾收集是否就真的能以Region为单位进行了？听起来顺理成章，再仔细想想就很容易发现问题所在：Region不可能是孤立的。一个对象分配在某个Region中，它并非只能被本Region中的其他对象引用，而是可以与整个Java堆任意的对象发生引用关系。那在做可达性判定确定对象是否存活的时候，岂不是还得扫描整个Java堆才能保证准确性？这个问题其实并非在G1中才有，只是在G1中更加突出而已。在以前的分代收集中，新生代的规模一般都比老年代要小许多，新生代的收集也比老年代要频繁许多，那回收新生代中的对象时也面临相同的问题，如果回收新生代时也不得不同时扫描老年代的话，那么MinorGC的效率可能下降不少。">^4</a>的操作，G1收集器的运作大致可划分为以下几个步骤：</p><ul><li>初始标记（InitialMarking）<br>初始标记阶段仅仅只是标记一下GCRoots能直接关联到的对象，并且修改TAMS（NextTopatMarkStart）的值，让下一阶段用户程序并发运行时，能在正确可用的Region中创建新对象，这阶段需要停顿线程，但耗时很短。</li><li>并发标记（ConcurrentMarking）<br>并发标记阶段是从GCRoot开始对堆中对象进行可达性分析，找出存活的对象，这阶段耗时较长，但可与用户程序并发执行。</li><li>最终标记（FinalMarking）<br>最终标记阶段则是为了修正在并发标记期间因用户程序继续运作而导致标记产生变动的那一部分标记记录，虚拟机将这段时间对象变化记录在线程RememberedSetLogs里面，最终标记阶段需要把RememberedSetLogs的数据合并到RememberedSet中，这阶段需要停顿线程，但是可并行执行。</li><li>筛选回收（LiveDataCountingandEvacuation）<br>最后在筛选回收阶段首先对各个Region的回收价值和成本进行排序，根据用户所期望的GC停顿时间来制定回收计划，从Sun公司透露出来的信息来看，这个阶段其实也可以做到与用户程序一起并发执行，但是因为只回收一部分Region，时间是用户可控制的，而且停顿用户线程将大幅提高收集效率。<br><img src="https://upload-images.jianshu.io/upload_images/2455482-e3304c31c9acf02a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="G1收集器运行示意图.jpeg"></li></ul><p><img src="https://upload-images.jianshu.io/upload_images/2455482-4f2d3c1295aefb47.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/2455482-4124240a8915a806.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><p>在G1收集器中，Region之间的对象引用以及其他收集器中的新生代与老年代之间的对象引用，虚拟机都是使用RememberedSet来避免全堆扫描的。G1中每个Region都有一个与之对应的RememberedSet，虚拟机发现程序在对Reference类型的数据进行写操作时，会产生一个WriteBarrier暂时中断写操作，检查Reference引用的对象是否处于不同的Region之中（在分代的例子中就是检查是否老年代中的对象引用了新生代中的对象），如果是，便通过CardTable把相关引用信息记录到被引用对象所属的Region的RememberedSet之中。当进行内存回收时，在GC根节点的枚举范围中加入RememberedSet即可保证不对全堆扫描也不会有遗漏。</p><p><a href="https://plumbr.io/handbook/garbage-collection-algorithms-implementations#serial-full-gc" target="_blank" rel="noopener"><strong>各种垃圾回收器算法</strong></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。Java虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。这里讨论的收集器基于JDK1.7Update14之后的HotSpot虚拟机（在这个版本中正式提供了商用的G1收集器，之前G1仍处于实验状态），这个虚拟机包含的所有收集器如图所示。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
-    
-    
-      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HotSpot算法实现</title>
-    <link href="http://shiyangtao.github.io/2016/07/15/jvm-2016-07-15-HotSpot%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://shiyangtao.github.io/2016/07/15/jvm-2016-07-15-HotSpot算法实现/</id>
-    <published>2016-07-14T16:00:00.000Z</published>
-    <updated>2019-01-25T09:08:19.495Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="枚举根结点"><a href="#枚举根结点" class="headerlink" title="枚举根结点"></a>枚举根结点</h2><p>可达性算法是相当耗时的，以下两点说明<br><a id="more"></a></p><ol><li>从可达性分析中从GCRoots节点找引用链这个操作为例，可作为GCRoots的节点主要在全局性的引用（例如常量或类静态属性）与执行上下文（例如栈帧中的本地变量表）中，现在很多应用仅仅方法区就有数百兆，如果要逐个检查这里面的引用，那么必然会消耗很多时间。</li><li>可达性分析对执行时间的敏感还体现在GC停顿上，因为这项分析工作必须在一个能确保一致性的快照中进行——这里“一致性”的意思是指在整个分析期间整个执行系统看起来就像被冻结在某个时间点上，不可以出现分析过程中对象引用关系还在不断变化的情况，该点不满足的话分析结果准确性就无法得到保证。这点是导致GC进行时必须停顿所有Java执行线程（Sun将这件事情称为”StopTheWorld”）的其中一个重要原因。</li></ol><p>为了节省枚举根结点的时间，主流Java虚拟机使用的都是准确式GC，所以当执行系统停顿下来后，并不需要一个不漏地检查完所有执行上下文和全局的引用位置，虚拟机应当是有办法直接得知哪些地方存放着对象引用。<br><strong>在HotSpot的实现中，是使用一组称为OopMap的数据结构来达到这个目的的，在类加载完成的时候，HotSpot就把对象内什么偏移量上是什么类型的数据计算出来，在JIT编译过程中，也会在特定的位置记录下栈和寄存器中哪些位置是引用。这样，GC在扫描时就可以直接得知这些信息了。</strong></p><h2 id="安全点"><a href="#安全点" class="headerlink" title="安全点"></a>安全点</h2><p>因为如果程序的每个指令都产生OopMap，这个开销是非常大的，所以约定在程序的某些地方产生OopMap，这些地方称为安全点（Safe Point），即程序执行时并非在所有地方都能停顿下来开始GC，只有在到达安全点时才能暂停<br><code>注意Safepoint的选定既不能太少以致于让GC等待时间太长，也不能过于频繁以致于过分增大运行时的负荷。</code><br>对于Safepoint，另一个需要考虑的问题是如何在GC发生时让所有线程（这里不包括执行JNI调用的线程）都“跑”到最近的安全点上再停顿下来。这里有两种方式供选择</p><ul><li>抢先式中断（PreemptiveSuspension）<br>抢先式中断不需要线程的执行代码主动去配合，在GC发生时，首先把所有线程全部中断，如果发现有线程中断的地方不在安全点上，就恢复线程，让它“跑”到安全点上。</li><li>主动式中断（VoluntarySuspension）<br>主动式中断的思想是当GC需要中断线程的时候，不直接对线程操作，仅仅简单地设置一个标志，各个线程执行时主动去轮询这个标志，发现中断标志为真时就自己中断挂起。轮询标志的地方和安全点是重合的，另外再加上创建对象需要分配内存的地方。</li></ul><h2 id="安全区"><a href="#安全区" class="headerlink" title="安全区"></a>安全区</h2><p>使用安全点完美的解决了如何进入GC，安全点保证了在程序执行时，很快就能进入可以GC的安全点。但是程序没有执行（sleep 或者 blocking）的时候呢。对于这种情况，就需要安全区域（SafeRegion）<a href="安全区域是指在一段代码片段之中，引用关系不会发生变化。在这个区域中的任意地方开始GC都是安全的。我们也可以把SafeRegion看做是被扩展了的Safepoint。在线程执行到SafeRegion中的代码时，首先标识自己已经进入了SafeRegion，那样，当在这段时间里JVM要发起GC时，就不用管标识自己为SafeRegion状态的线程了。在线程要离开SafeRegion时，它要检查系统是否已经完成了根节点枚举（或者是整个GC过程），如果完成了，那线程就继续执行，否则它就必须等待直到收到可以安全离开SafeRegion的信号为止。">^1</a>来解决。</p><p>到此，简要地介绍了HotSpot虚拟机如何去发起内存回收的问题，但是虚拟机如何具体地进行内存回收动作仍然未涉及，因为内存回收如何进行是由虚拟机所采用的GC收集器决定的，而通常虚拟机中往往不止有一种GC收集器。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;枚举根结点&quot;&gt;&lt;a href=&quot;#枚举根结点&quot; class=&quot;headerlink&quot; title=&quot;枚举根结点&quot;&gt;&lt;/a&gt;枚举根结点&lt;/h2&gt;&lt;p&gt;可达性算法是相当耗时的，以下两点说明&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
-    
-    
-      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux－awk命令</title>
-    <link href="http://shiyangtao.github.io/2016/03/19/jvm-2016-03-29-linux-awk%E5%91%BD%E4%BB%A4/"/>
-    <id>http://shiyangtao.github.io/2016/03/19/jvm-2016-03-29-linux-awk命令/</id>
-    <published>2016-03-18T16:00:00.000Z</published>
-    <updated>2019-01-25T09:08:13.953Z</updated>
-    
-    <content type="html"><![CDATA[<p>废话少说  开整<br><a id="more"></a></p><p>1.起步上台<br> 我从netstat命令中提取了如下信息作为用例：</p><pre><code>$ cat netstat.txtProto Recv-Q Send-Q Local-Address          Foreign-Address             Statetcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTENtcp        0      0 0.0.0.0:80             0.0.0.0:*                   LISTENtcp        0      0 127.0.0.1:9000         0.0.0.0:*                   LISTENtcp        0      0 coolshell.cn:80        124.205.5.146:18245         TIME_WAITtcp        0      0 coolshell.cn:80        61.140.101.185:37538        FIN_WAIT2tcp        0      0 coolshell.cn:80        110.194.134.189:1032        ESTABLISHEDtcp        0      0 coolshell.cn:80        123.169.124.111:49809       ESTABLISHEDtcp        0      0 coolshell.cn:80        116.234.127.77:11502        FIN_WAIT2tcp        0      0 coolshell.cn:80        123.169.124.111:49829       ESTABLISHEDtcp        0      0 coolshell.cn:80        183.60.215.36:36970         TIME_WAITtcp        0   4166 coolshell.cn:80        61.148.242.38:30901         ESTABLISHEDtcp        0      1 coolshell.cn:80        124.152.181.209:26825       FIN_WAIT1tcp        0      0 coolshell.cn:80        110.194.134.189:4796        ESTABLISHEDtcp        0      0 coolshell.cn:80        183.60.212.163:51082        TIME_WAITtcp        0      1 coolshell.cn:80        208.115.113.92:50601        LAST_ACKtcp        0      0 coolshell.cn:80        123.169.124.111:49840       ESTABLISHEDtcp        0      0 coolshell.cn:80        117.136.20.85:50025         FIN_WAIT2tcp        0      0 :::22                  :::*                        LISTEN</code></pre><p> 下面是最简单最常用的awk示例，其输出第1列和第4例，其中单引号中的被大括号括着的就是awk的语句，注意，其只能被单引号包含。其中的$1..$n表示第几例。注：$0表示整个行。</p><pre><code>$ awk &apos;{print $1, $4}&apos; netstat.txtProto Local-Addresstcp 0.0.0.0:3306tcp 0.0.0.0:80tcp 127.0.0.1:9000tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp coolshell.cn:80tcp :::22</code></pre><p>我们再来看看awk的格式化输出，和C语言的printf没什么两样：</p><pre><code>$ awk &apos;{printf &quot;%-8s %-8s %-8s %-18s %-22s %-15s\n&quot;,$1,$2,$3,$4,$5,$6}&apos; netstat.txtProto    Recv-Q   Send-Q   Local-Address      Foreign-Address        Statetcp      0        0        0.0.0.0:3306       0.0.0.0:*              LISTENtcp      0        0        0.0.0.0:80         0.0.0.0:*              LISTENtcp      0        0        127.0.0.1:9000     0.0.0.0:*              LISTENtcp      0        0        coolshell.cn:80    124.205.5.146:18245    TIME_WAITtcp      0        0        coolshell.cn:80    61.140.101.185:37538   FIN_WAIT2tcp      0        0        coolshell.cn:80    110.194.134.189:1032   ESTABLISHEDtcp      0        0        coolshell.cn:80    123.169.124.111:49809  ESTABLISHEDtcp      0        0        coolshell.cn:80    116.234.127.77:11502   FIN_WAIT2tcp      0        0        coolshell.cn:80    123.169.124.111:49829  ESTABLISHEDtcp      0        0        coolshell.cn:80    183.60.215.36:36970    TIME_WAITtcp      0        4166     coolshell.cn:80    61.148.242.38:30901    ESTABLISHEDtcp      0        1        coolshell.cn:80    124.152.181.209:26825  FIN_WAIT1tcp      0        0        coolshell.cn:80    110.194.134.189:4796   ESTABLISHEDtcp      0        0        coolshell.cn:80    183.60.212.163:51082   TIME_WAITtcp      0        1        coolshell.cn:80    208.115.113.92:50601   LAST_ACKtcp      0        0        coolshell.cn:80    123.169.124.111:49840  ESTABLISHEDtcp      0        0        coolshell.cn:80    117.136.20.85:50025    FIN_WAIT2tcp      0        0        :::22              :::*                   LISTEN</code></pre><p>2.脱掉外套<br> 过滤记录<br>我们再来看看如何过滤记录（下面过滤条件为：第三列的值为0 &amp;&amp; 第6列的值为LISTEN）</p><pre><code>$ awk &apos;$3==0 &amp;&amp; $6==&quot;LISTEN&quot; &apos; netstat.txttcp        0      0 0.0.0.0:3306               0.0.0.0:*              LISTENtcp        0      0 0.0.0.0:80                 0.0.0.0:*              LISTENtcp        0      0 127.0.0.1:9000             0.0.0.0:*              LISTENtcp        0      0 :::22                      :::*                   LISTEN</code></pre><p>其中的“==”为比较运算符。其他比较运算符：!=, &gt;, &lt;, &gt;=, &lt;=</p><p>我们来看看各种过滤记录的方式：</p><pre><code>$ awk &apos; $3&gt;0 {print $0}&apos; netstat.txtProto Recv-Q Send-Q Local-Address          Foreign-Address             Statetcp        0   4166 coolshell.cn:80        61.148.242.38:30901         ESTABLISHEDtcp        0      1 coolshell.cn:80        124.152.181.209:26825       FIN_WAIT1tcp        0      1 coolshell.cn:80        208.115.113.92:50601        LAST_ACK</code></pre><p>如果我们需要表头的话，我们可以引入内建变量NR：</p><pre><code>$ awk &apos;$3==0 &amp;&amp; $6==&quot;LISTEN&quot; || NR==1 &apos; netstat.txtProto Recv-Q Send-Q Local-Address          Foreign-Address             Statetcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTENtcp        0      0 0.0.0.0:80             0.0.0.0:*                   LISTENtcp        0      0 127.0.0.1:9000         0.0.0.0:*                   LISTENtcp        0      0 :::22                  :::*                        LISTEN</code></pre><p>再加上格式化输出：</p><pre><code>$ awk &apos;$3==0 &amp;&amp; $6==&quot;LISTEN&quot; || NR==1 {printf &quot;%-20s %-20s %s\n&quot;,$4,$5,$6}&apos; netstat.txtLocal-Address        Foreign-Address      State0.0.0.0:3306         0.0.0.0:*            LISTEN0.0.0.0:80           0.0.0.0:*            LISTEN127.0.0.1:9000       0.0.0.0:*            LISTEN:::22                :::*                 LISTEN</code></pre><p>内建变量<br>说到了内建变量，我们可以来看看awk的一些内建变量：</p><table><thead><tr><th>代码</th><th>含义 </th></tr></thead><tbody><tr><td>   $0</td><td>当前记录（这个变量中存放着整个行的内容）</td></tr><tr><td>    $1~$n</td><td>当前记录的第n个字段，字段间由FS分隔</td></tr><tr><td>    FS</td><td>输入字段分隔符 默认是空格或Tab</td></tr><tr><td>    NF</td><td>当前记录中的字段个数，就是有多少列</td></tr><tr><td>    NR</td><td>已经读出的记录数，就是行号，从1开始，如果有多个文件话，这个值也是不断累加中。</td></tr><tr><td>    FNR</td><td>当前记录数，与NR不同的是，这个值会是各个文件自己的行号</td></tr><tr><td>    RS</td><td>输入的记录分隔符， 默认为换行符</td></tr><tr><td>    OFS</td><td>输出字段分隔符， 默认也是空格</td></tr><tr><td>    ORS</td><td>输出的记录分隔符，默认为换行符</td></tr><tr><td>    FILENAME</td><td>当前输入文件的名字</td></tr></tbody></table><p>怎么使用呢，比如：我们如果要输出行号：</p><pre><code>$ awk &apos;$3==0 &amp;&amp; $6==&quot;ESTABLISHED&quot; || NR==1 {printf &quot;%02s %s %-20s %-20s %s\n&quot;,NR, FNR, $4,$5,$6}&apos; netstat.txt01 1 Local-Address        Foreign-Address      State07 7 coolshell.cn:80      110.194.134.189:1032 ESTABLISHED08 8 coolshell.cn:80      123.169.124.111:49809 ESTABLISHED10 10 coolshell.cn:80      123.169.124.111:49829 ESTABLISHED14 14 coolshell.cn:80      110.194.134.189:4796 ESTABLISHED17 17 coolshell.cn:80      123.169.124.111:49840 ESTABLISHED</code></pre><p>指定分隔符</p><pre><code>$  awk  &apos;BEGIN{FS=&quot;:&quot;} {print $1,$3,$6}&apos; /etc/passwdroot 0 /rootbin 1 /bindaemon 2 /sbinadm 3 /var/admlp 4 /var/spool/lpdsync 5 /sbinshutdown 6 /sbinhalt 7 /sbin</code></pre><p>上面的命令也等价于：（-F的意思就是指定分隔符）</p><pre><code>$ awk  -F: &apos;{print $1,$3,$6}&apos; /etc/passwd</code></pre><p>注：如果你要指定多个分隔符，你可以这样来：</p><pre><code>awk -F &apos;[;:]&apos;</code></pre><p>再来看一个以\t作为分隔符输出的例子（下面使用了/etc/passwd文件，这个文件是以:分隔的）：</p><pre><code>$ awk  -F: &apos;{print $1,$3,$6}&apos; OFS=&quot;\t&quot; /etc/passwdroot    0       /rootbin     1       /bindaemon  2       /sbinadm     3       /var/admlp      4       /var/spool/lpdsync    5       /sbin</code></pre><p>3.脱掉衬衫<br>字符串匹配<br>我们再来看几个字符串匹配的示例：</p><pre><code>$ awk &apos;$6 ~ /FIN/ || NR==1 {print NR,$4,$5,$6}&apos; OFS=&quot;\t&quot; netstat.txt1       Local-Address   Foreign-Address State6       coolshell.cn:80 61.140.101.185:37538    FIN_WAIT29       coolshell.cn:80 116.234.127.77:11502    FIN_WAIT213      coolshell.cn:80 124.152.181.209:26825   FIN_WAIT118      coolshell.cn:80 117.136.20.85:50025     FIN_WAIT2$ $ awk &apos;$6 ~ /WAIT/ || NR==1 {print NR,$4,$5,$6}&apos; OFS=&quot;\t&quot; netstat.txt1       Local-Address   Foreign-Address State5       coolshell.cn:80 124.205.5.146:18245     TIME_WAIT6       coolshell.cn:80 61.140.101.185:37538    FIN_WAIT29       coolshell.cn:80 116.234.127.77:11502    FIN_WAIT211      coolshell.cn:80 183.60.215.36:36970     TIME_WAIT13      coolshell.cn:80 124.152.181.209:26825   FIN_WAIT115      coolshell.cn:80 183.60.212.163:51082    TIME_WAIT18      coolshell.cn:80 117.136.20.85:50025     FIN_WAIT2</code></pre><p>上面的第一个示例匹配FIN状态， 第二个示例匹配WAIT字样的状态。其实 ~ 表示模式开始。/ /中是模式。这就是一个正则表达式的匹配。</p><p>其实awk可以像grep一样的去匹配第一行，就像这样：</p><pre><code>$ awk &apos;/LISTEN/&apos; netstat.txttcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTENtcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTENtcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTENtcp        0      0 :::22                   :::*                    LISTEN</code></pre><p>我们可以使用/FIN|TIME/来匹配 FIN 或者 TIME :</p><pre><code>$ awk &apos;$6 ~ /FIN|TIME/ || NR==1 {print NR,$4,$5,$6}&apos; OFS=&quot;\t&quot; netstat.txt1       Local-Address   Foreign-Address State5       coolshell.cn:80 124.205.5.146:18245     TIME_WAIT6       coolshell.cn:80 61.140.101.185:37538    FIN_WAIT29       coolshell.cn:80 116.234.127.77:11502    FIN_WAIT211      coolshell.cn:80 183.60.215.36:36970     TIME_WAIT13      coolshell.cn:80 124.152.181.209:26825   FIN_WAIT115      coolshell.cn:80 183.60.212.163:51082    TIME_WAIT18      coolshell.cn:80 117.136.20.85:50025     FIN_WAIT2</code></pre><p>再来看看模式取反的例子：</p><pre><code>$ awk &apos;$6 !~ /WAIT/ || NR==1 {print NR,$4,$5,$6}&apos; OFS=&quot;\t&quot; netstat.txt1       Local-Address   Foreign-Address State2       0.0.0.0:3306    0.0.0.0:*       LISTEN3       0.0.0.0:80      0.0.0.0:*       LISTEN4       127.0.0.1:9000  0.0.0.0:*       LISTEN7       coolshell.cn:80 110.194.134.189:1032    ESTABLISHED8       coolshell.cn:80 123.169.124.111:49809   ESTABLISHED10      coolshell.cn:80 123.169.124.111:49829   ESTABLISHED12      coolshell.cn:80 61.148.242.38:30901     ESTABLISHED14      coolshell.cn:80 110.194.134.189:4796    ESTABLISHED16      coolshell.cn:80 208.115.113.92:50601    LAST_ACK17      coolshell.cn:80 123.169.124.111:49840   ESTABLISHED19      :::22   :::*    LISTEN</code></pre><p>或是：</p><pre><code>awk &apos;!/WAIT/&apos; netstat.txt</code></pre><p>折分文件</p><p>awk拆分文件很简单，使用重定向就好了。下面这个例子，是按第6例分隔文件，相当的简单（其中的NR!=1表示不处理表头）。</p><pre><code>$ awk &apos;NR!=1{print &gt; $6}&apos; netstat.txt$ lsESTABLISHED  FIN_WAIT1  FIN_WAIT2  LAST_ACK  LISTEN  netstat.txt  TIME_WAIT$ cat ESTABLISHEDtcp        0      0 coolshell.cn:80        110.194.134.189:1032        ESTABLISHEDtcp        0      0 coolshell.cn:80        123.169.124.111:49809       ESTABLISHEDtcp        0      0 coolshell.cn:80        123.169.124.111:49829       ESTABLISHEDtcp        0   4166 coolshell.cn:80        61.148.242.38:30901         ESTABLISHEDtcp        0      0 coolshell.cn:80        110.194.134.189:4796        ESTABLISHEDtcp        0      0 coolshell.cn:80        123.169.124.111:49840       ESTABLISHED$ cat FIN_WAIT1tcp        0      1 coolshell.cn:80        124.152.181.209:26825       FIN_WAIT1$ cat FIN_WAIT2tcp        0      0 coolshell.cn:80        61.140.101.185:37538        FIN_WAIT2tcp        0      0 coolshell.cn:80        116.234.127.77:11502        FIN_WAIT2tcp        0      0 coolshell.cn:80        117.136.20.85:50025         FIN_WAIT2$ cat LAST_ACKtcp        0      1 coolshell.cn:80        208.115.113.92:50601        LAST_ACK$ cat LISTENtcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTENtcp        0      0 0.0.0.0:80             0.0.0.0:*                   LISTENtcp        0      0 127.0.0.1:9000         0.0.0.0:*                   LISTENtcp        0      0 :::22                  :::*                        LISTEN$ cat TIME_WAITtcp        0      0 coolshell.cn:80        124.205.5.146:18245         TIME_WAITtcp        0      0 coolshell.cn:80        183.60.215.36:36970         TIME_WAITtcp        0      0 coolshell.cn:80        183.60.212.163:51082        TIME_WAIT</code></pre><p>你也可以把指定的列输出到文件:</p><pre><code>awk &apos;NR!=1{print $4,$5 &gt; $6}&apos; netstat.txt</code></pre><p>再复杂一点：（注意其中的if-else-if语句，可见awk其实是个脚本解释器）</p><pre><code>$ awk &apos;NR!=1{if($6 ~ /TIME|ESTABLISHED/) print &gt; &quot;1.txt&quot;;else if($6 ~ /LISTEN/) print &gt; &quot;2.txt&quot;;else print &gt; &quot;3.txt&quot; }&apos; netstat.txt$ ls ?.txt1.txt  2.txt  3.txt$ cat 1.txttcp        0      0 coolshell.cn:80        124.205.5.146:18245         TIME_WAITtcp        0      0 coolshell.cn:80        110.194.134.189:1032        ESTABLISHEDtcp        0      0 coolshell.cn:80        123.169.124.111:49809       ESTABLISHEDtcp        0      0 coolshell.cn:80        123.169.124.111:49829       ESTABLISHEDtcp        0      0 coolshell.cn:80        183.60.215.36:36970         TIME_WAITtcp        0   4166 coolshell.cn:80        61.148.242.38:30901         ESTABLISHEDtcp        0      0 coolshell.cn:80        110.194.134.189:4796        ESTABLISHEDtcp        0      0 coolshell.cn:80        183.60.212.163:51082        TIME_WAITtcp        0      0 coolshell.cn:80        123.169.124.111:49840       ESTABLISHED$ cat 2.txttcp        0      0 0.0.0.0:3306           0.0.0.0:*                   LISTENtcp        0      0 0.0.0.0:80             0.0.0.0:*                   LISTENtcp        0      0 127.0.0.1:9000         0.0.0.0:*                   LISTENtcp        0      0 :::22                  :::*                        LISTEN$ cat 3.txttcp        0      0 coolshell.cn:80        61.140.101.185:37538        FIN_WAIT2tcp        0      0 coolshell.cn:80        116.234.127.77:11502        FIN_WAIT2tcp        0      1 coolshell.cn:80        124.152.181.209:26825       FIN_WAIT1tcp        0      1 coolshell.cn:80        208.115.113.92:50601        LAST_ACKtcp        0      0 coolshell.cn:80        117.136.20.85:50025         FIN_WAIT2</code></pre><p>统计<br>   下面的命令计算所有的C文件，CPP文件和H文件的文件大小总和。</p><pre><code>$ ls -l  *.cpp *.c *.h | awk &apos;{sum+=$5} END {print sum}&apos;2511401</code></pre><p>我们再来看一个统计各个connection状态的用法：（我们可以看到一些编程的影子了，大家都是程序员我就不解释了。注意其中的数组的用法）</p><pre><code>$ awk &apos;NR!=1{a[$6]++;} END {for (i in a) print i &quot;, &quot; a[i];}&apos; netstat.txtTIME_WAIT, 3FIN_WAIT1, 1ESTABLISHED, 6FIN_WAIT2, 3LAST_ACK, 1LISTEN, 4</code></pre><p>再来看看统计每个用户的进程的占了多少内存（注：sum的RSS那一列）</p><pre><code>$ ps aux | awk &apos;NR!=1{a[$1]+=$6;} END { for(i in a) print i &quot;, &quot; a[i]&quot;KB&quot;;}&apos;dbus, 540KBmysql, 99928KBwww, 3264924KBroot, 63644KBhchen, 6020KB</code></pre><p>4.脱掉内衣</p><p>awk脚本<br> 在上面我们可以看到一个END关键字。END的意思是“处理完所有的行的标识”，即然说到了END就有必要介绍一下BEGIN，这两个关键字意味着执行前和执行后的意思，语法如下：</p><ul><li>BEGIN{ 这里面放的是执行前的语句 }</li><li>END {这里面放的是处理完所有的行后要执行的语句 }</li><li><p>{这里面放的是处理每一行时要执行的语句}</p><p>为了说清楚这个事，我们来看看下面的示例：</p><p>假设有这么一个文件（学生成绩表）：</p><p> $ cat score.txt<br> Marry   2143 78 84 77<br> Jack    2321 66 78 45<br> Tom     2122 48 77 71<br> Mike    2537 87 97 95<br> Bob     2415 40 57 62</p><p>我们的awk脚本如下（我没有写有命令行上是因为命令行上不易读，另外也在介绍另一种用法）：</p></li></ul><pre><code>$ cat cal.awk#!/bin/awk -f#运行前BEGIN {    math = 0    english = 0    computer = 0    printf &quot;NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL\n&quot;    printf &quot;---------------------------------------------\n&quot;}#运行中{    math+=$3    english+=$4    computer+=$5    printf &quot;%-6s %-6s %4d %8d %8d %8d\n&quot;, $1, $2, $3,$4,$5, $3+$4+$5}#运行后END {    printf &quot;---------------------------------------------\n&quot;    printf &quot;  TOTAL:%10d %8d %8d \n&quot;, math, english, computer    printf &quot;AVERAGE:%10.2f %8.2f %8.2f\n&quot;, math/NR, english/NR, computer/NR}</code></pre><p>我们来看一下执行结果：（也可以这样运行 ./cal.awk score.txt）</p><pre><code>$ awk -f cal.awk score.txtNAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL---------------------------------------------Marry  2143     78       84       77      239Jack   2321     66       78       45      189Tom    2122     48       77       71      196Mike   2537     87       97       95      279Bob    2415     40       57       62      159---------------------------------------------  TOTAL:       319      393      350AVERAGE:     63.80    78.60    70.00</code></pre><p>环境变量</p><p>  即然说到了脚本，我们来看看怎么和环境变量交互：（使用-v参数和ENVIRON，使用ENVIRON的环境变量需要export）</p><pre><code>$ x=5$ y=10$ export y$ echo $x $y5 10$ awk -v val=$x &apos;{print $1, $2, $3, $4+val, $5+ENVIRON[&quot;y&quot;]}&apos; OFS=&quot;\t&quot; score.txtMarry   2143    78      89      87Jack    2321    66      83      55Tom     2122    48      82      81Mike    2537    87      102     105Bob     2415    40      62      72</code></pre><p>几个花活<br>最后，我们再来看几个小例子：</p><pre><code># 从file文件中找出长度大于80的行awk &apos;length&gt;80&apos; file# 按连接数查看客户端IPnetstat -ntu | awk &apos;{print $5}&apos; | cut -d: -f1 | sort | uniq -c | sort -nr# 打印99乘法表seq 9 | sed &apos;H;g&apos; | awk -v RS=&apos;&apos; &apos;{for(i=1;i&lt;=NF;i++)printf(&quot;%dx%d=%d%s&quot;, i, NR, i*NR, i==NR?&quot;\n&quot;:&quot;\t&quot;)}&apos;</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;废话少说  开整&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
-    
-    
-      <category term="linux" scheme="http://shiyangtao.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>垃圾收集算法</title>
-    <link href="http://shiyangtao.github.io/2015/06/12/jvm-2015-06-12-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/"/>
-    <id>http://shiyangtao.github.io/2015/06/12/jvm-2015-06-12-垃圾收集算法/</id>
-    <published>2015-06-11T16:00:00.000Z</published>
-    <updated>2019-01-25T09:08:09.771Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象<br><a id="more"></a><br>不足之处：</p><ul><li>效率问题，标记和清除两个过程的效率都不高</li><li>空间问题，标记清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后在程序运行过程中需要分配较大对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</li></ul><p><img src="https://upload-images.jianshu.io/upload_images/2455482-b9efd3da3114ad6c.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标记清除.jpeg"></p><h2 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h2><p>为了解决效率问题，一种称为“复制”（Copying）的收集算法出现了，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。</p><p>不足之处：<br>这种算法的代价是把内存缩小为原来的一半，代价太高了</p><p>但是现在的商业虚拟机都采用这种收集算法来回收新生代。<br><code>IBM公司的专门研究表明，新生代中的对象98%是“朝生夕死”的，所以并不需要按照1:1的比例来划分内存空间，而是将内存分为一块较大的Eden空间和两块较小的Survivor空间，每次使用Eden和其中一块Survivor。当回收时，将Eden和Survivor中还存活着的对象一次性地复制到另外一块Survivor空间上，最后清理掉Eden和刚才用过的Survivor空间。</code><br>HotSpot虚拟机默认Eden和Survivor的大小比例是8:1，也就是每次新生代中可用内存空间为整个新生代容量的90%（80%+10%），只有10%的内存会被“浪费”。当然，98%的对象可回收只是一般场景下的数据，我们没有办法保证每次回收都只有不多于10%的对象存活，当Survivor空间不够用时，需要依赖其他内存（这里指老年代）进行<strong>分配担保（HandlePromotion）</strong><a href="内存的分配担保就好比我们去银行借款，如果我们信誉很好，在98%的情况下都能按时偿还，于是银行可能会默认我们下一次也能按时按量地偿还贷款，只需要有一个担保人能保证如果我不能还款时，可以从他的账户扣钱，那银行就认为没有风险了。内存的分配担保也一样，如果另外一块Survivor空间没有足够空间存放上一次新生代收集下来的存活对象时，这些对象将直接通过分配担保机制进入老年代。">^1</a>。<br><img src="https://upload-images.jianshu.io/upload_images/2455482-8193b954387d1811.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="复制.jpeg"></p><h2 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h2><p>复制收集算法在对象存活率较高时就要进行较多的复制操作，效率将会变低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。<br>根据老年代的特点，有人提出了另外一种“标记-整理”（Mark-Compact）算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存，“标记-整理”算法的示意图<img src="https://upload-images.jianshu.io/upload_images/2455482-ae3d0119f93479e9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标记整理.jpeg"></p><h2 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h2><p>当前商业虚拟机的垃圾收集都采用“分代收集”（GenerationalCollection）算法，这种算法并没有什么新的思想，只是根据对象存活周期的不同将内存划分为几块。一般是把Java堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。<strong>在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。而老年代中因为对象存活率高、没有额外空间对它进行分配担保，就必须使用“标记—清理”或者“标记—整理”算法来进行回收。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;标记-清除算法&quot;&gt;&lt;a href=&quot;#标记-清除算法&quot; class=&quot;headerlink&quot; title=&quot;标记-清除算法&quot;&gt;&lt;/a&gt;标记-清除算法&lt;/h2&gt;&lt;p&gt;算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
-    
-    
-      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>对象是生存还是死亡</title>
-    <link href="http://shiyangtao.github.io/2015/05/06/jvm-2015-05-06-java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%AD%98%E8%BF%98%E6%98%AF%E6%AD%BB%E4%BA%A1/"/>
-    <id>http://shiyangtao.github.io/2015/05/06/jvm-2015-05-06-java虚拟机中对象生存还是死亡/</id>
-    <published>2015-05-05T16:00:00.000Z</published>
-    <updated>2019-01-25T09:09:58.741Z</updated>
-    
-    <content type="html"><![CDATA[<p>java堆里存着几乎所有的对象，垃圾收集器要判断，哪些对象是存活的，哪些是死亡的（没有被引用的对象）即需要被回收的。<br><a id="more"></a></p><h2 id="判断对象是否存活有两种算法"><a href="#判断对象是否存活有两种算法" class="headerlink" title="判断对象是否存活有两种算法"></a>判断对象是否存活有两种算法</h2><ol><li><h5 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h5><p>给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器为0的对象就是不可能再被使用的。例如微软公司的COM（ComponentObjectModel）技术、使用ActionScript3的FlashPlayer、Python语言和在游戏脚本领域被广泛应用的Squirrel中都使用了引用计数算法进行内存管理。<strong>但是，至少主流的Java虚拟机里面没有选用引用计数算法来管理内存，其中最主要的原因是它很难解决对象之间相互循环引用的问题。</strong>以下是互相引用的例子</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RefrenceCounterGC</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> Object instance = <span class="keyword">null</span>;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    RefresnceCounterGC a = <span class="keyword">new</span> RefrenceCounterGC();</span><br><span class="line">    RefresnceCounterGC b = <span class="keyword">new</span> RefrenceCounterGC();</span><br><span class="line">    a.instance = b;</span><br><span class="line">    b.instance = a;</span><br><span class="line">    a=<span class="keyword">null</span>;</span><br><span class="line">    b=<span class="keyword">null</span>;</span><br><span class="line">    System.gc();<span class="comment">// a/b指向的对象被回收了</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">a b引用指向的对象，仍然被相互引用，但是最后仍然被垃圾收集器回收了</span><br></pre></td></tr></table></figure></li><li><h5 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h5><p>这个算法的基本思路就是通过一系列的称为”GCRoots”的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链（ReferenceChain），当一个对象到GCRoots没有任何引用链相连（用图论的话来说，就是从GCRoots到这个对象不可达）时，则证明此对象是不可用的。<img src="https://upload-images.jianshu.io/upload_images/2455482-3b35435258d53c33.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="可达性算法.jpeg"><br>在Java语言中，可作为GCRoots的对象包括下面几种：</p><ul><li>虚拟机栈（栈帧中的本地变量表）中引用的对象。</li><li>方法区中类静态属性引用的对象。</li><li>方法区中常量引用的对象。</li><li>本地方法栈中JNI（即一般说的Native方法）引用的对象。<h2 id="引用概念"><a href="#引用概念" class="headerlink" title="引用概念"></a>引用概念</h2>无论是通过引用计数算法判断对象的引用数量，还是通过可达性分析算法判断对象的引用链是否可达，判定对象是否存活都与“引用”有关。</li></ul></li></ol><ul><li>JDK1.2以前，Java中的引用的定义很传统一个对象在这种定义下只有被引用或者没有被引用两种状态，对于如何描述一些“食之无味，弃之可惜”的对象就显得无能为力。</li><li>在JDK1.2之后，Java对引用的概念进行了扩充，将引用分为强引用、软引用、弱引用、虚引用4种，这4种引用强度依次逐渐减弱。<ul><li>强引用（StrongReference）<br>就是指在程序代码之中普遍存在的，类似”Objectobj=newObject()”这类的引用，只要强引用还存在，垃圾收集器永远不会回收掉被引用的对象。</li><li>软引用（SoftReference）<br>用来描述一些还有用但并非必需的对象。对于软引用关联着的对象，在系统将要发生内存溢出异常之前，将会把这些对象列进回收范围之中进行第二次回收。如果这次回收还没有足够的内存，才会抛出内存溢出异常。</li><li>弱引用（WeakReference）<br>弱引用也是用来描述非必需对象的，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生之前。当垃圾收集器工作时，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。</li><li>虚引用（PhantomReference）<br>也称为幽灵引用或者幻影引用，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的就是能在这个对象被收集器回收时收到一个系统通知。<h2 id="生存还是死亡"><a href="#生存还是死亡" class="headerlink" title="生存还是死亡"></a>生存还是死亡</h2>即使在可达性分析算法中不可达的对象，也并非是“非死不可”的，这时候它们暂时处于“缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程：<strong>如果对象在进行可达性分析后发现没有与GCRoots相连接的引用链，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize()方法。当对象没有覆盖finalize()方法，或者finalize()方法已经被虚拟机调用过，虚拟机将这两种情况都视为“没有必要执行”。</strong></li></ul></li></ul><p>如果这个对象被判定为有必要执行finalize()方法，那么这个对象将会放置在一个叫做F-Queue的队列之中，并在稍后由一个由虚拟机自动建立的、低优先级的Finalizer线程去执行它。这里所谓的“执行”是指虚拟机会触发这个方法，但并不承诺会等待它运行结束，这样做的原因是，如果一个对象在finalize()方法中执行缓慢，或者发生了死循环（更极端的情况），将很可能会导致F-Queue队列中其他对象永久处于等待，甚至导致整个内存回收系统崩溃。<strong>finalize()方法是对象逃脱死亡命运的最后一次机会，稍后GC将对F-Queue中的对象进行第二次小规模的标记，如果对象要在finalize()中成功拯救自己——只要重新与引用链上的任何一个对象建立关联即可，譬如把自己（this关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它将被移除出“即将回收”的集合；如果对象这时候还没有逃脱，那基本上它就真的被回收了。</strong>从下列代码中我们可以看到一个对象的finalize()被执行，但是它仍然可以存活。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinalizeEscapeGC</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> FinalizeEscapeGC SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">isAlive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"yes i am still alive"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.finalize();</span><br><span class="line">        System.out.println(<span class="string">"finalize executed"</span>);</span><br><span class="line">        FinalizeEscapeGC.SAVE_HOOK = <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        SAVE_HOOK = <span class="keyword">new</span> FinalizeEscapeGC();</span><br><span class="line">        SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//进入gc 调用finalize 实现自救</span></span><br><span class="line">        System.gc();</span><br><span class="line">      <span class="comment">// 因为finalize 优先级很低所以等待0.5秒        </span></span><br><span class="line">        Thread.sleep(<span class="number">500</span>);</span><br><span class="line">        <span class="keyword">if</span> (SAVE_HOOK != <span class="keyword">null</span>) &#123;</span><br><span class="line">            SAVE_HOOK.isAlive();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"I'm dead"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//下面这段代码与上面的完全相同,但是这次自救却失败了</span></span><br><span class="line">        <span class="comment">//这是因为任何一个对象的finalize()方法都只会被系统自动调用一次</span></span><br><span class="line">        System.gc();</span><br><span class="line">        Thread.sleep(<span class="number">500</span>);</span><br><span class="line">        <span class="keyword">if</span> (SAVE_HOOK != <span class="keyword">null</span>) &#123;</span><br><span class="line">            SAVE_HOOK.isAlive();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"I'm dead"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>执行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finalize executed</span><br><span class="line">yes i am still alive</span><br><span class="line">I&apos;m dead</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;java堆里存着几乎所有的对象，垃圾收集器要判断，哪些对象是存活的，哪些是死亡的（没有被引用的对象）即需要被回收的。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
-    
-    
-      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java虚拟机中对象的定位</title>
-    <link href="http://shiyangtao.github.io/2015/04/21/jvm-2015-04-21-java%E8%99%9A%E6%8B%9F%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E4%BD%8D/"/>
-    <id>http://shiyangtao.github.io/2015/04/21/jvm-2015-04-21-java虚拟中对象的定位/</id>
-    <published>2015-04-20T16:00:00.000Z</published>
-    <updated>2019-01-25T09:09:59.722Z</updated>
-    
-    <content type="html"><![CDATA[<p>建立对象是为了使用对象，我们的程序通过栈上的refrence引用来操作堆里的具体对象。由于refrence类型在java虚拟机规范中只规定了一个指向对象的应用，并没有定义这个引用通过何种方式去定位、访问堆内对象的具体位置，所以对象访问方式也是取决与虚拟机实现而定的。目前主流的访问方式有使用句柄和直接指针两种<br><a id="more"></a></p><ul><li>句柄访问<br>如果使用句柄访问的话，那么Java堆中将会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址信息。<img src="https://upload-images.jianshu.io/upload_images/2455482-61526b8bfda3d13a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="句柄.jpeg"></li></ul><p><code>好处：使用句柄来访问的最大好处就是reference中存储的是稳定的句柄地址，在对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，而reference本身不需要修改。</code></p><ul><li>直接指针<br>如果使用直接指针访问，那么Java堆对象的布局中就必须考虑如何放置访问类型数据的相关信息，而reference中存储的直接就是对象地址。<img src="https://upload-images.jianshu.io/upload_images/2455482-2a53e6f1468970e9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="直接指针.jpeg"></li></ul><p><code>好处：使用直接指针访问方式的最大好处就是速度更快，它节省了一次指针定位的时间开销，由于对象的访问在Java中非常频繁，因此这类开销积少成多后也是一项非常可观的执行成本。就本书讨论的主要虚拟机SunHotSpot而言，它是使用第二种方式进行对象访问的，但从整个软件开发的范围来看，各种语言和框架使用句柄来访问的情况也十分常见。</code></p><p>相关文章:<br><a href="https://www.jianshu.com/p/282777946dad" target="_blank" rel="noopener">java虚拟机中对象的创建</a><br><a href="https://www.jianshu.com/p/cc3f193db928" target="_blank" rel="noopener">java虚拟机中对象的内存布局</a><br><a href="https://www.jianshu.com/p/762f97391cac" target="_blank" rel="noopener">java虚拟机中对象的定位</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;建立对象是为了使用对象，我们的程序通过栈上的refrence引用来操作堆里的具体对象。由于refrence类型在java虚拟机规范中只规定了一个指向对象的应用，并没有定义这个引用通过何种方式去定位、访问堆内对象的具体位置，所以对象访问方式也是取决与虚拟机实现而定的。目前主流的访问方式有使用句柄和直接指针两种&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
-    
-    
-      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java虚拟机中对象的内存布局</title>
-    <link href="http://shiyangtao.github.io/2015/04/03/jvm-2015-04-03-java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/"/>
-    <id>http://shiyangtao.github.io/2015/04/03/jvm-2015-04-03-java虚拟机中对象的内存布局/</id>
-    <published>2015-04-02T16:00:00.000Z</published>
-    <updated>2019-01-25T09:09:55.917Z</updated>
-    
-    <content type="html"><![CDATA[<p>在HotSpot虚拟机中，对象的内存布局分为三块区域：对象头(Object Header)、实例数据(Instance Data)、对齐填充(Padding)。<br><a id="more"></a></p><ul><li>对象头（Object Header）<ul><li>存储对象自身的运行时数据：如HashCode、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等<br><code>这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32bit和64bit，官方称它为&quot;MarkWord&quot;。对象需要存储的运行时数据很多，其实已经超出了32位、64位Bitmap结构所能记录的限度，但是对象头信息是与对象自身定义的数据无关的额外存储成本，考虑到虚拟机的空间效率，MarkWord被设计成一个非固定的数据结构以便在极小的空间内存储尽量多的信息，它会根据对象的状态复用自己的存储空间。例如，在32位的HotSpot虚拟机中，如果对象处于未被锁定的状态下，那么MarkWord的32bit空间中的25bit用于存储对象哈希码，4bit用于存储对象分代年龄，2bit用于存储锁标志位，1bit固定为0，而在其他状态（轻量级锁定、重量级锁定、GC标记、可偏向）下对象的存储内容见表2-1。</code></li><li>类型指针(即对象指向它的类元数据的指针)：虚拟机通过这个指针来确定这个对象是哪个类的实例。(注：并不是所有虚拟机的实现都必须在对象数据里保存类型指针，换句话说，查找对象的类的元数据信息不一定要通过对象本身)另外如果对象是一个数组，那么在对象头中还必须有一块来记录数据的长度，因为虚拟机可以根据普通对象的元数据信息来确定对象的大小，但是从数组的元数据里无法确定数组的大小。</li></ul></li><li>实例数据 (instance Data)<br>对象真正存储的有效信息，也是在程序代码中定义的各种类型的字段内容。无论是父类继承的还是子类中定义的，都需要记录起来。<br><code>这部分的存储顺序会受到虚拟机分配策略参数（FieldsAllocationStyle）和字段在Java源码中定义顺序的影响。HotSpot虚拟机默认的分配策略为longs/doubles、ints、shorts/chars、bytes/booleans、oops（OrdinaryObjectPointers），从分配策略中可以看出，相同宽度的字段总是被分配到一起。在满足这个前提条件的情况下，在父类中定义的变量会出现在子类之前。如果CompactFields参数值为true（默认为true），那么子类之中较窄的变量也可能会插入到父类变量的空隙之中。</code></li><li>对齐填充(Padding)<br>对齐填充并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。<br><code>由于HotSpotVM的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说，就是对象的大小必须是8字节的整数倍。而对象头部分正好是8字节的倍数（1倍或者2倍），因此，当对象实例数据部分没有对齐时，就需要通过对齐填充来补全。</code></li></ul><p>相关文章：<br><a href="https://www.jianshu.com/p/282777946dad" target="_blank" rel="noopener">java虚拟机中对象的创建</a><br><a href="https://www.jianshu.com/p/cc3f193db928" target="_blank" rel="noopener">java虚拟机中对象的内存布局</a><br><a href="https://www.jianshu.com/p/762f97391cac" target="_blank" rel="noopener">java虚拟机中对象的定位</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在HotSpot虚拟机中，对象的内存布局分为三块区域：对象头(Object Header)、实例数据(Instance Data)、对齐填充(Padding)。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="blog" scheme="http://shiyangtao.github.io/categories/blog/"/>
-    
-    
-      <category term="jvm" scheme="http://shiyangtao.github.io/tags/jvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>必要商城面试</title>
-    <link href="http://shiyangtao.github.io/2015/04/03/%E9%9D%A2%E8%AF%95-%E5%BF%85%E8%A6%81%E5%95%86%E5%9F%8E%E9%9D%A2%E8%AF%95/"/>
-    <id>http://shiyangtao.github.io/2015/04/03/面试-必要商城面试/</id>
-    <published>2015-04-02T16:00:00.000Z</published>
-    <updated>2019-01-25T14:28:25.941Z</updated>
-    
-    <content type="html"><![CDATA[<p>无笔试<br>第一轮</p><ul><li>你看过哪些java源码 或者框架的源码</li><li>项目里用了多线程的地方 线程池相关</li><li>数据库隔离</li><li>spring 原理 ioc aop</li><li>自己设计一个券系统，并画出er图</li><li>根据用户的优惠券，快速算出最佳优惠的策略</li></ul><p>第二轮</p><ul><li>业务数据量大，如何优化</li><li>订单超时过期实现（回答延迟mq、redis过期key订阅、Linux定时任务，面试官感觉mq会出现死信，redis或linux会down 有没有更好的方案，没有get到他想考察的点</li></ul><p>第三轮</p><ul><li>依赖第三方服务，比如支付结果的轮询，如果第三方down掉，支付服务会down或者重启后又down是什么原因（考察http 链接的开销，设置过期时间）</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><ul><li>Jvm  书籍《深入理解java虚拟机》</li><li>极客专栏《Java36讲》</li><li><p>并发编程 书籍《Java 并发编程实战》线程安全、锁机制看并发工具的源代码ReentrantLock和Condition、ReentrantReadWriteLock、CountDownLatch、CyclicBarrier、Semphore、线程池</p></li><li><p>Spring《spring 实战》《spring boot实战》《精通spring4.x》清楚AOP IOC</p></li><li>Java NIO <a href="https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html" target="_blank" rel="noopener">IBM&lt;nio入门&gt;</a> 《netty实战》清楚PPC TPC Reactor模型<h2 id="数据结构算法"><a href="#数据结构算法" class="headerlink" title="数据结构算法"></a>数据结构算法</h2></li><li>《算法图解》</li><li>极客专栏的《数据结构与算法分析》</li><li>《数据结构与算法分析-C语言描述》<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2></li><li>刘超网络专栏《趣谈网络协议》 熟悉TCP UDP</li><li>《图解TCP/IP》</li><li>《TCP/IP详解 卷1：协议》<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2></li><li>极客专栏《MySQL实战45讲》</li><li>《高性能MySQL》</li><li>了解下什么时候需要读写分离、分库分表，带来的问题有哪些？有哪些解决方法</li><li>了解下主备、主从、主备切换、主从切换、主主，每种模式适用的场景？带来的问题有哪些？有哪些解决方法<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2></li><li>《Redis设计与实现》</li><li>缓存雪崩，缓存穿透了解下原因解决方法有哪些<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2></li><li><a href="https://wizardforcel.gitbooks.io/w3school-linux/content/12.html" target="_blank" rel="noopener">w3school-linux</a> 熟悉常用linux命令</li><li>《鸟哥linux私房菜》<h2 id="分布式架构"><a href="#分布式架构" class="headerlink" title="分布式架构"></a>分布式架构</h2></li><li>极客专栏《从0开始学架构》</li><li>极客专栏《左耳听风》</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;无笔试&lt;br&gt;第一轮&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;你看过哪些java源码 或者框架的源码&lt;/li&gt;
-&lt;li&gt;项目里用了多线程的地方 线程池相关&lt;/li&gt;
-&lt;li&gt;数据库隔离&lt;/li&gt;
-&lt;li&gt;spring 原理 ioc aop&lt;/li&gt;
-&lt;li&gt;自己设计一个券系统，并画出er
+        &lt;h2 id=&quot;Java&quot;&gt;&lt;a href=&quot;#Java&quot; class=&quot;headerlink&quot; title=&quot;Java&quot;&gt;&lt;/a&gt;Java&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Jvm  书籍《深入理解java虚拟机》&lt;/li&gt;
+&lt;li&gt;极客专栏《Java36讲》&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
       
     
     </summary>
     
     
-      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试计数器相关</title>
-    <link href="http://shiyangtao.github.io/2015/04/03/%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95-%E8%AE%A1%E6%95%B0%E5%99%A8%E7%9B%B8%E5%85%B3/"/>
-    <id>http://shiyangtao.github.io/2015/04/03/面试-面试-计数器相关/</id>
-    <published>2015-04-02T16:00:00.000Z</published>
-    <updated>2019-01-25T14:28:33.149Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="面试官问："><a href="#面试官问：" class="headerlink" title="面试官问："></a>面试官问：</h4><p>文件里有m个身份证号，统计每个身份证号出现的次数</p><h4 id="回答："><a href="#回答：" class="headerlink" title="回答："></a>回答：</h4><p>使用hashMap实现，key作为身份证号<br><em>ContainsKey</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; freq = new HashMap&lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">    int count = freq.containsKey(word) ? freq.get(word) : 0;</span><br><span class="line">    freq.put(word, count + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="面试官问：-1"><a href="#面试官问：-1" class="headerlink" title="面试官问："></a>面试官问：</h4><p>还能优化吗</p><h4 id="回答：-1"><a href="#回答：-1" class="headerlink" title="回答："></a>回答：</h4><p><em>TestForNull</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Integer&gt; freq = new HashMap&lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>减少调用containsKey方法的开销</p><h4 id="面试官问：-2"><a href="#面试官问：-2" class="headerlink" title="面试官问："></a>面试官问：</h4><p>如果是高并发情况呢</p><h4 id="回答：-2"><a href="#回答：-2" class="headerlink" title="回答："></a>回答：</h4><p>采用ConcurrentHashMap去做，线程安全的</p><h4 id="面试官问：-3"><a href="#面试官问：-3" class="headerlink" title="面试官问："></a>面试官问：</h4><p>高并发下HashMap有什么问题吗</p><h4 id="回答：-3"><a href="#回答：-3" class="headerlink" title="回答："></a>回答：</h4><p>并发情况下使用HashMap造成Race Condition，从而导致死循环，CPU占用率会达到100%<br><a href="https://coolshell.cn/articles/9606.html" target="_blank" rel="noopener">博文链接hashMap死循环</a></p><h4 id="面试官问：-4"><a href="#面试官问：-4" class="headerlink" title="面试官问："></a>面试官问：</h4><p>ok 用ConcurrentHashMap 实现下</p><h4 id="回答：-4"><a href="#回答：-4" class="headerlink" title="回答："></a>回答：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap &lt;String, Integer&gt; freq = new ConcurrentHashMap &lt;String, Integer&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">      freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="面试官问：-5"><a href="#面试官问：-5" class="headerlink" title="面试官问："></a>面试官问：</h4><p>确定能实现？</p><h4 id="回答：-5"><a href="#回答：-5" class="headerlink" title="回答："></a>回答：</h4><p>实现不了 put操作会覆盖，比如两个线程同时进来读到了都是4，那么都会put 5进去，<br>可以给方法加上synchronized锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap &lt;String, Integer&gt; freq = new ConcurrentHashMap &lt;String, Integer&gt;();</span><br><span class="line">public synchronized void incr (String word)&#123;</span><br><span class="line">  Integer count = freq.get(word);</span><br><span class="line">  if (count == null) &#123;</span><br><span class="line">      freq.put(word, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">      freq.put(word, count + 1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="面试官问：-6"><a href="#面试官问：-6" class="headerlink" title="面试官问："></a>面试官问：</h4><p>嗯嗯 加锁确实能实现，但是性能差点，能优化下吗</p><h4 id="回答-当时回答的不好-："><a href="#回答-当时回答的不好-：" class="headerlink" title="回答(当时回答的不好)："></a>回答(当时回答的不好)：</h4><p>能,采用cas方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentMap&lt;String, AtomicLong&gt; map = new ConcurrentHashMap&lt;String, AtomicLong&gt;();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">  map.putIfAbsent(word, new AtomicLong(0));</span><br><span class="line">  map.get(word).incrementAndGet();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>也可以采用  AtomicLongMap，AtomicLongMap是Google Guava项目的一个类，它是线程安全、支持并发访问的，通过CAS方式实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AtomicLongMap&lt;String&gt; map = AtomicLongMap.create();</span><br><span class="line">public void incr (String word)&#123;</span><br><span class="line">   map.getAndIncrement(word);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="延伸："><a href="#延伸：" class="headerlink" title="延伸："></a>延伸：</h4><p>AtomicLong – 这组类使用CAS（比较并交换）处理器指令来更新计数器的值。听起来不错，真的是这样吗？是也不是。好的一面是它通过一个直接机器码指令设置值时，能够最小程度地影响其他线程的执行。坏的一面是如果它在与其他线程竞争设置值时失败了，它不得不再次尝试。在高竞争下，这将转化为一个自旋锁，线程不得不持续尝试设置值，无限循环直到成功。这可不是我们想要的方法。<a href="http://www.importnew.com/11345.html" target="_blank" rel="noopener">让我们进入Java 8的LongAdders</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;面试官问：&quot;&gt;&lt;a href=&quot;#面试官问：&quot; class=&quot;headerlink&quot; title=&quot;面试官问：&quot;&gt;&lt;/a&gt;面试官问：&lt;/h4&gt;&lt;p&gt;文件里有m个身份证号，统计每个身份证号出现的次数&lt;/p&gt;
-&lt;h4 id=&quot;回答：&quot;&gt;&lt;a href=&quot;#回答：&quot; c
-      
-    
-    </summary>
-    
-    
-      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试题</title>
-    <link href="http://shiyangtao.github.io/2015/04/03/%E9%9D%A2%E8%AF%95-2019-01-10/"/>
-    <id>http://shiyangtao.github.io/2015/04/03/面试-2019-01-10/</id>
-    <published>2015-04-02T16:00:00.000Z</published>
-    <updated>2019-01-25T14:28:11.710Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>1.对链表进行归并排序，链表可能有环<br>2.b+树b树的区别，优缺点</p><h1 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h1><p>1.线程池有哪些参数，有哪些作用，如果任务超过核心线程数，会发生什么？<br><a href="https://www.jianshu.com/p/432554383c55" target="_blank" rel="noopener">https://www.jianshu.com/p/432554383c55</a><br>2.hashset  底层实现<br>维护了一个hashMap<br>3.hashmap，hashtable，concurrentHashMap区别和底层原理<br>hashMap线程不安全，hashtable线程安全set/get都加了synchronized，concurrentHashMap线程安全采用锁分段来实现线程安全</p><ul><li>copyOnWriteList<br><a href="http://www.importnew.com/25034.html" target="_blank" rel="noopener">http://www.importnew.com/25034.html</a><br>4.String/StringBuffer/StringBuilder<br>String不可变，每次拼接都会新创建一个String对象<br>StringBuffer线程安全，维护一个数组(默认16)，append超过大小会出发Array copy<br>StringBuilder线程非安全，维护一个数组(默认16)，append超过大小会出发Array copy<br>4.公平锁和非公平锁怎么实现的<br>公平锁代码<br><img src="https://upload-images.jianshu.io/upload_images/2455482-8506c591de4e859a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/2455482-3af4b59db916bd99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>非公平锁代码<br><img src="https://upload-images.jianshu.io/upload_images/2455482-1d8a6c31c4eca12a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/2455482-4fe398d43a0aa5f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li></ul><p>总结：公平锁和非公平锁只有两处不同：</p><p>非公平锁在调用 lock 后，首先就会调用 CAS 进行一次抢锁，如果这个时候恰巧锁没有被占用，那么直接就获取到锁返回了。<br>非公平锁在 CAS 失败后，和公平锁一样都会进入到 tryAcquire 方法，在 tryAcquire 方法中，如果发现锁这个时候被释放了（state == 0），非公平锁会直接 CAS 抢锁，但是公平锁会判断等待队列是否有线程处于等待状态，如果有则不去抢锁，乖乖排到后面。<br>公平锁和非公平锁就这两点区别，如果这两次 CAS 都不成功，那么后面非公平锁和公平锁是一样的，都要进入到阻塞队列等待唤醒。</p><p>相对来说，非公平锁会有更好的性能，因为它的吞吐量比较大。当然，非公平锁让获取锁的时间变得更加不确定，可能会导致在阻塞队列中的线程长期处于饥饿状态。</p><p>5.说说java AQS 原理详细介绍下<br>看看java并发编程实战 关于AQS的章节<br>6.实现一个线程安全的计数器<br>AtomicInteger.incrementAndGet<br>7.synchronized和lock的区别</p><p>8.介绍happen-before<br>9.三个线程保证执行顺序<a href="https://www.cnblogs.com/kaleidoscope/p/9877174.html" target="_blank" rel="noopener">https://www.cnblogs.com/kaleidoscope/p/9877174.html</a></p><h1 id="jvm"><a href="#jvm" class="headerlink" title="jvm"></a>jvm</h1><p>1.java 内存模式</p><p>#数据库<br>1.连接池底层说下</p><h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><ol><li>解决缓存雪崩和缓存穿透的方案<br><a href="https://mp.weixin.qq.com/s/TBCEwLVAXdsTszRVpXhVug" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/TBCEwLVAXdsTszRVpXhVug</a>?</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h1&gt;&lt;p&gt;1.对链表进行归并排序，链表可能有环&lt;br&gt;2.b+树b树的区别，优缺点&lt;/p&gt;
-&lt;h1 id=&quot;java基础&quot;&gt;&lt;a href=&quot;#jav
-      
-    
-    </summary>
-    
-    
-      <category term="面试" scheme="http://shiyangtao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="学习心得" scheme="http://shiyangtao.github.io/tags/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/"/>
     
   </entry>
   
