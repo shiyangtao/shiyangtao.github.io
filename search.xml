@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[策略模式]]></title>
-    <url>%2F2019%2F01%2F26%2F%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%2F</url>
+    <url>%2F2019%2F01%2F26%2F2019-01-28-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[第一版鸭子游戏我们设计了一个鸭子游戏项目，游戏中会出现各种鸭子，为此Joe实现了一个超类Duck，让鸭子子类都继承这个类，如下图所示。 加鸭子会飞的需求使用继承过了几天主管找到Joe说希望有的鸭子能飞，Joe说so easy，只需在超类里增加一个fly()方法就ok了。但是过了几天主管对外演示时发现，橡皮鸭子在屏幕上飞来飞去，非常尴尬。主管打电话开始喷Joe:你可以去看看boss直聘了。Joe忽略了一件事，并非所有鸭子都会飞，他在超类里加上新的行为，会使得不该拥有这个行为的子类也拥有了这个行为。他体会了一件事：当涉及维护时为了复用目的使用继承结局并不完美。 Joe：那么橡皮鸭子类可以重写这个fly方法里边什么也不做，不就可以了吗？主管：那么所有不能飞的子类都得重写一遍fly，然后如果加入木鸭(不会飞不会叫)，也得把quack()方法重写。Joe意思到继承可能无法解决这个问题： 使用接口Joe：那么可以把fly()和quack()方法从超类里拆出来，只有能飞/能叫的鸭子子类实现这个接口主管：这真是个超级糟糕的设计，如果你认为重写几个方法很差劲，但是48个子类都稍微修改下飞行的行为呢？Joe：我去还真是，虽然Flayable和Quackable能解决一部分问题（不再有会飞的橡皮鸭），但是却造成代码无法复用啊，每个会飞的鸭子子类都得实现一个fly()方法哪怕他们的飞的行为是一样的，如果每个fly方法里增加打印日志得需要改48个子类。那咋办呀？ 设计原则一主管：把问题归零把，下面给你介绍一个设计原则：找出应用中可能需要变化的地方，把他们独立出来，不要在和哪些不变的代码混在一起了，把会变化的代码封装起来，好让其他部分不受影响，代码变化引起的bug变少，系统更加有弹性 下面是这个设计原则的另一种思考方式：“把会变化的部分取出并封装起来，以便以后可以轻易的改动或者扩展此部分，而不影响不需要变化的部分“主管：Joe是时候把鸭子的行为从Duck里行为拆出来了！Joe：ok，那么Duck里的行为除了fly和quack有问题外，其他行为一切还算正常，现在要分开变化部分和不变部分了，我打算建立两组类看图 设计原则二那么如何设计那组实现飞行和呱呱叫的的行为的类呢？我们希望一切能有弹性，毕竟，正是一开始鸭子行为没有弹性，才让我们走上现在这条路。我们还想能够“指定”行为到鸭子的实例。比方说，我们想要产生一个新的绿头鸭的实例，并指定特定的“类型”的飞行行为给它。干脆让鸭子的行为可以动态地改变好了。换句话说，我们应该在鸭子类中包含设定行为的方法，这样就可以在“运行时”动态地“改变”绿头鸭的飞行行为。有了这些目标要实现，接着看看第二个设计原则： 我们利用接口代表每个行为，比方说，FlyBehavior和QuackBehavior接口。所以这次鸭子类不回负责实现Fly与Quack接口，反而是由我们制造一组其他类专门实现FlyBehavior与QuackBehavior,这些就称为“行为”类。 这样的设计，可以让飞行和呱呱叫的动作被其他的对象复用，因为这些行为已经与鸭子类无关了。而我们可以新增一些行为，不会影响到既有的行为类，也不会影响“使用”到飞行行为的鸭子类。这么一来，有了继承的“复用”的好处，却没有继承所带来的包袱。 整合鸭子的行为关键在于，鸭子现在会将飞行和呱呱叫“委托”(delegate)别人处理，而不是定义在Duck类(或子类)内的呱呱叫和飞行方法。 1234567891011public class Duck &#123; //每只鸭子都会引用实现QuackBehavior接口的对象。 QuackBehavior quackBehavior; // 还有更多 ....... //鸭子对象不亲自处理呱呱叫的行为，而是委托给quackBehavior引用的对象 public void performQuack()&#123; quckBehavior.quack(); &#125;&#125; UML图 设计原则三“有一个”可能比“是一个”更好。“有一个”关系相当有趣：每一鸭子都有一个FlyBehavior和一个QuackBehavior，好将飞行和呱呱叫委托给它们代为处理。当你将两个类结合起来使用，如同本例一般，这就是组合(composition)。这种做法和“继承”不同的地方在于，鸭子的行为不是继承来的，而是和适当的行为对像“组合来的”。这是一个很重要的技巧。其实是使用了我们的第三个设计原则：]]></content>
       <categories>
         <category>设计模式</category>
@@ -292,17 +292,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[interrupt方法]]></title>
-    <url>%2F2015%2F09%2F20%2Fjava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-thread-method-interrupt%2F</url>
-    <content type="text"><![CDATA[https://blog.csdn.net/pursuer211/article/details/40653531]]></content>
+    <title><![CDATA[多线程实现四种方式]]></title>
+    <url>%2F2015%2F09%2F20%2Fjava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[https://www.cnblogs.com/felixzh/p/6036074.html]]></content>
       <tags>
         <tag>java并发编程</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[多线程实现四种方式]]></title>
-    <url>%2F2015%2F09%2F20%2Fjava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[https://www.cnblogs.com/felixzh/p/6036074.html]]></content>
+    <title><![CDATA[interrupt方法]]></title>
+    <url>%2F2015%2F09%2F20%2Fjava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-thread-method-interrupt%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/pursuer211/article/details/40653531]]></content>
       <tags>
         <tag>java并发编程</tag>
       </tags>
@@ -408,25 +408,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[网络编程图谱]]></title>
-    <url>%2F2015%2F02%2F03%2F%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-%E5%9B%BE%E8%B0%B1%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <tags>
-        <tag>网络编程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[java虚拟机中对象的创建]]></title>
-    <url>%2F2015%2F02%2F03%2Fjvm-2015-02-03-java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[&emsp;&emsp;我们了解虚拟机内存划分的人，都知道对象的内存分配几乎都是在堆上的，这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都会在堆上分配（但是随着JIT编译器的发展与逃逸分析技术逐渐成熟，栈上分配，标量替换优化技术将会导致一些变化，擦扯远了，所以所有的对象实例都在堆上分配就不是那么绝对了） 下面说虚拟机中对象的创建几个步骤 类加载检查&emsp;&emsp;虚拟机遇到new指令时，首先会去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否被装载、解析和初始化过。如果没有那必须先执行相应的类的加载过程。 为对象分配内存&emsp;&emsp;当类加载成功后，类的对象的大小是确定了的。对象内存的划分等同于在堆里划分出一块指定大小的内存。&emsp;&emsp;假设内存是规整的，所有用过的内存放在一边，空闲的放在另一边，中间分界点有个指针，那分配内存就是把指针向空闲区域方向挪动一段于对象大小相等的长度，这种分配方式叫做“指针碰撞”(Bump the Pointer)。&emsp;&emsp;如果内存不是规整的，那么就需要一个表来记录，记录哪些内存是占用的，哪些是空闲的，那分配内存就是在表里找到一块足够大的空间分配给对象实例，并更新这个表的记录，这种分配方式叫做“空闲列表”(Free List)。&emsp;&emsp;选择哪种分配方式与堆是否规整决定，而java堆是否规整又和垃圾收集器是否有压缩整理功能决定。因此，在使用Serial、ParNew等带有Compact过程的收集器时，采用的分配方式是指针碰撞，而使用CMS这种基于Mark-Sweep算法的收集器时，采用的是空闲列表。&emsp;&emsp;除了如何划分内存之外还有一个是我们需要考虑的问题，因为java堆是线程共享的，那么多个线程同时操作堆上的内存就会有问题，比如正在给a对象分配内存还没来得及移动指针(或者是没有修改空闲列表的记录)，这时对象b使用原来的指针来分配内存，就会产生问题。解决这个问题有两种方式，一种是对分配内存的动作进行同步处理(实际上虚拟机采用CAS配上错误重试来保证分配内存的原子性)；另一种是采用线程间不共享的内存来分配，每个线程预先在java堆中分配一块内存，成为本地线程分配缓冲(Thread Local Allocation Buffer,TLAB )。哪个线程分配内存就在该线程的TLAB上分配，只有在TLAB用完需要分配新的TLAB时，才需要同步锁定。注：虚拟机是否使用TLAB，可以通过-XX:+/-UseTLAB参数来设定。 内存初始化&emsp;&emsp;内存分配完后，需要把将分配到的内存空间初始化为零值(不包换对象头)，如果使用TLAB这一过程也可以提前至TLAB分配时进行。这一步操作保证了对象实例字段在java代码中可以不赋初值就使用，程序能访问到这些字段的数据类型所对应的零值。 对象头必要设置&emsp;&emsp;接下来虚拟机要对对象进行必要的设置，比如该对象是哪个类的实例、如何才能找到类的元数据信息、对象的hash码、对象的gc分代年龄等信息。这些信息均放在对象的对象头(Object Header)中。根据虚拟机当前的运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置 总结以上步骤完成后，从虚拟机的角度来看，一个新对象诞生了，但从java程序角度看，一切才刚刚开始——init方法还没有执行，所有字段的数据类型都是对应的零值。所以一般来说执行new指令后会接着执行init方法，把对象按照程序猿的意愿进行初始化，这样一个真正可以使用的对象才算完成。 下面的代码是HotPot虚拟机bytecodeInterpreter.cpp的代码片段1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162u2 index = Bytes::get_Java_u2(pc+1);ConstantPool* constants = istate-&gt;method()-&gt;constants();// 确保常量池中是已经解释的类if (!constants-&gt;tag_at(index).is_unresolved_klass()) &#123; // Make sure klass is initialized and doesn't have a finalizer // 确保类已经初始化 Klass* entry = constants-&gt;slot_at(index).get_klass(); assert(entry-&gt;is_klass(), "Should be resolved klass"); Klass* k_entry = (Klass*) entry; assert(k_entry-&gt;oop_is_instance(), "Should be InstanceKlass"); InstanceKlass* ik = (InstanceKlass*) k_entry; // 确保对象内存已经初始化 if ( ik-&gt;is_initialized() &amp;&amp; ik-&gt;can_be_fastpath_allocated() ) &#123; // 取对象长度 size_t obj_size = ik-&gt;size_helper(); oop result = NULL; // If the TLAB isn't pre-zeroed then we'll have to do it // 如果TLAB没有预先初始化那么need_zero为true后边会进行初始化 bool need_zero = !ZeroTLAB; // 如果虚拟机启用TLAB，那么在TLAB中分配对象 if (UseTLAB) &#123; result = (oop) THREAD-&gt;tlab().allocate(obj_size); &#125; if (result == NULL) &#123; need_zero = true; // Try allocate in shared eden // 尝试在eden中分配对象retry: HeapWord* compare_to = *Universe::heap()-&gt;top_addr(); HeapWord* new_top = compare_to + obj_size; /*cmpxchg是x86中的CAS指令，这里是一个C++方法通过CAS方式分配空间，如果并发失败，转到retry中重试直至成功分配为止*/ if (new_top &lt;= *Universe::heap()-&gt;end_addr()) &#123; if (Atomic::cmpxchg_ptr(new_top, Universe::heap()-&gt;top_addr(), compare_to) != compare_to) &#123; goto retry; &#125; result = (oop) compare_to; &#125; &#125; if (result != NULL) &#123; // Initialize object (if nonzero size and need) and then the header // 如果需要，则为对象初始化零值 if (need_zero ) &#123; HeapWord* to_zero = (HeapWord*) result + sizeof(oopDesc) / oopSize; obj_size -= sizeof(oopDesc) / oopSize; if (obj_size &gt; 0 ) &#123; memset(to_zero, 0, obj_size * HeapWordSize); &#125; &#125; // 根据是否启用偏向锁来设置对象头信息 if (UseBiasedLocking) &#123; result-&gt;set_mark(ik-&gt;prototype_header()); &#125; else &#123; result-&gt;set_mark(markOopDesc::prototype()); &#125; result-&gt;set_klass_gap(0); result-&gt;set_klass(k_entry); // 将对象引用入栈，继续执行下一条指令 SET_STACK_OBJECT(result, 0); UPDATE_PC_AND_TOS_AND_CONTINUE(3, 1); &#125; &#125;&#125; 相关文章：java虚拟机中对象的创建java虚拟机中对象的内存布局java虚拟机中对象的定位]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[幂等]]></title>
     <url>%2F2015%2F02%2F03%2F%E5%88%86%E5%B8%83%E5%BC%8F-%E5%B9%82%E7%AD%89%2F</url>
     <content type="text"><![CDATA[再谈幂等机制一、什么是幂等性？幂等性(Idempotence)。在HTTP/1.1规范中幂等性的定义是： Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &gt; 0 identical requests is the same as for a single request. 幂等性：就是用户对于同一操作发起的一次请求或者多次请求的结果是一致的，不会因为多次点击而产生了副作用。 二、为什么需要幂等那么我们为什么需要接口具有幂等性呢？设想一下以下情形： 在App中下订单的时候，点击确认之后，没反应，就又点击了几次。在这种情况下，如果无法保证该接口的幂等性，那么将会出现重复下单问题。 在接收消息的时候，消息推送重复。如果处理消息的接口无法保证幂等，那么重复消费消息产生的影响可能会非常大。 在分布式环境中，网络环境更加复杂，因前端操作抖动、网络故障、消息重复、响应速度慢等原因，对接口的重复调用概率会比集中式环境下更大，尤其是重复消息在分布式环境中很难避免。 三、如何保证接口的幂等性接口的幂等性实际上就是接口可重复调用，在调用方多次调用的情况下，接口最终得到的结果是一致的。有些接口可以天然的实现幂等性，比如查询接口，对于查询来说，你查询一次和两次，对于系统来说，没有任何影响，查出的结果也是一样。 除了查询功能具有天然的幂等性之外，增加、更新、删除都要保证幂等性。那么如何来保证幂等性呢？ 3.1保证幂等策略 幂等需要通过唯一的业务单号来保证。也就是说相同的业务单号，认为是同一笔业务。使用这个唯一的业务单号来确保，后面多次的相同的业务单号的处理逻辑和执行效果是一致的。下面以支付为例，在不考虑并发的情况下，实现幂等很简单：①先查询一下订单是否已经支付过，②如果已经支付过，则返回支付成功；如果没有支付，进行支付流程，修改订单状态为‘已支付’。 3.2防重复提交策略 上述的保证幂等方案是分成两步的，第②步依赖第①步的查询结果，无法保证原子性的。在高并发下就会出现下面的情况：第二次请求在第一次请求第②步订单状态还没有修改为‘已支付状态’的情况下到来。既然得出了这个结论，余下的问题也就变得简单：把查询和变更状态操作加锁，将并行操作改为串行操作。 列举三种改进方式： 1、悲观锁，select for update，整个执行过程中锁定该订单对应的记录。 2、乐观锁，affectrows = db.update(“update payorder set state=’已支付’ where orderid=$orderid and state=’未支付’ “)，如果affectrows=1，执行充值，否则返回已处理。 3、定义防重复表，orderid为unique key或者primary key，执行前，先insert，若insert成功则执行充值，否则返回已处理 四、总结业务层设计协议时，要求请求方定义不重复的业务流水号。应用实现时，利用数据库乐观锁、插入unique key的日志等方式保证并发时的幂等。 幂等性把关环节，在协议设计评审中，评审重要业务RPC或者http接口是否支持幂等，代码评审中，重点把关请求并发时，是否仍旧能够保证幂等性。设计人员和具体实现人员在实现过程中，也应该时刻自审幂等性的实现是否过关。 最后介绍一下美团点评开发GTI（它是一个轻量的重复操作关卡系统，它能够确保在分布式环境中操作的唯一性。我们可以用它来间接保证每个操作的幂等性），感兴趣可以去研究一下】、]]></content>
@@ -457,6 +438,25 @@
     <content type="text"><![CDATA[http://tutorials.jenkov.com/java-nio/nio-vs-io.htmlhttp://www.iteye.com/magazines/132-Java-NIO]]></content>
       <tags>
         <tag>nio</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java虚拟机中对象的创建]]></title>
+    <url>%2F2015%2F02%2F03%2Fjvm-2015-02-03-java%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp;我们了解虚拟机内存划分的人，都知道对象的内存分配几乎都是在堆上的，这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都会在堆上分配（但是随着JIT编译器的发展与逃逸分析技术逐渐成熟，栈上分配，标量替换优化技术将会导致一些变化，擦扯远了，所以所有的对象实例都在堆上分配就不是那么绝对了） 下面说虚拟机中对象的创建几个步骤 类加载检查&emsp;&emsp;虚拟机遇到new指令时，首先会去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否被装载、解析和初始化过。如果没有那必须先执行相应的类的加载过程。 为对象分配内存&emsp;&emsp;当类加载成功后，类的对象的大小是确定了的。对象内存的划分等同于在堆里划分出一块指定大小的内存。&emsp;&emsp;假设内存是规整的，所有用过的内存放在一边，空闲的放在另一边，中间分界点有个指针，那分配内存就是把指针向空闲区域方向挪动一段于对象大小相等的长度，这种分配方式叫做“指针碰撞”(Bump the Pointer)。&emsp;&emsp;如果内存不是规整的，那么就需要一个表来记录，记录哪些内存是占用的，哪些是空闲的，那分配内存就是在表里找到一块足够大的空间分配给对象实例，并更新这个表的记录，这种分配方式叫做“空闲列表”(Free List)。&emsp;&emsp;选择哪种分配方式与堆是否规整决定，而java堆是否规整又和垃圾收集器是否有压缩整理功能决定。因此，在使用Serial、ParNew等带有Compact过程的收集器时，采用的分配方式是指针碰撞，而使用CMS这种基于Mark-Sweep算法的收集器时，采用的是空闲列表。&emsp;&emsp;除了如何划分内存之外还有一个是我们需要考虑的问题，因为java堆是线程共享的，那么多个线程同时操作堆上的内存就会有问题，比如正在给a对象分配内存还没来得及移动指针(或者是没有修改空闲列表的记录)，这时对象b使用原来的指针来分配内存，就会产生问题。解决这个问题有两种方式，一种是对分配内存的动作进行同步处理(实际上虚拟机采用CAS配上错误重试来保证分配内存的原子性)；另一种是采用线程间不共享的内存来分配，每个线程预先在java堆中分配一块内存，成为本地线程分配缓冲(Thread Local Allocation Buffer,TLAB )。哪个线程分配内存就在该线程的TLAB上分配，只有在TLAB用完需要分配新的TLAB时，才需要同步锁定。注：虚拟机是否使用TLAB，可以通过-XX:+/-UseTLAB参数来设定。 内存初始化&emsp;&emsp;内存分配完后，需要把将分配到的内存空间初始化为零值(不包换对象头)，如果使用TLAB这一过程也可以提前至TLAB分配时进行。这一步操作保证了对象实例字段在java代码中可以不赋初值就使用，程序能访问到这些字段的数据类型所对应的零值。 对象头必要设置&emsp;&emsp;接下来虚拟机要对对象进行必要的设置，比如该对象是哪个类的实例、如何才能找到类的元数据信息、对象的hash码、对象的gc分代年龄等信息。这些信息均放在对象的对象头(Object Header)中。根据虚拟机当前的运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置 总结以上步骤完成后，从虚拟机的角度来看，一个新对象诞生了，但从java程序角度看，一切才刚刚开始——init方法还没有执行，所有字段的数据类型都是对应的零值。所以一般来说执行new指令后会接着执行init方法，把对象按照程序猿的意愿进行初始化，这样一个真正可以使用的对象才算完成。 下面的代码是HotPot虚拟机bytecodeInterpreter.cpp的代码片段1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162u2 index = Bytes::get_Java_u2(pc+1);ConstantPool* constants = istate-&gt;method()-&gt;constants();// 确保常量池中是已经解释的类if (!constants-&gt;tag_at(index).is_unresolved_klass()) &#123; // Make sure klass is initialized and doesn't have a finalizer // 确保类已经初始化 Klass* entry = constants-&gt;slot_at(index).get_klass(); assert(entry-&gt;is_klass(), "Should be resolved klass"); Klass* k_entry = (Klass*) entry; assert(k_entry-&gt;oop_is_instance(), "Should be InstanceKlass"); InstanceKlass* ik = (InstanceKlass*) k_entry; // 确保对象内存已经初始化 if ( ik-&gt;is_initialized() &amp;&amp; ik-&gt;can_be_fastpath_allocated() ) &#123; // 取对象长度 size_t obj_size = ik-&gt;size_helper(); oop result = NULL; // If the TLAB isn't pre-zeroed then we'll have to do it // 如果TLAB没有预先初始化那么need_zero为true后边会进行初始化 bool need_zero = !ZeroTLAB; // 如果虚拟机启用TLAB，那么在TLAB中分配对象 if (UseTLAB) &#123; result = (oop) THREAD-&gt;tlab().allocate(obj_size); &#125; if (result == NULL) &#123; need_zero = true; // Try allocate in shared eden // 尝试在eden中分配对象retry: HeapWord* compare_to = *Universe::heap()-&gt;top_addr(); HeapWord* new_top = compare_to + obj_size; /*cmpxchg是x86中的CAS指令，这里是一个C++方法通过CAS方式分配空间，如果并发失败，转到retry中重试直至成功分配为止*/ if (new_top &lt;= *Universe::heap()-&gt;end_addr()) &#123; if (Atomic::cmpxchg_ptr(new_top, Universe::heap()-&gt;top_addr(), compare_to) != compare_to) &#123; goto retry; &#125; result = (oop) compare_to; &#125; &#125; if (result != NULL) &#123; // Initialize object (if nonzero size and need) and then the header // 如果需要，则为对象初始化零值 if (need_zero ) &#123; HeapWord* to_zero = (HeapWord*) result + sizeof(oopDesc) / oopSize; obj_size -= sizeof(oopDesc) / oopSize; if (obj_size &gt; 0 ) &#123; memset(to_zero, 0, obj_size * HeapWordSize); &#125; &#125; // 根据是否启用偏向锁来设置对象头信息 if (UseBiasedLocking) &#123; result-&gt;set_mark(ik-&gt;prototype_header()); &#125; else &#123; result-&gt;set_mark(markOopDesc::prototype()); &#125; result-&gt;set_klass_gap(0); result-&gt;set_klass(k_entry); // 将对象引用入栈，继续执行下一条指令 SET_STACK_OBJECT(result, 0); UPDATE_PC_AND_TOS_AND_CONTINUE(3, 1); &#125; &#125;&#125; 相关文章：java虚拟机中对象的创建java虚拟机中对象的内存布局java虚拟机中对象的定位]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网络编程图谱]]></title>
+    <url>%2F2015%2F02%2F03%2F%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-%E5%9B%BE%E8%B0%B1%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>网络编程</tag>
       </tags>
   </entry>
 </search>
