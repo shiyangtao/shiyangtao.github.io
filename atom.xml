@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shiyangtao.github.io/"/>
-  <updated>2019-01-26T10:50:21.918Z</updated>
+  <updated>2019-01-28T07:42:32.109Z</updated>
   <id>http://shiyangtao.github.io/</id>
   
   <author>
@@ -21,18 +21,15 @@
     <link href="http://shiyangtao.github.io/2019/01/26/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
     <id>http://shiyangtao.github.io/2019/01/26/策略模式/</id>
     <published>2019-01-26T04:19:00.000Z</published>
-    <updated>2019-01-26T10:50:21.918Z</updated>
+    <updated>2019-01-28T07:42:32.109Z</updated>
     
-    <content type="html"><![CDATA[<h5 id="策略设计模式"><a href="#策略设计模式" class="headerlink" title="策略设计模式"></a>策略设计模式</h5><ul><li>看看快递</li></ul>]]></content>
+    <content type="html"><![CDATA[<h5 id="策略设计模式"><a href="#策略设计模式" class="headerlink" title="策略设计模式"></a>策略设计模式</h5><p>我们设计了一个鸭子游戏项目，游戏中会出现各种鸭子，为此Joe实现了一个超类Duck，让鸭子子类都继承这个类，如下图所示。<br><img src="/2019/01/26/策略模式/images/pasted-0.png" alt="upload successful"></p><p>过了几天主管找到Joe说希望有的鸭子能飞，Joe说so easy，只需在超类里增加一个fly()方法就ok了。<br><img src="/2019/01/26/策略模式/images/pasted-1.png" alt="upload successful"><br>但是过了几天主管对外演示时发现，橡皮鸭子在屏幕上飞来飞去，非常尴尬。主管打电话开始喷Joe: 你可以去看看boss直聘了。Joe忽略了一件事，并非所有鸭子都会飞，他在超类里加上新的行为，会使得不该拥有这个行为的也拥有了这个行为。他体会了一件事：当涉及维护时为了复用目的使用继承结局并不完美。</p><p>接下来Joe开始解决这个问题：<br>Joe：那么橡皮鸭子类可以重写这个fly方法里边什么也不做，不就可以了吗？<br>主管：那么所有不能飞的子类都得重写一遍，然后如果加入木鸭(不会飞不会叫)，也得把quack()方法重写<br>Joe意思到继承可能无法解决这个问题：<br>Joe：那么可以把fly()和quack()方法从超类里拆出来，只有能飞/能叫的鸭子子类实现这个接口<br><img src="/2019/01/26/策略模式/images/pasted-2.png" alt="upload successful"><br>主管：这真是个超级糟糕的涉及，如果你认为重写几个方法很差劲，但是48个子类都稍微修改下飞行的行为呢？<br>Joe：我去还真是，虽然Flayable和Quackable能解决一部分问题（不再有会飞的橡皮鸭），但是却造成代码无法复用啊，每个会飞的鸭子子类都得实现一个fly()方法哪怕他们的飞的行为是一样的，如果每个fly方法里增加打印日志得需要改48个子类。那咋办呀？<br>主管：把问题归零把，下面给你介绍一个设计原则：找出应用中可能需要变化的地方，把他们独立出来，不要在和哪些不变的代码混在一起了，把会变化的代码封装起来，好让其他部分不受影响，代码变化引起的bug变少，系统更加有弹性</p><p><img src="/2019/01/26/策略模式/images/pasted-3.png" alt="upload successful"><br>下面是这个设计原则的另一种思考方式：“把会变化的部分取出并封装起来，以便以后可以轻易的改动或者扩展此部分，而不影响不需要变化的部分“<br>主管：Joe是时候把鸭子的行为从Duck里行为拆出来了！<br>Joe：ok，那么Duck里的行为除了fly和quack有问题外，其他行为一切还算正常，现在要分开变化部分和不变部分了，我打算建立两组类看图</p><p><img src="/2019/01/26/策略模式/images/pasted-4.png" alt="upload successful"><br>那么如何设计那组实现飞行和呱呱叫的的行为的类呢？我们希望一切能有弹性，毕竟，正是一开始鸭子行为没有弹性，才让我们走上现在这条路。我们还想能够“指定”行为到鸭子的实例。比方说，我们想要产生一个新的绿头鸭的实例，并指定特定的“类型”的飞行行为给它。干脆让鸭子的行为可以动态地改变好了。换句话说，我们应该在鸭子类中包含设定行为的方法，这样就可以在“运行时”动态地“改变”绿头鸭的飞行行为。有了这些目标要实现，接着看看第二个设计原则：</p><p><img src="/2019/01/26/策略模式/images/pasted-5.png" alt="upload successful"><br>我们利用接口代表每个行为，比方说，FlyBehavior和QuackBehavior接口。所以这次鸭子类不回负责实现Fly与Quack接口，反而是由我们制造一组其他类专门实现FlyBehavior与QuackBehavior,这些就称为“行为”类。</p><p><img src="/2019/01/26/策略模式/images/pasted-7.png" alt="upload successful"><br>这样的设计，可以让飞行和呱呱叫的动作被其他的对象复用，因为这些行为已经与鸭子类无关了。<br>而我们可以新增一些行为，不会影响到既有的行为类，也不会影响“使用”到飞行行为的鸭子类。这么一来，有了继承的“复用”的好处，却没有继承所带来的包袱。</p><h5 id="整合鸭子的行为"><a href="#整合鸭子的行为" class="headerlink" title="整合鸭子的行为"></a>整合鸭子的行为</h5><p>关键在于，鸭子现在会将飞行和呱呱叫“委托”(delegate)别人处理，而不是定义在Duck类(或子类)内的呱呱叫和飞行方法。</p><p><img src="/2019/01/26/策略模式/images/pasted-8.png" alt="upload successful"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line"><span class="comment">//每只鸭子都会引用实现QuackBehavior接口的对象。</span></span><br><span class="line">QuackBehavior quackBehavior;</span><br><span class="line">    <span class="comment">// 还有更多</span></span><br><span class="line">    .......</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//鸭子对象不亲自处理呱呱叫的行为，而是委托给quackBehavior引用的对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performQuack</span><span class="params">()</span></span>&#123;</span><br><span class="line">    quckBehavior.quack();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>uml图</p><p><img src="/2019/01/26/策略模式/images/pasted-9.png" alt="upload successful"></p><h6 id="“有一个”可能比“是一个”更好。"><a href="#“有一个”可能比“是一个”更好。" class="headerlink" title="“有一个”可能比“是一个”更好。"></a>“有一个”可能比“是一个”更好。</h6><p>“有一个”关系相当有趣：每一鸭子都有一个FlyBehavior和一个QuackBehavior，好将飞行和呱呱叫委托给它们代为处理。<br>当你将两个类结合起来使用，如同本例一般，这就是组合(composition)。这种做法和“继承”不同的地方在于，鸭子的行为不是继承来的，而是和适当的行为对像“组合来的”。这是一个很重要的技巧。其实是使用了我们的第三个设计原则：</p><p><img src="/2019/01/26/策略模式/images/pasted-10.png" alt="upload successful"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h5 id=&quot;策略设计模式&quot;&gt;&lt;a href=&quot;#策略设计模式&quot; class=&quot;headerlink&quot; title=&quot;策略设计模式&quot;&gt;&lt;/a&gt;策略设计模式&lt;/h5&gt;&lt;ul&gt;
-&lt;li&gt;看看快递&lt;/li&gt;
-&lt;/ul&gt;
-
+        &lt;h5 id=&quot;策略设计模式&quot;&gt;&lt;a href=&quot;#策略设计模式&quot; class=&quot;headerlink&quot; title=&quot;策略设计模式&quot;&gt;&lt;/a&gt;策略设计模式&lt;/h5&gt;&lt;p&gt;我们设计了一个鸭子游戏项目，游戏中会出现各种鸭子，为此Joe实现了一个超类Duck，让鸭子子类都继承这个类，
       
     
     </summary>

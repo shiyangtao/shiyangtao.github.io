@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[策略模式]]></title>
     <url>%2F2019%2F01%2F26%2F%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[策略设计模式 看看快递]]></content>
+    <content type="text"><![CDATA[策略设计模式我们设计了一个鸭子游戏项目，游戏中会出现各种鸭子，为此Joe实现了一个超类Duck，让鸭子子类都继承这个类，如下图所示。 过了几天主管找到Joe说希望有的鸭子能飞，Joe说so easy，只需在超类里增加一个fly()方法就ok了。但是过了几天主管对外演示时发现，橡皮鸭子在屏幕上飞来飞去，非常尴尬。主管打电话开始喷Joe: 你可以去看看boss直聘了。Joe忽略了一件事，并非所有鸭子都会飞，他在超类里加上新的行为，会使得不该拥有这个行为的也拥有了这个行为。他体会了一件事：当涉及维护时为了复用目的使用继承结局并不完美。 接下来Joe开始解决这个问题：Joe：那么橡皮鸭子类可以重写这个fly方法里边什么也不做，不就可以了吗？主管：那么所有不能飞的子类都得重写一遍，然后如果加入木鸭(不会飞不会叫)，也得把quack()方法重写Joe意思到继承可能无法解决这个问题：Joe：那么可以把fly()和quack()方法从超类里拆出来，只有能飞/能叫的鸭子子类实现这个接口主管：这真是个超级糟糕的涉及，如果你认为重写几个方法很差劲，但是48个子类都稍微修改下飞行的行为呢？Joe：我去还真是，虽然Flayable和Quackable能解决一部分问题（不再有会飞的橡皮鸭），但是却造成代码无法复用啊，每个会飞的鸭子子类都得实现一个fly()方法哪怕他们的飞的行为是一样的，如果每个fly方法里增加打印日志得需要改48个子类。那咋办呀？主管：把问题归零把，下面给你介绍一个设计原则：找出应用中可能需要变化的地方，把他们独立出来，不要在和哪些不变的代码混在一起了，把会变化的代码封装起来，好让其他部分不受影响，代码变化引起的bug变少，系统更加有弹性 下面是这个设计原则的另一种思考方式：“把会变化的部分取出并封装起来，以便以后可以轻易的改动或者扩展此部分，而不影响不需要变化的部分“主管：Joe是时候把鸭子的行为从Duck里行为拆出来了！Joe：ok，那么Duck里的行为除了fly和quack有问题外，其他行为一切还算正常，现在要分开变化部分和不变部分了，我打算建立两组类看图 那么如何设计那组实现飞行和呱呱叫的的行为的类呢？我们希望一切能有弹性，毕竟，正是一开始鸭子行为没有弹性，才让我们走上现在这条路。我们还想能够“指定”行为到鸭子的实例。比方说，我们想要产生一个新的绿头鸭的实例，并指定特定的“类型”的飞行行为给它。干脆让鸭子的行为可以动态地改变好了。换句话说，我们应该在鸭子类中包含设定行为的方法，这样就可以在“运行时”动态地“改变”绿头鸭的飞行行为。有了这些目标要实现，接着看看第二个设计原则： 我们利用接口代表每个行为，比方说，FlyBehavior和QuackBehavior接口。所以这次鸭子类不回负责实现Fly与Quack接口，反而是由我们制造一组其他类专门实现FlyBehavior与QuackBehavior,这些就称为“行为”类。 这样的设计，可以让飞行和呱呱叫的动作被其他的对象复用，因为这些行为已经与鸭子类无关了。而我们可以新增一些行为，不会影响到既有的行为类，也不会影响“使用”到飞行行为的鸭子类。这么一来，有了继承的“复用”的好处，却没有继承所带来的包袱。 整合鸭子的行为关键在于，鸭子现在会将飞行和呱呱叫“委托”(delegate)别人处理，而不是定义在Duck类(或子类)内的呱呱叫和飞行方法。 1234567891011public class Duck &#123; //每只鸭子都会引用实现QuackBehavior接口的对象。 QuackBehavior quackBehavior; // 还有更多 ....... //鸭子对象不亲自处理呱呱叫的行为，而是委托给quackBehavior引用的对象 public void performQuack()&#123; quckBehavior.quack(); &#125;&#125; uml图 “有一个”可能比“是一个”更好。“有一个”关系相当有趣：每一鸭子都有一个FlyBehavior和一个QuackBehavior，好将飞行和呱呱叫委托给它们代为处理。当你将两个类结合起来使用，如同本例一般，这就是组合(composition)。这种做法和“继承”不同的地方在于，鸭子的行为不是继承来的，而是和适当的行为对像“组合来的”。这是一个很重要的技巧。其实是使用了我们的第三个设计原则：]]></content>
       <categories>
         <category>设计模式</category>
       </categories>
@@ -408,36 +408,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[nio系列教程]]></title>
-    <url>%2F2015%2F02%2F03%2Fnio-nio%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[http://tutorials.jenkov.com/java-nio/nio-vs-io.htmlhttp://www.iteye.com/magazines/132-Java-NIO]]></content>
-      <tags>
-        <tag>nio</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[幂等]]></title>
-    <url>%2F2015%2F02%2F03%2F%E5%88%86%E5%B8%83%E5%BC%8F-%E5%B9%82%E7%AD%89%2F</url>
-    <content type="text"><![CDATA[再谈幂等机制一、什么是幂等性？幂等性(Idempotence)。在HTTP/1.1规范中幂等性的定义是： Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &gt; 0 identical requests is the same as for a single request. 幂等性：就是用户对于同一操作发起的一次请求或者多次请求的结果是一致的，不会因为多次点击而产生了副作用。 二、为什么需要幂等那么我们为什么需要接口具有幂等性呢？设想一下以下情形： 在App中下订单的时候，点击确认之后，没反应，就又点击了几次。在这种情况下，如果无法保证该接口的幂等性，那么将会出现重复下单问题。 在接收消息的时候，消息推送重复。如果处理消息的接口无法保证幂等，那么重复消费消息产生的影响可能会非常大。 在分布式环境中，网络环境更加复杂，因前端操作抖动、网络故障、消息重复、响应速度慢等原因，对接口的重复调用概率会比集中式环境下更大，尤其是重复消息在分布式环境中很难避免。 三、如何保证接口的幂等性接口的幂等性实际上就是接口可重复调用，在调用方多次调用的情况下，接口最终得到的结果是一致的。有些接口可以天然的实现幂等性，比如查询接口，对于查询来说，你查询一次和两次，对于系统来说，没有任何影响，查出的结果也是一样。 除了查询功能具有天然的幂等性之外，增加、更新、删除都要保证幂等性。那么如何来保证幂等性呢？ 3.1保证幂等策略 幂等需要通过唯一的业务单号来保证。也就是说相同的业务单号，认为是同一笔业务。使用这个唯一的业务单号来确保，后面多次的相同的业务单号的处理逻辑和执行效果是一致的。下面以支付为例，在不考虑并发的情况下，实现幂等很简单：①先查询一下订单是否已经支付过，②如果已经支付过，则返回支付成功；如果没有支付，进行支付流程，修改订单状态为‘已支付’。 3.2防重复提交策略 上述的保证幂等方案是分成两步的，第②步依赖第①步的查询结果，无法保证原子性的。在高并发下就会出现下面的情况：第二次请求在第一次请求第②步订单状态还没有修改为‘已支付状态’的情况下到来。既然得出了这个结论，余下的问题也就变得简单：把查询和变更状态操作加锁，将并行操作改为串行操作。 列举三种改进方式： 1、悲观锁，select for update，整个执行过程中锁定该订单对应的记录。 2、乐观锁，affectrows = db.update(“update payorder set state=’已支付’ where orderid=$orderid and state=’未支付’ “)，如果affectrows=1，执行充值，否则返回已处理。 3、定义防重复表，orderid为unique key或者primary key，执行前，先insert，若insert成功则执行充值，否则返回已处理 四、总结业务层设计协议时，要求请求方定义不重复的业务流水号。应用实现时，利用数据库乐观锁、插入unique key的日志等方式保证并发时的幂等。 幂等性把关环节，在协议设计评审中，评审重要业务RPC或者http接口是否支持幂等，代码评审中，重点把关请求并发时，是否仍旧能够保证幂等性。设计人员和具体实现人员在实现过程中，也应该时刻自审幂等性的实现是否过关。 最后介绍一下美团点评开发GTI（它是一个轻量的重复操作关卡系统，它能够确保在分布式环境中操作的唯一性。我们可以用它来间接保证每个操作的幂等性），感兴趣可以去研究一下】、]]></content>
-      <tags>
-        <tag>分布式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[网络编程图谱]]></title>
     <url>%2F2015%2F02%2F03%2F%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-%E5%9B%BE%E8%B0%B1%2F</url>
     <content type="text"><![CDATA[]]></content>
       <tags>
         <tag>网络编程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Paxos算法]]></title>
-    <url>%2F2015%2F02%2F03%2F%E5%88%86%E5%B8%83%E5%BC%8F-Paxos%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[Paxos算法解决的问题正是分布式一致性问题，即一个分布式系统中的各个进程如何就某个值（决议）达成一致。 Paxos算法运行在允许宕机故障的异步系统中，不要求可靠的消息传递，可容忍消息丢失、延迟、乱序以及重复。它利用大多数 (Majority) 机制保证了2F+1的容错能力，即2F+1个节点的系统最多允许F个节点同时出现故障。 一个或多个提议进程 (Proposer) 可以发起提案 (Proposal)，Paxos算法使所有提案中的某一个提案，在所有进程中达成一致。系统中的多数派同时认可该提案，即达成了一致。最多只针对一个确定的提案达成一致。 Paxos将系统中的角色分为提议者 (Proposer)，决策者 (Acceptor)，和最终决策学习者 (Learner): Proposer: 提出提案 (Proposal)。Proposal信息包括提案编号 (Proposal ID) 和提议的值 (Value)。 Acceptor：参与决策，回应Proposers的提案。收到Proposal后可以接受提案，若Proposal获得多数Acceptors的接受，则称该Proposal被批准。 Learner：不参与决策，从Proposers/Acceptors学习最新达成一致的提案（Value）。 在多副本状态机中，每个副本同时具有Proposer、Acceptor、Learner三种角色。 Paxos算法通过一个决议分为两个阶段（Learn阶段之前决议已经形成）： 第一阶段：Prepare阶段。Proposer向Acceptors发出Prepare请求，Acceptors针对收到的Prepare请求进行Promise承诺。 第二阶段：Accept阶段。Proposer收到多数Acceptors承诺的Promise后，向Acceptors发出Propose请求，Acceptors针对收到的Propose请求进行Accept处理。 第三阶段：Learn阶段。Proposer在收到多数Acceptors的Accept之后，标志着本次Accept成功，决议形成，将形成的决议发送给所有Learners。 Paxos算法流程中的每条消息描述如下： Prepare: Proposer生成全局唯一且递增的Proposal ID (可使用时间戳加Server ID)，向所有Acceptors发送Prepare请求，这里无需携带提案内容，只携带Proposal ID即可。 Promise: Acceptors收到Prepare请求后，做出“两个承诺，一个应答”。 两个承诺： 1. 不再接受Proposal ID小于等于（注意：这里是&lt;= ）当前请求的Prepare请求。 2. 不再接受Proposal ID小于（注意：这里是&lt; ）当前请求的Propose请求。 一个应答： 不违背以前作出的承诺下，回复已经Accept过的提案中Proposal ID最大的那个提案的Value和Proposal ID，没有则返回空值。 Propose: Proposer 收到多数Acceptors的Promise应答后，从应答中选择Proposal ID最大的提案的Value，作为本次要发起的提案。如果所有应答的提案Value均为空值，则可以自己随意决定提案Value。然后携带当前Proposal ID，向所有Acceptors发送Propose请求。 Accept: Acceptor收到Propose请求后，在不违背自己之前作出的承诺下，接受并持久化当前Proposal ID和提案Value。 Learn: Proposer收到多数Acceptors的Accept后，决议形成，将形成的决议发送给所有Learners。]]></content>
-      <tags>
-        <tag>分布式</tag>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -452,11 +427,36 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[幂等]]></title>
+    <url>%2F2015%2F02%2F03%2F%E5%88%86%E5%B8%83%E5%BC%8F-%E5%B9%82%E7%AD%89%2F</url>
+    <content type="text"><![CDATA[再谈幂等机制一、什么是幂等性？幂等性(Idempotence)。在HTTP/1.1规范中幂等性的定义是： Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &gt; 0 identical requests is the same as for a single request. 幂等性：就是用户对于同一操作发起的一次请求或者多次请求的结果是一致的，不会因为多次点击而产生了副作用。 二、为什么需要幂等那么我们为什么需要接口具有幂等性呢？设想一下以下情形： 在App中下订单的时候，点击确认之后，没反应，就又点击了几次。在这种情况下，如果无法保证该接口的幂等性，那么将会出现重复下单问题。 在接收消息的时候，消息推送重复。如果处理消息的接口无法保证幂等，那么重复消费消息产生的影响可能会非常大。 在分布式环境中，网络环境更加复杂，因前端操作抖动、网络故障、消息重复、响应速度慢等原因，对接口的重复调用概率会比集中式环境下更大，尤其是重复消息在分布式环境中很难避免。 三、如何保证接口的幂等性接口的幂等性实际上就是接口可重复调用，在调用方多次调用的情况下，接口最终得到的结果是一致的。有些接口可以天然的实现幂等性，比如查询接口，对于查询来说，你查询一次和两次，对于系统来说，没有任何影响，查出的结果也是一样。 除了查询功能具有天然的幂等性之外，增加、更新、删除都要保证幂等性。那么如何来保证幂等性呢？ 3.1保证幂等策略 幂等需要通过唯一的业务单号来保证。也就是说相同的业务单号，认为是同一笔业务。使用这个唯一的业务单号来确保，后面多次的相同的业务单号的处理逻辑和执行效果是一致的。下面以支付为例，在不考虑并发的情况下，实现幂等很简单：①先查询一下订单是否已经支付过，②如果已经支付过，则返回支付成功；如果没有支付，进行支付流程，修改订单状态为‘已支付’。 3.2防重复提交策略 上述的保证幂等方案是分成两步的，第②步依赖第①步的查询结果，无法保证原子性的。在高并发下就会出现下面的情况：第二次请求在第一次请求第②步订单状态还没有修改为‘已支付状态’的情况下到来。既然得出了这个结论，余下的问题也就变得简单：把查询和变更状态操作加锁，将并行操作改为串行操作。 列举三种改进方式： 1、悲观锁，select for update，整个执行过程中锁定该订单对应的记录。 2、乐观锁，affectrows = db.update(“update payorder set state=’已支付’ where orderid=$orderid and state=’未支付’ “)，如果affectrows=1，执行充值，否则返回已处理。 3、定义防重复表，orderid为unique key或者primary key，执行前，先insert，若insert成功则执行充值，否则返回已处理 四、总结业务层设计协议时，要求请求方定义不重复的业务流水号。应用实现时，利用数据库乐观锁、插入unique key的日志等方式保证并发时的幂等。 幂等性把关环节，在协议设计评审中，评审重要业务RPC或者http接口是否支持幂等，代码评审中，重点把关请求并发时，是否仍旧能够保证幂等性。设计人员和具体实现人员在实现过程中，也应该时刻自审幂等性的实现是否过关。 最后介绍一下美团点评开发GTI（它是一个轻量的重复操作关卡系统，它能够确保在分布式环境中操作的唯一性。我们可以用它来间接保证每个操作的幂等性），感兴趣可以去研究一下】、]]></content>
+      <tags>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[分布式事务]]></title>
     <url>%2F2015%2F02%2F03%2F%E5%88%86%E5%B8%83%E5%BC%8F-%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%2F</url>
     <content type="text"><![CDATA[https://www.cnblogs.com/savorboard/p/distributed-system-transaction-consistency.html]]></content>
       <tags>
         <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Paxos算法]]></title>
+    <url>%2F2015%2F02%2F03%2F%E5%88%86%E5%B8%83%E5%BC%8F-Paxos%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[Paxos算法解决的问题正是分布式一致性问题，即一个分布式系统中的各个进程如何就某个值（决议）达成一致。 Paxos算法运行在允许宕机故障的异步系统中，不要求可靠的消息传递，可容忍消息丢失、延迟、乱序以及重复。它利用大多数 (Majority) 机制保证了2F+1的容错能力，即2F+1个节点的系统最多允许F个节点同时出现故障。 一个或多个提议进程 (Proposer) 可以发起提案 (Proposal)，Paxos算法使所有提案中的某一个提案，在所有进程中达成一致。系统中的多数派同时认可该提案，即达成了一致。最多只针对一个确定的提案达成一致。 Paxos将系统中的角色分为提议者 (Proposer)，决策者 (Acceptor)，和最终决策学习者 (Learner): Proposer: 提出提案 (Proposal)。Proposal信息包括提案编号 (Proposal ID) 和提议的值 (Value)。 Acceptor：参与决策，回应Proposers的提案。收到Proposal后可以接受提案，若Proposal获得多数Acceptors的接受，则称该Proposal被批准。 Learner：不参与决策，从Proposers/Acceptors学习最新达成一致的提案（Value）。 在多副本状态机中，每个副本同时具有Proposer、Acceptor、Learner三种角色。 Paxos算法通过一个决议分为两个阶段（Learn阶段之前决议已经形成）： 第一阶段：Prepare阶段。Proposer向Acceptors发出Prepare请求，Acceptors针对收到的Prepare请求进行Promise承诺。 第二阶段：Accept阶段。Proposer收到多数Acceptors承诺的Promise后，向Acceptors发出Propose请求，Acceptors针对收到的Propose请求进行Accept处理。 第三阶段：Learn阶段。Proposer在收到多数Acceptors的Accept之后，标志着本次Accept成功，决议形成，将形成的决议发送给所有Learners。 Paxos算法流程中的每条消息描述如下： Prepare: Proposer生成全局唯一且递增的Proposal ID (可使用时间戳加Server ID)，向所有Acceptors发送Prepare请求，这里无需携带提案内容，只携带Proposal ID即可。 Promise: Acceptors收到Prepare请求后，做出“两个承诺，一个应答”。 两个承诺： 1. 不再接受Proposal ID小于等于（注意：这里是&lt;= ）当前请求的Prepare请求。 2. 不再接受Proposal ID小于（注意：这里是&lt; ）当前请求的Propose请求。 一个应答： 不违背以前作出的承诺下，回复已经Accept过的提案中Proposal ID最大的那个提案的Value和Proposal ID，没有则返回空值。 Propose: Proposer 收到多数Acceptors的Promise应答后，从应答中选择Proposal ID最大的提案的Value，作为本次要发起的提案。如果所有应答的提案Value均为空值，则可以自己随意决定提案Value。然后携带当前Proposal ID，向所有Acceptors发送Propose请求。 Accept: Acceptor收到Propose请求后，在不违背自己之前作出的承诺下，接受并持久化当前Proposal ID和提案Value。 Learn: Proposer收到多数Acceptors的Accept后，决议形成，将形成的决议发送给所有Learners。]]></content>
+      <tags>
+        <tag>分布式</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nio系列教程]]></title>
+    <url>%2F2015%2F02%2F03%2Fnio-nio%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[http://tutorials.jenkov.com/java-nio/nio-vs-io.htmlhttp://www.iteye.com/magazines/132-Java-NIO]]></content>
+      <tags>
+        <tag>nio</tag>
       </tags>
   </entry>
 </search>
