@@ -43,8 +43,8 @@
   
   <entry>
     <title>面试题</title>
-    <link href="http://shiyangtao.github.io/2019/01/10/%E9%9D%A2%E8%AF%95-2019-01-10/"/>
-    <id>http://shiyangtao.github.io/2019/01/10/面试-2019-01-10/</id>
+    <link href="http://shiyangtao.github.io/2019/01/10/%E9%9D%A2%E8%AF%95/2019-01-10/"/>
+    <id>http://shiyangtao.github.io/2019/01/10/面试/2019-01-10/</id>
     <published>2019-01-09T16:00:00.000Z</published>
     <updated>2019-01-26T01:15:48.858Z</updated>
     
@@ -67,8 +67,8 @@
   
   <entry>
     <title>mysql读写分离</title>
-    <link href="http://shiyangtao.github.io/2019/01/05/mysql-mysql%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/"/>
-    <id>http://shiyangtao.github.io/2019/01/05/mysql-mysql读写分离/</id>
+    <link href="http://shiyangtao.github.io/2019/01/05/mysql/mysql%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/"/>
+    <id>http://shiyangtao.github.io/2019/01/05/mysql/mysql读写分离/</id>
     <published>2019-01-04T16:00:00.000Z</published>
     <updated>2019-01-26T01:14:29.453Z</updated>
     
@@ -94,8 +94,8 @@
   
   <entry>
     <title>记一次线上死锁</title>
-    <link href="http://shiyangtao.github.io/2018/12/24/mysql-%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%BA%BF%E4%B8%8A%E6%AD%BB%E9%94%81/"/>
-    <id>http://shiyangtao.github.io/2018/12/24/mysql-记一次线上死锁/</id>
+    <link href="http://shiyangtao.github.io/2018/12/24/mysql/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%BA%BF%E4%B8%8A%E6%AD%BB%E9%94%81/"/>
+    <id>http://shiyangtao.github.io/2018/12/24/mysql/记一次线上死锁/</id>
     <published>2018-12-23T16:00:00.000Z</published>
     <updated>2019-01-26T01:14:39.538Z</updated>
     
@@ -117,8 +117,8 @@
   
   <entry>
     <title>mysql事务隔离级别</title>
-    <link href="http://shiyangtao.github.io/2018/12/08/mysql-mysql%E7%9A%84%E5%9B%9B%E7%A7%8D%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"/>
-    <id>http://shiyangtao.github.io/2018/12/08/mysql-mysql的四种事务隔离级别/</id>
+    <link href="http://shiyangtao.github.io/2018/12/08/mysql/mysql%E7%9A%84%E5%9B%9B%E7%A7%8D%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"/>
+    <id>http://shiyangtao.github.io/2018/12/08/mysql/mysql的四种事务隔离级别/</id>
     <published>2018-12-07T16:00:00.000Z</published>
     <updated>2019-01-26T01:14:18.007Z</updated>
     
@@ -140,8 +140,8 @@
   
   <entry>
     <title>mysql分库分表</title>
-    <link href="http://shiyangtao.github.io/2018/12/05/mysql-mysql%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/"/>
-    <id>http://shiyangtao.github.io/2018/12/05/mysql-mysql分库分表/</id>
+    <link href="http://shiyangtao.github.io/2018/12/05/mysql/mysql%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/"/>
+    <id>http://shiyangtao.github.io/2018/12/05/mysql/mysql分库分表/</id>
     <published>2018-12-04T16:00:00.000Z</published>
     <updated>2019-01-26T01:16:52.824Z</updated>
     
@@ -167,8 +167,8 @@
   
   <entry>
     <title>shell启动socket</title>
-    <link href="http://shiyangtao.github.io/2018/12/03/linux%E5%91%BD%E4%BB%A4-shell%E5%90%AF%E5%8A%A8socket/"/>
-    <id>http://shiyangtao.github.io/2018/12/03/linux命令-shell启动socket/</id>
+    <link href="http://shiyangtao.github.io/2018/12/03/linux%E5%91%BD%E4%BB%A4/shell%E5%90%AF%E5%8A%A8socket/"/>
+    <id>http://shiyangtao.github.io/2018/12/03/linux命令/shell启动socket/</id>
     <published>2018-12-02T16:00:00.000Z</published>
     <updated>2019-01-26T01:13:53.324Z</updated>
     
@@ -191,8 +191,8 @@
   
   <entry>
     <title>grep</title>
-    <link href="http://shiyangtao.github.io/2018/11/03/linux%E5%91%BD%E4%BB%A4-grep/"/>
-    <id>http://shiyangtao.github.io/2018/11/03/linux命令-grep/</id>
+    <link href="http://shiyangtao.github.io/2018/11/03/linux%E5%91%BD%E4%BB%A4/grep/"/>
+    <id>http://shiyangtao.github.io/2018/11/03/linux命令/grep/</id>
     <published>2018-11-02T16:00:00.000Z</published>
     <updated>2019-01-26T01:13:46.080Z</updated>
     
@@ -216,8 +216,8 @@
   
   <entry>
     <title>线程池构造方法</title>
-    <link href="http://shiyangtao.github.io/2018/10/03/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-java%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
-    <id>http://shiyangtao.github.io/2018/10/03/java并发编程-java线程池/</id>
+    <link href="http://shiyangtao.github.io/2018/10/03/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/java%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    <id>http://shiyangtao.github.io/2018/10/03/java并发编程/java线程池/</id>
     <published>2018-10-02T16:00:00.000Z</published>
     <updated>2019-01-26T01:11:45.863Z</updated>
     
@@ -239,8 +239,8 @@
   
   <entry>
     <title>分布式技术栈</title>
-    <link href="http://shiyangtao.github.io/2018/09/21/%E5%88%86%E5%B8%83%E5%BC%8F-%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
-    <id>http://shiyangtao.github.io/2018/09/21/分布式-分布式技术栈/</id>
+    <link href="http://shiyangtao.github.io/2018/09/21/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
+    <id>http://shiyangtao.github.io/2018/09/21/分布式/分布式技术栈/</id>
     <published>2018-09-20T16:00:00.000Z</published>
     <updated>2019-01-25T13:48:14.440Z</updated>
     
@@ -267,8 +267,8 @@
   
   <entry>
     <title>简历</title>
-    <link href="http://shiyangtao.github.io/2018/09/21/%E9%9D%A2%E8%AF%95-jianli/"/>
-    <id>http://shiyangtao.github.io/2018/09/21/面试-jianli/</id>
+    <link href="http://shiyangtao.github.io/2018/09/21/%E9%9D%A2%E8%AF%95/jianli/"/>
+    <id>http://shiyangtao.github.io/2018/09/21/面试/jianli/</id>
     <published>2018-09-20T16:00:00.000Z</published>
     <updated>2019-01-26T10:51:12.372Z</updated>
     
@@ -294,8 +294,8 @@
   
   <entry>
     <title>面试计数器相关</title>
-    <link href="http://shiyangtao.github.io/2018/05/20/%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95-%E8%AE%A1%E6%95%B0%E5%99%A8%E7%9B%B8%E5%85%B3/"/>
-    <id>http://shiyangtao.github.io/2018/05/20/面试-面试-计数器相关/</id>
+    <link href="http://shiyangtao.github.io/2018/05/20/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95-%E8%AE%A1%E6%95%B0%E5%99%A8%E7%9B%B8%E5%85%B3/"/>
+    <id>http://shiyangtao.github.io/2018/05/20/面试/面试-计数器相关/</id>
     <published>2018-05-19T16:00:00.000Z</published>
     <updated>2019-01-26T01:16:41.329Z</updated>
     
@@ -318,8 +318,8 @@
   
   <entry>
     <title>必要商城面试</title>
-    <link href="http://shiyangtao.github.io/2018/05/13/%E9%9D%A2%E8%AF%95-%E5%BF%85%E8%A6%81%E5%95%86%E5%9F%8E%E9%9D%A2%E8%AF%95/"/>
-    <id>http://shiyangtao.github.io/2018/05/13/面试-必要商城面试/</id>
+    <link href="http://shiyangtao.github.io/2018/05/13/%E9%9D%A2%E8%AF%95/%E5%BF%85%E8%A6%81%E5%95%86%E5%9F%8E%E9%9D%A2%E8%AF%95/"/>
+    <id>http://shiyangtao.github.io/2018/05/13/面试/必要商城面试/</id>
     <published>2018-05-12T16:00:00.000Z</published>
     <updated>2019-01-26T01:16:30.362Z</updated>
     
@@ -347,8 +347,8 @@
   
   <entry>
     <title>boss直聘面试15分钟gg</title>
-    <link href="http://shiyangtao.github.io/2018/05/03/%E9%9D%A2%E8%AF%95-boss%E7%9B%B4%E8%81%98%E9%9D%A2%E8%AF%9515%E5%88%86gg/"/>
-    <id>http://shiyangtao.github.io/2018/05/03/面试-boss直聘面试15分gg/</id>
+    <link href="http://shiyangtao.github.io/2018/05/03/%E9%9D%A2%E8%AF%95/boss%E7%9B%B4%E8%81%98%E9%9D%A2%E8%AF%9515%E5%88%86gg/"/>
+    <id>http://shiyangtao.github.io/2018/05/03/面试/boss直聘面试15分gg/</id>
     <published>2018-05-02T16:00:00.000Z</published>
     <updated>2019-01-26T01:16:01.320Z</updated>
     
@@ -374,8 +374,8 @@
   
   <entry>
     <title>运行时栈帧结构</title>
-    <link href="http://shiyangtao.github.io/2018/03/24/jvm-2018-03-24-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/"/>
-    <id>http://shiyangtao.github.io/2018/03/24/jvm-2018-03-24-运行时栈帧结构/</id>
+    <link href="http://shiyangtao.github.io/2018/03/24/jvm/2018-03-24-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/"/>
+    <id>http://shiyangtao.github.io/2018/03/24/jvm/2018-03-24-运行时栈帧结构/</id>
     <published>2018-03-23T16:00:00.000Z</published>
     <updated>2019-01-25T13:32:42.009Z</updated>
     
@@ -396,8 +396,8 @@
   
   <entry>
     <title>类加载器</title>
-    <link href="http://shiyangtao.github.io/2017/09/21/jvm-2017-09-21-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
-    <id>http://shiyangtao.github.io/2017/09/21/jvm-2017-09-21-类加载器/</id>
+    <link href="http://shiyangtao.github.io/2017/09/21/jvm/2017-09-21-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
+    <id>http://shiyangtao.github.io/2017/09/21/jvm/2017-09-21-类加载器/</id>
     <published>2017-09-20T16:00:00.000Z</published>
     <updated>2019-01-25T11:54:57.359Z</updated>
     
@@ -418,8 +418,8 @@
   
   <entry>
     <title>强-软-弱-虚引用</title>
-    <link href="http://shiyangtao.github.io/2017/09/21/jvm-%E5%BC%BA-%E8%BD%AF-%E5%BC%B1-%E8%99%9A%E5%BC%95%E7%94%A8/"/>
-    <id>http://shiyangtao.github.io/2017/09/21/jvm-强-软-弱-虚引用/</id>
+    <link href="http://shiyangtao.github.io/2017/09/21/jvm/%E5%BC%BA-%E8%BD%AF-%E5%BC%B1-%E8%99%9A%E5%BC%95%E7%94%A8/"/>
+    <id>http://shiyangtao.github.io/2017/09/21/jvm/强-软-弱-虚引用/</id>
     <published>2017-09-20T16:00:00.000Z</published>
     <updated>2019-01-25T13:44:42.008Z</updated>
     
@@ -445,8 +445,8 @@
   
   <entry>
     <title>类加载过程</title>
-    <link href="http://shiyangtao.github.io/2017/07/28/jvm-2017-07-28-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
-    <id>http://shiyangtao.github.io/2017/07/28/jvm-2017-07-28-类加载过程/</id>
+    <link href="http://shiyangtao.github.io/2017/07/28/jvm/2017-07-28-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
+    <id>http://shiyangtao.github.io/2017/07/28/jvm/2017-07-28-类加载过程/</id>
     <published>2017-07-27T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:36.685Z</updated>
     
@@ -468,8 +468,8 @@
   
   <entry>
     <title>类加载时机</title>
-    <link href="http://shiyangtao.github.io/2017/05/04/jvm-2017-05-04-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/"/>
-    <id>http://shiyangtao.github.io/2017/05/04/jvm-2017-05-04-类加载时机/</id>
+    <link href="http://shiyangtao.github.io/2017/05/04/jvm/2017-05-04-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/"/>
+    <id>http://shiyangtao.github.io/2017/05/04/jvm/2017-05-04-类加载时机/</id>
     <published>2017-05-03T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:32.525Z</updated>
     
@@ -490,8 +490,8 @@
   
   <entry>
     <title>内存分配与回收策略</title>
-    <link href="http://shiyangtao.github.io/2017/04/03/jvm-2017-04-03-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/"/>
-    <id>http://shiyangtao.github.io/2017/04/03/jvm-2017-04-03-内存分配与回收策略/</id>
+    <link href="http://shiyangtao.github.io/2017/04/03/jvm/2017-04-03-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/"/>
+    <id>http://shiyangtao.github.io/2017/04/03/jvm/2017-04-03-内存分配与回收策略/</id>
     <published>2017-04-02T16:00:00.000Z</published>
     <updated>2019-01-25T09:08:28.496Z</updated>
     
