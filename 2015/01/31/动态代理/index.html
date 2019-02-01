@@ -109,7 +109,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="面试,">
+  <meta name="keywords" content="java基础,">
 
 
 
@@ -127,18 +127,18 @@
 
 
 
-<meta name="description" content="无笔试第一轮  你看过哪些java源码 或者框架的源码 项目里用了多线程的地方 线程池相关 数据库隔离 spring 原理 ioc aop 自己设计一个券系统，并画出er图 根据用户的优惠券，快速算出最佳优惠的策略  第二轮  业务数据量大，如何优化 订单超时过期实现（回答延迟mq、redis过期key订阅、Linux定时任务，面试官感觉mq会出现死信，redis或linux会down 有没有更好">
-<meta name="keywords" content="面试">
+<meta name="description" content="java静态代理和动态代理 代理的优点 职责清晰 真实的角色就是实现实际的业务逻辑，不用关心其他非本职责的事务，通过后期的代理完成一件完成事务，附带的结果就是编程简洁清晰。  代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。  高扩展性，可以在代理方法前后增加额外的处理逻辑。   被代理的对象一个接口123public interface Subjec">
+<meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="必要商城面试">
-<meta property="og:url" content="http://shiyangtao.github.io/2018/05/13/面试/必要商城面试/index.html">
+<meta property="og:title" content="动态代理">
+<meta property="og:url" content="http://shiyangtao.github.io/2015/01/31/动态代理/index.html">
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
-<meta property="og:description" content="无笔试第一轮  你看过哪些java源码 或者框架的源码 项目里用了多线程的地方 线程池相关 数据库隔离 spring 原理 ioc aop 自己设计一个券系统，并画出er图 根据用户的优惠券，快速算出最佳优惠的策略  第二轮  业务数据量大，如何优化 订单超时过期实现（回答延迟mq、redis过期key订阅、Linux定时任务，面试官感觉mq会出现死信，redis或linux会down 有没有更好">
+<meta property="og:description" content="java静态代理和动态代理 代理的优点 职责清晰 真实的角色就是实现实际的业务逻辑，不用关心其他非本职责的事务，通过后期的代理完成一件完成事务，附带的结果就是编程简洁清晰。  代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。  高扩展性，可以在代理方法前后增加额外的处理逻辑。   被代理的对象一个接口123public interface Subjec">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-26T01:16:30.362Z">
+<meta property="og:updated_time" content="2019-01-31T07:05:01.868Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="必要商城面试">
-<meta name="twitter:description" content="无笔试第一轮  你看过哪些java源码 或者框架的源码 项目里用了多线程的地方 线程池相关 数据库隔离 spring 原理 ioc aop 自己设计一个券系统，并画出er图 根据用户的优惠券，快速算出最佳优惠的策略  第二轮  业务数据量大，如何优化 订单超时过期实现（回答延迟mq、redis过期key订阅、Linux定时任务，面试官感觉mq会出现死信，redis或linux会down 有没有更好">
+<meta name="twitter:title" content="动态代理">
+<meta name="twitter:description" content="java静态代理和动态代理 代理的优点 职责清晰 真实的角色就是实现实际的业务逻辑，不用关心其他非本职责的事务，通过后期的代理完成一件完成事务，附带的结果就是编程简洁清晰。  代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。  高扩展性，可以在代理方法前后增加额外的处理逻辑。   被代理的对象一个接口123public interface Subjec">
 
 
 
@@ -167,7 +167,7 @@
 
 
 
-  <link rel="canonical" href="http://shiyangtao.github.io/2018/05/13/面试/必要商城面试/">
+  <link rel="canonical" href="http://shiyangtao.github.io/2015/01/31/动态代理/">
 
 
   <script>
@@ -181,7 +181,7 @@
 
 
 
-  <title>必要商城面试 | shiyangtao's blog</title>
+  <title>动态代理 | shiyangtao's blog</title>
   
 
 
@@ -337,12 +337,12 @@
   
   
 
-  <article class="post post-type-tags" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2018/05/13/面试/必要商城面试/">
+    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2015/01/31/动态代理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sytao">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">必要商城面试</h1>
+          <h1 class="post-title" itemprop="name headline">动态代理</h1>
         
 
         <div class="post-meta">
@@ -371,8 +371,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-13T00:00:00+08:00">
-                2018-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-31T14:54:00+08:00">
+                2015-01-31
               </time>
             
 
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  205
+                  513
                 </span>
               
 
@@ -419,7 +419,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -440,24 +440,20 @@
       
 
       
-        <p>无笔试<br>第一轮</p>
-<ul>
-<li>你看过哪些java源码 或者框架的源码</li>
-<li>项目里用了多线程的地方 线程池相关</li>
-<li>数据库隔离</li>
-<li>spring 原理 ioc aop</li>
-<li>自己设计一个券系统，并画出er图</li>
-<li>根据用户的优惠券，快速算出最佳优惠的策略</li>
+        <p>java静态代理和动态代理</p>
+<h4 id="代理的优点"><a href="#代理的优点" class="headerlink" title="代理的优点"></a>代理的优点</h4><ul>
+<li><p>职责清晰 真实的角色就是实现实际的业务逻辑，不用关心其他非本职责的事务，通过后期的代理完成一件完成事务，附带的结果就是编程简洁清晰。</p>
+</li>
+<li><p>代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。</p>
+</li>
+<li><p>高扩展性，可以在代理方法前后增加额外的处理逻辑。</p>
+</li>
 </ul>
-<p>第二轮</p>
-<ul>
-<li>业务数据量大，如何优化</li>
-<li>订单超时过期实现（回答延迟mq、redis过期key订阅、Linux定时任务，面试官感觉mq会出现死信，redis或linux会down 有没有更好的方案，没有get到他想考察的点</li>
-</ul>
-<p>第三轮</p>
-<ul>
-<li>依赖第三方服务，比如支付结果的轮询，如果第三方down掉，支付服务会down或者重启后又down是什么原因（考察http 链接的开销，设置过期时间）</li>
-</ul>
+<h4 id="被代理的对象"><a href="#被代理的对象" class="headerlink" title="被代理的对象"></a>被代理的对象</h4><p>一个接口<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>它的实现类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubjectImpl</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println( <span class="string">"call doSomething()"</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h4><p>静态代理是由程序员创建或工具生成代理类的源码，再编译代理类。也就是在程序运行前就已经存在代理类的字节码文件，代理类和委托类的关系在运行前就确定了。缺点是被代理对象和代理紧耦合在一起。而且代理类都是针对被代理类创建的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubjectProxy</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    Subject subject = <span class="keyword">new</span> SubjectImpl();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before"</span>); <span class="comment">//调用目标对象之前可以做相关操作</span></span><br><span class="line">        subject.doSomething();</span><br><span class="line">        System.out.println(<span class="string">"after"</span>);<span class="comment">//调用目标对象之后可以做相关操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h4><p>动态代理在运行阶段才指定被代理的对象，通过实现InvocationHandler接口，调用具体的方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Object tar;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">bind</span><span class="params">(Object tar)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.tar = tar;</span><br><span class="line">        <span class="keyword">return</span> Proxy.newProxyInstance(tar.getClass().getClassLoader(), tar.getClass().getInterfaces(), <span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        Object result = <span class="keyword">null</span>;</span><br><span class="line">        System.out.println(<span class="string">"before"</span>); <span class="comment">//调用目标对象之前可以做相关操作</span></span><br><span class="line">        result = method.invoke(tar, args);</span><br><span class="line">        System.out.println(<span class="string">"after"</span>);<span class="comment">//调用目标对象之后可以做相关操作</span></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ProxyHandler proxy = <span class="keyword">new</span> ProxyHandler();</span><br><span class="line">        <span class="comment">//绑定该类实现的所有接口</span></span><br><span class="line">        Subject sub = (Subject) proxy.bind(<span class="keyword">new</span> SubjectImpl());</span><br><span class="line">        sub.doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -514,7 +510,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/面试/" <i="" class="fa fa-tag"> 面试</a>
+            <a href="/tags/java基础/" <i="" class="fa fa-tag"> java基础</a>
           
         </div>
       
@@ -527,18 +523,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/03/面试/boss直聘面试15分gg/" rel="next" title="boss直聘面试15分钟gg">
-                <i class="fa fa-chevron-left"></i> boss直聘面试15分钟gg
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/20/面试/面试-计数器相关/" rel="prev" title="面试计数器相关">
-                面试计数器相关 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/02/03/nio/nio系列教程/" rel="prev" title="nio系列教程">
+                nio系列教程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -593,8 +585,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="sytao">
           <p class="site-author-name" itemprop="name">sytao</p>
@@ -695,6 +696,22 @@
 
 
       </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#代理的优点"><span class="nav-number">1.</span> <span class="nav-text">代理的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#被代理的对象"><span class="nav-number">2.</span> <span class="nav-text">被代理的对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态代理"><span class="nav-number">3.</span> <span class="nav-text">静态代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态代理"><span class="nav-number">4.</span> <span class="nav-text">动态代理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
       
 

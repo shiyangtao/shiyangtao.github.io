@@ -142,7 +142,7 @@
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/链表/images/pasted-4.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/链表/images/pasted-5.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/链表/images/pasted-6.png">
-<meta property="og:updated_time" content="2019-01-31T05:48:44.814Z">
+<meta property="og:updated_time" content="2019-02-01T08:45:46.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="链表">
 <meta name="twitter:description" content="相比数组，链表是一种稍微复杂一点的数据结构。对于初学者来说，掌握起来也要比数组稍难一些。这两个非常基础、非常常用的数据结构，我们常常将会放到一块儿来比较。所以我们先来看，这两者有什么区别。 链表和数组的区别为了直观地对比，我画了一张图。从图中我们看到，数组需要一块连续的内存空间来存储，对内存的要求比较高。如果我们申请一个 100MB 大小的数组，当内存中没有连续的、足够大的存储空间时，即便内存的剩">
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3.9k
+                  4k
                 </span>
               
 
@@ -507,6 +507,13 @@
 </li>
 </ol>
 <h4 id="如何判断一个字符串是回文串"><a href="#如何判断一个字符串是回文串" class="headerlink" title="如何判断一个字符串是回文串"></a>如何判断一个字符串是回文串</h4><p>如何判断一个字符串是否是回文字符串的问题，我想你应该听过，我们今天的思题目就是基于这个问题的改造版本。如果字符串是通过单链表来存储的，那该如何来判断是一个回文串呢？你有什么好的解决思路呢？相应的时间空间复杂度又是多少呢？<br>我的思路是：使用快慢两个指针找到链表中点，慢指针每次前进一步，快指针每次前进两步。在慢指针前进的过程中，同时修改其 next 指针，使得链表前半部分反序。最后比较中点两侧的链表是否相等。<br><a href="https://github.com/shiyangtao/leetCode-pratice/blob/master/src/java/link/Palindrome.java" target="_blank" rel="noopener">代码地址</a></p>
+<h4 id="常见单链表编程题"><a href="#常见单链表编程题" class="headerlink" title="常见单链表编程题"></a>常见单链表编程题</h4><ul>
+<li>单链表反转</li>
+<li>链表中环的检测</li>
+<li>两个有序链表合并</li>
+<li>删除倒数第n个代码</li>
+<li>求链表中间结点<br><a href="https://github.com/shiyangtao/leetCode-pratice/blob/master/src/java/link/LinkProblem.java" target="_blank" rel="noopener">代码地址</a></li>
+</ul>
 
       
     </div>
@@ -661,7 +668,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -683,7 +690,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -759,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表和数组的区别"><span class="nav-number">1.</span> <span class="nav-text">链表和数组的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表"><span class="nav-number">2.</span> <span class="nav-text">单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环链表"><span class="nav-number">3.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向链表"><span class="nav-number">4.</span> <span class="nav-text">双向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除操作"><span class="nav-number">4.1.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向循环链表"><span class="nav-number">5.</span> <span class="nav-text">双向循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组vs链表性能比拼"><span class="nav-number">6.</span> <span class="nav-text">数组vs链表性能比拼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发中如何选择"><span class="nav-number">7.</span> <span class="nav-text">开发中如何选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表实现LRU缓存"><span class="nav-number">8.</span> <span class="nav-text">链表实现LRU缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">9.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组实现LRU缓存"><span class="nav-number">9.1.</span> <span class="nav-text">数组实现LRU缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断一个字符串是回文串"><span class="nav-number">9.2.</span> <span class="nav-text">如何判断一个字符串是回文串</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表和数组的区别"><span class="nav-number">1.</span> <span class="nav-text">链表和数组的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表"><span class="nav-number">2.</span> <span class="nav-text">单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环链表"><span class="nav-number">3.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向链表"><span class="nav-number">4.</span> <span class="nav-text">双向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除操作"><span class="nav-number">4.1.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向循环链表"><span class="nav-number">5.</span> <span class="nav-text">双向循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组vs链表性能比拼"><span class="nav-number">6.</span> <span class="nav-text">数组vs链表性能比拼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发中如何选择"><span class="nav-number">7.</span> <span class="nav-text">开发中如何选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表实现LRU缓存"><span class="nav-number">8.</span> <span class="nav-text">链表实现LRU缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">9.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组实现LRU缓存"><span class="nav-number">9.1.</span> <span class="nav-text">数组实现LRU缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断一个字符串是回文串"><span class="nav-number">9.2.</span> <span class="nav-text">如何判断一个字符串是回文串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见单链表编程题"><span class="nav-number">9.3.</span> <span class="nav-text">常见单链表编程题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -785,7 +792,7 @@
   
   &copy;  2013 - 
   <span itemprop="copyrightYear">2019</span>
- <span class="post-count">博客全站共57k字</span>
+ <span class="post-count">博客全站共57.6k字</span>
  <span class="post-meta-divider">|</span>
 
  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
