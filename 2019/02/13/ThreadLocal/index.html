@@ -109,7 +109,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="java基础,">
 
 
 
@@ -128,18 +128,20 @@
 
 
 <meta name="description" content="ThreadLocal是什么jdk文档介绍1234567891011121314/** * This class provides thread-local variables.  These variables differ from * their normal counterparts in that each thread that accesses one (via its * &amp;#12">
+<meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ThreadLocal">
 <meta property="og:url" content="http://shiyangtao.github.io/2019/02/13/ThreadLocal/index.html">
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
 <meta property="og:description" content="ThreadLocal是什么jdk文档介绍1234567891011121314/** * This class provides thread-local variables.  These variables differ from * their normal counterparts in that each thread that accesses one (via its * &amp;#12">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/02/13/ThreadLocal/images/pasted-1.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/02/13/ThreadLocal/images/pasted-0.png">
-<meta property="og:updated_time" content="2019-02-13T11:20:38.533Z">
+<meta property="og:updated_time" content="2019-02-14T02:31:21.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ThreadLocal">
 <meta name="twitter:description" content="ThreadLocal是什么jdk文档介绍1234567891011121314/** * This class provides thread-local variables.  These variables differ from * their normal counterparts in that each thread that accesses one (via its * &amp;#12">
-<meta name="twitter:image" content="http://shiyangtao.github.io/2019/02/13/ThreadLocal/images/pasted-0.png">
+<meta name="twitter:image" content="http://shiyangtao.github.io/2019/02/13/ThreadLocal/images/pasted-1.png">
 
 
 
@@ -404,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  1.5k
                 </span>
               
 
@@ -445,10 +447,10 @@
 <p>结合我的总结可以这样理解：ThreadLocal提供了线程的局部变量，每个线程都可以通过set()和get()来对这个局部变量进行操作，但不会和其他线程的局部变量进行冲突，实现了线程的数据隔离～。<br>简要言之：往ThreadLocal中填充的变量属于当前线程，该变量对其他线程而言是隔离的。</p>
 <h3 id="作用是什么"><a href="#作用是什么" class="headerlink" title="作用是什么"></a>作用是什么</h3><p>从上面可以得出：ThreadLocal可以让我们拥有当前线程的变量，那这个作用有什么用呢？？？<br>最常见的ThreadLocal使用场景为用来解决 数据库连接、Session管理、避免一些参数传递等<br>例如<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;Connection&gt; connectionHolder</span><br><span class="line">= <span class="keyword">new</span> ThreadLocal&lt;Connection&gt;() &#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> Connection <span class="title">initialValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> DriverManager.getConnection(DB_URL);</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> connectionHolder.get();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal threadSession = <span class="keyword">new</span> ThreadLocal();</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Session <span class="title">getSession</span><span class="params">()</span> <span class="keyword">throws</span> InfrastructureException </span>&#123;</span><br><span class="line">    Session s = (Session) threadSession.get();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span>) &#123;</span><br><span class="line">            s = getSessionFactory().openSession();</span><br><span class="line">            threadSession.set(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (HibernateException ex) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InfrastructureException(ex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p><img src="/2019/02/13/ThreadLocal/images/pasted-0.png" alt="upload successful"><br>ThreadLocal的实现是这样的：每个Thread 维护一个 ThreadLocalMap 映射表，这个映射表的 key 是 ThreadLocal实例本身，value 是真正需要存储的 Object。</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p><strong>Thread、ThreadLocal、ThreadLocalMap、Entry之间的关系</strong><br><img src="/2019/02/13/ThreadLocal/images/pasted-1.png" alt="Thread、ThreadLocal、ThreadLocalMap、Entry之间的关系"></p>
+<p>ThreadLocal的实现是这样的：每个Thread 维护一个 ThreadLocalMap 映射表，这个映射表的 key 是 ThreadLocal实例本身，value 是真正需要存储的 Object。</p>
 <p>也就是说 ThreadLocal 本身并不存储值，它只是作为一个 key 来让线程从 ThreadLocalMap 获取 value。值得注意的是图中的虚线，表示 ThreadLocalMap 是使用 ThreadLocal 的弱引用作为 Key 的，弱引用的对象在 GC 时会被回收。</p>
-<p>ThreadLocal并不维护ThreadLocalMap，并不是一个存储数据的容器，它只是相当于一个工具包，提供了操作该容器的方法，如get、set、remove等。而ThreadLocal内部类ThreadLocalMap才是存储数据的容器，并且该容器由Thread维护。</p>
-<p>每一个Thread对象均含有一个ThreadLocalMap类型的成员变量threadLocals，它存储本线程中所有ThreadLocal对象及其对应的值。</p>
+<p><img src="/2019/02/13/ThreadLocal/images/pasted-0.png" alt="upload successful"></p>
 <p>ThreadLocalMap由一个个Entry对象构成，Entry的代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span> <span class="keyword">extends</span> <span class="title">WeakReference</span>&lt;<span class="title">ThreadLocal</span>&lt;?&gt;&gt; </span>&#123;</span><br><span class="line">    Object value;</span><br><span class="line"></span><br><span class="line">    Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;</span><br><span class="line">        <span class="keyword">super</span>(k);</span><br><span class="line">        value = v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Entry继承自WeakReference&lt;ThreadLocal&lt;?&gt;&gt;，一个Entry由ThreadLocal对象和Object构成。由此可见，Entry的key是ThreadLocal对象，并且是一个弱引用。当没指向key的强引用后，该key就会被垃圾收集器回收。</p>
 <p>那么，ThreadLocal是如何工作的呢？下面来看set和get方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">    Thread t = Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map = getMap(t);</span><br><span class="line">    <span class="keyword">if</span> (map != <span class="keyword">null</span>)</span><br><span class="line">        map.set(<span class="keyword">this</span>, value);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        createMap(t, value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Thread t = Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map = getMap(t);</span><br><span class="line">    <span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">        ThreadLocalMap.Entry e = map.getEntry(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">            T result = (T)e.value;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> setInitialValue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ThreadLocalMap <span class="title">getMap</span><span class="params">(Thread t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> t.threadLocals;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -470,7 +472,7 @@
 <p>比较两种情况，我们可以发现：由于ThreadLocalMap的生命周期跟Thread一样长，如果都没有手动删除对应key，都会导致内存泄漏，但是使用弱引用可以多一层保障：弱引用ThreadLocal不会内存泄漏，对应的value在下一次ThreadLocalMap调用set,get,remove的时候会被清除。</p>
 <p>因此，ThreadLocal内存泄漏的根源是：由于ThreadLocalMap的生命周期跟Thread一样长，如果没有手动删除对应key就会导致内存泄漏，而不是因为弱引用。</p>
 <h4 id="避免内存泄漏"><a href="#避免内存泄漏" class="headerlink" title="避免内存泄漏"></a>避免内存泄漏</h4><p>综合上面的分析，我们可以理解ThreadLocal内存泄漏的前因后果，那么怎么避免内存泄漏呢？</p>
-<p>每次使用完ThreadLocal，都调用它的remove()方法，清除数据。<br>在使用线程池的情况下，thread的生命周期很长的情况下，没有及时清理ThreadLocal，导致内存泄漏该回收的没有被回收从而造成内存溢出。所以，使用ThreadLocal就跟加锁完要解锁一样，用完就清理。</p>
+<p>每次使用完ThreadLocal，都调用它的remove()方法，清除数据。<br>在使用线程池的情况下，thread的生命周期很长的情况下，没有及时清理ThreadLocal，导致内存泄漏随着应用运行的时间越来越长会导致内存溢出。所以，使用ThreadLocal就跟加锁完要解锁一样，用完就清理。</p>
 
       
     </div>
@@ -524,6 +526,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java基础/" <i="" class="fa fa-tag"> java基础</a>
+          
+        </div>
       
 
       
@@ -743,7 +751,7 @@
   
   &copy;  2013 - 
   <span itemprop="copyrightYear">2019</span>
- <span class="post-count">博客全站共59.2k字</span>
+ <span class="post-count">博客全站共59.1k字</span>
  <span class="post-meta-divider">|</span>
 
  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
