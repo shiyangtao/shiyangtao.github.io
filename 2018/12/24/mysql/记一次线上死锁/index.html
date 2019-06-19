@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -139,7 +137,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-67be5b7941106602.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-b4cf0e82040a4632.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-e874a232cace2f0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-26T01:14:39.538Z">
+<meta property="og:updated_time" content="2019-01-26T01:14:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次线上死锁">
 <meta name="twitter:description" content="项目做了什么这个项目是为了处理一些任务，实现是启动定时任务去处理这些数据，因为项目上线后是集群的，所以为了避免多个节点处理到相同的数据，我们使用select … where  state =0 for update limit 500 来锁住数据，然后update state =2值。这样其他节点就不会重复处理数据了 同事定时任务的代码大概是这样的，我这里用伪代码表示1234567@Transac">
@@ -155,7 +153,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: true,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -814,7 +812,7 @@
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest-nomobile.min.js"></script>
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -139,7 +137,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-f40ddd874ed22a6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-49c513360ce169bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2455482-ebe90e1adbf577b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-26T01:11:24.039Z">
+<meta property="og:updated_time" content="2019-01-26T01:11:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="锁可重入性">
 <meta name="twitter:description" content="当线程请求一个由其它线程持有的对象锁时，该线程会阻塞，而当线程请求由自己持有的对象锁时，如果该锁是重入锁,请求就会成功,否则阻塞。 java中获取锁的操作的粒度是“线程”，而不是“调用”，即不是每一次调用都是建立一个锁。 重入锁的一种实现方法是为每个锁关联一个线程持有者和计数器，当计数器为0时表示该锁没有被任何线程持有，那么任何线程都可能获得该锁而调用相应的方法；当某一线程请求成功后，JVM会记下">
@@ -155,7 +153,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: true,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -533,8 +531,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/20/java并发编程/thread-method-interrupt/" rel="prev" title="interrupt方法">
-                interrupt方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/09/20/java并发编程/java多线程实现的四种方式/" rel="prev" title="多线程实现四种方式">
+                多线程实现四种方式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -789,7 +787,7 @@
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest-nomobile.min.js"></script>
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

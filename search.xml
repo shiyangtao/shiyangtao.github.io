@@ -220,17 +220,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[读书方法]]></title>
-    <url>%2F2017%2F02%2F03%2F%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%2F%E8%AF%BB%E4%B9%A6%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[1.构思出知识地图 2.系统的学习 读完一本书需要了解到的六个问题1.出现的背景，初衷，为了解决什么问题2.适用的场景3.用法4.底层原理5.优缺点6.对比其他]]></content>
+    <title><![CDATA[现阶段学习路线]]></title>
+    <url>%2F2017%2F02%2F03%2F%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%2F%E8%A1%A5%E5%BC%BA%E8%B7%AF%E7%BA%BF%2F</url>
+    <content type="text"><![CDATA[Java Jvm 书籍《深入理解java虚拟机》 极客专栏《Java36讲》 并发编程 书籍《Java 并发编程实战》线程安全、锁机制看并发工具的源代码ReentrantLock和Condition、ReentrantReadWriteLock、CountDownLatch、CyclicBarrier、Semphore、线程池 Spring《spring 实战》《spring boot实战》《精通spring4.x》清楚AOP IOC Java NIO IBM&lt;nio入门&gt; 《netty实战》清楚PPC TPC Reactor模型数据结构算法 《算法图解》 极客专栏的《数据结构与算法分析》 《数据结构与算法分析-C语言描述》网络 刘超网络专栏《趣谈网络协议》 熟悉TCP UDP 《图解TCP/IP》 《TCP/IP详解 卷1：协议》MySQL 极客专栏《MySQL实战45讲》 《高性能MySQL》 了解下什么时候需要读写分离、分库分表，带来的问题有哪些？有哪些解决方法 了解下主备、主从、主备切换、主从切换、主主，每种模式适用的场景？带来的问题有哪些？有哪些解决方法Redis 《Redis设计与实现》 缓存雪崩，缓存穿透了解下原因解决方法有哪些linux w3school-linux 熟悉常用linux命令 《鸟哥linux私房菜》分布式架构 极客专栏《从0开始学架构》 极客专栏《左耳听风》]]></content>
       <tags>
         <tag>学习心得</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[现阶段学习路线]]></title>
-    <url>%2F2017%2F02%2F03%2F%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%2F%E8%A1%A5%E5%BC%BA%E8%B7%AF%E7%BA%BF%2F</url>
-    <content type="text"><![CDATA[Java Jvm 书籍《深入理解java虚拟机》 极客专栏《Java36讲》 并发编程 书籍《Java 并发编程实战》线程安全、锁机制看并发工具的源代码ReentrantLock和Condition、ReentrantReadWriteLock、CountDownLatch、CyclicBarrier、Semphore、线程池 Spring《spring 实战》《spring boot实战》《精通spring4.x》清楚AOP IOC Java NIO IBM&lt;nio入门&gt; 《netty实战》清楚PPC TPC Reactor模型数据结构算法 《算法图解》 极客专栏的《数据结构与算法分析》 《数据结构与算法分析-C语言描述》网络 刘超网络专栏《趣谈网络协议》 熟悉TCP UDP 《图解TCP/IP》 《TCP/IP详解 卷1：协议》MySQL 极客专栏《MySQL实战45讲》 《高性能MySQL》 了解下什么时候需要读写分离、分库分表，带来的问题有哪些？有哪些解决方法 了解下主备、主从、主备切换、主从切换、主主，每种模式适用的场景？带来的问题有哪些？有哪些解决方法Redis 《Redis设计与实现》 缓存雪崩，缓存穿透了解下原因解决方法有哪些linux w3school-linux 熟悉常用linux命令 《鸟哥linux私房菜》分布式架构 极客专栏《从0开始学架构》 极客专栏《左耳听风》]]></content>
+    <title><![CDATA[读书方法]]></title>
+    <url>%2F2017%2F02%2F03%2F%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%2F%E8%AF%BB%E4%B9%A6%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[1.构思出知识地图 2.系统的学习 读完一本书需要了解到的六个问题1.出现的背景，初衷，为了解决什么问题2.适用的场景3.用法4.底层原理5.优缺点6.对比其他]]></content>
       <tags>
         <tag>学习心得</tag>
       </tags>
@@ -325,17 +325,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[多线程实现四种方式]]></title>
-    <url>%2F2015%2F09%2F20%2Fjava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%2Fjava%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[https://www.cnblogs.com/felixzh/p/6036074.html]]></content>
+    <title><![CDATA[interrupt方法]]></title>
+    <url>%2F2015%2F09%2F20%2Fjava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%2Fthread-method-interrupt%2F</url>
+    <content type="text"><![CDATA[https://blog.csdn.net/pursuer211/article/details/40653531]]></content>
       <tags>
         <tag>java并发编程</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[interrupt方法]]></title>
-    <url>%2F2015%2F09%2F20%2Fjava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%2Fthread-method-interrupt%2F</url>
-    <content type="text"><![CDATA[https://blog.csdn.net/pursuer211/article/details/40653531]]></content>
+    <title><![CDATA[多线程实现四种方式]]></title>
+    <url>%2F2015%2F09%2F20%2Fjava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%2Fjava%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[https://www.cnblogs.com/felixzh/p/6036074.html]]></content>
       <tags>
         <tag>java并发编程</tag>
       </tags>
