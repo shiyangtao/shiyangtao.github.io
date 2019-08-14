@@ -125,23 +125,25 @@
 
 
 
-<meta name="description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
+<meta name="description" content="title: 链表tags:  数据结构与算法date: 2019-01-29 13:29:25   相比数组，链表是一种稍微复杂一点的数据结构。对于初学者来说，掌握起来也要比数组稍难一些。这两个非常基础、非常常用的数据结构，我们常常将会放到一块儿来比较。所以我们先来看，这两者有什么区别。 链表和数组的区别为了直观地对比，我画了一张图。从图中我们看到，数组需要一块连续的内存空间来存储，对内存的要求">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shiyangtao&#39;s blog">
-<meta property="og:url" content="http://shiyangtao.github.io/2019/01/29/数组/index.html">
+<meta property="og:url" content="http://shiyangtao.github.io/2019/02/01/链表/index.html">
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
-<meta property="og:description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
+<meta property="og:description" content="title: 链表tags:  数据结构与算法date: 2019-01-29 13:29:25   相比数组，链表是一种稍微复杂一点的数据结构。对于初学者来说，掌握起来也要比数组稍难一些。这两个非常基础、非常常用的数据结构，我们常常将会放到一块儿来比较。所以我们先来看，这两者有什么区别。 链表和数组的区别为了直观地对比，我画了一张图。从图中我们看到，数组需要一块连续的内存空间来存储，对内存的要求">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-0.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-1.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-2.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-3.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-4.png">
-<meta property="og:updated_time" content="2019-08-14T07:38:39.412Z">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/02/01/链表/images/pasted-0.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/02/01/链表/images/pasted-1.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/02/01/链表/images/pasted-2.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/02/01/链表/images/pasted-3.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/02/01/链表/images/pasted-4.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/02/01/链表/images/pasted-5.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/02/01/链表/images/pasted-6.png">
+<meta property="og:updated_time" content="2019-08-14T07:37:50.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shiyangtao&#39;s blog">
-<meta name="twitter:description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
-<meta name="twitter:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-0.png">
+<meta name="twitter:description" content="title: 链表tags:  数据结构与算法date: 2019-01-29 13:29:25   相比数组，链表是一种稍微复杂一点的数据结构。对于初学者来说，掌握起来也要比数组稍难一些。这两个非常基础、非常常用的数据结构，我们常常将会放到一块儿来比较。所以我们先来看，这两者有什么区别。 链表和数组的区别为了直观地对比，我画了一张图。从图中我们看到，数组需要一块连续的内存空间来存储，对内存的要求">
+<meta name="twitter:image" content="http://shiyangtao.github.io/2019/02/01/链表/images/pasted-0.png">
 
 
 
@@ -170,7 +172,7 @@
 
 
 
-  <link rel="canonical" href="http://shiyangtao.github.io/2019/01/29/数组/">
+  <link rel="canonical" href="http://shiyangtao.github.io/2019/02/01/链表/">
 
 
   <script>
@@ -345,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2019/01/29/数组/">
+    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2019/02/01/链表/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sytao">
@@ -374,8 +376,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T11:44:37+08:00">
-                2019-01-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T16:45:46+08:00">
+                2019-02-01
               </time>
             
 
@@ -406,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  4k
                 </span>
               
 
@@ -422,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  8
+                  13
                 </span>
               
             </div>
@@ -443,41 +445,77 @@
       
 
       
-        <p>title: 数组<br>author: sytao<br>tags:</p>
+        <p>title: 链表<br>tags:</p>
 <ul>
-<li>数据结构与算法<br>categories: []<br>date: 2019-01-29 10:31:00</li>
+<li>数据结构与算法<br>date: 2019-01-29 13:29:25</li>
 </ul>
 <hr>
-<h3 id="如何实现随机访问"><a href="#如何实现随机访问" class="headerlink" title="如何实现随机访问"></a>如何实现随机访问</h3><p>什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</p>
-<p>这个定义里有几个关键词</p>
-<h4 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h4><p>（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。其实除了数组，链表、队列、栈等也是线性表结构。</p>
-<p><img src="/2019/01/29/数组/images/pasted-0.png" alt="upload successful"><br>而与他对立的是非线性表，比如二叉树、堆、图等。之所以叫非线性，是因为，在非线性表中，数据之间并不是简单的前后关系。</p>
-<p><img src="/2019/01/29/数组/images/pasted-1.png" alt="upload successful"></p>
-<h4 id="连续的内存空间和相同类型的数据"><a href="#连续的内存空间和相同类型的数据" class="headerlink" title="连续的内存空间和相同类型的数据"></a>连续的内存空间和相同类型的数据</h4><p>正是有了这个特性，他才有了随机访问这个“杀手锏”。但是有利就有弊，比如删除添加为了保证连续性，必须要做数据搬移工作。<br>说到数据的访问，那你知道数组是如何实现根据下标随机访问数组元素的吗？<br>我们拿一个长度为 10 的 int 类型的数组 int[] a = new int[10] 来举例。在我画的这个图中，计算机给数组 a[10]，分配了一块连续内存空间 1000～1039，其中，内存块的首地址为 base_address = 1000。</p>
-<p><img src="/2019/01/29/数组/images/pasted-2.png" alt="upload successful"><br>我们知道，计算机会给每个内存单元分配一个地址，计算机通过地址来访问内存中的数据。当计算机需要随机访问数组中的某个元素时，它会首先通过下面的寻址公式，计算出该元素存储的内存地址。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[i]_address = base_address + i * data_type_size</span><br></pre></td></tr></table></figure></p>
-<p>其中data_type_size表示每个元素的大小。我们这个例子数组中存储的是int类型数组，所以date_type_size就为4个字节。<br>这里特别纠正一个“错误”。面试中经常会问到数组和链表的区别，很多人都会回答，“链表适合插入、删除、时间复杂度O(1);数组适合查找，查找时间复杂度为O(1)”。<br>实际上，这种表述是不准确的。数组是适合查找操作，但查找时间复杂度不是O(1)。即便是排序好的数组，你用二分查找时间复杂度才是O(logn)。所以正确的表述是数组支持随机访问，根据下标随机访问的时间复杂度为O(1)。</p>
-<h3 id="低效的插入和删除"><a href="#低效的插入和删除" class="headerlink" title="低效的插入和删除"></a>低效的插入和删除</h3><p>前面提到，数组为了保证内存数组连续性，会导致插入、删除两个操作会比较低效。</p>
-<h4 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h4><p>假设数组长度为n，现在，需要把一个数据插入到数组第k个位置。为了把第k个位置腾出来，给新来的数据，我们需要把k～n这部分元素都顺序往后挪一下，那时间复杂度是多少呢？<br>如果在数组的末尾插入元素，那就不需要移动数据了，这时的时间复杂度为 O(1)。但如果在数组的开头插入元素，那所有的数据都需要依次往后移动一位，所以最坏时间复杂度是 O(n)。 因为我们在每个位置插入元素的概率是一样的，所以平均情况时间复杂度为 (1+2+…n)/n=O(n)。<br>如果数组中的数据是有序的，我们在某个位置插入一个新元素，就必须按照刚才的方法搬移k之后的数组。但是如果数组中的数据没有任何规律，数组只是存储集合。在这种情况下，如果把数据插入第k个位置，为了避免大规模搬移，直接将第k个位置的数据插入到数组最后，把新的元素放在第k个位置。如下图所示</p>
-<p><img src="/2019/01/29/数组/images/pasted-3.png" alt="upload successful"><br>利用这个技巧，在特定场景下，在第k个位置插入元素的复杂度就降到了O(1)</p>
-<h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><p>跟插入操作类似，如果删除第k个位置的数据，为了内存连续性，也需要搬移数据，不然会出现空洞，内存就不连续了。<br>和插入类似，如果删除末尾的数据，时间复杂度O(1);如果删除开头的数据，则最坏情况时间复杂度为O(n);平均情况时间复杂度也为O(n)。<br>实际上，在某些特殊场景下，我们并不一定非得追求数组中数据的连续性。如果我们将多次删除操作集中在一起执行，删除的效率是不是会提高很多呢？<br>我们继续来看例子。数组 a[10] 中存储了 8 个元素：a，b，c，d，e，f，g，h。现在，我们要依次删除 a，b，c 三个元素。</p>
-<p><img src="/2019/01/29/数组/images/pasted-4.png" alt="upload successful"><br>为了避免 d，e，f，g，h 这几个数据会被搬移三次，我们可以先记录下已经删除的数据。每次的删除操作并不是真正地搬移数据，只是记录数据已经被删除。当数组没有更多空间存储数据时，我们再触发执行一次真正的删除操作，这样就大大减少了删除操作导致的数据搬移。<br>如果你了解 JVM，你会发现，这不就是 JVM 标记清除垃圾回收算法的核心思想吗？没错，数据结构和算法的魅力就在于此，很多时候我们并不是要去死记硬背某个数据结构或者算法，而是要学习它背后的思想和处理技巧，这些东西才是最有价值的。</p>
-<h3 id="容器能否代替数组？"><a href="#容器能否代替数组？" class="headerlink" title="容器能否代替数组？"></a>容器能否代替数组？</h3><p>针对数组类型，很多语言提供了容器类，比如java中的ArrayList。在项目开发中，什么时候适合用数组，什么时候适合用容器呢？<br>因为我是java开发，几乎每天都在用ArrayList。个人觉得ArrayList的最大优势就是可以把很多数组操作的细节封装起来。比如插入、删除、动态扩容。</p>
-<p>数组本身在定义时需要预先指定大小，因为需要分配连续的内存空间。乳沟我们申请了大小为10的数组，当第11个数据需要存储到数组中时，我们就需要重新分配一块更大的空间，将原来的数据复制过去，然后在插入新的数据。</p>
-<p>如果使用ArrayList，我们就完全不需要关心底层的扩容逻辑，ArrayList已经帮我们实现好了。每次空间不够时，他都会自动扩容为1.5倍大小。</p>
-<p>不过，这里需要注意一点，因为扩容需要内存申请和数据搬移，比较耗时。所以，如果事先能去定需要存储数据的大小，最后在创建ArrayList的时候事先指定数据大小。</p>
-<p>作为高级语言编程者，是不是数组就无用武之地了？当然不是，一下情况可以用数组。</p>
+<p>相比数组，链表是一种稍微复杂一点的数据结构。对于初学者来说，掌握起来也要比数组稍难一些。这两个非常基础、非常常用的数据结构，我们常常将会放到一块儿来比较。所以我们先来看，这两者有什么区别。</p>
+<h3 id="链表和数组的区别"><a href="#链表和数组的区别" class="headerlink" title="链表和数组的区别"></a>链表和数组的区别</h3><p>为了直观地对比，我画了一张图。从图中我们看到，数组需要一块<strong>连续的内存空间</strong>来存储，对内存的要求比较高。如果我们申请一个 100MB 大小的数组，当内存中没有连续的、足够大的存储空间时，即便内存的剩余总可用空间大于 100MB，仍然会申请失败。<br>而链表恰恰相反，它并不需要一块连续的内存空间，它通过“指针”将一组<strong>零散的内存块</strong>串联起来使用，所以如果我们申请的是 100MB 大小的链表，根本不会有问题。</p>
+<p><img src="/2019/02/01/链表/images/pasted-0.png" alt="upload successful"></p>
+<p>链表结构五花八门，今天我重点给你介绍三种最常见的链表结构，它们分别是：单链表、双向链表和循环链表。</p>
+<h3 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h3><p>我们刚刚讲到，链表通过指针将一组零散的内存块串联在一起。其中，我们把内存块称为链表的<strong>“结点”</strong>。为了将所有的结点串起来，每个链表的结点除了存储数据之外，还需要记录链上的下一个结点的地址。如图所示，我们把这个记录下个结点地址的指针叫作<strong>“后继指针”</strong></p>
+<p><img src="/2019/02/01/链表/images/pasted-1.png" alt="upload successful"><br>从我画的单链表图中，你应该可以发现，其中有两个结点是比较特殊的，它们分别是第一个结点和最后一个结点。我们习惯性地把第一个结点叫作<strong>头结点</strong>，把最后一个结点叫作<strong>尾结点</strong>。其中，头结点用来记录链表的基地址。有了它，我们就可以遍历得到整条链表。而尾结点特殊的地方是：指针不是指向下一个结点，而是指向一个<strong>空地址NULL</strong>，表示这是链表上最后一个结点。</p>
+<p>与数组一样，链表也支持数据的查找、插入和删除操作。</p>
+<p>我们知道，在进行数组的插入、删除操作时，为了保持内存数据的连续性，需要做大量的数据搬移，所以时间复杂度是 O(n)。而在链表中插入或者删除一个数据，我们并不需要为了保持内存的连续性而搬移结点，因为链表的存储空间本身就不是连续的。所以，在链表中插入和删除一个数据是非常快速的。</p>
+<p>为了方便你理解，我画了一张图，从图中我们可以看出，针对链表的插入和删除操作，我们只需要考虑相邻结点的指针改变，所以对应的时间复杂度是 O(1)。</p>
+<p><img src="/2019/02/01/链表/images/pasted-2.png" alt="upload successful"></p>
+<p>但是，有利就有弊。链表要想随机访问第 k 个元素，就没有数组那么高效了。因为链表中的数据并非连续存储的，所以无法像数组那样，根据首地址和下标，通过寻址公式就能直接计算出对应的内存地址，而是需要根据指针一个结点一个结点地依次遍历，直到找到相应的结点。</p>
+<p>你可以把链表想象成一个队伍，队伍中的每个人都只知道自己后面的人是谁，所以当我们希望知道排在第 k 位的人是谁的时候，我们就需要从第一个人开始，一个一个地往下数。所以，链表随机访问的性能没有数组好，需要 O(n) 的时间复杂度。</p>
+<h3 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h3><p><strong>循环链表是一种特殊的单链表</strong>。实际上，循环链表也很简单。它跟单链表唯一的区别就在尾结点。我们知道，单链表的尾结点指针指向空地址，表示这就是最后的结点了。而循环链表的尾结点指针是指向链表的头结点。从我画的循环链表图中，你应该可以看出来，它像一个环一样首尾相连，所以叫作“循环”链表。<br><img src="/2019/02/01/链表/images/pasted-3.png" alt="upload successful"><br>和单链表相比，<strong>循环列表的优点是</strong>是从链尾到链头比较方便。当要处理的数据具有环型结构特点时，就特别适合采用循环链表。比如著名的<a href="https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%91%9F%E5%A4%AB%E6%96%AF%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">约瑟夫问题</a>。尽管用单链表也可以实现，但是用循环链表实现的话，代码就会简洁很多。</p>
+<h3 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h3><p>单向链表只有一个方向，结点只有一个后继指针 next 指向后面的结点。而双向链表，顾名思义，它支持两个方向，每个结点不止有一个后继指针 next 指向后面的结点，还有一个前驱指针 prev 指向前面的结点。<br><img src="/2019/02/01/链表/images/pasted-4.png" alt="upload successful"><br>单向链表只有一个方向，结点只有一个后继指针 next 指向后面的结点。而双向链表，顾名思义，它支持两个方向，每个结点不止有一个后继指针 next 指向后面的结点，还有一个前驱指针 prev 指向前面的结点。</p>
+<p>从结构上来看，双向链表可以支持 O(1) 时间复杂度的情况下找到前驱结点，正是这样的特点，也使双向链表在某些情况下的插入、删除等操作都要比单链表简单、高效。</p>
+<p>你可能会说，我刚讲到单链表的插入、删除操作的时间复杂度已经是 O(1) 了，双向链表还能再怎么高效呢？别着急，刚刚的分析比较偏理论，很多数据结构和算法书籍中都会这么讲，但是这种说法实际上是不准确的，或者说是有先决条件的。我再来带你分析一下链表的两个操作。</p>
+<h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><p>在实际的软件开发中，从链表中删除一个数据无外乎这两种情况：</p>
+<ul>
+<li>删除结点中“值等于某个给定值”的结点；<br>这种情况，不管是单链表还是双向链表，为了查找到值等于给定值的结点，都需要从头结点开始一个一个依次遍历对比，直到找到值等于给定值的结点，然后再通过我前面讲的指针操作将其删除。</li>
+</ul>
+<p>尽管单纯的删除操作时间复杂度是 O(1)，但遍历查找的时间是主要的耗时点，对应的时间复杂度为 O(n)。根据时间复杂度分析中的加法法则，删除值等于给定值的结点对应的链表操作的总时间复杂度为 O(n)。</p>
+<ul>
+<li>删除给定指针指向的结点。<br>对于这种种情况，我们已经找到了要删除的结点，但是删除某个结点 q 需要知道其前驱结点，而单链表并不支持直接获取前驱结点，所以，为了找到前驱结点，我们还是要从头结点开始遍历链表，直到 p-&gt;next=q，说明 p 是 q 的前驱结点。</li>
+</ul>
+<p>但是对于双向链表来说，这种情况就比较有优势了。因为双向链表中的结点已经保存了前驱结点的指针，不需要像单链表那样遍历。所以，针对第二种情况，单链表删除操作需要 O(n) 的时间复杂度，而双向链表只需要在 O(1) 的时间复杂度内就搞定了！</p>
+<p>同理，如果我们希望在链表的某个指定结点前面插入一个结点，双向链表比单链表有很大的优势。双向链表可以在 O(1) 时间复杂度搞定，而单向链表需要 O(n) 的时间复杂度。你可以参照我刚刚讲过的删除操作自己分析一下。</p>
+<p>除了插入、删除操作有优势之外，对于一个有序链表，双向链表的按值查询的效率也要比单链表高一些。因为，我们可以记录上次查找的位置 p，每次查询时，根据要查找的值与 p 的大小关系，决定是往前还是往后查找，所以平均只需要查找一半的数据。</p>
+<p>现在，你有没有觉得双向链表要比单链表更加高效呢？这就是为什么在实际的软件开发中，双向链表尽管比较费内存，但还是比单链表的应用更加广泛的原因。如果你熟悉 Java 语言，你肯定用过 LinkedHashMap 这个容器。如果你深入研究 LinkedHashMap 的实现原理，就会发现其中就用到了双向链表这种数据结构。</p>
+<p>实际上，这里有一个更加重要的知识点需要你掌握，那就是<strong>用空间换时间</strong>的设计思想。当内存空间充足的时候，如果我们更加追求代码的执行速度，我们就可以选择空间复杂度相对较高、但时间复杂度相对很低的算法或者数据结构。相反，如果内存比较紧缺，比如代码跑在手机或者单片机上，这个时候，就要反过来用时间换空间的设计思路。</p>
+<h3 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h3><p><img src="/2019/02/01/链表/images/pasted-5.png" alt="upload successful"></p>
+<h3 id="数组vs链表性能比拼"><a href="#数组vs链表性能比拼" class="headerlink" title="数组vs链表性能比拼"></a>数组vs链表性能比拼</h3><p>通过前面内容的学习，你应该已经知道，数组和链表是两种截然不同的内存组织方式。正是因为内存存储的区别，它们插入、删除、随机访问操作的时间复杂度正好相反。</p>
+<p><img src="/2019/02/01/链表/images/pasted-6.png" alt="upload successful"></p>
+<h3 id="开发中如何选择"><a href="#开发中如何选择" class="headerlink" title="开发中如何选择"></a>开发中如何选择</h3><p>不过，数组和链表的对比，并不能局限于时间复杂度。而且，在实际的软件开发中，不能仅仅利用复杂度分析就决定使用哪个数据结构来存储数据。</p>
+<p>数组简单易用，在实现上使用的是连续的内存空间，可以借助 CPU 的缓存机制，预读数组中的数据，所以访问效率更高。而链表在内存中并不是连续存储，所以对 CPU 缓存不友好，没办法有效预读。</p>
+<p>数组的缺点是大小固定，一经声明就要占用整块连续内存空间。如果声明的数组过大，系统可能没有足够的连续内存空间分配给它，导致“内存不足（out of memory）”。如果声明的数组过小，则可能出现不够用的情况。这时只能再申请一个更大的内存空间，把原数组拷贝进去，非常费时。链表本身没有大小的限制，天然地支持动态扩容，我觉得这也是它与数组最大的区别。</p>
+<p>我举一个稍微极端的例子。如果我们用 ArrayList 存储了了 1GB 大小的数据，这个时候已经没有空闲空间了，当我们再插入数据的时候，ArrayList 会申请一个 1.5GB 大小的存储空间，并且把原来那 1GB 的数据拷贝到新申请的空间上。听起来是不是就很耗时？</p>
+<p>除此之外，如果你的代码对内存的使用非常苛刻，那数组就更适合你。因为链表中的每个结点都需要消耗额外的存储空间去存储一份指向下一个结点的指针，所以内存消耗会翻倍。而且，对链表进行频繁的插入、删除操作，还会导致频繁的内存申请和释放，容易造成内存碎片，如果是 Java 语言，就有可能会导致频繁的 GC（Garbage Collection，垃圾回收）。</p>
+<p>所以，在我们实际的开发中，针对不同类型的项目，要根据具体情况，权衡究竟是选择数组还是链表。</p>
+<h3 id="链表实现LRU缓存"><a href="#链表实现LRU缓存" class="headerlink" title="链表实现LRU缓存"></a>链表实现LRU缓存</h3><p>我的思路是这样的：我们维护一个有序单链表，越靠近链表尾部的结点是越早之前访问的。当有一个新的数据被访问时，我们从链表头开始顺序遍历链表。</p>
 <ol>
-<li>Java ArrayList 无法存储基本类型，比如 int、long，需要封装为 Integer、Long 类，而 Autoboxing、Unboxing 则有一定的性能消耗，所以如果特别关注性能，或者希望使用基本类型，就可以选用数组。</li>
-<li>如果数据大小事先已知，并且对数据的操作非常简单，用不到 ArrayList 提供的大部分方法，也可以直接使用数组。</li>
-<li>还有一个是我个人的喜好，当要表示多维数组时，用数组往往会更加直观。比如 Object[][] array；而用容器的话则需要这样定义：ArrayList<arraylist> array。</arraylist></li>
+<li>如果此数据之前已经被缓存在链表中了，我们遍历得到这个数据对应的结点，并将其从原来的位置删除，然后再插入到链表的头部。</li>
+<li>如果次数据不在链表里<ul>
+<li>链表满了，删除尾结点，该数据插入头结点</li>
+<li>链表还有空间，插入头结点</li>
+</ul>
+</li>
 </ol>
-<p>我总结一下，对于业务开发，直接使用容器就足够了，省时省力。毕竟损耗一丢丢性能，完全不会影响到系统整体的性能。但如果你是做一些非常底层的开发，比如开发网络框架，性能的优化需要做到极致，这个时候数组就会优于容器，成为首选。</p>
-<h3 id="为什么大多数编程语言数组下标要从0开始而不是1"><a href="#为什么大多数编程语言数组下标要从0开始而不是1" class="headerlink" title="为什么大多数编程语言数组下标要从0开始而不是1"></a>为什么大多数编程语言数组下标要从0开始而不是1</h3><p>从数组存储的内存模型上来看，“下标”最确切的定义应该是“偏移（offset）”。前面也讲到，如果用 a 来表示数组的首地址，a[0] 就是偏移为 0 的位置，也就是首地址，a[k] 就表示偏移 k 个 type_size 的位置，所以计算 a[k] 的内存地址只需要用这个公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + k * type_size</span><br></pre></td></tr></table></figure></p>
-<p>但是，如果数组从 1 开始计数，那我们计算数组元素 a[k] 的内存地址就会变为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + (k-1)*type_size</span><br></pre></td></tr></table></figure></p>
-<p>对比两个公式，我们不难发现，从 1 开始编号，每次随机访问数组元素都多了一次减法运算，对于 CPU 来说，就是多了一次减法指令。</p>
-<p>数组作为非常基础的数据结构，通过下标随机访问数组元素又是其非常基础的编程操作，效率的优化就要尽可能做到极致。所以为了减少一次减法操作，数组选择了从 0 开始编号，而不是从 1 开始。</p>
-<p>不过我认为，上面解释得再多其实都算不上压倒性的证明，说数组起始编号非 0 开始不可。所以我觉得最主要的原因可能是历史原因。</p>
-<p>C 语言设计者用 0 开始计数数组下标，之后的 Java、JavaScript 等高级语言都效仿了 C 语言，或者说，为了在一定程度上减少 C 语言程序员学习 Java 的学习成本，因此继续沿用了从 0 开始计数的习惯。实际上，很多语言中数组也并不是从 0 开始计数的，比如 Matlab。甚至还有一些语言支持负数下标，比如 Python。</p>
+<p><a href="https://github.com/shiyangtao/leetCode-pratice/blob/master/src/java/link/LinkedLRU.java" target="_blank" rel="noopener">代码地址</a><br>现在我们来看下缓存访问的时间复杂度是多少。因为不管缓存有没有满，我们都需要遍历一遍链表，所以这种基于链表的实现思路，缓存访问的时间复杂度为 O(n)。</p>
+<p>实际上，我们可以继续优化这个实现思路，比如引入<strong>散列表</strong>（Hash table）来记录每个数据的位置，将缓存访问的时间复杂度降到 O(1)。因为要涉及我们还没有讲到的数据结构，所以这个优化方案，我现在就不详细说了，等讲到散列表的时候，我会再拿出来讲。</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="数组实现LRU缓存"><a href="#数组实现LRU缓存" class="headerlink" title="数组实现LRU缓存"></a>数组实现LRU缓存</h4><p>除了基于链表的实现思路，实际上还可以用数组来实现 LRU 缓存淘汰策略。如何利用数组实现 LRU 缓存淘汰策略呢？我把这个问题留给你思考。<br>我的思路是这样：维护一个数组，越靠近尾部的结点是越早之前访问的。当有一个新的数据被访问时，我们从数组第一个元素开始遍历</p>
+<ol>
+<li>如果此数据已经被缓存，我们遍历得到这个数据的下标，并将前面的所有数据都往右移动一位，然后在把该元素放到数据下标0的位置</li>
+<li>如果数组不在数组里<ul>
+<li>数组满了，把最后一个元素之前的元素向右平移一位，最后一个元素自然也就丢弃了，然后把该数据放到下标为0的位置</li>
+<li>数组还有空间，把数组里所有元素向右平移一位，然后把该数据放到下标为0的位置<br><a href="https://github.com/shiyangtao/leetCode-pratice/blob/master/src/java/array/ArrayLRU.java" target="_blank" rel="noopener">代码地址</a><br>现在我们来看下缓存访问的时间复杂度是多少。因为不管缓存有没有满，我们都需要遍历一遍数组，所以这种基于数组的实现思路，缓存访问的时间复杂度为 O(n)。</li>
+</ul>
+</li>
+</ol>
+<h4 id="如何判断一个字符串是回文串"><a href="#如何判断一个字符串是回文串" class="headerlink" title="如何判断一个字符串是回文串"></a>如何判断一个字符串是回文串</h4><p>如何判断一个字符串是否是回文字符串的问题，我想你应该听过，我们今天的思题目就是基于这个问题的改造版本。如果字符串是通过单链表来存储的，那该如何来判断是一个回文串呢？你有什么好的解决思路呢？相应的时间空间复杂度又是多少呢？<br>我的思路是：使用快慢两个指针找到链表中点，慢指针每次前进一步，快指针每次前进两步。在慢指针前进的过程中，同时修改其 next 指针，使得链表前半部分反序。最后比较中点两侧的链表是否相等。<br><a href="https://github.com/shiyangtao/leetCode-pratice/blob/master/src/java/link/Palindrome.java" target="_blank" rel="noopener">代码地址</a></p>
+<h4 id="常见单链表编程题"><a href="#常见单链表编程题" class="headerlink" title="常见单链表编程题"></a>常见单链表编程题</h4><ul>
+<li>单链表反转</li>
+<li>链表中环的检测</li>
+<li>两个有序链表合并</li>
+<li>删除倒数第n个代码</li>
+<li>求链表中间结点<br><a href="https://github.com/shiyangtao/leetCode-pratice/blob/master/src/java/link/LinkProblem.java" target="_blank" rel="noopener">代码地址</a></li>
+</ul>
 
       
     </div>
@@ -541,7 +579,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/28/策略模式/" rel="next" title="">
+              <a href="/2019/01/29/数组/" rel="next" title="">
                 <i class="fa fa-chevron-left"></i> 
               </a>
             
@@ -551,7 +589,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/01/链表/" rel="prev" title="">
+              <a href="/2019/02/14/ThreadLocal/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -719,7 +757,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现随机访问"><span class="nav-number">1.</span> <span class="nav-text">如何实现随机访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性表"><span class="nav-number">1.1.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连续的内存空间和相同类型的数据"><span class="nav-number">1.2.</span> <span class="nav-text">连续的内存空间和相同类型的数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#低效的插入和删除"><span class="nav-number">2.</span> <span class="nav-text">低效的插入和删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入操作"><span class="nav-number">2.1.</span> <span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除操作"><span class="nav-number">2.2.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器能否代替数组？"><span class="nav-number">3.</span> <span class="nav-text">容器能否代替数组？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么大多数编程语言数组下标要从0开始而不是1"><span class="nav-number">4.</span> <span class="nav-text">为什么大多数编程语言数组下标要从0开始而不是1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表和数组的区别"><span class="nav-number">1.</span> <span class="nav-text">链表和数组的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表"><span class="nav-number">2.</span> <span class="nav-text">单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环链表"><span class="nav-number">3.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向链表"><span class="nav-number">4.</span> <span class="nav-text">双向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除操作"><span class="nav-number">4.1.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向循环链表"><span class="nav-number">5.</span> <span class="nav-text">双向循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组vs链表性能比拼"><span class="nav-number">6.</span> <span class="nav-text">数组vs链表性能比拼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发中如何选择"><span class="nav-number">7.</span> <span class="nav-text">开发中如何选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表实现LRU缓存"><span class="nav-number">8.</span> <span class="nav-text">链表实现LRU缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">9.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组实现LRU缓存"><span class="nav-number">9.1.</span> <span class="nav-text">数组实现LRU缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断一个字符串是回文串"><span class="nav-number">9.2.</span> <span class="nav-text">如何判断一个字符串是回文串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见单链表编程题"><span class="nav-number">9.3.</span> <span class="nav-text">常见单链表编程题</span></a></li></ol></li></ol></div>
             
 
           </div>

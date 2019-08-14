@@ -125,23 +125,27 @@
 
 
 
-<meta name="description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
+<meta name="description" content="title: 多线程下hashmap死循环tags:  java并发编程 java基础 ‘’categories: []author: ‘’date: 2019-02-16 12:40:00   问题由于HashMap并非是线程安全的，所以在高并发的情况下必然会出现问题，可能发生死循环，导致cpu100%，服务重启之后，问题消失，过段时间可能又复现了。这是为什么 原因分析在了解来龙去脉之前，我们先">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shiyangtao&#39;s blog">
-<meta property="og:url" content="http://shiyangtao.github.io/2019/01/29/数组/index.html">
+<meta property="og:url" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/index.html">
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
-<meta property="og:description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
+<meta property="og:description" content="title: 多线程下hashmap死循环tags:  java并发编程 java基础 ‘’categories: []author: ‘’date: 2019-02-16 12:40:00   问题由于HashMap并非是线程安全的，所以在高并发的情况下必然会出现问题，可能发生死循环，导致cpu100%，服务重启之后，问题消失，过段时间可能又复现了。这是为什么 原因分析在了解来龙去脉之前，我们先">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-0.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-1.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-2.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-3.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-4.png">
-<meta property="og:updated_time" content="2019-08-14T07:38:39.412Z">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-0.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-2.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-3.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-4.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-5.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-6.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-7.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-8.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-9.png">
+<meta property="og:updated_time" content="2019-08-14T07:36:38.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shiyangtao&#39;s blog">
-<meta name="twitter:description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
-<meta name="twitter:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-0.png">
+<meta name="twitter:description" content="title: 多线程下hashmap死循环tags:  java并发编程 java基础 ‘’categories: []author: ‘’date: 2019-02-16 12:40:00   问题由于HashMap并非是线程安全的，所以在高并发的情况下必然会出现问题，可能发生死循环，导致cpu100%，服务重启之后，问题消失，过段时间可能又复现了。这是为什么 原因分析在了解来龙去脉之前，我们先">
+<meta name="twitter:image" content="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/images/pasted-0.png">
 
 
 
@@ -170,7 +174,7 @@
 
 
 
-  <link rel="canonical" href="http://shiyangtao.github.io/2019/01/29/数组/">
+  <link rel="canonical" href="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/">
 
 
   <script>
@@ -345,7 +349,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2019/01/29/数组/">
+    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2019/08/14/多线程下hashmap死循环/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sytao">
@@ -374,8 +378,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T11:44:37+08:00">
-                2019-01-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-14T12:58:42+08:00">
+                2019-08-14
               </time>
             
 
@@ -406,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  1.6k
                 </span>
               
 
@@ -422,7 +426,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  8
+                  6
                 </span>
               
             </div>
@@ -443,41 +447,44 @@
       
 
       
-        <p>title: 数组<br>author: sytao<br>tags:</p>
+        <p>title: 多线程下hashmap死循环<br>tags:</p>
 <ul>
-<li>数据结构与算法<br>categories: []<br>date: 2019-01-29 10:31:00</li>
+<li>java并发编程</li>
+<li>java基础</li>
+<li>‘’<br>categories: []<br>author: ‘’<br>date: 2019-02-16 12:40:00</li>
 </ul>
 <hr>
-<h3 id="如何实现随机访问"><a href="#如何实现随机访问" class="headerlink" title="如何实现随机访问"></a>如何实现随机访问</h3><p>什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</p>
-<p>这个定义里有几个关键词</p>
-<h4 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h4><p>（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。其实除了数组，链表、队列、栈等也是线性表结构。</p>
-<p><img src="/2019/01/29/数组/images/pasted-0.png" alt="upload successful"><br>而与他对立的是非线性表，比如二叉树、堆、图等。之所以叫非线性，是因为，在非线性表中，数据之间并不是简单的前后关系。</p>
-<p><img src="/2019/01/29/数组/images/pasted-1.png" alt="upload successful"></p>
-<h4 id="连续的内存空间和相同类型的数据"><a href="#连续的内存空间和相同类型的数据" class="headerlink" title="连续的内存空间和相同类型的数据"></a>连续的内存空间和相同类型的数据</h4><p>正是有了这个特性，他才有了随机访问这个“杀手锏”。但是有利就有弊，比如删除添加为了保证连续性，必须要做数据搬移工作。<br>说到数据的访问，那你知道数组是如何实现根据下标随机访问数组元素的吗？<br>我们拿一个长度为 10 的 int 类型的数组 int[] a = new int[10] 来举例。在我画的这个图中，计算机给数组 a[10]，分配了一块连续内存空间 1000～1039，其中，内存块的首地址为 base_address = 1000。</p>
-<p><img src="/2019/01/29/数组/images/pasted-2.png" alt="upload successful"><br>我们知道，计算机会给每个内存单元分配一个地址，计算机通过地址来访问内存中的数据。当计算机需要随机访问数组中的某个元素时，它会首先通过下面的寻址公式，计算出该元素存储的内存地址。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[i]_address = base_address + i * data_type_size</span><br></pre></td></tr></table></figure></p>
-<p>其中data_type_size表示每个元素的大小。我们这个例子数组中存储的是int类型数组，所以date_type_size就为4个字节。<br>这里特别纠正一个“错误”。面试中经常会问到数组和链表的区别，很多人都会回答，“链表适合插入、删除、时间复杂度O(1);数组适合查找，查找时间复杂度为O(1)”。<br>实际上，这种表述是不准确的。数组是适合查找操作，但查找时间复杂度不是O(1)。即便是排序好的数组，你用二分查找时间复杂度才是O(logn)。所以正确的表述是数组支持随机访问，根据下标随机访问的时间复杂度为O(1)。</p>
-<h3 id="低效的插入和删除"><a href="#低效的插入和删除" class="headerlink" title="低效的插入和删除"></a>低效的插入和删除</h3><p>前面提到，数组为了保证内存数组连续性，会导致插入、删除两个操作会比较低效。</p>
-<h4 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h4><p>假设数组长度为n，现在，需要把一个数据插入到数组第k个位置。为了把第k个位置腾出来，给新来的数据，我们需要把k～n这部分元素都顺序往后挪一下，那时间复杂度是多少呢？<br>如果在数组的末尾插入元素，那就不需要移动数据了，这时的时间复杂度为 O(1)。但如果在数组的开头插入元素，那所有的数据都需要依次往后移动一位，所以最坏时间复杂度是 O(n)。 因为我们在每个位置插入元素的概率是一样的，所以平均情况时间复杂度为 (1+2+…n)/n=O(n)。<br>如果数组中的数据是有序的，我们在某个位置插入一个新元素，就必须按照刚才的方法搬移k之后的数组。但是如果数组中的数据没有任何规律，数组只是存储集合。在这种情况下，如果把数据插入第k个位置，为了避免大规模搬移，直接将第k个位置的数据插入到数组最后，把新的元素放在第k个位置。如下图所示</p>
-<p><img src="/2019/01/29/数组/images/pasted-3.png" alt="upload successful"><br>利用这个技巧，在特定场景下，在第k个位置插入元素的复杂度就降到了O(1)</p>
-<h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><p>跟插入操作类似，如果删除第k个位置的数据，为了内存连续性，也需要搬移数据，不然会出现空洞，内存就不连续了。<br>和插入类似，如果删除末尾的数据，时间复杂度O(1);如果删除开头的数据，则最坏情况时间复杂度为O(n);平均情况时间复杂度也为O(n)。<br>实际上，在某些特殊场景下，我们并不一定非得追求数组中数据的连续性。如果我们将多次删除操作集中在一起执行，删除的效率是不是会提高很多呢？<br>我们继续来看例子。数组 a[10] 中存储了 8 个元素：a，b，c，d，e，f，g，h。现在，我们要依次删除 a，b，c 三个元素。</p>
-<p><img src="/2019/01/29/数组/images/pasted-4.png" alt="upload successful"><br>为了避免 d，e，f，g，h 这几个数据会被搬移三次，我们可以先记录下已经删除的数据。每次的删除操作并不是真正地搬移数据，只是记录数据已经被删除。当数组没有更多空间存储数据时，我们再触发执行一次真正的删除操作，这样就大大减少了删除操作导致的数据搬移。<br>如果你了解 JVM，你会发现，这不就是 JVM 标记清除垃圾回收算法的核心思想吗？没错，数据结构和算法的魅力就在于此，很多时候我们并不是要去死记硬背某个数据结构或者算法，而是要学习它背后的思想和处理技巧，这些东西才是最有价值的。</p>
-<h3 id="容器能否代替数组？"><a href="#容器能否代替数组？" class="headerlink" title="容器能否代替数组？"></a>容器能否代替数组？</h3><p>针对数组类型，很多语言提供了容器类，比如java中的ArrayList。在项目开发中，什么时候适合用数组，什么时候适合用容器呢？<br>因为我是java开发，几乎每天都在用ArrayList。个人觉得ArrayList的最大优势就是可以把很多数组操作的细节封装起来。比如插入、删除、动态扩容。</p>
-<p>数组本身在定义时需要预先指定大小，因为需要分配连续的内存空间。乳沟我们申请了大小为10的数组，当第11个数据需要存储到数组中时，我们就需要重新分配一块更大的空间，将原来的数据复制过去，然后在插入新的数据。</p>
-<p>如果使用ArrayList，我们就完全不需要关心底层的扩容逻辑，ArrayList已经帮我们实现好了。每次空间不够时，他都会自动扩容为1.5倍大小。</p>
-<p>不过，这里需要注意一点，因为扩容需要内存申请和数据搬移，比较耗时。所以，如果事先能去定需要存储数据的大小，最后在创建ArrayList的时候事先指定数据大小。</p>
-<p>作为高级语言编程者，是不是数组就无用武之地了？当然不是，一下情况可以用数组。</p>
-<ol>
-<li>Java ArrayList 无法存储基本类型，比如 int、long，需要封装为 Integer、Long 类，而 Autoboxing、Unboxing 则有一定的性能消耗，所以如果特别关注性能，或者希望使用基本类型，就可以选用数组。</li>
-<li>如果数据大小事先已知，并且对数据的操作非常简单，用不到 ArrayList 提供的大部分方法，也可以直接使用数组。</li>
-<li>还有一个是我个人的喜好，当要表示多维数组时，用数组往往会更加直观。比如 Object[][] array；而用容器的话则需要这样定义：ArrayList<arraylist> array。</arraylist></li>
-</ol>
-<p>我总结一下，对于业务开发，直接使用容器就足够了，省时省力。毕竟损耗一丢丢性能，完全不会影响到系统整体的性能。但如果你是做一些非常底层的开发，比如开发网络框架，性能的优化需要做到极致，这个时候数组就会优于容器，成为首选。</p>
-<h3 id="为什么大多数编程语言数组下标要从0开始而不是1"><a href="#为什么大多数编程语言数组下标要从0开始而不是1" class="headerlink" title="为什么大多数编程语言数组下标要从0开始而不是1"></a>为什么大多数编程语言数组下标要从0开始而不是1</h3><p>从数组存储的内存模型上来看，“下标”最确切的定义应该是“偏移（offset）”。前面也讲到，如果用 a 来表示数组的首地址，a[0] 就是偏移为 0 的位置，也就是首地址，a[k] 就表示偏移 k 个 type_size 的位置，所以计算 a[k] 的内存地址只需要用这个公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + k * type_size</span><br></pre></td></tr></table></figure></p>
-<p>但是，如果数组从 1 开始计数，那我们计算数组元素 a[k] 的内存地址就会变为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + (k-1)*type_size</span><br></pre></td></tr></table></figure></p>
-<p>对比两个公式，我们不难发现，从 1 开始编号，每次随机访问数组元素都多了一次减法运算，对于 CPU 来说，就是多了一次减法指令。</p>
-<p>数组作为非常基础的数据结构，通过下标随机访问数组元素又是其非常基础的编程操作，效率的优化就要尽可能做到极致。所以为了减少一次减法操作，数组选择了从 0 开始编号，而不是从 1 开始。</p>
-<p>不过我认为，上面解释得再多其实都算不上压倒性的证明，说数组起始编号非 0 开始不可。所以我觉得最主要的原因可能是历史原因。</p>
-<p>C 语言设计者用 0 开始计数数组下标，之后的 Java、JavaScript 等高级语言都效仿了 C 语言，或者说，为了在一定程度上减少 C 语言程序员学习 Java 的学习成本，因此继续沿用了从 0 开始计数的习惯。实际上，很多语言中数组也并不是从 0 开始计数的，比如 Matlab。甚至还有一些语言支持负数下标，比如 Python。</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>由于HashMap并非是线程安全的，所以在高并发的情况下必然会出现问题，可能发生死循环，导致cpu100%，服务重启之后，问题消失，过段时间可能又复现了。<br>这是为什么</p>
+<h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>在了解来龙去脉之前，我们先看看HashMap的数据结构。<br>在内部，HashMap使用一个Entry数组保存key、value数据，当一对key、value被加入时，会通过一个hash算法得到数组的下标index，算法很简单，根据key的hash值，对数组的大小取模 hash &amp; (length-1)，并把结果插入数组该位置，如果该位置上已经有元素了，就说明存在hash冲突，这样会在index位置生成链表。<br>如果存在hash冲突，最惨的情况，就是所有元素都定位到同一个位置，形成一个长长的链表，这样get一个值时，最坏情况需要遍历所有节点，性能变成了O(n)，所以元素的hash值算法和HashMap的初始化大小很重要。<br>当插入一个新的节点时，如果不存在相同的key，则会判断当前内部元素是否已经达到阈值（默认是数组大小的0.75），如果已经达到阈值，会对数组进行扩容，也会对链表中的元素进行rehash。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>HashMap的put方法实现：</p>
+<h4 id="判断key是否已经存在"><a href="#判断key是否已经存在" class="headerlink" title="判断key是否已经存在"></a>判断key是否已经存在</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (key == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> putForNullKey(value);</span><br><span class="line">    <span class="keyword">int</span> hash = hash(key);</span><br><span class="line">    <span class="keyword">int</span> i = indexFor(hash, table.length);</span><br><span class="line">    <span class="comment">// 如果key已经存在，则替换value，并返回旧值</span></span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e = table[i]; e != <span class="keyword">null</span>; e = e.next) &#123;</span><br><span class="line">        Object k;</span><br><span class="line">        <span class="keyword">if</span> (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) &#123;</span><br><span class="line">            V oldValue = e.value;</span><br><span class="line">            e.value = value;</span><br><span class="line">            e.recordAccess(<span class="keyword">this</span>);</span><br><span class="line">            <span class="keyword">return</span> oldValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="comment">// key不存在，则插入新的元素</span></span><br><span class="line">    addEntry(hash, key, value, i);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="检查容量是否达到阈值threshold"><a href="#检查容量是否达到阈值threshold" class="headerlink" title="检查容量是否达到阈值threshold"></a>检查容量是否达到阈值threshold</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ((size &gt;= threshold) &amp;&amp; (<span class="keyword">null</span> != table[bucketIndex])) &#123;</span><br><span class="line">        resize(<span class="number">2</span> * table.length);</span><br><span class="line">        hash = (<span class="keyword">null</span> != key) ? hash(key) : <span class="number">0</span>;</span><br><span class="line">        bucketIndex = indexFor(hash, table.length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    createEntry(hash, key, value, bucketIndex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>复制代码如果元素个数已经达到阈值，则扩容，并把原来的元素移动过去。</p>
+<h4 id="扩容实现"><a href="#扩容实现" class="headerlink" title="扩容实现"></a>扩容实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;</span><br><span class="line">    Entry[] oldTable = table;</span><br><span class="line">    <span class="keyword">int</span> oldCapacity = oldTable.length;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    Entry[] newTable = <span class="keyword">new</span> Entry[newCapacity];</span><br><span class="line">    ...</span><br><span class="line">    transfer(newTable, rehash);</span><br><span class="line">    table = newTable;</span><br><span class="line">    threshold = (<span class="keyword">int</span>)Math.min(newCapacity * loadFactor, MAXIMUM_CAPACITY + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里会新建一个更大的数组，并通过transfer方法，移动元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> newCapacity = newTable.length;</span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</span><br><span class="line">            Entry&lt;K,V&gt; next = e.next;</span><br><span class="line">            <span class="keyword">if</span> (rehash) &#123;</span><br><span class="line">                e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</span><br><span class="line">            e.next = newTable[i];</span><br><span class="line">            newTable[i] = e;</span><br><span class="line">            e = next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>移动的逻辑也很清晰，遍历原来table中每个位置的链表，并对每个元素进行重新hash，在新的newTable找到归宿，并插入。</p>
+<h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h3><p>假设HashMap初始化大小为4，插入个3节点，不巧的是，这3个节点都hash到同一个位置，如果按照默认的负载因子的话，插入第3个节点就会扩容，为了验证效果，假设负载因子是1.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> newCapacity = newTable.length;</span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</span><br><span class="line">            Entry&lt;K,V&gt; next = e.next;</span><br><span class="line">            <span class="keyword">if</span> (rehash) &#123;</span><br><span class="line">                e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</span><br><span class="line">            e.next = newTable[i];</span><br><span class="line">            newTable[i] = e;</span><br><span class="line">            e = next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上是节点移动的相关逻辑。</p>
+<p><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-0.png" alt="upload successful"></p>
+<h4 id="两个线程同时rehash"><a href="#两个线程同时rehash" class="headerlink" title="两个线程同时rehash"></a>两个线程同时rehash</h4><p>插入第4个节点时，发生rehash，假设现在有两个线程同时进行，线程1和线程2，两个线程都会新建新的数组。</p>
+<p><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-2.png" alt="upload successful"></p>
+<h4 id="线程2Block线程1继续执行"><a href="#线程2Block线程1继续执行" class="headerlink" title="线程2Block线程1继续执行"></a>线程2Block线程1继续执行</h4><p>假设 <strong>线程2</strong> 在执行到<span style="color:red">Entry&lt;K,V&gt; next = e.next;</span>之后，cpu时间片用完了，这时变量e指向节点a，变量next指向节点b。<br>线程1继续执行，很不巧，a、b、c节点rehash之后又是在同一个位置7，开始移动节点<br>第一步，移动节点a</p>
+<p><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-3.png" alt="upload successful"><br>第二步，移动节点b</p>
+<p><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-4.png" alt="upload successful"><br>注意，这里的顺序是反过来的，继续移动节点c</p>
+<p><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-5.png" alt="upload successful"></p>
+<h4 id="线程1Block线程2开始执行"><a href="#线程1Block线程2开始执行" class="headerlink" title="线程1Block线程2开始执行"></a>线程1Block线程2开始执行</h4><p>这个时候 <strong>线程1</strong> 的时间片用完，内部的table还没有设置成新的newTable， <strong>线程2</strong> 开始执行，这时内部的引用关系如下：</p>
+<p><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-6.png" alt="upload successful"></p>
+<h4 id="线程2继续循环剩余逻辑"><a href="#线程2继续循环剩余逻辑" class="headerlink" title="线程2继续循环剩余逻辑"></a>线程2继续循环剩余逻辑</h4><p>这时，在 线程2 中，变量e指向节点a，变量next指向节点b，开始执行循环体的剩余逻辑。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Entry&lt;K,V&gt; next = e.next;</span><br><span class="line"><span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</span><br><span class="line">e.next = newTable[i];</span><br><span class="line">newTable[i] = e;</span><br><span class="line">e = next;</span><br></pre></td></tr></table></figure></p>
+<p>执行之后的引用关系如下图<br><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-7.png" alt="upload successful"><br>执行后，变量e指向节点b，因为e不是null，则继续执行循环体</p>
+<h4 id="线程2第二次循环"><a href="#线程2第二次循环" class="headerlink" title="线程2第二次循环"></a>线程2第二次循环</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Entry&lt;K,V&gt; next = e.next;</span><br><span class="line"><span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</span><br><span class="line">e.next = newTable[i];</span><br><span class="line">newTable[i] = e;</span><br><span class="line">e = next;</span><br></pre></td></tr></table></figure>
+<p>执行后的引用关系<br><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-8.png" alt="upload successful"></p>
+<p>变量e又重新指回节点a，只能继续执行循环体</p>
+<h4 id="线程2第三次循环-出现环"><a href="#线程2第三次循环-出现环" class="headerlink" title="线程2第三次循环(出现环)"></a>线程2第三次循环(出现环)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 目前节点a没有next，所以变量next指向null；</span></span><br><span class="line">Entry&lt;K,V&gt; next = e.next;</span><br><span class="line"><span class="comment">// 其中 newTable[i] 指向节点b，那就是把a的next指向了节点b，这样a和b就相互引用了，形成了一个环</span></span><br><span class="line">e.next = newTable[i]; </span><br><span class="line"><span class="comment">// 把节点a放到了数组i位置；</span></span><br><span class="line">newTable[i] = e </span><br><span class="line"><span class="comment">// 把变量e赋值为null，因为第一步中变量next就是指向null；</span></span><br><span class="line">e = next;</span><br></pre></td></tr></table></figure>
+<p>所以最终的引用关系是这样的：</p>
+<p><img src="/2019/08/14/多线程下hashmap死循环/images/pasted-9.png" alt="upload successful"></p>
+<p>节点a和b互相引用，形成了一个环，当在数组该位置get寻找对应的key时，就发生了死循环。<br>另外，如果线程2把newTable设置成到内部的table，节点c的数据就丢了，看来还有数据遗失的问题。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>所以在并发的情况，发生扩容时，可能会产生循环链表，在执行get的时候，会触发死循环，引起CPU的100%问题，所以一定要避免在并发环境下使用HashMap。<br>曾经有人把这个问题报给了Sun，不过Sun不认为这是一个bug，因为在HashMap本来就不支持多线程使用，要并发就用ConcurrentHashmap。</p>
+<p>文章参考 占小狼和coolshell的博客</p>
 
       
     </div>
@@ -541,7 +548,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/28/策略模式/" rel="next" title="">
+              <a href="/2019/02/14/ThreadLocal/" rel="next" title="">
                 <i class="fa fa-chevron-left"></i> 
               </a>
             
@@ -551,8 +558,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/01/链表/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/14/《趣谈网络协议》笔记/" rel="prev" title="《趣谈网络协议》笔记">
+                《趣谈网络协议》笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -719,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现随机访问"><span class="nav-number">1.</span> <span class="nav-text">如何实现随机访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性表"><span class="nav-number">1.1.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连续的内存空间和相同类型的数据"><span class="nav-number">1.2.</span> <span class="nav-text">连续的内存空间和相同类型的数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#低效的插入和删除"><span class="nav-number">2.</span> <span class="nav-text">低效的插入和删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入操作"><span class="nav-number">2.1.</span> <span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除操作"><span class="nav-number">2.2.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器能否代替数组？"><span class="nav-number">3.</span> <span class="nav-text">容器能否代替数组？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么大多数编程语言数组下标要从0开始而不是1"><span class="nav-number">4.</span> <span class="nav-text">为什么大多数编程语言数组下标要从0开始而不是1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原因分析"><span class="nav-number">2.</span> <span class="nav-text">原因分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判断key是否已经存在"><span class="nav-number">3.1.</span> <span class="nav-text">判断key是否已经存在</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查容量是否达到阈值threshold"><span class="nav-number">3.2.</span> <span class="nav-text">检查容量是否达到阈值threshold</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩容实现"><span class="nav-number">3.3.</span> <span class="nav-text">扩容实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例分析"><span class="nav-number">4.</span> <span class="nav-text">案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两个线程同时rehash"><span class="nav-number">4.1.</span> <span class="nav-text">两个线程同时rehash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程2Block线程1继续执行"><span class="nav-number">4.2.</span> <span class="nav-text">线程2Block线程1继续执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程1Block线程2开始执行"><span class="nav-number">4.3.</span> <span class="nav-text">线程1Block线程2开始执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程2继续循环剩余逻辑"><span class="nav-number">4.4.</span> <span class="nav-text">线程2继续循环剩余逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程2第二次循环"><span class="nav-number">4.5.</span> <span class="nav-text">线程2第二次循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程2第三次循环-出现环"><span class="nav-number">4.6.</span> <span class="nav-text">线程2第三次循环(出现环)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
