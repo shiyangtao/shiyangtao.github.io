@@ -107,7 +107,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据结构与算法,">
 
 
 
@@ -125,22 +125,23 @@
 
 
 
-<meta name="description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
+<meta name="description" content="如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。其实除了数组，链表、队列、栈等也是线性表结构。 而与他对立的是非线性表，比如二叉树、堆、图等。之所以叫非线性，是因为，在非线性表">
+<meta name="keywords" content="数据结构与算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shiyangtao&#39;s blog">
+<meta property="og:title" content="数组">
 <meta property="og:url" content="http://shiyangtao.github.io/2019/01/29/数组/index.html">
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
-<meta property="og:description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
+<meta property="og:description" content="如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。其实除了数组，链表、队列、栈等也是线性表结构。 而与他对立的是非线性表，比如二叉树、堆、图等。之所以叫非线性，是因为，在非线性表">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-0.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-1.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-2.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-3.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-4.png">
-<meta property="og:updated_time" content="2019-08-14T07:38:39.412Z">
+<meta property="og:updated_time" content="2019-08-14T07:46:38.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shiyangtao&#39;s blog">
-<meta name="twitter:description" content="title: 数组author: sytaotags:  数据结构与算法categories: []date: 2019-01-29 10:31:00   如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的">
+<meta name="twitter:title" content="数组">
+<meta name="twitter:description" content="如何实现随机访问什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 这个定义里有几个关键词 线性表（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。其实除了数组，链表、队列、栈等也是线性表结构。 而与他对立的是非线性表，比如二叉树、堆、图等。之所以叫非线性，是因为，在非线性表">
 <meta name="twitter:image" content="http://shiyangtao.github.io/2019/01/29/数组/images/pasted-0.png">
 
 
@@ -184,7 +185,7 @@
 
 
 
-  <title> | shiyangtao's blog</title>
+  <title>数组 | shiyangtao's blog</title>
   
 
 
@@ -362,7 +363,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">数组</h1>
         
 
         <div class="post-meta">
@@ -374,7 +375,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T11:44:37+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T10:31:00+08:00">
                 2019-01-29
               </time>
             
@@ -443,12 +444,7 @@
       
 
       
-        <p>title: 数组<br>author: sytao<br>tags:</p>
-<ul>
-<li>数据结构与算法<br>categories: []<br>date: 2019-01-29 10:31:00</li>
-</ul>
-<hr>
-<h3 id="如何实现随机访问"><a href="#如何实现随机访问" class="headerlink" title="如何实现随机访问"></a>如何实现随机访问</h3><p>什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</p>
+        <h3 id="如何实现随机访问"><a href="#如何实现随机访问" class="headerlink" title="如何实现随机访问"></a>如何实现随机访问</h3><p>什么是数组？数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</p>
 <p>这个定义里有几个关键词</p>
 <h4 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h4><p>（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。其实除了数组，链表、队列、栈等也是线性表结构。</p>
 <p><img src="/2019/01/29/数组/images/pasted-0.png" alt="upload successful"><br>而与他对立的是非线性表，比如二叉树、堆、图等。之所以叫非线性，是因为，在非线性表中，数据之间并不是简单的前后关系。</p>
@@ -532,6 +528,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构与算法/" <i="" class="fa fa-tag"> 数据结构与算法</a>
+          
+        </div>
+      
 
       
       
@@ -541,8 +543,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/28/策略模式/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/01/26/策略模式/" rel="next" title="策略模式">
+                <i class="fa fa-chevron-left"></i> 策略模式
               </a>
             
           </div>
@@ -551,8 +553,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/01/链表/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/29/链表/" rel="prev" title="链表">
+                链表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -637,13 +639,22 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
           
             
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -745,7 +756,7 @@
   
   &copy;  2017 - 
   <span itemprop="copyrightYear">2019</span>
- <span class="post-count">博客全站共11.6k字</span>
+ <span class="post-count">博客全站共11.5k字</span>
  <span class="post-meta-divider">|</span>
 
  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
