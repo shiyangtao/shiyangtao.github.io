@@ -127,27 +127,28 @@
 
 <meta name="description" content="ifconfig 和 ip addr的区别这是有关net-tools 和 iproute2的故事，后续回答这个问题 IP是什么ip地址是一个网卡在网络世界的通信地址，相当于我们现实世界的地址。 IPv6出现原因这个地址被分为四个部分，每个部分8个bit，所以一共32位，所以IP地址的数量很快就不够用了。当时设计IP地址时，哪里知道会有这么多计算机，因为不够用所以，就有了IPv6，这个有128位。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《趣谈网络协议》第3讲笔记">
-<meta property="og:url" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/index.html">
+<meta property="og:title" content="《趣谈网络协议》第3-7讲笔记">
+<meta property="og:url" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/index.html">
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
 <meta property="og:description" content="ifconfig 和 ip addr的区别这是有关net-tools 和 iproute2的故事，后续回答这个问题 IP是什么ip地址是一个网卡在网络世界的通信地址，相当于我们现实世界的地址。 IPv6出现原因这个地址被分为四个部分，每个部分8个bit，所以一共32位，所以IP地址的数量很快就不够用了。当时设计IP地址时，哪里知道会有这么多计算机，因为不够用所以，就有了IPv6，这个有128位。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190814200829762.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815082342442.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815082810510.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815083218963.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815083442134.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815085131527.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815085800720.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815085848811.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815130704532.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815130742460.png">
-<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815091433474.png">
-<meta property="og:updated_time" content="2019-08-15T13:22:10.029Z">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190814200829762.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815082342442.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815082810510.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815083218963.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815083442134.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815085131527.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815085800720.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815085848811.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815130704532.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815130742460.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815091433474.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815205514192.png">
+<meta property="og:updated_time" content="2019-08-15T13:13:29.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《趣谈网络协议》第3讲笔记">
+<meta name="twitter:title" content="《趣谈网络协议》第3-7讲笔记">
 <meta name="twitter:description" content="ifconfig 和 ip addr的区别这是有关net-tools 和 iproute2的故事，后续回答这个问题 IP是什么ip地址是一个网卡在网络世界的通信地址，相当于我们现实世界的地址。 IPv6出现原因这个地址被分为四个部分，每个部分8个bit，所以一共32位，所以IP地址的数量很快就不够用了。当时设计IP地址时，哪里知道会有这么多计算机，因为不够用所以，就有了IPv6，这个有128位。">
-<meta name="twitter:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190814200829762.png">
+<meta name="twitter:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190814200829762.png">
 
 
 
@@ -176,7 +177,7 @@
 
 
 
-  <link rel="canonical" href="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/">
+  <link rel="canonical" href="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/">
 
 
   <script>
@@ -190,7 +191,7 @@
 
 
 
-  <title>《趣谈网络协议》第3讲笔记 | shiyangtao's blog</title>
+  <title>《趣谈网络协议》第3-7讲笔记 | shiyangtao's blog</title>
   
 
 
@@ -351,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3讲笔记/">
+    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sytao">
@@ -368,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">《趣谈网络协议》第3讲笔记</h1>
+          <h1 class="post-title" itemprop="name headline">《趣谈网络协议》第3-7讲笔记</h1>
         
 
         <div class="post-meta">
@@ -453,7 +454,7 @@
 <h3 id="IP是什么"><a href="#IP是什么" class="headerlink" title="IP是什么"></a>IP是什么</h3><p>ip地址是一个网卡在网络世界的通信地址，相当于我们现实世界的地址。</p>
 <h3 id="IPv6出现原因"><a href="#IPv6出现原因" class="headerlink" title="IPv6出现原因"></a>IPv6出现原因</h3><p>这个地址被分为四个部分，每个部分8个bit，所以一共32位，所以IP地址的数量很快就不够用了。当时设计IP地址时，哪里知道会有这么多计算机，因为不够用所以，就有了IPv6，这个有128位。</p>
 <h3 id="IP分类"><a href="#IP分类" class="headerlink" title="IP分类"></a>IP分类</h3><p>本来 32 位的 IP 地址就不够，还被分成了 5 类。现在想想，当时分配地址的时候，真是太奢侈了。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190814200829762.png" alt="image-20190814200829762"></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190814200829762.png" alt="image-20190814200829762"></p>
 <p>A/B/C类分网络号和主机号两部分</p>
 <h3 id="IP-A-B-C-类包含的主机数量"><a href="#IP-A-B-C-类包含的主机数量" class="headerlink" title="IP A/B/C 类包含的主机数量"></a>IP A/B/C 类包含的主机数量</h3><table>
 <thead>
@@ -517,21 +518,23 @@
 <h3 id="动态主机配置协议（DHCP）"><a href="#动态主机配置协议（DHCP）" class="headerlink" title="动态主机配置协议（DHCP）"></a>动态主机配置协议（DHCP）</h3><p>Dynamic Host Configuration Protocol</p>
 <p>有了这个协议，网络管理员就轻松多了。他只需要配置一段共享的 IP 地址。每一台新接入的机器都通过 DHCP 协议，来这个共享的 IP 地址里申请，然后自动配置好就可以了。等人走了，或者用完了，还回去，这样其他的机器也能用。</p>
 <h3 id="DHCP工作模式"><a href="#DHCP工作模式" class="headerlink" title="DHCP工作模式"></a>DHCP工作模式</h3><h4 id="第一步（DHCP-Discover）"><a href="#第一步（DHCP-Discover）" class="headerlink" title="第一步（DHCP Discover）"></a>第一步（DHCP Discover）</h4><p>新来的机器使用 IP 地址 0.0.0.0 发送了一个广播包，目的 IP 地址为 255.255.255.255。广播包封装了 UDP，UDP 封装了 BOOTP。其实 DHCP 是 BOOTP 的增强版，但是如果你去抓包的话，很可能看到的名称还是 BOOTP 协议。 在这个广播包里面，新人大声喊：我是新来的（Boot request），我的 MAC 地址是这个，我还没有 IP，谁能给租给我个 IP 地址！</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815082342442.png" alt="image-20190815082342442"></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815082342442.png" alt="image-20190815082342442"></p>
+<p>#### </p>
 <h4 id="第二步（DHCP-Offer）"><a href="#第二步（DHCP-Offer）" class="headerlink" title="第二步（DHCP Offer）"></a>第二步（DHCP Offer）</h4><p>如果配置了DHCP server，他会立马知道来了个新人，是通过MAC地址判断的，所以唯一的MAC地址是多么重要。他会立马回DHCP Offer，DHCP Server 仍然使用广播地址作为目的地址，因为，此时请求分配 IP 的新人还没有自己的 IP。DHCP Server 回复说，我分配了一个可用的 IP 给你，你看如何？除此之外，服务器还发送了子网掩码、网关和 IP 地址租用期等信息。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815082810510.png" alt="image-20190815082810510"></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815082810510.png" alt="image-20190815082810510"></p>
 <h4 id="第三步（选一个Offer）"><a href="#第三步（选一个Offer）" class="headerlink" title="第三步（选一个Offer）"></a>第三步（选一个Offer）</h4><p>新来的机器很开心，它的广播得到了回复，并且有人愿意租给它一个 IP 地址了，这意味着它可以在网络上立足了。</p>
 <p>当然更令人开心的是，如果有多个 DHCP Server，这台新机器会收到多个 IP 地址，简直受宠若惊。  它会选择其中一个 DHCP Offer，一般是最先到达的那个，并且会向网络发送一个 DHCP Request 广播数据包，包中包含客户端的 MAC 地址、接受的租约中的 IP 地址、提供此租约的 DHCP 服务器地址等，并告诉所有 DHCP Server 它将接受哪一台服务器提供的 IP 地址，告诉其他 DHCP 服务器，谢谢你们的接纳，并请求撤销它们提供的 IP 地址，以便提供给下一个 IP 租用请求者。</p>
 <p>此时，由于还没有得到 DHCP Server 的最后确认，客户端仍然使用 0.0.0.0 为源 IP 地址、255.255.255.255 为目标地址进行广播。在 BOOTP 里面，接受某个 DHCP Server 的分配的 IP。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815083218963.png" alt="image-20190815083218963"></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815083218963.png" alt="image-20190815083218963"></p>
 <h4 id="第四步（DHCP-Server-Ack）"><a href="#第四步（DHCP-Server-Ack）" class="headerlink" title="第四步（DHCP Server Ack）"></a>第四步（DHCP Server Ack）</h4><p>当 DHCP Server 接收到客户机的 DHCP request 之后，会广播返回给客户机一个 DHCP ACK 消息包，表明已经接受客户机的选择，并将这一 IP 地址的合法租用信息和其他的配置信息都放入该广播包，发给客户机，欢迎它加入网络大家庭。</p>
 <p>最终租约达成的时候，还是需要广播一下，让大家都知道一下。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815083442134.png" alt="image-20190815083442134"></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815083442134.png" alt="image-20190815083442134"></p>
 <h3 id="IP地址的收回与续租"><a href="#IP地址的收回与续租" class="headerlink" title="IP地址的收回与续租"></a>IP地址的收回与续租</h3><p>既然是租房子，就是有租期的。租期到了，管理员就要将 IP 收回。  如果不用的话，收回就收回了。就像你租房子一样，如果还要续租的话，不能到了时间再续租，而是要提前一段时间给房东说。DHCP 也是这样。  客户机会在租期过去 50% 的时候，直接向为其提供 IP 地址的 DHCP Server 发送 DHCP request 消息包。客户机接收到该服务器回应的 DHCP ACK 消息包，会根据包中所提供的新的租期以及其他已经更新的 TCP/IP 参数，更新自己的配置。这样，IP 租用更新就完成了。</p>
 <h3 id="HUB"><a href="#HUB" class="headerlink" title="HUB"></a>HUB</h3><p>有一个叫作Hub的东西，也就是集线器。这种设备有多个口，可以将宿舍里的多台电脑连接起来。但是，和交换机不同，集线器没有大脑，它完全在物理层工作。它会将自己收到的每一个字节，都复制到其他端口上去。这是第一层物理层联通的方案。</p>
 <p>你可能已经发现问题了。Hub 采取的是广播的模式，如果每一台电脑发出的包，宿舍的每个电脑都能收到，那就麻烦了。这就需要解决几个问题：包是发给谁的，顺序，包是否完整，这几个问题都是MAC层需要解决的</p>
 <h3 id="MAC层如何解决上述问题"><a href="#MAC层如何解决上述问题" class="headerlink" title="MAC层如何解决上述问题"></a>MAC层如何解决上述问题</h3><h4 id="根据ip如何获取MAC地址"><a href="#根据ip如何获取MAC地址" class="headerlink" title="根据ip如何获取MAC地址"></a>根据ip如何获取MAC地址</h4><p>根据IP地址获取MAC地址</p>
-<h4 id="第一个问题，发给谁，谁接收？"><a href="#第一个问题，发给谁，谁接收？" class="headerlink" title="第一个问题，发给谁，谁接收？"></a>第一个问题，发给谁，谁接收？</h4><p>这里用到一个物理地址，叫作链路层地址。但是因为第二层主要解决媒体接入控制的问题，所以它常被称为MAC 地址。  解决第一个问题就牵扯到第二层的网络包格式。对于以太网，第二层的最开始，就是目标的 MAC 地址和源的 MAC 地址。</p>
+<p>####第一个问题，发给谁，谁接收？</p>
+<p>这里用到一个物理地址，叫作链路层地址。但是因为第二层主要解决媒体接入控制的问题，所以它常被称为MAC 地址。  解决第一个问题就牵扯到第二层的网络包格式。对于以太网，第二层的最开始，就是目标的 MAC 地址和源的 MAC 地址。</p>
 <h4 id="第二个问题，顺序问题"><a href="#第二个问题，顺序问题" class="headerlink" title="第二个问题，顺序问题"></a>第二个问题，顺序问题</h4><p>MAC的全称是<strong>Medium Access Control</strong>，即媒体访问控制。控制什么呢？其实就是控制在往媒体上发数据的时候，谁先发、谁后发的问题。防止发生混乱。这解决的是第二个问题。这个问题中的规则，学名叫多路访问。有很多算法可以解决这个问题。就像车管所管束马路上跑的车，能想的办法都想过了。</p>
 <ul>
 <li><p>方式一：分多个车道。每个车一个车道，你走你的，我走我的。这在计算机网络里叫作<strong>信道划分</strong>；  </p>
@@ -542,27 +545,28 @@
 </li>
 </ul>
 <h4 id="第三个问题，如何校验包是否完整"><a href="#第三个问题，如何校验包是否完整" class="headerlink" title="第三个问题，如何校验包是否完整"></a>第三个问题，如何校验包是否完整</h4><p>对于以太网，第二层的最后面是CRC，也就是循环冗余检测。通过 XOR 异或的算法，来计算整个包是否在发送的过程中出现了错误，主要解决第三个问题。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815085131527.png" alt="image-20190815085131527"></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815085131527.png" alt="image-20190815085131527"></p>
 <h3 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h3><p>一旦机器数目增多，问题就出现了。因为 Hub 是广播的，不管某个接口是否需要，所有的 Bit 都会被发送出去，然后让主机来判断是不是需要。这种方式路上的车少就没问题，车一多，产生冲突的概率就提高了。而且把不需要的包转发过去，纯属浪费。看来 Hub 这种不管三七二十一都转发的设备是不行了，需要点儿智能的。因为每个口都只连接一台电脑，这台电脑又不怎么换 IP 和 MAC 地址，只要记住这台电脑的 MAC 地址，如果目标 MAC 地址不是这台电脑的，这个口就不用转发了。  谁能知道目标 MAC 地址是否就是连接某个口的电脑的 MAC 地址呢？这就需要一个能把 MAC 头拿下来，检查一下目标 MAC 地址，然后根据策略转发的设备，这个设备是个二层设备，我们称为交换机。</p>
 <p>交换机是有 MAC 地址学习能力的，学完了它就知道谁在哪儿了，不用广播了。</p>
 <h3 id="拓扑结构怎么形成的"><a href="#拓扑结构怎么形成的" class="headerlink" title="拓扑结构怎么形成的"></a>拓扑结构怎么形成的</h3><p>当机器变得很多的时候，一个交换机肯定不够用，需要多台交换机，交换机之间连接起来，就形成一个稍微复杂的拓扑结构。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815085800720.png" alt="image-20190815085800720"></p>
-<h3 id="如何解决拓扑结构中的环路问题"><a href="#如何解决拓扑结构中的环路问题" class="headerlink" title="如何解决拓扑结构中的环路问题"></a>如何解决拓扑结构中的环路问题</h3><p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815085848811.png" alt="image-20190815085848811"></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815085800720.png" alt="image-20190815085800720"></p>
+<h3 id="如何解决拓扑结构中的环路问题"><a href="#如何解决拓扑结构中的环路问题" class="headerlink" title="如何解决拓扑结构中的环路问题"></a>如何解决拓扑结构中的环路问题</h3><p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815085848811.png" alt="image-20190815085848811"></p>
 <p>需要<strong>STP协议</strong>来解决</p>
 <h3 id="STP协议"><a href="#STP协议" class="headerlink" title="STP协议"></a>STP协议</h3><p>在数据结构中，有一个方法叫作<strong>最小生成树</strong>。有环的我们常称为图。将图中的环破了，就生成了树。在计算机网络中，生成树的算法叫作<strong>STP</strong>，全称Spanning Tree Protocol。</p>
 <h3 id="如何解决广播问题和安全问题？"><a href="#如何解决广播问题和安全问题？" class="headerlink" title="如何解决广播问题和安全问题？"></a>如何解决广播问题和安全问题？</h3><p>毕竟机器多了，交换机也多了，就算交换机比 Hub 智能一些，但是还是难免有广播的问题，一大波机器，相关的部门、不相关的部门，广播一大堆，性能就下来了。就像一家公司，创业的时候，一二十个人，坐在一个会议室，有事情大家讨论一下，非常方便。但是如果变成了 50 个人，全在一个会议室里面吵吵，就会乱的不得了。有两种解决方法，物理隔离、虚拟隔离</p>
 <h4 id="物理隔离"><a href="#物理隔离" class="headerlink" title="物理隔离"></a>物理隔离</h4><p>每个部门设一个单独的会议室，对应到网络方面，就是每个部门有单独的交换机，配置单独的子网，这样部门之间的沟通就需要路由器了。路由器咱们还没讲到，以后再说。这样的问题在于，有的部门人多，有的部门人少。人少的部门慢慢人会变多，人多的部门也可能人越变越少。如果每个部门有单独的交换机，口多了浪费，少了又不够用。</p>
 <h4 id="虚拟隔离"><a href="#虚拟隔离" class="headerlink" title="虚拟隔离"></a>虚拟隔离</h4><p>就是用我们常说的<strong>VLAN</strong>，或者叫<strong>虚拟局域网</strong>。使用 VLAN，一个交换机上会连属于多个局域网的机器，那交换机怎么区分哪个机器属于哪个局域网呢？</p>
 <p>我们只需要在原来的二层的头上加一个 TAG，里面有一个 VLAN ID，一共 12 位。为什么是 12 位呢？因为 12 位可以划分 4096 个 VLAN。这样是不是还不够啊。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815130704532.png" alt="image-20190815130704532">现在的情况证明，目前云计算厂商里面绝对不止 4096 个用户。当然每个用户需要一个 VLAN 了啊，怎么办呢，这个我们在后面的章节再说。  如果我们买的交换机是支持 VLAN 的，当这个交换机把二层的头取下来的时候，就能够识别这个 VLAN ID。这样只有相同 VLAN 的包，才会互相转发，不同 VLAN 的包，是看不到的。这样广播问题和安全问题就都能够解决了。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815130742460.png" alt="image-20190815130742460"></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815130704532.png" alt="image-20190815130704532">现在的情况证明，目前云计算厂商里面绝对不止 4096 个用户。当然每个用户需要一个 VLAN 了啊，怎么办呢，这个我们在后面的章节再说。  如果我们买的交换机是支持 VLAN 的，当这个交换机把二层的头取下来的时候，就能够识别这个 VLAN ID。这样只有相同 VLAN 的包，才会互相转发，不同 VLAN 的包，是看不到的。这样广播问题和安全问题就都能够解决了。</p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815130742460.png" alt="image-20190815130742460"></p>
 <p>有人会问交换机之间怎么连接呢？将两个交换机连接起来的口应该设置成什么 VLAN 呢？对于支持 VLAN 的交换机，有一种口叫作Trunk 口。它可以转发属于任何 VLAN 的口。交换机之间可以通过这种口相互连接。</p>
 <h3 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h3><p>ICMP全称Internet Control Message Protocol，就是互联网控制报文协议。这里面的关键词是“控制”，那具体是怎么控制的呢。</p>
 <p>ICMP 报文是封装在 IP 包里面的。因为传输指令的时候，肯定需要源地址和目标地址。它本身非常简单。因为作为侦查兵，要轻装上阵，不能携带大量的包袱。</p>
-<p><img src="/2019/08/14/《趣谈网络协议》第3讲笔记/images/image-20190815091433474.png" alt="image-20190815091433474"></p>
-<p>ICMP 报文有很多的类型，不同的类型有不同的代码。<strong>最常用的类型是主动请求为 8</strong></p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815091433474.png" alt="image-20190815091433474"></p>
+<p>ICMP 报文有很多的类型，不同的类型有不同的代码。<strong>最常用的类型是主动请求为 8,主动请求的应答为0</strong></p>
 <h4 id="查询报文类型"><a href="#查询报文类型" class="headerlink" title="查询报文类型"></a>查询报文类型</h4><p>常用的<strong>ping</strong> 就是查询报文，是一种主动请求，并且获得主动应答的 ICMP 协议。所以，ping 发的包也是符合 ICMP 协议格式的，只不过它在后面增加了自己的格式。</p>
-<h4 id="差错报文类型"><a href="#差错报文类型" class="headerlink" title="差错报文类型"></a>差错报文类型</h4><p>Traceroute 使用差错报文</p>
+<p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815205514192.png" alt="image-20190815205514192"></p>
+<h4 id="差错报文类型"><a href="#差错报文类型" class="headerlink" title="差错报文类型"></a>差错报文类型</h4><p>Traceroute 使用差错报文,详细请看专栏</p>
 
       
     </div>
@@ -626,8 +630,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/16/多线程下hashmap死循环/" rel="next" title="多线程下hashmap死循环">
-                <i class="fa fa-chevron-left"></i> 多线程下hashmap死循环
+              <a href="/2019/08/14/《趣谈网络协议》第3讲笔记/" rel="next" title="《趣谈网络协议》第3讲笔记">
+                <i class="fa fa-chevron-left"></i> 《趣谈网络协议》第3讲笔记
               </a>
             
           </div>
@@ -635,10 +639,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/14/《趣谈网络协议》第3-7讲笔记/" rel="prev" title="《趣谈网络协议》第3-7讲笔记">
-                《趣谈网络协议》第3-7讲笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -813,7 +813,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ifconfig-和-ip-addr的区别"><span class="nav-number">1.</span> <span class="nav-text">ifconfig 和 ip addr的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP是什么"><span class="nav-number">2.</span> <span class="nav-text">IP是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6出现原因"><span class="nav-number">3.</span> <span class="nav-text">IPv6出现原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP分类"><span class="nav-number">4.</span> <span class="nav-text">IP分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-A-B-C-类包含的主机数量"><span class="nav-number">5.</span> <span class="nav-text">IP A/B/C 类包含的主机数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无类型域间选路（CIDR）"><span class="nav-number">6.</span> <span class="nav-text">无类型域间选路（CIDR）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公有IP和私有IP"><span class="nav-number">7.</span> <span class="nav-text">公有IP和私有IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip-addr-和ifconfig-查ip信息内容分析"><span class="nav-number">8.</span> <span class="nav-text">ip addr 和ifconfig 查ip信息内容分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scope"><span class="nav-number">8.1.</span> <span class="nav-text">scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MAC地址"><span class="nav-number">8.2.</span> <span class="nav-text">MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络设备的状态标识"><span class="nav-number">8.3.</span> <span class="nav-text">网络设备的状态标识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mtu"><span class="nav-number">8.4.</span> <span class="nav-text">mtu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qdisc"><span class="nav-number">8.5.</span> <span class="nav-text">qdisc</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何手动设计IP地址"><span class="nav-number">9.</span> <span class="nav-text">如何手动设计IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果身边的人的IP都是192-68-1-x，我设置成-172-10-168-2会怎么样"><span class="nav-number">10.</span> <span class="nav-text">如果身边的人的IP都是192.68.1.x，我设置成 172.10.168.2会怎么样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态主机配置协议（DHCP）"><span class="nav-number">11.</span> <span class="nav-text">动态主机配置协议（DHCP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHCP工作模式"><span class="nav-number">12.</span> <span class="nav-text">DHCP工作模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步（DHCP-Discover）"><span class="nav-number">12.1.</span> <span class="nav-text">第一步（DHCP Discover）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步（DHCP-Offer）"><span class="nav-number">12.2.</span> <span class="nav-text">第二步（DHCP Offer）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步（选一个Offer）"><span class="nav-number">12.3.</span> <span class="nav-text">第三步（选一个Offer）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步（DHCP-Server-Ack）"><span class="nav-number">12.4.</span> <span class="nav-text">第四步（DHCP Server Ack）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址的收回与续租"><span class="nav-number">13.</span> <span class="nav-text">IP地址的收回与续租</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HUB"><span class="nav-number">14.</span> <span class="nav-text">HUB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAC层如何解决上述问题"><span class="nav-number">15.</span> <span class="nav-text">MAC层如何解决上述问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根据ip如何获取MAC地址"><span class="nav-number">15.1.</span> <span class="nav-text">根据ip如何获取MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个问题，发给谁，谁接收？"><span class="nav-number">15.2.</span> <span class="nav-text">第一个问题，发给谁，谁接收？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二个问题，顺序问题"><span class="nav-number">15.3.</span> <span class="nav-text">第二个问题，顺序问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三个问题，如何校验包是否完整"><span class="nav-number">15.4.</span> <span class="nav-text">第三个问题，如何校验包是否完整</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机"><span class="nav-number">16.</span> <span class="nav-text">交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑结构怎么形成的"><span class="nav-number">17.</span> <span class="nav-text">拓扑结构怎么形成的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决拓扑结构中的环路问题"><span class="nav-number">18.</span> <span class="nav-text">如何解决拓扑结构中的环路问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#STP协议"><span class="nav-number">19.</span> <span class="nav-text">STP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决广播问题和安全问题？"><span class="nav-number">20.</span> <span class="nav-text">如何解决广播问题和安全问题？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#物理隔离"><span class="nav-number">20.1.</span> <span class="nav-text">物理隔离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟隔离"><span class="nav-number">20.2.</span> <span class="nav-text">虚拟隔离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP协议"><span class="nav-number">21.</span> <span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询报文类型"><span class="nav-number">21.1.</span> <span class="nav-text">查询报文类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差错报文类型"><span class="nav-number">21.2.</span> <span class="nav-text">差错报文类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ifconfig-和-ip-addr的区别"><span class="nav-number">1.</span> <span class="nav-text">ifconfig 和 ip addr的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP是什么"><span class="nav-number">2.</span> <span class="nav-text">IP是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6出现原因"><span class="nav-number">3.</span> <span class="nav-text">IPv6出现原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP分类"><span class="nav-number">4.</span> <span class="nav-text">IP分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-A-B-C-类包含的主机数量"><span class="nav-number">5.</span> <span class="nav-text">IP A/B/C 类包含的主机数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无类型域间选路（CIDR）"><span class="nav-number">6.</span> <span class="nav-text">无类型域间选路（CIDR）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公有IP和私有IP"><span class="nav-number">7.</span> <span class="nav-text">公有IP和私有IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip-addr-和ifconfig-查ip信息内容分析"><span class="nav-number">8.</span> <span class="nav-text">ip addr 和ifconfig 查ip信息内容分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scope"><span class="nav-number">8.1.</span> <span class="nav-text">scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MAC地址"><span class="nav-number">8.2.</span> <span class="nav-text">MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络设备的状态标识"><span class="nav-number">8.3.</span> <span class="nav-text">网络设备的状态标识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mtu"><span class="nav-number">8.4.</span> <span class="nav-text">mtu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qdisc"><span class="nav-number">8.5.</span> <span class="nav-text">qdisc</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何手动设计IP地址"><span class="nav-number">9.</span> <span class="nav-text">如何手动设计IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果身边的人的IP都是192-68-1-x，我设置成-172-10-168-2会怎么样"><span class="nav-number">10.</span> <span class="nav-text">如果身边的人的IP都是192.68.1.x，我设置成 172.10.168.2会怎么样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态主机配置协议（DHCP）"><span class="nav-number">11.</span> <span class="nav-text">动态主机配置协议（DHCP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHCP工作模式"><span class="nav-number">12.</span> <span class="nav-text">DHCP工作模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步（DHCP-Discover）"><span class="nav-number">12.1.</span> <span class="nav-text">第一步（DHCP Discover）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步（DHCP-Offer）"><span class="nav-number">12.2.</span> <span class="nav-text">第二步（DHCP Offer）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步（选一个Offer）"><span class="nav-number">12.3.</span> <span class="nav-text">第三步（选一个Offer）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步（DHCP-Server-Ack）"><span class="nav-number">12.4.</span> <span class="nav-text">第四步（DHCP Server Ack）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址的收回与续租"><span class="nav-number">13.</span> <span class="nav-text">IP地址的收回与续租</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HUB"><span class="nav-number">14.</span> <span class="nav-text">HUB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAC层如何解决上述问题"><span class="nav-number">15.</span> <span class="nav-text">MAC层如何解决上述问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根据ip如何获取MAC地址"><span class="nav-number">15.1.</span> <span class="nav-text">根据ip如何获取MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二个问题，顺序问题"><span class="nav-number">15.2.</span> <span class="nav-text">第二个问题，顺序问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三个问题，如何校验包是否完整"><span class="nav-number">15.3.</span> <span class="nav-text">第三个问题，如何校验包是否完整</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机"><span class="nav-number">16.</span> <span class="nav-text">交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑结构怎么形成的"><span class="nav-number">17.</span> <span class="nav-text">拓扑结构怎么形成的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决拓扑结构中的环路问题"><span class="nav-number">18.</span> <span class="nav-text">如何解决拓扑结构中的环路问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#STP协议"><span class="nav-number">19.</span> <span class="nav-text">STP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决广播问题和安全问题？"><span class="nav-number">20.</span> <span class="nav-text">如何解决广播问题和安全问题？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#物理隔离"><span class="nav-number">20.1.</span> <span class="nav-text">物理隔离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟隔离"><span class="nav-number">20.2.</span> <span class="nav-text">虚拟隔离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP协议"><span class="nav-number">21.</span> <span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询报文类型"><span class="nav-number">21.1.</span> <span class="nav-text">查询报文类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差错报文类型"><span class="nav-number">21.2.</span> <span class="nav-text">差错报文类型</span></a></li></ol></li></ol></div>
             
 
           </div>
