@@ -107,7 +107,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="linux,">
+  <meta name="keywords" content="网络,">
 
 
 
@@ -125,18 +125,24 @@
 
 
 
-<meta name="description" content="grep 后面带上-A -B -C 参数可以多显示几行内容 grep -A 5 可以显示匹配内容以及后面的5行内容grep -B 5 可以显示匹配内容以及前面的5行内容grep -C 5 可以显示匹配内容以及前后面的5行内容 grep “” logfile|wc -l 显示匹配的行数">
-<meta name="keywords" content="linux">
+<meta name="description" content="TCP和UDP的区别TCP面向连接，UDP无连接，所谓的建立连接，是为了在客户端和服务端维护连接，而建立一定的数据结构来维护双方交互的状态，用这样的数据结构来保证所谓的面向连接的特性。 TCP提供可靠交付，通过 TCP 连接传输的数据，无差错、不丢失、不重复、并且按序到达。UDP不保证不丢失，不保证顺序 TCP 是面向字节流的。发送的时候发的是一个流，没头没尾。IP 包可不是一个流，而是一个个的">
+<meta name="keywords" content="网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="grep">
-<meta property="og:url" content="http://shiyangtao.github.io/2018/11/03/grep/index.html">
+<meta property="og:title" content="《趣谈网络协议》第10-13讲笔记">
+<meta property="og:url" content="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/index.html">
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
-<meta property="og:description" content="grep 后面带上-A -B -C 参数可以多显示几行内容 grep -A 5 可以显示匹配内容以及后面的5行内容grep -B 5 可以显示匹配内容以及前面的5行内容grep -C 5 可以显示匹配内容以及前后面的5行内容 grep “” logfile|wc -l 显示匹配的行数">
+<meta property="og:description" content="TCP和UDP的区别TCP面向连接，UDP无连接，所谓的建立连接，是为了在客户端和服务端维护连接，而建立一定的数据结构来维护双方交互的状态，用这样的数据结构来保证所谓的面向连接的特性。 TCP提供可靠交付，通过 TCP 连接传输的数据，无差错、不丢失、不重复、并且按序到达。UDP不保证不丢失，不保证顺序 TCP 是面向字节流的。发送的时候发的是一个流，没头没尾。IP 包可不是一个流，而是一个个的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-26T01:13:46.000Z">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190819205223499.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190819212153643.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190820080652723.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190820081048627.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190820081702591.png">
+<meta property="og:updated_time" content="2019-08-20T08:02:28.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="grep">
-<meta name="twitter:description" content="grep 后面带上-A -B -C 参数可以多显示几行内容 grep -A 5 可以显示匹配内容以及后面的5行内容grep -B 5 可以显示匹配内容以及前面的5行内容grep -C 5 可以显示匹配内容以及前后面的5行内容 grep “” logfile|wc -l 显示匹配的行数">
+<meta name="twitter:title" content="《趣谈网络协议》第10-13讲笔记">
+<meta name="twitter:description" content="TCP和UDP的区别TCP面向连接，UDP无连接，所谓的建立连接，是为了在客户端和服务端维护连接，而建立一定的数据结构来维护双方交互的状态，用这样的数据结构来保证所谓的面向连接的特性。 TCP提供可靠交付，通过 TCP 连接传输的数据，无差错、不丢失、不重复、并且按序到达。UDP不保证不丢失，不保证顺序 TCP 是面向字节流的。发送的时候发的是一个流，没头没尾。IP 包可不是一个流，而是一个个的">
+<meta name="twitter:image" content="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190819205223499.png">
 
 
 
@@ -165,7 +171,7 @@
 
 
 
-  <link rel="canonical" href="http://shiyangtao.github.io/2018/11/03/grep/">
+  <link rel="canonical" href="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/">
 
 
   <script>
@@ -179,7 +185,7 @@
 
 
 
-  <title>grep | shiyangtao's blog</title>
+  <title>《趣谈网络协议》第10-13讲笔记 | shiyangtao's blog</title>
   
 
 
@@ -340,7 +346,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2018/11/03/grep/">
+    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2019/08/19/《趣谈网络协议》第10-13讲笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sytao">
@@ -357,7 +363,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">grep</h1>
+          <h1 class="post-title" itemprop="name headline">《趣谈网络协议》第10-13讲笔记</h1>
         
 
         <div class="post-meta">
@@ -369,8 +375,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T00:00:00+08:00">
-                2018-11-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T20:01:41+08:00">
+                2019-08-19
               </time>
             
 
@@ -401,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  89
+                  1.5k
                 </span>
               
 
@@ -417,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -438,9 +444,44 @@
       
 
       
-        <p>grep 后面带上-A -B -C 参数可以多显示几行内容</p>
-<p>grep -A 5 可以显示匹配内容以及后面的5行内容<br>grep -B 5 可以显示匹配内容以及前面的5行内容<br>grep -C 5 可以显示匹配内容以及前后面的5行内容</p>
-<p>grep “” logfile|wc -l 显示匹配的行数</p>
+        <h3 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h3><p><strong>TCP面向连接，UDP无连接</strong>，所谓的建立连接，是为了在客户端和服务端维护连接，而建立一定的数据结构来维护双方交互的状态，用这样的数据结构来保证所谓的面向连接的特性。</p>
+<p><strong>TCP提供可靠交付</strong>，通过 TCP 连接传输的数据，无差错、不丢失、不重复、并且按序到达。UDP不保证不丢失，不保证顺序</p>
+<p><strong>TCP 是面向字节流的</strong>。发送的时候发的是一个流，没头没尾。IP 包可不是一个流，而是一个个的 IP 包。之所以变成了流，这也是 TCP 自己的状态维护做的事情。而UDP 继承了 IP 的特性，基于数据报的，一个一个地发，一个一个地收。</p>
+<p><strong>TCP是有拥塞控制的</strong>。当它意识到包丢弃了或者网络不好，就会根据情况调整自己的行为，决定是不是要发慢点。</p>
+<p>UDP就不会，应用让我发我就发。</p>
+<p><strong>TCP是一个有状态的服务</strong>，里面精确的精确的记着发送了没有，接收到没有，发送到哪个了，应该接收哪个了，错一点就不行。而UDP是无状态的服务。</p>
+<p>我们可以这样比喻，如果 MAC 层定义了本地局域网的传输行为，IP 层定义了整个网络端到端的传输行为，这两层基本定义了这样的基因：网络传输是以包为单位的，二层叫帧，网络层叫包，传输层叫段。我们笼统地称为包。包单独传输，自行选路，在不同的设备封装解封装，不保证到达。基于这个基因，生下来的孩子 UDP 完全继承了这些特性，几乎没有自己的思想。</p>
+<h3 id="UDP包头"><a href="#UDP包头" class="headerlink" title="UDP包头"></a>UDP包头</h3><p>发送的时候，我知道我发的是一个 UDP 的包，收到的那台机器咋知道的呢？所以在 IP 头里面有个 8 位协议，这里会存放，数据里面到底是 TCP 还是 UDP，当然这里是 UDP。</p>
+<p><img src="/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190819205223499.png" alt="image-20190819205223499"></p>
+<p>当我们看到 UDP 包头的时候，发现的确有端口号，有源端口号和目标端口号。因为是两端通信嘛，这很好理解。但是你还会发现，UDP 除了端口号，再没有其他的了。和下两节要讲的 TCP 头比起来，这个简直简单得一塌糊涂啊！</p>
+<h3 id="UDP三大适用场景"><a href="#UDP三大适用场景" class="headerlink" title="UDP三大适用场景"></a>UDP三大适用场景</h3><ul>
+<li>需要资源少，网络情况比较好的内网，或者丢包不敏感的应用。</li>
+<li>不需要一对一沟通，建立连接，而是可以广播的应用。</li>
+<li>需要处理速度快，时延低，可以容忍少量丢包，但是要求即使网络yongsai也毫不退缩，一往无前的时候。</li>
+</ul>
+<h3 id="TCP包头"><a href="#TCP包头" class="headerlink" title="TCP包头"></a>TCP包头</h3><p><img src="/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190819212153643.png" alt="image-20190819212153643"></p>
+<p><strong>序号</strong>是解决乱序的问题，哪个包先发哪个包后发</p>
+<p><strong>确认序号</strong>是解决不丢包的问题，发出去的包得有确认，没有确认得重新发送直到送达。</p>
+<p><strong>状态位</strong>SYN表示发起一个连接，ACK是回复，RST是重新连接，FIN是结束连接。</p>
+<p><strong>窗口大小</strong>TCP要做流量控制，通信双方各声明一个窗口，标示当前自己能处理的能力，别发送的太快，也别发送的太慢</p>
+<h3 id="总结下TCP"><a href="#总结下TCP" class="headerlink" title="总结下TCP"></a>总结下TCP</h3><ul>
+<li>顺序问题，稳重不乱</li>
+<li>丢包问题，承诺靠谱</li>
+<li>连接维护，有始有终</li>
+<li>流量控制，把握分寸</li>
+<li>拥塞控制，知进知退</li>
+</ul>
+<h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><p><img src="/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190820080652723.png" alt="image-20190820080652723"></p>
+<p>只要保证双方的包有去有回就行</p>
+<p>三次握手除了建立连接外，主要还是为了沟通一件事，就是<strong>TCP包的序号的问题</strong>。</p>
+<h3 id="TCP序号的问题"><a href="#TCP序号的问题" class="headerlink" title="TCP序号的问题"></a>TCP序号的问题</h3><p>序号不能都从1开始，因为A发1/2/3，三个包给B，中途B丢了，这时A掉线了重新连上B，如果序号又从1开始，发送1/2，这时之前丢的3绕回来了，B就认为这个3是下一个包，于是发生了错误。</p>
+<p><strong>因此每个连接都有不同的序号</strong>这个起始序号是随着时间变化的可以看成一个32位的计数器</p>
+<h3 id="TCP四次挥手"><a href="#TCP四次挥手" class="headerlink" title="TCP四次挥手"></a>TCP四次挥手</h3><p>为什么建立连接是三次握手，关闭连接确是四次挥手呢？</p>
+<p>建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。<br>而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。<br>举个例子：A 和 B 打电话，通话即将结束后，A 说“我没啥要说的了”，B回答“我知道了”，但是 B 可能还会有要说的话，A 不能要求 B 跟着自己的节奏结束通话，于是 B 可能又巴拉巴拉说了一通，最后 B 说“我说完了”，A 回答“知道了”，这样通话才算结束。</p>
+<p><a href="https://blog.csdn.net/qzcsu/article/details/72861891" target="_blank" rel="noopener">TCP的三次握手与四次挥手（详解+动图）</a></p>
+<p><img src="/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190820081048627.png" alt="image-20190820081048627"></p>
+<h3 id="TCP状态机"><a href="#TCP状态机" class="headerlink" title="TCP状态机"></a>TCP状态机</h3><p><img src="/2019/08/19/《趣谈网络协议》第10-13讲笔记/images/image-20190820081702591.png" alt="image-20190820081702591"></p>
+<p>在这个图中，加黑加粗的部分，是上面说到的主要流程，其中阿拉伯数字的序号，是连接过程中的顺序，而大写中文数字的序号，是连接断开过程中的顺序。加粗的实线是客户端 A 的状态变迁，加粗的虚线是服务端 B 的状态变迁。</p>
 
       
     </div>
@@ -497,7 +538,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" <i="" class="fa fa-tag"> linux</a>
+            <a href="/tags/网络/" <i="" class="fa fa-tag"> 网络</a>
           
         </div>
       
@@ -510,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/05/在同一个类中，一个方法调用另外一个有注解（比如@Async，@Transational）的方法，注解失效的原因和解决方法/" rel="next" title="在同一个类中，一个方法调用另外一个有注解（比如@Async，@Transational）的方法，注解失效的原因和解决方法">
-                <i class="fa fa-chevron-left"></i> 在同一个类中，一个方法调用另外一个有注解（比如@Async，@Transational）的方法，注解失效的原因和解决方法
+              <a href="/2019/08/14/《趣谈网络协议》第3-7讲笔记/" rel="next" title="《趣谈网络协议》第3-7讲笔记">
+                <i class="fa fa-chevron-left"></i> 《趣谈网络协议》第3-7讲笔记
               </a>
             
           </div>
@@ -519,10 +560,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/03/shell启动socket/" rel="prev" title="shell启动socket">
-                shell启动socket <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -576,8 +613,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="sytao">
           <p class="site-author-name" itemprop="name">sytao</p>
@@ -678,6 +724,22 @@
 
 
       </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-number">1.</span> <span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP包头"><span class="nav-number">2.</span> <span class="nav-text">UDP包头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP三大适用场景"><span class="nav-number">3.</span> <span class="nav-text">UDP三大适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP包头"><span class="nav-number">4.</span> <span class="nav-text">TCP包头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结下TCP"><span class="nav-number">5.</span> <span class="nav-text">总结下TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP三次握手"><span class="nav-number">6.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP序号的问题"><span class="nav-number">7.</span> <span class="nav-text">TCP序号的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP四次挥手"><span class="nav-number">8.</span> <span class="nav-text">TCP四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP状态机"><span class="nav-number">9.</span> <span class="nav-text">TCP状态机</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
       
 

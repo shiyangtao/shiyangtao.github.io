@@ -107,7 +107,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="网络,">
 
 
 
@@ -126,6 +126,7 @@
 
 
 <meta name="description" content="ifconfig 和 ip addr的区别这是有关net-tools 和 iproute2的故事，后续回答这个问题 IP是什么ip地址是一个网卡在网络世界的通信地址，相当于我们现实世界的地址。 IPv6出现原因这个地址被分为四个部分，每个部分8个bit，所以一共32位，所以IP地址的数量很快就不够用了。当时设计IP地址时，哪里知道会有这么多计算机，因为不够用所以，就有了IPv6，这个有128位。">
+<meta name="keywords" content="网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《趣谈网络协议》第3-7讲笔记">
 <meta property="og:url" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/index.html">
@@ -144,7 +145,7 @@
 <meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815130742460.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815091433474.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815205514192.png">
-<meta property="og:updated_time" content="2019-08-15T13:13:29.299Z">
+<meta property="og:updated_time" content="2019-08-20T08:02:39.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《趣谈网络协议》第3-7讲笔记">
 <meta name="twitter:description" content="ifconfig 和 ip addr的区别这是有关net-tools 和 iproute2的故事，后续回答这个问题 IP是什么ip地址是一个网卡在网络世界的通信地址，相当于我们现实世界的地址。 IPv6出现原因这个地址被分为四个部分，每个部分8个bit，所以一共32位，所以IP地址的数量很快就不够用了。当时设计IP地址时，哪里知道会有这么多计算机，因为不够用所以，就有了IPv6，这个有128位。">
@@ -413,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  5.5k
+                  5.6k
                 </span>
               
 
@@ -567,6 +568,7 @@
 <h4 id="查询报文类型"><a href="#查询报文类型" class="headerlink" title="查询报文类型"></a>查询报文类型</h4><p>常用的<strong>ping</strong> 就是查询报文，是一种主动请求，并且获得主动应答的 ICMP 协议。所以，ping 发的包也是符合 ICMP 协议格式的，只不过它在后面增加了自己的格式。</p>
 <p><img src="/2019/08/14/《趣谈网络协议》第3-7讲笔记/images/image-20190815205514192.png" alt="image-20190815205514192"></p>
 <h4 id="差错报文类型"><a href="#差错报文类型" class="headerlink" title="差错报文类型"></a>差错报文类型</h4><p>Traceroute 使用差错报文,详细请看专栏</p>
+<h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><p>网关往往是一个路由器，是一个三层转发的设备。啥叫三层设备？前面也说过了，就是把 MAC 头和 IP 头都取下来，然后根据里面的内容，看看接下来把包往哪里转发的设备。</p>
 
       
     </div>
@@ -621,6 +623,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" <i="" class="fa fa-tag"> 网络</a>
+          
+        </div>
+      
 
       
       
@@ -639,6 +647,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/19/《趣谈网络协议》第10-13讲笔记/" rel="prev" title="《趣谈网络协议》第10-13讲笔记">
+                《趣谈网络协议》第10-13讲笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -715,7 +727,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -737,7 +749,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -813,7 +825,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ifconfig-和-ip-addr的区别"><span class="nav-number">1.</span> <span class="nav-text">ifconfig 和 ip addr的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP是什么"><span class="nav-number">2.</span> <span class="nav-text">IP是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6出现原因"><span class="nav-number">3.</span> <span class="nav-text">IPv6出现原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP分类"><span class="nav-number">4.</span> <span class="nav-text">IP分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-A-B-C-类包含的主机数量"><span class="nav-number">5.</span> <span class="nav-text">IP A/B/C 类包含的主机数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无类型域间选路（CIDR）"><span class="nav-number">6.</span> <span class="nav-text">无类型域间选路（CIDR）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公有IP和私有IP"><span class="nav-number">7.</span> <span class="nav-text">公有IP和私有IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip-addr-和ifconfig-查ip信息内容分析"><span class="nav-number">8.</span> <span class="nav-text">ip addr 和ifconfig 查ip信息内容分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scope"><span class="nav-number">8.1.</span> <span class="nav-text">scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MAC地址"><span class="nav-number">8.2.</span> <span class="nav-text">MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络设备的状态标识"><span class="nav-number">8.3.</span> <span class="nav-text">网络设备的状态标识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mtu"><span class="nav-number">8.4.</span> <span class="nav-text">mtu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qdisc"><span class="nav-number">8.5.</span> <span class="nav-text">qdisc</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何手动设计IP地址"><span class="nav-number">9.</span> <span class="nav-text">如何手动设计IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果身边的人的IP都是192-68-1-x，我设置成-172-10-168-2会怎么样"><span class="nav-number">10.</span> <span class="nav-text">如果身边的人的IP都是192.68.1.x，我设置成 172.10.168.2会怎么样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态主机配置协议（DHCP）"><span class="nav-number">11.</span> <span class="nav-text">动态主机配置协议（DHCP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHCP工作模式"><span class="nav-number">12.</span> <span class="nav-text">DHCP工作模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步（DHCP-Discover）"><span class="nav-number">12.1.</span> <span class="nav-text">第一步（DHCP Discover）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步（DHCP-Offer）"><span class="nav-number">12.2.</span> <span class="nav-text">第二步（DHCP Offer）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步（选一个Offer）"><span class="nav-number">12.3.</span> <span class="nav-text">第三步（选一个Offer）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步（DHCP-Server-Ack）"><span class="nav-number">12.4.</span> <span class="nav-text">第四步（DHCP Server Ack）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址的收回与续租"><span class="nav-number">13.</span> <span class="nav-text">IP地址的收回与续租</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HUB"><span class="nav-number">14.</span> <span class="nav-text">HUB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAC层如何解决上述问题"><span class="nav-number">15.</span> <span class="nav-text">MAC层如何解决上述问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根据ip如何获取MAC地址"><span class="nav-number">15.1.</span> <span class="nav-text">根据ip如何获取MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二个问题，顺序问题"><span class="nav-number">15.2.</span> <span class="nav-text">第二个问题，顺序问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三个问题，如何校验包是否完整"><span class="nav-number">15.3.</span> <span class="nav-text">第三个问题，如何校验包是否完整</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机"><span class="nav-number">16.</span> <span class="nav-text">交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑结构怎么形成的"><span class="nav-number">17.</span> <span class="nav-text">拓扑结构怎么形成的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决拓扑结构中的环路问题"><span class="nav-number">18.</span> <span class="nav-text">如何解决拓扑结构中的环路问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#STP协议"><span class="nav-number">19.</span> <span class="nav-text">STP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决广播问题和安全问题？"><span class="nav-number">20.</span> <span class="nav-text">如何解决广播问题和安全问题？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#物理隔离"><span class="nav-number">20.1.</span> <span class="nav-text">物理隔离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟隔离"><span class="nav-number">20.2.</span> <span class="nav-text">虚拟隔离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP协议"><span class="nav-number">21.</span> <span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询报文类型"><span class="nav-number">21.1.</span> <span class="nav-text">查询报文类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差错报文类型"><span class="nav-number">21.2.</span> <span class="nav-text">差错报文类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ifconfig-和-ip-addr的区别"><span class="nav-number">1.</span> <span class="nav-text">ifconfig 和 ip addr的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP是什么"><span class="nav-number">2.</span> <span class="nav-text">IP是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv6出现原因"><span class="nav-number">3.</span> <span class="nav-text">IPv6出现原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP分类"><span class="nav-number">4.</span> <span class="nav-text">IP分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-A-B-C-类包含的主机数量"><span class="nav-number">5.</span> <span class="nav-text">IP A/B/C 类包含的主机数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无类型域间选路（CIDR）"><span class="nav-number">6.</span> <span class="nav-text">无类型域间选路（CIDR）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公有IP和私有IP"><span class="nav-number">7.</span> <span class="nav-text">公有IP和私有IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip-addr-和ifconfig-查ip信息内容分析"><span class="nav-number">8.</span> <span class="nav-text">ip addr 和ifconfig 查ip信息内容分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scope"><span class="nav-number">8.1.</span> <span class="nav-text">scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MAC地址"><span class="nav-number">8.2.</span> <span class="nav-text">MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络设备的状态标识"><span class="nav-number">8.3.</span> <span class="nav-text">网络设备的状态标识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mtu"><span class="nav-number">8.4.</span> <span class="nav-text">mtu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qdisc"><span class="nav-number">8.5.</span> <span class="nav-text">qdisc</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何手动设计IP地址"><span class="nav-number">9.</span> <span class="nav-text">如何手动设计IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果身边的人的IP都是192-68-1-x，我设置成-172-10-168-2会怎么样"><span class="nav-number">10.</span> <span class="nav-text">如果身边的人的IP都是192.68.1.x，我设置成 172.10.168.2会怎么样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态主机配置协议（DHCP）"><span class="nav-number">11.</span> <span class="nav-text">动态主机配置协议（DHCP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHCP工作模式"><span class="nav-number">12.</span> <span class="nav-text">DHCP工作模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步（DHCP-Discover）"><span class="nav-number">12.1.</span> <span class="nav-text">第一步（DHCP Discover）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步（DHCP-Offer）"><span class="nav-number">12.2.</span> <span class="nav-text">第二步（DHCP Offer）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步（选一个Offer）"><span class="nav-number">12.3.</span> <span class="nav-text">第三步（选一个Offer）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步（DHCP-Server-Ack）"><span class="nav-number">12.4.</span> <span class="nav-text">第四步（DHCP Server Ack）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址的收回与续租"><span class="nav-number">13.</span> <span class="nav-text">IP地址的收回与续租</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HUB"><span class="nav-number">14.</span> <span class="nav-text">HUB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAC层如何解决上述问题"><span class="nav-number">15.</span> <span class="nav-text">MAC层如何解决上述问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根据ip如何获取MAC地址"><span class="nav-number">15.1.</span> <span class="nav-text">根据ip如何获取MAC地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二个问题，顺序问题"><span class="nav-number">15.2.</span> <span class="nav-text">第二个问题，顺序问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三个问题，如何校验包是否完整"><span class="nav-number">15.3.</span> <span class="nav-text">第三个问题，如何校验包是否完整</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机"><span class="nav-number">16.</span> <span class="nav-text">交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑结构怎么形成的"><span class="nav-number">17.</span> <span class="nav-text">拓扑结构怎么形成的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决拓扑结构中的环路问题"><span class="nav-number">18.</span> <span class="nav-text">如何解决拓扑结构中的环路问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#STP协议"><span class="nav-number">19.</span> <span class="nav-text">STP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决广播问题和安全问题？"><span class="nav-number">20.</span> <span class="nav-text">如何解决广播问题和安全问题？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#物理隔离"><span class="nav-number">20.1.</span> <span class="nav-text">物理隔离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟隔离"><span class="nav-number">20.2.</span> <span class="nav-text">虚拟隔离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP协议"><span class="nav-number">21.</span> <span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询报文类型"><span class="nav-number">21.1.</span> <span class="nav-text">查询报文类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#差错报文类型"><span class="nav-number">21.2.</span> <span class="nav-text">差错报文类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器"><span class="nav-number">22.</span> <span class="nav-text">路由器</span></a></li></ol></div>
             
 
           </div>
@@ -839,7 +851,7 @@
   
   &copy;  2017 - 
   <span itemprop="copyrightYear">2019</span>
- <span class="post-count">博客全站共17k字</span>
+ <span class="post-count">博客全站共18.5k字</span>
  <span class="post-meta-divider">|</span>
 
  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
