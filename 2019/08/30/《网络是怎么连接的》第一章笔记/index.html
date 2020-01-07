@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://shiyangtao.github.io"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|source-han-sans-simplified-c, sans-serif:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="网络是怎么连接的,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="shiyangtao's blog" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="浏览器生成消息生成HTTP请求 一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。向DNS服务器查询Web服务器的IP地址域名和IP地址并用的理由问：为啥不直接使用IP地址，而是要用域名 答：这样其实也是能正常工作的，想想日常上网，你查某个网站肯定是输入域名比如baidu,tianmao之类的，你肯定记不住一长串的IP地址 问：那干脆不用IP地址，用域名来确定通">
+<meta name="keywords" content="网络是怎么连接的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《网络是怎么连接的》第一章笔记">
+<meta property="og:url" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/index.html">
+<meta property="og:site_name" content="shiyangtao&#39;s blog">
+<meta property="og:description" content="浏览器生成消息生成HTTP请求 一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。向DNS服务器查询Web服务器的IP地址域名和IP地址并用的理由问：为啥不直接使用IP地址，而是要用域名 答：这样其实也是能正常工作的，想想日常上网，你查某个网站肯定是输入域名比如baidu,tianmao之类的，你肯定记不住一长串的IP地址 问：那干脆不用IP地址，用域名来确定通">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917082427342.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917082803603.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083122504.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083148571.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083238747.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083326388.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083238747.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083326388.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083405442.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083436355.png">
+<meta property="og:updated_time" content="2019-11-08T09:01:05.308Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《网络是怎么连接的》第一章笔记">
+<meta name="twitter:description" content="浏览器生成消息生成HTTP请求 一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。向DNS服务器查询Web服务器的IP地址域名和IP地址并用的理由问：为啥不直接使用IP地址，而是要用域名 答：这样其实也是能正常工作的，想想日常上网，你查某个网站肯定是输入域名比如baidu,tianmao之类的，你肯定记不住一长串的IP地址 问：那干脆不用IP地址，用域名来确定通">
+<meta name="twitter:image" content="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917082427342.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "242df597"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+  <title>《网络是怎么连接的》第一章笔记 | shiyangtao's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+   
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">shiyangtao's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2019/08/30/《网络是怎么连接的》第一章笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sytao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shiyangtao's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《网络是怎么连接的》第一章笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T08:00:05+08:00">
+                2019-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="浏览器生成消息"><a href="#浏览器生成消息" class="headerlink" title="浏览器生成消息"></a>浏览器生成消息</h2><h3 id="生成HTTP请求"><a href="#生成HTTP请求" class="headerlink" title="生成HTTP请求"></a>生成HTTP请求</h3><p><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917082427342.png" alt="image-20190917082427342" style="zoom: 50%;"></p>
+<h4 id="一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。"><a href="#一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。" class="headerlink" title="一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。"></a>一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。</h4><h3 id="向DNS服务器查询Web服务器的IP地址"><a href="#向DNS服务器查询Web服务器的IP地址" class="headerlink" title="向DNS服务器查询Web服务器的IP地址"></a>向DNS服务器查询Web服务器的IP地址</h3><h4 id="域名和IP地址并用的理由"><a href="#域名和IP地址并用的理由" class="headerlink" title="域名和IP地址并用的理由"></a>域名和IP地址并用的理由</h4><p>问：为啥不直接使用IP地址，而是要用域名</p>
+<p>答：这样其实也是能正常工作的，想想日常上网，你查某个网站肯定是输入域名比如baidu,tianmao之类的，你肯定记不住一长串的IP地址</p>
+<p>问：那干脆不用IP地址，用域名来确定通信对象不好吗</p>
+<p>答：应该也能实现，但是从运行效率上来看，这并不能算是一个好主意。互联网中存在无数的路由器，他们之间相互配合，根据IP地址来判断应该把数据传送到什么地方。IP地址的长度为32bit，也就是4个字节，相对的域名最短也要几十个字节，增加了路由器的负担。</p>
+<h4 id="DNS解析器"><a href="#DNS解析器" class="headerlink" title="DNS解析器"></a>DNS解析器</h4><p>查询DNS其实是想DNS服务器发送根据域名查询IP的请求，对于DNS服务器我们计算机上的有DNS客户端，相当于DNS客户端的部分我们称为<strong>DNS解析器</strong></p>
+<p>解析器其实就是一段程序，它包含在操作系统的Socket库中，Socket库是用于调用网络功能的程序组件集合。</p>
+<p>根据域名查询IP地址时，浏览器会使用Socket库中的解析器。</p>
+<p>解析器内部原理图<img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917082803603.png" alt="image-20190917082803603" style="zoom:50%;"></p>
+<p>向DNS服务器发送消息时，我们当然需要知道DNS服务器的IP地址。这个是事先设置好的。如图window系统</p>
+<p><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083122504.png" alt="image-20190917083122504" style="zoom:50%;"></p>
+<h3 id="全世界DNS服务器的大接力"><a href="#全世界DNS服务器的大接力" class="headerlink" title="全世界DNS服务器的大接力"></a>全世界DNS服务器的大接力</h3><h4 id="DNS查询消息"><a href="#DNS查询消息" class="headerlink" title="DNS查询消息"></a>DNS查询消息</h4><p>包含3种消息</p>
+<p>域名：服务器、邮件服务器</p>
+<p>Class：最早设计DNS方案时，DNS在互联网以外的其他网络中的应用也被考虑到了，而Class就是用来识别网络的信息。不过如今除了互联网没有其他网络了，因此Class的值永远代表互联网的IN</p>
+<p>记录类型：表示域名对应何种类型的记录。例如当类型为A时，表示域名对应的是IP地址;当类型为MX时，表示域名对应的是邮件服务器。不同的记录类型，服务器返回给客户端的信息也会不同。</p>
+<p><strong>DNS服务器会从域名与IP地址的对照表中查找相应的记录，并返回IP地址</strong></p>
+<p><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083148571.png" alt="image-20190917083148571" style="zoom:50%;"></p>
+<h4 id="域名的层次结构"><a href="#域名的层次结构" class="headerlink" title="域名的层次结构"></a>域名的层次结构</h4><p>问题1：</p>
+<p>互联网中存在不计其数的IP地址，将这些IP地址保存到一台DNS服务器是不可能的，因此肯定会存在在DNS服务器中找不到查询信息的情况。</p>
+<p>解决方案1：</p>
+<p>DNS服务器按照域名以分层次的结构来保存到多个DNS服务器上。</p>
+<p>比如域名<a href="http://www.lab.glasscom.com,这里的点号代表了不同层级之间的界限。在域名中**越靠右的位置表示层级越高**，其中，每一层级的部分称为域。因此com域的下一层是glasscom域,在下一层是lab域,在下面才是www这个名字。" target="_blank" rel="noopener">www.lab.glasscom.com,这里的点号代表了不同层级之间的界限。在域名中**越靠右的位置表示层级越高**，其中，每一层级的部分称为域。因此com域的下一层是glasscom域,在下一层是lab域,在下面才是www这个名字。</a></p>
+<p><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083238747.png" alt="image-20190917083238747" style="zoom:50%;"><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083326388.png" alt="image-20190917083326388"><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083238747.png" alt="image-20190917083238747" style="zoom:50%;"><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083326388.png" alt="image-20190917083326388"></p>
+<p>负责下级域的DNS服务器的IP地址注册到他们上级DNS服务器中，然后上级在注册到更上级的DNS服务器中，以此类推。</p>
+<p><strong>根域</strong>：似乎com、net这些域就是最顶层了，他们各自负责保存下级DNS服务器的信息，但实际上他们上层还有一级域，称为根域，可以认为<a href="http://www.lab.glasscom.com" target="_blank" rel="noopener">www.lab.glasscom.com</a>. 最后那个.代表根域但是一般不写最后的点，因此根域往往被忽略，根域的DNS服务器保存着com、net等DNS服务器的信息。所以我们从根域开始一路顺藤摸瓜找到任意域的DNS服务器，除此之外还需要完成另一项工作，那就是将根域的DNS服务器信息保存在互联网中所有的DNS服务器中。这样一来客户端找到任意一台DNS服务器，就可以通过他找到根域DNS服务器，然后在顺藤摸瓜找到位于下层的目标服务器。</p>
+<h3 id="委托协议栈发送消息"><a href="#委托协议栈发送消息" class="headerlink" title="委托协议栈发送消息"></a>委托协议栈发送消息</h3><p>收发数据操作之前双方需要建立管道。建立管道的关键在于管道两端的数据入口，这些入口称为<strong>套接字</strong>。</p>
+<p>我们需要先创建套接字，然后将套接字连接起来形成管道。</p>
+<p><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083405442.png" alt="image-20190917083405442"></p>
+<p><img src="/2019/08/30/《网络是怎么连接的》第一章笔记/images/image-20190917083436355.png" alt="image-20190917083436355"></p>
+<ol>
+<li>创建套接字阶段</li>
+</ol>
+<p>&lt;描述符&gt; = socket(&lt;使用IPV4&gt;,&lt;流模式&gt;, ….);</p>
+<p>创建套接字调用Socket库中的socket程序组件就可以了，套接字创建完成后，协议栈会返回一个描述符，应用程序会将收到的描述符放在内存中。描述符是用来识别不同的套接字的。<strong>应用程序是通过“描述符”这一类号码牌的东西来识别套接字的</strong></p>
+<ol start="2">
+<li>连接阶段:把管道接上去</li>
+</ol>
+<p>connect(&lt;描述符&gt;,&lt;服务器的IP地址和端口号&gt;,…);</p>
+<p>关于端口号</p>
+<p>可能大家还有疑问，既然确定连接对象的套接字需要使用端口号，那么服务器也得知道客户端套接字的端口号才行吧？这个问题怎么解决的呢？首先客户端在创建套接字时，协议栈会为这个套接字随便分配一个端口号。接下来协议栈执行连接操作时，会将这个随便分配的端口号通知给服务器。总之当连接成功后，协议栈会将对方的IP地址和端口号等信息保存在套接字中，这样我们可以开始收发数据了</p>
+<p><strong>描述符：应用程序用来识别套接字的机制</strong></p>
+<p><strong>IP地址和端口号：客户端和服务器之间用来识别对方套接字的机制</strong></p>
+<ol start="3">
+<li>通信阶段：传递消息</li>
+<li>断开连接：收发数据结束</li>
+</ol>
+<p><strong>本笔记中出现Socket、socket、套接字(英文也是socket)等看起来非常容易混淆的词，其中小写的socket表示程序组件的名称，大写字母开头的Socket表示库，而汉字“套接字”则表示管道两端的接口。</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赏块糖吃吧</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.jpeg" alt="sytao WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpeg" alt="sytao Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络是怎么连接的/" <i="" class="fa fa-tag"> 网络是怎么连接的</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/19/《趣谈网络协议》第10-13讲笔记/" rel="next" title="《趣谈网络协议》第10-13讲笔记">
+                <i class="fa fa-chevron-left"></i> 《趣谈网络协议》第10-13讲笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/10/《网络是怎么连接的》第二章笔记/" rel="prev" title="《网络是怎么连接的》第二章笔记">
+                《网络是怎么连接的》第二章笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjMyOS8xODg3Ng"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="sytao">
+          <p class="site-author-name" itemprop="name">sytao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shiyangtao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/ShiYangtao" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.jianshu.com/u/0d11cd4d7bc1" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-heartbeat"></i>
+                  
+                    
+                      简书
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+
+      </section>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器生成消息"><span class="nav-number">1.</span> <span class="nav-text">浏览器生成消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成HTTP请求"><span class="nav-number">1.1.</span> <span class="nav-text">生成HTTP请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。"><span class="nav-number">1.1.1.</span> <span class="nav-text">一条请求消息中只能写一个URI。如果需要获取多个文件，必须对每个文件单独发送1条请求。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向DNS服务器查询Web服务器的IP地址"><span class="nav-number">1.2.</span> <span class="nav-text">向DNS服务器查询Web服务器的IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#域名和IP地址并用的理由"><span class="nav-number">1.2.1.</span> <span class="nav-text">域名和IP地址并用的理由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS解析器"><span class="nav-number">1.2.2.</span> <span class="nav-text">DNS解析器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全世界DNS服务器的大接力"><span class="nav-number">1.3.</span> <span class="nav-text">全世界DNS服务器的大接力</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS查询消息"><span class="nav-number">1.3.1.</span> <span class="nav-text">DNS查询消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名的层次结构"><span class="nav-number">1.3.2.</span> <span class="nav-text">域名的层次结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#委托协议栈发送消息"><span class="nav-number">1.4.</span> <span class="nav-text">委托协议栈发送消息</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+      
+
+    </div>
+
+  </aside>
+
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2020</span>
+ <span class="post-count">博客全站共37.6k字</span>
+ <span class="post-meta-divider">|</span>
+
+ <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider"></span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
