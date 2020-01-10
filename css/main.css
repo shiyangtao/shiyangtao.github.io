@@ -185,8 +185,8 @@ th {
 }
 body {
   position: relative;
-  font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 13px;
+  font-family: Noto Serif SC, Verdana, sans-serif;
+  font-size: 18px;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 h1,
@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Roboto Slab', 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: KaiTi, "Microsoft YaHei", Georgia, sans;
 }
 h2,
 h3,
@@ -226,51 +226,51 @@ h6 {
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 24px;
+  font-size: 26px;
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 h2 {
-  font-size: 22px;
+  font-size: 24px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 h3 {
-  font-size: 20px;
+  font-size: 22px;
 }
 @media (max-width: 767px) {
   h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 h4 {
-  font-size: 18px;
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   h4 {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 h5 {
-  font-size: 16px;
+  font-size: 18px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 h6 {
-  font-size: 14px;
+  font-size: 16px;
 }
 @media (max-width: 767px) {
   h6 {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 p {
@@ -434,11 +434,11 @@ body {
 .header-inner {
   margin: 0 auto;
   padding: 100px 0 70px;
-  width: 700px;
+  width: 900px;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
-    width: 900px;
+    width: 1200px;
   }
 }
 .main {
@@ -446,11 +446,11 @@ body {
 }
 .main-inner {
   margin: 0 auto;
-  width: 700px;
+  width: 900px;
 }
 @media (min-width: 1600px) {
   .container .main-inner {
-    width: 900px;
+    width: 1200px;
   }
 }
 .footer {
@@ -463,11 +463,11 @@ body {
 .footer-inner {
   box-sizing: border-box;
   margin: 20px auto;
-  width: 700px;
+  width: 900px;
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
-    width: 900px;
+    width: 1200px;
   }
 }
 pre,
@@ -1216,7 +1216,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: 10px auto 15px;
   text-align: center;
-  font-size: 13px;
+  font-size: 18px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -2049,7 +2049,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff9d44;
+  background: #ff6c7e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3005,7 +3005,7 @@ hr {
 }
 .posts-expand .post-title {
   position: relative;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 400;
 }
 @media (max-width: 767px) {
@@ -3045,7 +3045,7 @@ hr {
 .post-button a {
   margin: 0 8px 8px 0 !important;
   padding: 0;
-  font-size: 13px;
+  font-size: 18px;
   color: #666;
   background: none;
   border: none;
@@ -3054,12 +3054,12 @@ hr {
 }
 @media (max-width: 767px) {
   .post-button a {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 @media (min-width: 1600px) {
   .post-button a {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 .post-button a:hover {
