@@ -2,8 +2,10 @@
 
 
 
+  
 
-<html class="theme-next mist" lang="zh-Hans">
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,54 +50,11 @@
 
 
 
+
   
   
   <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|source-han-sans-simplified-c, sans-serif:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -104,10 +63,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="linux,">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -118,25 +92,19 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2">
 
 
-
-
-
-
-<meta name="description" content="grep 后面带上-A -B -C 参数可以多显示几行内容 grep -A 5 可以显示匹配内容以及后面的5行内容grep -B 5 可以显示匹配内容以及前面的5行内容grep -C 5 可以显示匹配内容以及前后面的5行内容 grep “” logfile|wc -l 显示匹配的行数">
-<meta name="keywords" content="linux">
+<meta name="description" content="从今年开始，我会写年度总结，对比去年的变化，本年的收获和不足，并制定下一年的的计划。 2019年感觉对我是比较关键的一年，工作方面晋升到下一等级，个人成长方面一直在不断努力，虽然收效甚微，但是万事开头难，做总是比不做强，我相信坚持下去总会有收获。 2019年总结主要是心态的转变，下面是心态转变的几个阶段。 盲目追新名词2017-2019，好多新名词层出不穷，人工智能、区块链、k8s容器化，然后自己">
 <meta property="og:type" content="article">
-<meta property="og:title" content="grep">
-<meta property="og:url" content="http://shiyangtao.github.io/2018/11/03/grep/index.html">
+<meta property="og:title" content="2019年度总结·调整心态">
+<meta property="og:url" content="http://shiyangtao.github.io/2020/01/10/2019年度总结·调整心态/index.html">
 <meta property="og:site_name" content="shiyangtao&#39;s blog">
-<meta property="og:description" content="grep 后面带上-A -B -C 参数可以多显示几行内容 grep -A 5 可以显示匹配内容以及后面的5行内容grep -B 5 可以显示匹配内容以及前面的5行内容grep -C 5 可以显示匹配内容以及前后面的5行内容 grep “” logfile|wc -l 显示匹配的行数">
+<meta property="og:description" content="从今年开始，我会写年度总结，对比去年的变化，本年的收获和不足，并制定下一年的的计划。 2019年感觉对我是比较关键的一年，工作方面晋升到下一等级，个人成长方面一直在不断努力，虽然收效甚微，但是万事开头难，做总是比不做强，我相信坚持下去总会有收获。 2019年总结主要是心态的转变，下面是心态转变的几个阶段。 盲目追新名词2017-2019，好多新名词层出不穷，人工智能、区块链、k8s容器化，然后自己">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-22T02:04:33.408Z">
+<meta property="og:updated_time" content="2020-01-12T13:20:15.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="grep">
-<meta name="twitter:description" content="grep 后面带上-A -B -C 参数可以多显示几行内容 grep -A 5 可以显示匹配内容以及后面的5行内容grep -B 5 可以显示匹配内容以及前面的5行内容grep -C 5 可以显示匹配内容以及前后面的5行内容 grep “” logfile|wc -l 显示匹配的行数">
+<meta name="twitter:title" content="2019年度总结·调整心态">
+<meta name="twitter:description" content="从今年开始，我会写年度总结，对比去年的变化，本年的收获和不足，并制定下一年的的计划。 2019年感觉对我是比较关键的一年，工作方面晋升到下一等级，个人成长方面一直在不断努力，虽然收效甚微，但是万事开头难，做总是比不做强，我相信坚持下去总会有收获。 2019年总结主要是心态的转变，下面是心态转变的几个阶段。 盲目追新名词2017-2019，好多新名词层出不穷，人工智能、区块链、k8s容器化，然后自己">
 
 
 
@@ -145,10 +113,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: false,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -165,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://shiyangtao.github.io/2018/11/03/grep/">
+  <link rel="canonical" href="http://shiyangtao.github.io/2020/01/10/2019年度总结·调整心态/">
 
 
   <script>
@@ -179,14 +148,8 @@
 
 
 
-  <title>grep | shiyangtao's blog</title>
+  <title>2019年度总结·调整心态 | shiyangtao's blog</title>
   
-
-
-
-
-
-
 
 
 
@@ -204,7 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -256,16 +219,6 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
           </a>
         </li>
       
@@ -334,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2018/11/03/grep/">
+    <link itemprop="mainEntityOfPage" href="http://shiyangtao.github.io/2020/01/10/2019年度总结·调整心态/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sytao">
@@ -351,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">grep</h1>
+          <h1 class="post-title" itemprop="name headline">2019年度总结·调整心态</h1>
         
 
         <div class="post-meta">
@@ -363,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-03T00:00:00+08:00">
-                2018-11-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-10T16:30:41+08:00">
+                2020-01-10
               </time>
             
 
@@ -392,10 +345,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  89
+                  2.1k
                 </span>
               
 
@@ -408,10 +361,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  7
                 </span>
               
             </div>
@@ -432,9 +385,43 @@
       
 
       
-        <p>grep 后面带上-A -B -C 参数可以多显示几行内容</p>
-<p>grep -A 5 可以显示匹配内容以及后面的5行内容<br>grep -B 5 可以显示匹配内容以及前面的5行内容<br>grep -C 5 可以显示匹配内容以及前后面的5行内容</p>
-<p>grep “” logfile|wc -l 显示匹配的行数</p>
+        <p>从今年开始，我会写年度总结，对比去年的变化，本年的收获和不足，并制定下一年的的计划。</p>
+<p>2019年感觉对我是比较关键的一年，工作方面晋升到下一等级，个人成长方面一直在不断努力，虽然收效甚微，但是万事开头难，做总是比不做强，我相信坚持下去总会有收获。</p>
+<h2 id="2019年总结"><a href="#2019年总结" class="headerlink" title="2019年总结"></a>2019年总结</h2><p>主要是心态的转变，下面是心态转变的几个阶段。</p>
+<h3 id="盲目追新名词"><a href="#盲目追新名词" class="headerlink" title="盲目追新名词"></a>盲目追新名词</h3><p>2017-2019，好多新名词层出不穷，人工智能、区块链、k8s容器化，然后自己的内心也跟着着急起来。想着与时俱进，自己想着赶紧学点啥，然后购买了极客时间的《区块链课程》，看的时候感觉太难了，各种没听过的算法，中途放弃，进入自我怀疑的心态。然后受某个大佬的博客启发，不要盲目追新技术，新技术万变不离其宗，都是基础知识加上新的理念构成。文中有这么一句话，基础扎实的人可能很快掌握这种新技术，但是为了学新名词的菜鸟可能得花上几个月的时间，所以菜鸟要追新技术太难了，成本太高了。不如回归基础。</p>
+<h3 id="莫以浮沙筑高楼"><a href="#莫以浮沙筑高楼" class="headerlink" title="莫以浮沙筑高楼"></a>莫以浮沙筑高楼</h3><p>受到上述启发后，制定了一些针对基础知识的专项训练。包括计算机网络、算法、linux操作系统、网络编程等方面的计划。2019年基本完成了计算机网络的学习，对于TCP协议有了清晰的认识，由当时只了解为了应付面试的三次握手四次挥手，到了解了重传策略、流控制、拥塞控制、keepalive，并用wireshark分析报文。</p>
+<p><strong>这个过程的不足</strong></p>
+<h4 id="贪多"><a href="#贪多" class="headerlink" title="贪多"></a>贪多</h4><p>这个阶段效率确实比较低，因为我学新知识点有个毛病，总是想把关于这个知识点的所有书籍和专栏都看一遍。所以关于计算机网络，我看了极客时间的专栏《趣谈网络协议》和正在看的专栏《Web协议详解与抓包实战》，看了书籍《网络是怎样连接的》、《图解TCP/IP》。所以这个基础知识大概进行了5个月，目前还未完结。</p>
+<h4 id="缺少好的学习习惯"><a href="#缺少好的学习习惯" class="headerlink" title="缺少好的学习习惯"></a>缺少好的学习习惯</h4><p>学的过程不爱记笔记总结，所以基本看完一个专栏或书籍，就忘了，然后就有个重新在读一遍的念头闪现出来，然后整个人就开始浮躁，感觉进入了一怪圈里边，心里想着放弃吧，又不甘心。所以学习过程比较痛苦，这也是效率不高的一个原因。</p>
+<h4 id="浮躁"><a href="#浮躁" class="headerlink" title="浮躁"></a>浮躁</h4><p>这一年自己一直以一种特别浮躁的心态来学东西，总是感觉要学的东西太多了，所以比较着急。举个例子，因为技术好多层次都是相关的，比如今天看到一个知识点，里边有另一个领域的一个知识点，我就会顺藤摸瓜的去学另外一个知识点，然后又发现另外一个知识点…，这样层层追溯下去，自己把自己逼得放弃了，会很苦恼。时间花了不少，因为学习过程是一个不断自我否定的过程，最后自己放弃了。</p>
+<p>以上不足归结到一点还是浮躁。虽然每次都想到放弃，但是值得欣慰的一点是自己2019年没有放弃。因为听到过一句话，大概是这样「平庸的人和优秀的人都会遇到类似问题，但是优秀的人会去总结，然后调整策略继续投入进去，平庸的人到这里就结束了。」</p>
+<h3 id="摆正心态"><a href="#摆正心态" class="headerlink" title="摆正心态"></a>摆正心态</h3><p>根据上述不足，自己复盘反思了下，觉得自己并不是学习意念不够强烈，而是心态不对。</p>
+<ul>
+<li><p>不浮躁：学习是一个循序渐进的过程，有一个好心态，能事半功倍</p>
+</li>
+<li><p>学习方法论：养成好的学习习惯，学完一个知识点，要整理学习笔记，不要怕花时间，经常反思，要借鉴别人的学习方法。</p>
+</li>
+<li><p>不急功近利：从2017年到2019年经历了立志-放弃-立志-放弃的n次循环后，往往都是不断的自我怀疑和自我否定占据上风，这种想法一直在提醒我，你差的太多了，补起来无从下手，在这种思想压力下自己索性就放弃了。2019年我坚持下来了，因为当你前面敌人太多的时候，你总要挑一个下手，收拾完一个，就会有信心收拾另外一个，而不是因为敌人多而停止脚步。</p>
+</li>
+</ul>
+<h2 id="2020年展望"><a href="#2020年展望" class="headerlink" title="2020年展望"></a>2020年展望</h2><p>作为一个码农，技术是安身立命之根本，所以优先从技术层面开始。因为自己达不到程序员的标准，所以姑且认为自己就是个码农吧。</p>
+<h3 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h3><h4 id="编程能力"><a href="#编程能力" class="headerlink" title="编程能力"></a>编程能力</h4><p>由于上级人事变动，新来的leader更关注写代码的能力，而自己之前的观点是「能完成功能是主要的，代码可以适当抽象，不必过分较真」。但是这个观点是错误的，质量好的代码，能避免好多问题。</p>
+<p>编程能力是软件工程师最重要的能力，很多工程师在讨论分布式、高可用系统时都能把别人说的一愣一愣的，张嘴闭嘴就是五个九的可用性，异地多活，但是一旦落到编程能力上，实现一个小功能都能漏洞百出，更不用说写出真正高可用的系统了。</p>
+<p>今年要提升代码抽象能力，计划阅读相关书籍《Clean Code》和《Head First 设计模式》，多看成熟框架的源码。工作中的编码任务，要仔细推敲，好好抽象，不能为了完成任务而糊弄。</p>
+<h4 id="架构能力"><a href="#架构能力" class="headerlink" title="架构能力"></a>架构能力</h4><p>2019年阅读了极客时间的专栏《从0开始学架构》、《从0开始学微服务》、《微服务架构核心20讲》、《微服务架构实战160讲》和书籍《大型网站技术架构》，因为没有实际参与过架构设计，但是看了这些专栏和书籍，对架构和微服务有了一些浅显的认知。2020年希望能结合公司目前的架构设计，加深对架构的理解。</p>
+<h4 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h4><p>2019年基本没有接触其他技术栈。2020年还是以巩固基础能力为主，其他技术栈也可以适当了解。</p>
+<p>2020年会看《Java核心技术 卷一》等Java基础书籍，关于新技术栈目前对容齐比较感兴趣，希望系统的了解下Kubernetes领域。</p>
+<h3 id="软能力"><a href="#软能力" class="headerlink" title="软能力"></a>软能力</h3><h4 id="沟通"><a href="#沟通" class="headerlink" title="沟通"></a>沟通</h4><p>一个好的程序员，需要有好的学习能力，这样你才能为成为技术专家，但是，你还要有好的沟通能力，不然你的技术能力发挥不出来。就像一棵大树一样，学习能力能让你根越来越深，无论遇到什么狂风暴雨，你都可以屹立不倒，而沟通能力则是树干和树叶，它们能让你延伸到更远的天空。</p>
+<p>自己沟通能力欠佳，逻辑有时会混乱，容易激动，语速加快，不能很准确的表达出心里的想法。</p>
+<p>2020年会看下《简单的逻辑学》和《金字塔理论》，并在沟通的时候有意的注意下以上问题。</p>
+<h4 id="写作能力"><a href="#写作能力" class="headerlink" title="写作能力"></a>写作能力</h4><p>今年感觉自己基本没有写作能力和画技术流程图、架构图的能力，把技术方案输出为文档能力很差。</p>
+<p>2020年会着重注意这个问题。</p>
+<h4 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h4><p>搜索尽量google，经常看下medium里的文章。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>2020年，自己会调整好心态，一步一个脚印，积少成多。浮躁的时候，要多想想这句话「学习是一辈子的事，没有速成」。带着浮躁的心态学习，过程很痛苦，而且最后收获很少。所以2020会从以下几个方面入手</p>
+<ul>
+<li>端正学习态度，摆正心态</li>
+<li>在实践中总结出适合自己的学习方法</li>
+</ul>
 
       
     </div>
@@ -465,15 +452,15 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechat.jpeg" alt="sytao WeChat Pay">
-        <p>WeChat Pay</p>
+        <img id="wechat_qr" src="/images/wechat.jpeg" alt="sytao 微信支付">
+        <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpeg" alt="sytao Alipay">
-        <p>Alipay</p>
+        <img id="alipay_qr" src="/images/alipay.jpeg" alt="sytao 支付宝">
+        <p>支付宝</p>
       </div>
     
 
@@ -489,12 +476,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/linux/" <i="" class="fa fa-tag"> linux</a>
-          
-        </div>
-      
 
       
       
@@ -504,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/05/在同一个类中，一个方法调用另外一个有注解（比如@Async，@Transational）的方法，注解失效的原因和解决方法/" rel="next" title="在同一个类中，一个方法调用另外一个有注解（比如@Async，@Transational）的方法，注解失效的原因和解决方法">
-                <i class="fa fa-chevron-left"></i> 在同一个类中，一个方法调用另外一个有注解（比如@Async，@Transational）的方法，注解失效的原因和解决方法
+              <a href="/2020/01/10/TCP协议详解/" rel="next" title="TCP协议详解">
+                <i class="fa fa-chevron-left"></i> TCP协议详解
               </a>
             
           </div>
@@ -513,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/03/shell启动socket/" rel="prev" title="shell启动socket">
-                shell启动socket <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,11 +521,14 @@
 
 
           
-  <div class="comments" id="comments">
-    
+
+  
+    <div class="comments" id="comments">
       <div id="lv-container" data-id="city" data-uid="MTAyMC80MjMyOS8xODg3Ng"></div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -570,115 +550,129 @@
       
 
       
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="sytao">
-          <p class="site-author-name" itemprop="name">sytao</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">19</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/shiyangtao" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                    
-                      GitHub
-                    
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://twitter.com/ShiYangtao" target="_blank" title="Twitter">
-                  
-                    <i class="fa fa-fw fa-twitter"></i>
-                  
-                    
-                      Twitter
-                    
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.jianshu.com/u/0d11cd4d7bc1" target="_blank" title="简书">
-                  
-                    <i class="fa fa-fw fa-heartbeat"></i>
-                  
-                    
-                      简书
-                    
-                </a>
-              </span>
-            
-          
-        </div>
-        
-        
-
-        
-        
-
-        
-
-
-
-      </section>
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
       
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="sytao">
+            
+              <p class="site-author-name" itemprop="name">sytao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/shiyangtao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/ShiYangtao" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/0d11cd4d7bc1" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2019年总结"><span class="nav-number">1.</span> <span class="nav-text">2019年总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#盲目追新名词"><span class="nav-number">1.1.</span> <span class="nav-text">盲目追新名词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#莫以浮沙筑高楼"><span class="nav-number">1.2.</span> <span class="nav-text">莫以浮沙筑高楼</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#贪多"><span class="nav-number">1.2.1.</span> <span class="nav-text">贪多</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺少好的学习习惯"><span class="nav-number">1.2.2.</span> <span class="nav-text">缺少好的学习习惯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮躁"><span class="nav-number">1.2.3.</span> <span class="nav-text">浮躁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摆正心态"><span class="nav-number">1.3.</span> <span class="nav-text">摆正心态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020年展望"><span class="nav-number">2.</span> <span class="nav-text">2020年展望</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#技术"><span class="nav-number">2.1.</span> <span class="nav-text">技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编程能力"><span class="nav-number">2.1.1.</span> <span class="nav-text">编程能力</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#架构能力"><span class="nav-number">2.1.2.</span> <span class="nav-text">架构能力</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术栈"><span class="nav-number">2.1.3.</span> <span class="nav-text">技术栈</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软能力"><span class="nav-number">2.2.</span> <span class="nav-text">软能力</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#沟通"><span class="nav-number">2.2.1.</span> <span class="nav-text">沟通</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写作能力"><span class="nav-number">2.2.2.</span> <span class="nav-text">写作能力</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#英语"><span class="nav-number">2.2.3.</span> <span class="nav-text">英语</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
-
   </aside>
-
 
 
         
@@ -687,23 +681,45 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">
-  
-  &copy;  2017 - 
-  <span itemprop="copyrightYear">2020</span>
- <span class="post-count">博客全站共37.6k字</span>
- <span class="post-meta-divider">|</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sytao</span>
 
- <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  
     <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
-    <span class="post-meta-divider"></span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">39.6k</span>
+  
 </div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
 
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -716,6 +732,8 @@
           <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
+    
+
     
 
   </div>
@@ -752,49 +770,63 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -830,6 +862,12 @@
       })(document, 'script');
     </script>
   
+
+
+
+
+
+
 
 
 
@@ -1163,6 +1201,9 @@
 
   
 
+  
+
+  
   
 
   
