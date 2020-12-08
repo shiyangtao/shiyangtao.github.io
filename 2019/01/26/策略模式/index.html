@@ -112,7 +112,13 @@
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/pasted-8.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/pasted-9.png">
 <meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/pasted-10.png">
-<meta property="og:updated_time" content="2020-01-10T00:02:37.021Z">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/image-20200314165316255.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/image-20200314180851798.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/image-20200316083721482.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/image-20200318092751414.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/image-20200318192806788.png">
+<meta property="og:image" content="http://shiyangtao.github.io/2019/01/26/策略模式/images/image-20200318210654039.png">
+<meta property="og:updated_time" content="2020-03-18T13:06:57.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="策略模式">
 <meta name="twitter:description" content="第一版鸭子游戏我们设计了一个鸭子游戏项目，游戏中会出现各种鸭子，为此Joe实现了一个超类Duck，让鸭子子类都继承这个类，如下图所示。 加鸭子会飞的需求使用继承过了几天主管找到Joe说希望有的鸭子能飞，Joe说so easy，只需在超类里增加一个fly()方法就ok了。但是过了几天主管对外演示时发现，橡皮鸭子在屏幕上飞来飞去，非常尴尬。主管打电话开始喷Joe:你可以去看看boss直聘了。Joe忽略">
@@ -433,6 +439,12 @@
 <h4 id="UML图"><a href="#UML图" class="headerlink" title="UML图"></a>UML图</h4><p><img src="/2019/01/26/策略模式/images/pasted-9.png" alt="upload successful"></p>
 <h4 id="设计原则三"><a href="#设计原则三" class="headerlink" title="设计原则三"></a>设计原则三</h4><p>“有一个”可能比“是一个”更好。<br>“有一个”关系相当有趣：每一鸭子都有一个FlyBehavior和一个QuackBehavior，好将飞行和呱呱叫委托给它们代为处理。<br>当你将两个类结合起来使用，如同本例一般，这就是组合(composition)。这种做法和“继承”不同的地方在于，鸭子的行为不是继承来的，而是和适当的行为对像“组合来的”。这是一个很重要的技巧。其实是使用了我们的第三个设计原则：</p>
 <p><img src="/2019/01/26/策略模式/images/pasted-10.png" alt="upload successful" style="zoom:50%;"></p>
+<p><img src="/2019/01/26/策略模式/images/image-20200314165316255.png" alt="image-20200314165316255"></p>
+<p><img src="/2019/01/26/策略模式/images/image-20200314180851798.png" alt="image-20200314180851798"></p>
+<p><img src="/2019/01/26/策略模式/images/image-20200316083721482.png" alt="image-20200316083721482"></p>
+<p><img src="/2019/01/26/策略模式/images/image-20200318092751414.png" alt="image-20200318092751414"></p>
+<p><img src="/2019/01/26/策略模式/images/image-20200318192806788.png" alt="image-20200318192806788"></p>
+<p><img src="/2019/01/26/策略模式/images/image-20200318210654039.png" alt="image-20200318210654039"></p>
 
       
     </div>
@@ -598,7 +610,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -716,7 +728,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">39.6k</span>
+    <span title="Site words total count">75.1k</span>
   
 </div>
 
